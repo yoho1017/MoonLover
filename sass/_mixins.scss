@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 10px;
+}
+
+//頁籤元件
+@mixin list($i, $wd) {
+  //名稱,頁籤寬度
+  ul.list_#{$i} {
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+    li {
+      margin: 0 5px;
+      padding: 5px;
+      text-align: center;
+      width: $wd;
+      color: white;
+      list-style: none;
+      background-color: #ff7a7a;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//粉紅框架元件
+@mixin pinkBox($Box, $wd, $i: null) {
+  //名稱,整體寬度,margin左右間距
+  .pinkBox_#{$Box} {
+    width: $wd;
+    background-color: #ff7a7a;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+
+    .inBox_#{$Box} {
+      width: $wd - 2%;
+      margin: 2% $i;
+      padding: 1%;
+      background-color: #fff8ce;
+      border: 8px solid #ac5454;
+      border-radius: 10px;
+    }
+  }
+}
+
+//藍與紅button  (命名規則要取btnBlue_自訂或BtnRed_自訂 才吃得到CSS)
+@mixin btn($bn, $bwd, $phg) {
+  //名稱,寬,padding左右間距
+  $color: (
+    "Blue": #7ed5ea,
+    "Red": #ff7a7a,
+  );
+
+  @each $key, $var in $color {
+    .btn#{$key}_#{$bn} {
+      font-size: 30px;
+      color: white;
+      width: $bwd;
+      padding: $phg;
+      border-radius: 48px;
+      align-items: center;
+      outline-style: none;
+      border: 0;
+      background-color: $var;
+      cursor: pointer;
+      &:hover {
+        @if $var==#7ED5EA {
+          background-color: #599aaa;
+        } @else {
+          background-color: #ac5454;
+        }
+      }
+    }
+  }
+}
+
+//招牌(花紋還未做)
+@mixin signBox($sn, $swd) {
+  //自訂名稱,招牌寬度
+  .signBox_#{$sn} {
+    width: $swd;
+    border-radius: 12px;
+    border: 5px solid #ac5454;
+    background-color: #ff7a7a;
+    display: flex;
+    justify-content: center;
+    .signInbox_#{$sn} {
+      font-size: 50px;
+      border-radius: 12px;
+      border: 5px solid #ac5454;
+      text-align: center;
+      margin: 15px;
+      padding: 10px;
+      width: $swd - 20px;
+      background-color: #fff8ce;
+    }
+  }
+}
+
+//圓形照片 *照片需正方形
+@mixin roundImg($rn, $rwd, $inB, $outB) {
+  //自訂名稱,園大小,園內框顏色,圓外框顏色
+  .roundImg_#{$rn} {
+    width: $rwd;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 10px $inB, 0px 0px 0px 15px $outB;
+    overflow: hidden;
+    .temple_#{$rn} {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+
+//藍色關閉鍵(X)
+@mixin times-circle {
+  .fas.fa-times-circle {
+    color: #7ed5ea;
+    cursor: pointer; 
+    position: relative;
+    z-index: 1;
+    &:hover {
+      color: #599aaa;
+    }
+  }
+  .in_btn {
+    position: absolute;
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 100%;
+  }
+}
+
+@mixin display {
+  
+  .block {
+    display: block !important;
+  }
+
+  .flex {
+    display: flex !important;
+  }
+
+  .none {
+    display: none !important;
+  }
+
+}
+
+@mixin input_number {
+    /* input number按鈕移除 */
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
