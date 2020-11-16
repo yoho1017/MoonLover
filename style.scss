@@ -1,6 +1,8 @@
+@import 'sass/normalize';
+@import 'sass/mixins';
+
 @import 'sass/header';
 @import 'sass/login';
-@import 'sass/mixins';
 @import 'sass/var';
 
 @include header;

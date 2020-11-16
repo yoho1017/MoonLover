@@ -39,6 +39,9 @@ var account =  new Vue ({
         // 註冊帳號
         signup_username : '',
 
+        // 註冊帳號檢查(是否有人使用)
+        user_error : 0, //預設關閉顯示
+
         // 註冊密碼
         signup_pwd: '',
 
@@ -65,6 +68,9 @@ var account =  new Vue ({
         
         // 登入密碼錯誤
         lgPwd : 0,
+
+        // 登入結果錯誤
+        login_error : false,
 
         // 註冊帳號錯誤
         siUser : 0,
@@ -108,7 +114,27 @@ var account =  new Vue ({
 
         clearChinese(key){ //帳號禁止中文
             this[key] = this[key].replace(/[^\a-\z\A-\Z0-9]/g, '');
-        },           
+        }, 
+
+        checkUser (username){ //確認是否存在會員
+            if(username != ''){
+              axios.get('checkUser.php', {
+                 params: {
+                    username: username
+                 }
+              })
+              .then(function (response) {
+                 message = response.data;
+                 if (message == username) {
+                    account.$data.user_error = 2
+                 }else if(message == '') {
+                    account.$data.user_error = 1
+                 }
+              })
+            }else{
+                this.user_error = 0
+            }
+        },
 
         close () {  // 關閉登入註冊燈箱
             // 燈箱關閉    
@@ -130,31 +156,49 @@ var account =  new Vue ({
         submit_ver (email) { //發送驗證碼
 
             verNum = this.SetVerNum (); //產生驗證碼
+            username = this.signup_username;
+
+            if (username == '') {
+                username = '新會員'
+            }
+            
             this.result = false; //驗證狀態為未完成
 
             if (email == email.match(this.email_check)) {
 
-                this.send_email = '寄信中...', //有問題，無法再傳送訊息期間改變文字
-
-                Email.send({
-                    Host : "smtp.gmail.com",
-                    Username : "tibamemoonlover",
-                    Password : "toccackyymxccjtn",
+                this.send_email = '寄信中...', //Btn文字改變
+                sending = Email.send({
+                    SecureToken: "6cfb2e6b-0043-4a24-bda1-f2394625002e",
                     To : email,
-                    From : "you@isp.com",
+                    From : "緣弧<tibamemoonlover@gmail.com>",
                     Subject : "緣弧 MoonLover驗證信",
-                    Body : `你的驗證碼是${verNum}`
+                    Body : 
+                    `
+                    <article style="display: flex; justify-content: center;margin: auto; background-color: #FF7A7A; width: 50%; height: 400px">
+                        <div style="margin: auto; background-color:#fff8ce; border: 8px solid #ac5454; width: 95%; height: 95%">
+                            <img src="https://i.imgur.com/EdXGYsW.png">
+                            <h2 style="text-align: center;">親愛的${username}您好</h2>
+                            <br>
+                            <h3 style="text-align: center;">您正在註冊緣弧Moon Lover會員，您的驗證碼是：${verNum}。</h3>
+                            <br>
+                            <h5 style="text-align: center; color: #805E3E; margin-top: 50px">© 2020 緣弧 Moon Lover</h5>
+                        </div>
+                    </article>
+                    `
                 })
                 .then(
                     message => 
                     alert("驗證信已寄出 \n 請確認信箱哦 !"), //傳送成功
                     this.checked_mail = email
                 );
+
+                sending.then(function() {
+                    account.$data.send_email = '送出驗證信'; //Btn文字改變
+                });
+
             }else{
                 alert("請填寫信箱有效的信箱 !")
             }
-
-            this.send_email = '送出驗證信';
 
         },
 
@@ -182,9 +226,9 @@ var account =  new Vue ({
 
         signup (event,username,pwd,repwd,email,type) { //提交註冊表單
             if (this.signup_check(username,pwd,repwd,email,type)) { //檢查註冊資料
-                alert("沒錯") //測試用
+                // alert("沒錯") //測試用
                 this.signup_pwd = this.encrypt(pwd); //密碼加密
-                event.preventDefault() //測試用
+                // event.preventDefault() //測試用
                 // 正確
             }else {
                 event.preventDefault()
@@ -199,6 +243,8 @@ var account =  new Vue ({
 
             if (
                 account_check == true
+                &&
+                this.user_error != 2
                 &&
                 pwd == repwd
                 &&
@@ -242,12 +288,22 @@ var account =  new Vue ({
         },
 
         login (event,username,pwd,type) { //提交登入表單
+            event.preventDefault()
             if (this.login_check (username,pwd,type)) { //檢查登入資料
-                alert("沒錯") //測試用
-                this.login_pwd = this.encrypt(pwd); //密碼加密
-                event.preventDefault() //測試用
-            }else {
-                event.preventDefault()
+                // alert("沒錯") //測試用
+                cryptpwd = this.encrypt(pwd); //密碼加密
+                
+                // 傳遞資料
+                var params = new URLSearchParams();params.append('username', username);params.append('password', cryptpwd);
+                
+                axios.post('LoginR.php', params).then(function (response) {
+                    message = response.data;
+                    if (message == false) {
+                        account.$data.login_error = true;
+                    }else{
+                        window.location.reload()
+                    }
+                })                
             }
         },
 
@@ -336,6 +392,7 @@ var account =  new Vue ({
             return pwd
         },
 
-    }
+    },
 
 })
+

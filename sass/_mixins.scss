@@ -190,3 +190,14 @@ h5 {
     -moz-appearance: textfield;
   }
 }
+
+@mixin errorRed { //錯誤警示用
+  .inp_error { //邊框紅色
+    border: 2px solid red;
+  }
+  
+  .str_error { //顏色紅色
+    color: red;
+    font-size: 16px;
+  }
+}
