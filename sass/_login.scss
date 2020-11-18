@@ -10,6 +10,7 @@ $btnmg : 0 10px;
   position: fixed;
   left: 0;
   top: 0%;
+  z-index: 9999;
 }
 
 @include display; //display none and block and flex

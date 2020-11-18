@@ -5,6 +5,11 @@
         list-style: none;
     }
 
+    .list:hover {
+        border-radius: 10px;
+        background-color: #FF7A7A;
+    }
+
     .container {
         // border: 1px solid #000;
         height: calc(#{$bodyHeight} - #{$headerHeight});
@@ -49,7 +54,7 @@
     main {
         margin: $CMargin;
         display: inline-block;
-        width: 60%;
+        width: 70%;
         height: 400px;
         // border: $bd;
     
