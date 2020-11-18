@@ -102,7 +102,7 @@
 // ============= header_nav ==============================
 @mixin nav{
   .nav{
-    z-index: 999;
+    z-index: 10;
     max-width: 1920px;
     width: 100%;
     display: flex;
