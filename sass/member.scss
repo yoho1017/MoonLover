@@ -1,0 +1,80 @@
+@mixin member{
+    
+    .list {
+        text-align: center;
+        list-style: none;
+    }
+
+    .container {
+        // border: 1px solid #000;
+        height: calc(#{$bodyHeight} - #{$headerHeight});
+        display: flex;
+        justify-content: center;
+    }
+    
+    aside {
+        width: 15%;
+        // border: $bd;
+        margin: $CMargin;
+        @include flexCenter;
+        align-items: flex-start;
+    
+        .option {
+            width: 100%;
+            border: $bd;
+            margin: 0 10%;
+            background-color: #FFE5BA;
+            border: 6px solid white;
+            border-radius: 10px;
+        }
+
+        .list {
+            margin: 10% auto;
+        }
+
+        .list > * {
+            color: #981A1A;
+        }
+
+        .listName {
+            font-weight: 400;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+    }
+    
+    main {
+        margin: $CMargin;
+        display: inline-block;
+        width: 60%;
+        height: 400px;
+        // border: $bd;
+    
+    }
+}
+
+@mixin insideScroll {
+    ::-webkit-scrollbar {
+        width: 15px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background-color: #FF8181; 
+        border-radius: 10px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #AC5454; 
+        border-radius: 10px;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background:#d65858; 
+      }
+}

@@ -18,7 +18,6 @@
     <script src="./js/smtp.js"></script>
     <script src="./js/vue.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <title>登入</title>
 </head>
 <body>
     <header>

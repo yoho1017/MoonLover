@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.21.0",
+    "croppie": "^2.6.5",
     "crypto-js": "^4.0.0",
     "jquery": "^3.5.1",
     "normalize-scss": "^7.0.1",

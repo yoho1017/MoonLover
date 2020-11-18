@@ -24,6 +24,10 @@ h5 {
   font-size: 10px;
 }
 
+a {
+  text-decoration: none;
+}
+
 //頁籤元件
 @mixin list($i, $wd) {
   //名稱,頁籤寬度
@@ -200,4 +204,10 @@ h5 {
     color: red;
     font-size: 16px;
   }
+}
+
+@mixin flexCenter { //display flex置中
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
