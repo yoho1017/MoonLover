@@ -1,4 +1,3 @@
-
 * {
   padding: 0;
   box-sizing: border-box;
@@ -6,36 +5,26 @@
 
 body {
   background-color: #f0ded1;
-  overflow: hidden;
 }
 img {
   width: 100%;
 }
 
 //base
-@import 'base/var';
-
+@import "base/var";
 
 //mixin
-@import 'mixin/mixin';
+@import "mixin/mixin";
 
 //modules
-@import 'modules/button';
-
-
+@import "modules/button";
 
 //layout
-@import 'layout/header';
-
+@import "layout/header";
 
 //page
-@import  'page/index/all';
-@import  'page/moonMap/all';
-
+@import "page/index/all";
+@import "page/moonMap/all";
 
 //plugins
-@import  './plugins/allplugin';
-
-
-
-
+@import "./plugins/allplugin";
