@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="./js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+     
+    <title>loveMoonMap</title>
+</head>
+<body>
+<div class="moonMap-wrapper">
+        <div class="signBox_1">
+            <div class="signInbox_1">
+                台南大天后宮
+            </div>           
+        </div>
+        <i class="fas fa-times-circle fa-2x" id="close"></i>
+        <ul class="list_1">
+            <li data-target="tab1" class="tab on" >廟宇介紹</li>
+            <li data-target="tab2" class="tab">周邊美食</li>
+            <li data-target="tab3" class="tab">留言專區</li>
+        </ul>
+        <div class="pinkBox_1">
+            <div class="inBox_1 tab1 on">
+                <div class="roundImgBlock">
+                    <div class="roundImg_1">
+                    <img src="./images/temple_01.jpg" class="temple_1">
+                    </div>
+                    <div class="roundImg_2">
+                        <img src="./images/temple_01.jpg" class="temple_2">
+                    </div>
+                    <div class="roundImg_3">
+                        <img src="./images/temple_01.jpg" class="temple_3">
+                    </div>            
+                </div>
+                
+            </div>
+            <div class="inBox_1 tab2">
+                <div class="sceneMap">
+                  <img src="./images/台南大天后宮.jpg">
+                </div>
+                <div class="sceneNew_1" id="style-1">
+                  <div class="newInBox_1">
+                      <h1>000000</h1> 
+                      <h1>000000</h1>                     
+                  </div>
+                  <div class="newInBox_1">
+                      <h1>000000</h1> 
+                      <h1>000000</h1>                     
+                  </div>
+                  <div class="newInBox_1">
+                      <h1>000000</h1> 
+                      <h1>000000</h1>                     
+                  </div>
+                  <div class="newInBox_1">
+                      <h1>000000</h1> 
+                      <h1>000000</h1>                     
+                  </div>
+
+                </div>
+            </div>
+            <!-- 留言區 -->
+            <div class="inBox_1 tab3">
+                <form  class="form" action="#">
+                    <div class="userImg"></div>
+                    <div class="userBlock">
+                        <input type="text" v-modle=" message">
+                        <!-- <textarea name="input" id="input" cols="100" rows="5"></textarea> -->
+                        <div class="imgBlock">
+                            <ul class="imgList">
+                                <li class="imgBut">按鈕</li>
+                                <li class="img">照片一</li>
+                            </ul>
+                            <button type="submit" id="sumBut">新增貼文</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+          
+           
+        </div> 
+        <button class="btnBlue_1">完成</button>
+        <button class="btnRed_1">繼續修改</button>
+        
+      
+        
+     
+  
+        
+       
+        
+    </div>
+  
+    <script src="js/1_new.js"></script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0ded1;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+.header .nav {
+  z-index: 999;
+  max-width: 1920px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  right: 15px;
+}
+
+.header .nav .Logo {
+  position: absolute;
+  left: 0;
+  width: 200px;
+}
+
+.header .nav .navlist {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.header .nav .navlist li {
+  margin-left: 30px;
+}
+
+.header .nav .navlist li:hover a i {
+  transform: scale(1.2);
+}
+
+.header .nav .navlist li a {
+  display: flex;
+  text-decoration: none;
+}
+
+.header .nav .navlist li a i {
+  padding-top: 10px;
+  color: #58150d;
+}
+
+.header .nav .bars {
+  position: relative;
+}
+
+.header .nav .bars .barList {
+  position: absolute;
+  top: 80px;
+  right: -235px;
+  transition: all ease 0.5s;
+  list-style: none;
+  background-color: #fafafa;
+  box-shadow: 0 0 5px 3px #ff9a9a;
+  background-image: url("/images/籤風格01.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  padding: 50px 0;
+}
+
+.header .nav .bars .barList li {
+  font-size: 20px;
+  margin: 0;
+  width: 200px;
+}
+
+.header .nav .bars .barList li:hover a {
+  color: red;
+  font-weight: bold;
+  position: relative;
+}
+
+.header .nav .bars .barList li:hover a::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  width: 50%;
+  border-radius: 10px;
+  transform: scale(1);
+  transition: all ease 0.5s;
+  background-color: white;
+  box-shadow: 0 0 5px 1px #ff8181;
+}
+
+.header .nav .bars .barList li a {
+  color: #851e13;
+  padding: 15px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.header .nav .bars .barList li a::after {
+  content: "";
+  transform: scale(0);
+}
+
+.header .list.bars.barList.-on {
+  right: 0;
+}
+
+.header .hamburger:focus {
+  outline: none;
+}
+
+.header .hamburger .hamburger-box:hover {
+  transform: scale(1.2);
+}
+
+.index-wrapper {
+  background-image: url("/images/index/花紋.svg");
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: 20%;
+  z-index: 0;
+}
+
+.index-wrapper .backCloud {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.7;
+  background-image: url("/images/index/背景雲.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -1;
+}
+
+.index-wrapper .temple01 {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+}
+
+.index-wrapper .temple01 .roofBlock {
+  height: 35%;
+}
+
+.index-wrapper .temple01 .roofBlock .roof {
+  position: relative;
+  z-index: 3;
+}
+
+.index-wrapper .temple01 .roofBlock .lanternBlock {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+  top: -145px;
+}
+
+.index-wrapper .temple01 .roofBlock .lanternBlock .lantern {
+  width: 10%;
+  z-index: 1;
+}
+
+.index-wrapper .temple01 .roofBlock .lanternBlock .lantern .left {
+  position: absolute;
+  left: 0;
+}
+
+.index-wrapper .temple01 .roofBlock .lanternBlock .lantern .right {
+  position: absolute;
+  right: 0;
+}
+
+.index-wrapper .temple01 .iconBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  height: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.index-wrapper .temple01 .iconBlock .swiper-container {
+  border: 1px solid #ccc;
+  width: 60%;
+  height: 500px;
+  margin: 50px auto;
+  overflow: hidden;
+}
+
+.index-wrapper .temple01 .iconBlock .swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-wrapper .temple01 .iconBlock .icon1 {
+  margin: 0 auto;
+}
+
+.index-wrapper .temple01 .light {
+  border-radius: 50%;
+  box-shadow: 0px 0px 80px 30px #d5ff4c;
+}
+
+.index-wrapper .temple01 .railingBlock {
+  position: relative;
+}
+
+.index-wrapper .temple01 .railingBlock .railing {
+  width: 100%;
+  position: relative;
+  bottom: -20px;
+  z-index: 3;
+}
+
+.index-wrapper .cloud.left {
+  position: absolute;
+  bottom: -90px;
+  left: 8%;
+  width: 450px;
+}
+
+.index-wrapper .cloud.right {
+  position: absolute;
+  bottom: -90px;
+  right: 8%;
+  width: 450px;
+}
+
+.moonMap-wrapper {
+  margin: 0 auto;
+  position: relative;
+  border: 1px solid black;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.moonMap-wrapper .fas.fa-times-circle {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  color: #7ed5ea;
+}
+
+.moonMap-wrapper .fas.fa-times-circle:hover {
+  color: #599aaa;
+}
+
+.moonMap-wrapper .signBox_1 {
+  position: absolute;
+  width: 30%;
+  border-radius: 12px;
+  border: 5px solid #ac5454;
+  background-color: #ff7a7a;
+  display: flex;
+  justify-content: center;
+  top: 0%;
+  left: 10%;
+}
+
+.moonMap-wrapper .signBox_1 .signInbox_1 {
+  font-size: 50px;
+  border-radius: 12px;
+  border: 5px solid #ac5454;
+  text-align: center;
+  margin: 2%;
+  padding: 1%;
+  width: 98%;
+  background-color: #fff8ce;
+}
+
+.moonMap-wrapper ul.list_1 {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+}
+
+.moonMap-wrapper ul.list_1 li {
+  margin: 0 5px;
+  padding: 5px;
+  text-align: center;
+  width: 10%;
+  color: white;
+  list-style: none;
+  background-color: #ac5454;
+}
+
+.moonMap-wrapper ul.list_1 li:hover {
+  cursor: pointer;
+}
+
+.moonMap-wrapper ul.list_1 {
+  margin: 0;
+}
+
+.moonMap-wrapper ul.list_1 li.tab.on {
+  background-color: #ff7a7a;
+}
+
+.moonMap-wrapper .pinkBox_1 {
+  width: 100%;
+  background-color: #ff7a7a;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.moonMap-wrapper .pinkBox_1 .inBox_1 {
+  width: 98%;
+  margin: 2%;
+  padding: 1%;
+  background-color: #fff8ce;
+  border: 8px solid #ac5454;
+  border-radius: 10px;
+}
+
+.moonMap-wrapper .pinkBox_1 .inBox_1 .sceneMap {
+  margin-top: 60px;
+  width: 90%;
+}
+
+.moonMap-wrapper .pinkBox_1 .inBox_1 .sceneMap img {
+  width: 100%;
+}
+
+.moonMap-wrapper div.inBox_1 {
+  display: none;
+}
+
+.moonMap-wrapper div.inBox_1.on {
+  display: block;
+}
+
+.moonMap-wrapper .btnBlue_1 {
+  font-size: 30px;
+  color: white;
+  width: 200px;
+  padding: 10px;
+  border-radius: 48px;
+  align-items: center;
+  outline-style: none;
+  border: 0;
+  background-color: #7ed5ea;
+}
+
+.moonMap-wrapper .btnBlue_1:hover {
+  background-color: #599aaa;
+}
+
+.moonMap-wrapper .btnRed_1 {
+  font-size: 30px;
+  color: white;
+  width: 200px;
+  padding: 10px;
+  border-radius: 48px;
+  align-items: center;
+  outline-style: none;
+  border: 0;
+  background-color: #ff7a7a;
+}
+
+.moonMap-wrapper .btnRed_1:hover {
+  background-color: #ac5454;
+}
+
+.moonMap-wrapper .roundImgBlock {
+  border: 1px solid red;
+  width: 100%;
+  padding: 5%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.moonMap-wrapper .roundImgBlock .roundImg_1 {
+  width: 20%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 10px #ffffff, 0px 0px 0px 15px #7ae6f7;
+  overflow: hidden;
+}
+
+.moonMap-wrapper .roundImgBlock .roundImg_1 .temple_1 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.moonMap-wrapper .roundImgBlock .roundImg_2 {
+  width: 20%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 10px #ffffff, 0px 0px 0px 15px #a9f031;
+  overflow: hidden;
+}
+
+.moonMap-wrapper .roundImgBlock .roundImg_2 .temple_2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.moonMap-wrapper .roundImgBlock .roundImg_3 {
+  width: 20%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 10px #ffffff, 0px 0px 0px 15px #fa92ee;
+  overflow: hidden;
+}
+
+.moonMap-wrapper .roundImgBlock .roundImg_3 .temple_3 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.moonMap-wrapper .sceneNew_1 {
+  width: 100%;
+  height: 50%;
+  overflow-y: scroll;
+}
+
+.moonMap-wrapper .sceneNew_1 ::-webkit-scrollbar-thumb {
+  background-color: yellow;
+  border-radius: 10px;
+}
+
+.moonMap-wrapper .sceneNew_1 .newInBox_1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  width: 100%;
+  background-color: white;
+}
+
+.moonMap-wrapper #style-1::-webkit-scrollbar-track {
+  background-color: #ff8181;
+  border-radius: 10px;
+}
+
+.moonMap-wrapper #style-1::-webkit-scrollbar {
+  width: 15px;
+}
+
+.moonMap-wrapper #style-1::-webkit-scrollbar-thumb {
+  background-color: #ac5454;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.form .userImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.form .userBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 70%;
+  border: 1px solid black;
+}
+
+.form .userBlock .imgBlock {
+  width: 100%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form .userBlock .imgBlock .imgList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+/*# sourceMappingURL=style.css.map */

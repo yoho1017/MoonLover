@@ -1,0 +1,277 @@
+// =================== 酪梨姊姊的mixin ======================================
+
+// ======= header_icon ========== 
+  //header的總nav(會員,購物車icon)
+  @mixin navlist {
+    .navlist {
+      display: flex;
+      list-style: none;
+      text-align: center;
+      padding: 0;
+      li {
+        margin-left: 30px;
+        &:hover {
+          a {
+            i {
+              transform: scale(1.2);
+            }
+          }
+        }        
+        a {
+          display: flex;
+          text-decoration: none;
+  
+          i {
+            padding-top: 10px;
+            color: #58150d;
+          }
+        }
+      }
+    }
+  }
+  
+  //=============== nav的hover底線效果 ===============
+  @mixin hover2 {   
+    &:hover {
+      a {
+        color: red;
+        font-weight: bold;
+        position: relative;
+        &::after {
+          position: absolute;
+          bottom: 0;
+          content: "";
+          height: 1px;
+          width: 50%;
+          border-radius: 10px;
+          transform: scale(1);
+          transition: all ease 0.5s;
+          background-color: rgb(255, 255, 255);
+          box-shadow: 0 0 5px 1px rgb(255, 129, 129);
+        }
+      }
+    }
+  }
+  
+
+
+  //點擊出現的nav
+  @mixin barList {  
+    .bars {
+      position: relative;
+      .barList {
+        // display: none;
+        position: absolute;
+        top: 80px;
+        // right: 10px;
+        right: $nomove;  //連結頁位移
+        transition: all ease 0.5s;
+        list-style: none;
+        background-color: rgb(250, 250, 250);
+        box-shadow: 0 0 5px 3px rgb(255, 154, 154);
+        background-image: url('/images/籤風格01.jpg'); 
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;   
+        border-radius: 15px;
+        padding: 50px 0;
+        li {
+          font-size: 20px;
+          margin: 0;
+          width: $liwd;
+  
+          @include hover2;
+          a {
+            // border: 1px solid black;
+            color: #851e13;
+            padding: 15px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            &::after {
+              content: "";
+              transform: scale(0);
+            }
+          }
+        }
+      }
+    }
+  }
+ 
+ 
+// ============= header_nav ==============================
+@mixin nav{
+  .nav{
+    z-index: 10;
+    max-width: 1920px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    right: 15px;
+    .Logo{
+      position: absolute;
+      left: 0;
+      width: $logoWd;
+    }  
+    @include navlist;
+    @include barList;
+  }
+}
+
+
+
+
+  //=============== 頁籤元件 ================================
+  @mixin list($i, $wd) {  //名稱,頁籤寬度
+  
+    ul.list_#{$i} {
+      display: flex;
+      justify-content: flex-end;
+      width: 95%;
+      li {
+        margin: 0 5px;
+        padding: 5px;
+        text-align: center;
+        width: $wd;
+        color: white;
+        list-style: none;
+        background-color: #ac5454;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+
+//=============== 粉紅框架元件 ===============================
+
+
+
+@mixin pinkBox($Box, $wd, $i: null) {
+  //名稱,整體寬度,margin左右間距
+  .pinkBox_#{$Box} {
+    width: $wd;
+    background-color: #ff7a7a;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    .inBox_#{$Box} {
+      width: $wd - $x;
+      margin: 2% $i;
+      padding: 1%;
+      background-color: #fff8ce;
+      border: 8px solid #ac5454;
+      border-radius: 10px;
+      @content;
+    }
+  }
+}
+
+//============ 景點介紹 ========================
+@mixin sceneNew($sNn, $sNwd, $sNiwd) {
+  .sceneNew_#{$sNn} {
+    width: $sNwd;
+    height: 50%;
+    overflow-y: scroll;
+    ::-webkit-scrollbar-thumb {
+      background-color: yellow;
+      border-radius: 10px;
+    }
+    .newInBox_#{$sNn} {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      width: $sNiwd;
+      background-color: white;
+    }
+  }
+}
+
+//==========藍與紅button(命名規則要取btnBlue_自訂或BtnRed_自訂 才吃得到CSS)======
+
+@mixin btn($bn, $bwd, $phg) {  //名稱,寬,padding左右間距
+ 
+  $color: (
+    "Blue": #7ed5ea,
+    "Red": #ff7a7a,
+  );
+
+  @each $key, $var in $color {
+    .btn#{$key}_#{$bn} {
+      font-size: 30px;
+      color: white;
+      width: $bwd;
+      padding: $phg;
+      border-radius: 48px;
+      align-items: center;
+      outline-style: none;
+      border: 0;
+      background-color: $var;
+      &:hover {
+        @if $var==#7ED5EA {
+          background-color: #599aaa;
+        } @else {
+          background-color: #ac5454;
+        }
+      }
+    }
+  }
+}
+
+//=======================招牌(花紋還未做)==================
+@mixin signBox($sn, $swd, $swd2) {
+  //自訂名稱,招牌寬度
+  .signBox_#{$sn} {
+    position: absolute;
+    width: $swd;
+    border-radius: 12px;
+    border: 5px solid #ac5454;
+    background-color: #ff7a7a;
+    display: flex;
+    justify-content: center;
+    @content;
+    .signInbox_#{$sn} {
+      font-size: 50px;
+      border-radius: 12px;
+      border: 5px solid #ac5454;
+      text-align: center;
+      margin: 2%;
+      padding: 1%;
+      width: $swd2;
+      background-color: #fff8ce;
+      
+    }
+  }
+}
+
+//================= 圓形照片(照片需正方形) =================================
+@mixin roundImg($rn, $rwd, $inB, $outB) {
+  //自訂名稱,園大小,園內框顏色,圓外框顏色
+  .roundImg_#{$rn} {
+    width: $rwd;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 10px $inB, 0px 0px 0px 15px $outB;
+    overflow: hidden;
+    .temple_#{$rn} {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+
+//===================藍色關閉鍵(X)==============================
+@mixin times-circle {
+  .fas.fa-times-circle {
+    position: absolute;
+    @content;
+    color: #7ed5ea;
+    &:hover {
+      color: #599aaa;
+    }
+  }
+}
+
+//====================== 酪梨姊姊end ============================================
