@@ -1,0 +1,119 @@
+.moonMap-wrapper {
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid black;
+    max-width: 1200px;
+    width: 100%;
+     
+    //===============藍色關閉鍵(X)=============
+    @include times-circle {
+      top: 0%;
+      right: 0%;
+    }
+  
+    //==============招牌===============
+    @include signBox(1, 30%, 98%) {
+      top: 0%;
+      left: 10%;
+    }
+  
+    //==============頁籤==============
+    @include list(1, 10%);
+  
+    //=============頁籤定位顏色============
+    ul.list_1 {
+        margin: 0;
+      li.tab.on {
+        background-color:  #ff7a7a;
+      }
+    }
+  
+    //==============頁籤內容=================
+    @include pinkBox(1, 100%) {
+      .sceneMap {
+        margin-top: 60px;
+        width: 90%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  
+    //==============切換頁籤內容==============
+    div.inBox_1 {
+      display: none;
+    }
+  
+    div.inBox_1.on {
+      display: block;
+    }
+  
+    //==============按鈕===========================
+    @include btn(1, 200px, 10px);
+  
+    //=============廟宇照片=========================
+    .roundImgBlock {
+      border: 1px solid red;
+      width: 100%;
+      padding: 5%;
+      display: flex;
+      justify-content:space-around;
+      @include roundImg(1, 20%, #ffffff, #7ae6f7);
+      @include roundImg(2, 20%, #ffffff, #a9f031);
+      @include roundImg(3, 20%, #ffffff, #fa92ee);
+    }
+  
+    @include sceneNew(1, 100%, 100%);
+  
+    #style-1::-webkit-scrollbar-track {
+      background-color: #ff8181;
+      border-radius: 10px;
+    }
+    //===================捲軸寬度================
+    #style-1::-webkit-scrollbar {
+      width: 15px;
+    }
+    //==================捲軸本體顏色============
+    #style-1::-webkit-scrollbar-thumb {
+      background-color: #ac5454;
+      border-radius: 10px;
+    }
+  }
+  
+  
+  // ===============留言區==================
+  
+  .form{
+    display: flex;
+    width: 100%;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid #ccc;
+    .userImg{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid black;
+    }
+    .userBlock{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 70%;
+      border: 1px solid black;
+      .imgBlock{  
+        width: 100%;  
+        border: 1px solid red; 
+        display: flex;
+        justify-content: space-between;
+        .imgList{
+          list-style: none;
+          padding: 0;
+          display: flex;
+          
+        }
+      }
+    }
+  }
+  
