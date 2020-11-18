@@ -1,0 +1,225 @@
+@import 'sass/normalize';
+@import 'sass/mixins';
+
+@import 'sass/header';
+@import 'sass/login';
+@import 'sass/member';
+@import 'sass/var';
+
+@include header;
+@include display;
+
+
+$CMargin: 4% 2%;
+$bwd: 25%;
+$phg: 2%;
+
+header {
+    border: $bd;
+}
+
+nav {
+    border: $bd;
+}
+
+.member {
+    border: $bd;
+}
+
+body {
+    height: $bodyHeight;
+    background-color: $backGround;
+}
+
+@include member;
+
+@include pinkBox(account, 100%);
+
+.pinkBox_account {
+    border: 8px solid #ac5454;
+    height: 100%;
+}
+
+.ALeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30% !important;
+    border: 6px solid #ac5454 !important;
+
+    .mascot {
+        max-width: 70%;
+    }
+}
+
+.ARight {
+    width: 70% !important;
+    border: 6px solid white !important;
+    position: relative;
+
+    @include btn(submit, $bwd, $phg) ;
+
+    .submit {
+        position: absolute;
+        right: 10%;
+        bottom: 5%;
+    }
+
+    form {
+        height: 100%;
+        margin-top: 10px;
+        overflow-y: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        
+        .inputRow {
+            display: flex;
+            align-items: center;
+            margin: 10px auto;
+            margin-left: 25px;
+        }
+
+        .name {
+            border: 1px solid #000;
+            width: 45%;
+            margin-right: 15px;
+            text-align: left;
+        }
+
+        .more {
+            width: 30%
+        }
+
+        .row_mult {
+            align-items: flex-start;
+        }
+
+        .interest_box {
+            border: 1px solid #000;            
+            display: flex;
+            flex-wrap: wrap;
+            width: 45%;
+        }
+
+        .member_input {
+            width: 150px;
+            height: 23px;
+        }
+
+        .interest_list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .int_title {
+            margin: 10px;
+        }
+
+    }
+
+    @include insideScroll;
+
+    .mainInfo {
+        display: inline-block;
+        width: 65%;
+        border: 1px solid #000;
+    }
+
+    .profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        border: 1px solid #000;
+        flex-wrap: wrap;
+
+        div.inprofile {
+            position: relative;
+            display: inline-block;
+        }
+        
+        div.img {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            border: 1px solid #000;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+        
+        #newImg {
+            max-width: 100%;
+        }
+        
+        .imgNone {
+            display: none;
+        }
+        
+        .crop {
+            border: none !important;
+            overflow: visible !important;
+        }
+        
+        div.upload_btn { 
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-color: hsla(0, 0%, 100%, 0.5); 
+            width: 40px;
+            height: 40px;
+            border-radius: 100%; 
+            border: 1px solid #000;
+            cursor: pointer; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        div.crop_img {
+            display: inline-block;
+        }
+
+        @include btn(crop,60%,5%);
+
+        .btnBlue_crop {
+            font-size: 16px;
+        }
+        
+        i.fas {
+            font-size: 20px;
+            cursor: pointer;
+        }    
+    }    
+
+    .moreInfo {
+        width: 95%;
+        border: 1px solid #000;
+    }
+
+    .border {
+        margin: auto;
+        width: 90%;
+        height: 2px;
+        background-color: #FF8181;
+    }
+
+    .privaty {
+        border: 1px solid #000;
+        width: 65%;
+
+        i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 15px;
+            height: 15px;
+            color: white;
+            background-color: #FF7A7A;
+            border-radius: 100px;
+            font-size: 12px;
+        }
+    }
+
+}  
