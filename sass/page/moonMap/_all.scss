@@ -4,6 +4,9 @@
     border: 1px solid black;
     max-width: 1200px;
     width: 100%;
+    top:50px;
+    z-index: 11;
+   
      
     //===============藍色關閉鍵(X)=============
     @include times-circle {
@@ -18,10 +21,10 @@
     }
   
     //==============頁籤==============
-    @include list(1, 10%);
+    @include list(map, 10%);
   
     //=============頁籤定位顏色============
-    ul.list_1 {
+    ul.list_map {
         margin: 0;
       li.tab.on {
         background-color:  #ff7a7a;
@@ -30,6 +33,7 @@
   
     //==============頁籤內容=================
     @include pinkBox(1, 100%) {
+      
       .sceneMap {
         margin-top: 60px;
         width: 90%;
