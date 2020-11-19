@@ -27,8 +27,6 @@ img {
 // page_moonMap
 @import "page/moonMap/all";
 
-//plugins
-@import "plugins/allplugin";
 //page_moonMatch
 @import "page/moonMatch/all";
 @import "page/moonMatch/large";
@@ -37,4 +35,4 @@ img {
 @import "page/moonMatch/xsmall";
 
 // ---------- plugins ---------- //
-@import "./plugins/allplugin";
+@import "plugins/allplugin";
