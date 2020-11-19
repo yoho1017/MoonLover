@@ -344,3 +344,31 @@
 }
 
 //=======================太田end==============================================
+
+
+// ===================== Dennis add for RWD =======================
+
+@mixin rwd($breakpoint) {
+  @if $breakpoint=="large" {
+      @media all and (min-width: $screen-lg ) {
+          @content;
+      }
+  }
+  @else if $breakpoint=="medium" {
+      @media all and (min-width: $screen-md ) {
+          @content;
+      }
+  }
+  @else if $breakpoint=="small" {
+      @media all and (max-width: $screen-sm) {
+          @content;
+      }
+  }
+  @else if $breakpoint=="xsmall" {
+      @media all and (max-width: $screen-xs) {
+          @content;
+      }
+  }
+}
+
+// ===================== Dennis add for RWD end ===================
