@@ -8,21 +8,33 @@ img {
   width: 100%;
 }
 
-//base
+// ---------- base ---------- //
 @import "base/var";
 
-//mixin
+// ---------- mixin ---------- //
 @import "mixin/mixin";
 
-//modules
+// ---------- modules ---------- //
 @import "modules/button";
 
-//layout
+// ---------- layout ---------- //
 @import "layout/header";
 
-//page
+// ---------- page ---------- //
+// page_index
 @import "page/index/all";
+
+// page_moonMap
 @import "page/moonMap/all";
 
 //plugins
 @import "plugins/allplugin";
+//page_moonMatch
+@import "page/moonMatch/all";
+@import "page/moonMatch/large";
+@import "page/moonMatch/medium";
+@import "page/moonMatch/small";
+@import "page/moonMatch/xsmall";
+
+// ---------- plugins ---------- //
+@import "./plugins/allplugin";
