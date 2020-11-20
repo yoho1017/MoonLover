@@ -1,0 +1,34 @@
+// =============== 酪梨姊姊 ===============================================
+
+$liwd: 200px; //header_nav連結的寬  mixin-82
+$nomove: -235px; //點擊出現的nav頁位移  mixin-68
+$logoWd: 200px; //logo 大小 mixin-115
+$x: 2%; //內框要減的寬度 mixin-161
+
+$temWd: 100%; //廟整體比 header-38
+$lanWd: 10%; //燈籠大小  header-56
+
+// =============== 酪梨姊姊end =============================================
+
+
+// =============== 太田der ===============================================
+
+$bd : 1px solid black; //切版用黑邊
+
+$bodyHeight: 100vh; //設定body高度為vh;
+
+$headerHeight: 60px; //設定header高度
+
+$backGround : #F0DED1;
+
+// =============== 太田end =============================================
+
+
+// =============== Dennis add for RWD breakpoint ===========================
+
+$screen-xs: 480px;  // Phone
+$screen-sm: 768px;  // Tablet
+$screen-md: 992px;  // Desktop
+$screen-lg: 1366px; // Big screen deskdop 
+
+// =============== Dennis add for RWD breakpoint end ========================

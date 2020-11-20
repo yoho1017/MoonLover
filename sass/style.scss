@@ -20,6 +20,7 @@ img {
 
 // ---------- layout ---------- //
 @import "layout/header";
+@import "layout/member";
 
 // ---------- page ---------- //
 // page_index
@@ -34,6 +35,9 @@ img {
 @import "page/moonMatch/medium";
 @import "page/moonMatch/small";
 @import "page/moonMatch/xsmall";
+
+// page_MyInfo
+@import "page/MyInfo/MyInfo";
 
 // ---------- plugins ---------- //
 @import "plugins/allplugin";

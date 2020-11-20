@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <!-- icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- 裁減圖片css -->
+    <link rel="stylesheet" href="./node_modules/croppie/croppie.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- hamburgers_css -->
+    <link rel="stylesheet" href="/css/hamburgers.css">
+    <!-- jq -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- vue -->
+    <script src="./js/vue.js"></script>
+    <!-- croppie -->
+    <script src="./node_modules/croppie/croppie.js"></script>
+    <!-- 發信 js -->
+    <script src="./js/smtp.js"></script>
+
+    <title>個人資料</title>
+
+</head>
+<body>
+
+       <!------------------------------header---------------------------------->
+       <header class="header">
+        <nav class="nav" id="nav">
+           <div class="Logo"><img src="./images/logo.png"></div>
+           <ul class="navlist">
+               <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
+               <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+               <li class="bars">
+                <button class="hamburger hamburger--collapse" type="button">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                  </button>
+                   <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+                    <ul class="barList">
+                        <li><a href="#">月老地圖</a></li>
+                        <li><a href="#">月老求籤</a></li>
+                        <li><a href="#">月老牽線</a></li>
+                        <li><a href="#">月老小知識</a></li>
+                        <li><a href="#">月老商城</a></li>
+                    </ul>
+                  
+                </li>
+              
+           </ul>
+        </nav>
+    </header>
+
+        <!-- 登入登出 -->
+        <div class="login_pop" v-bind:class="{block:pop_block}" id="pop">
+
+            <div class="login_pop_in">
+    
+                <!-- 登入 -->
+                <div class="account_login" v-bind:class="{flex:log_flex}">
+                    <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
+                    <div class="account_inbox">
+    
+                        <h1 class="account_text_login">會員登入</h1>
+                        <form method="post" action="loginR.php" @submit="login($event,login_username,login_pwd,'login')">
+    
+                            <div class="inputbox">
+                                <h3 class="input_text">帳號</h3>
+                                <input class="input_login" type="text" name="username"  :placeholder = "lgUsp" id="input_log_username" :change="clearChinese('login_username')" v-model="login_username" :class="{inp_error : lgUser == 1}" @click="input_log_user">
+                            </div>
+    
+                            <div class="inputbox">
+                                <h3 class="input_text">密碼</h3>
+                                <input class="input_login" type="password" name="password"  :placeholder="lgPsp" id="input_log_pwd" v-model="login_pwd" :class="{inp_error : lgPwd == 1}" @click="input_log_pwd">
+                            </div>
+                            
+                            <div class="inputbox">
+                                <span class="input_text"></span>
+                                <p class="str_error h0" v-if="login_error">帳號或密碼錯誤<p>
+                            </div>
+    
+                            <div class="submit_login">
+                                <button class="btn_signup btnBlue_signup" @click="btn_signup">註冊</button>
+                                <button class="btn_signup btnRed_signup">登入</button>
+                            </div>
+    
+                        </form>
+                    </div>
+                </div>
+                        <!-- 註冊 -->
+                <div class="account_signup" id="signup" v-bind:class="{flex:sign_flex}">
+                    <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
+                    <div class="account_inbox">
+                        <h1 class="account_text_signup">註冊</h1>
+    
+                        <form method="post" action="signupR.php" @submit="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
+    
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">帳號</h3>
+                                <input class="input_signup" type="text" name="username"  :placeholder="siUsp" id="input_sign_username" :change="clearChinese('signup_username')" v-model="signup_username" :class="{inp_error : siUser == 1}" @click="input_sign_user" @keyup="checkUser(signup_username)">
+                                <p class="right_space str_error" v-if="user_error == 2">此帳號有人使用</p>
+                                <p class="right_space str_clear" v-else-if="user_error == '1'">此帳號可以使用</p>
+                                <span class="right_space" v-else="user_error"></span>
+                            </div>
+    
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">密碼</h3>
+                                <input class="input_signup" type="password" name="password"  :placeholder="siPsp" id="input_sign_pwd" v-model="signup_pwd" :class="{inp_error : siPwd == 1}" @click="input_sign_pwd">
+                                <input type="hidden" name="hide" id="hide" />
+                                <span class="right_space"></span>
+                            </div>
+    
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">確認密碼</h3>
+                                <input class="input_signup" type="password" id="input_repwd" :placeholder="siRePsp" v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd">
+                                <span class="right_space"></span>
+                            </div>
+    
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">信箱</h3>
+                                <input class="input_signup" type="email" name="email"  id="email" v-model="signup_email" :placeholder="email" :class="{inp_error : siEmail == 1}" @click="input_sign_email">
+                                <button class="btnBlue_Ver" @click.prevent="submit_ver(signup_email)">{{send_email}}</button>
+                            </div>
+    
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">驗證碼</h3>
+                                <input class="input_signup" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
+                                <button class="btnBlue_Ver" @click.prevent="ver_check">確認驗證碼</button>
+                            </div>
+    
+                            <div class="submit_signup">
+                                <button type='submit' class="btn_signup btnRed_signup">送出</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 燈箱結束 -->    
+
+           <!------------------------------內容---------------------------------->
+    <div id="member" class="Mcontainer">
+        
+            <!------------------------------側邊選單---------------------------------->
+        <aside>
+            <ul class="option">
+                <li class="list" v-for="list in lists">
+                    <a href="#" >
+                        <h3 class="listName">
+                            {{list}}
+                        </h3>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+           <!------------------------------主要內容---------------------------------->
+        <main>
+
+            <div class="pinkBox_account">
+                <!---------------- 吉祥物---------------- -->
+
+                <div class="inBox_account ALeft">
+                    <img src="./images/MyInfo/mascot.svg" class="mascot">
+                </div>
+        <!---------------------------- 會員資料------------------------------------>
+                <div class="inBox_account ARight">
+                <!---------------- btn------------------>
+                    <button v-if="modify" class="btnBlue_submit submit" @click="submitInfo">
+                        <h4>
+                            修改完成
+                        </h4>
+                    </button>
+                    <button v-else="modify" class="btnRed_submit submit btn" @click="changeInfo">
+                        <h4>
+                            修改資料
+                        </h4>
+                    </button>
+                <!---------------- 表單------------------>
+                    <form name="account" action="modifyR.php" class="MyInfoform">
+
+                        <div class="mainInfo">
+                            <div class="inputRow">
+                                <h4 class="name">帳號</h4>
+                                <h4>{{username}}</h4>
+                            </div>
+
+                            <div class="inputRow" v-if="modify">
+                                <h4 class="name">密碼</h4>
+                                <input type="password" class="member_input" v-model="pwd">
+                            </div>
+
+                            <div class="inputRow" v-if="modify">
+                                <h4 class="name">重新輸入密碼</h4>
+                                <input type="password" class="member_input" v-model="pwd">
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name">信箱</h4>
+                                <input type="email" class="member_input" v-if="modify" v-model="email">
+                                <h4 v-else="modify">{{email}}</h4>
+                            </div>
+
+                            <div class="inputRow verify" v-if="modify">
+                                <button class="btnBlue_Ver btn" @click.prevent="submit_ver(email)">
+                                    <h4>{{send_email}}</h4>
+                                </button>
+                            </div>
+
+                            <div class="inputRow" v-if="modify">
+                                <h4 class="name">輸入驗證碼</h4>
+                                <input class="member_input" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
+                            </div>
+
+                            <div class="inputRow verify" v-if="modify">
+                                <button class="btnBlue_Ver btn" @click.prevent="ver_check">
+                                    <h4>確認驗證碼</h4>
+                                </button>
+                            </div>
+
+                        </div>
+                <!---------------- 更新大頭貼------------------>
+                        <div class="profile">
+                            <div class="inprofile">
+                                <div class="img">
+                                    <img src= "./images/MyInfo/profile.png" id="newImg">
+                                </div>
+                                <div class="upload_btn">
+                                    <label>
+                                        <input id="upload_img" style="display:none;" type="file" accept="image/*" >
+                                        <i class="fas fa-camera"></i>
+                                    </label>
+                                </div>
+                            </div>
+
+        <!-- 更新大頭貼照片button，位置需要再調整 -->
+                            <button id="crop_img" class="btnBlue_crop btn" style="display:none"><i class="fa fa-scissors"></i> 裁剪圖片</button>
+
+                        </div>
+                <!---------------- 分界線------------------>
+                        <div class="border"></div>
+                <!---------------- 會員資料第二部分------------------>
+                        <div class="moreInfo">
+
+                            <div class="inputRow">
+                                <h4 class="name more">
+                                    暱稱
+                                </h4>
+                                <input type="text" class="member_input" v-if="modify" v-model="nickname">
+                                <h4 v-else="modify">
+                                    {{nickname}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name more">  
+                                    關於會員
+                                </h4>
+                                <input type="text" class="member_input" v-if="modify" v-model="about">
+                                <h4 v-else="modify">
+                                    {{about}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name more">
+                                    年齡
+                                </h4>
+                                <select name="ages" v-if="modify" v-model="myage">
+                                　  <option v-for="age in ages" :selected="ages == 'myage'">
+                                        {{age}}
+                                    </option>
+                                </select>
+                                <h4 v-else="modify">
+                                    {{myage}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow row_mult">
+                                <h4 class="name more">
+                                    興趣
+                                </h4>
+                                <div class="check_box"  v-if="modify">
+                                    <interests v-for="interest in interests" :the-text="interest.interest" :checked="interest.checked" @click.native="checkInt(interest.interest)"></interests>
+                                </div>
+                                <h4 v-else="modify" >
+                                    {{interest}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name more">
+                                    居住地
+                                </h4>
+                                <select name="area" v-if="modify" v-model="city">
+                                　  <option v-for="city in area" :selected="city == area">
+                                        {{city}}
+                                    </option>
+                                </select>
+                                <h4 v-else="modify">
+                                    {{city}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name more">
+                                    職業
+                                </h4>
+                                <select name="area" v-if="modify" v-model="job">
+                                　  <option v-for="job in jobs" :selected="job == jobs">
+                                        {{job}}
+                                    </option>
+                                </select>
+                                <h4 v-if="modify">&nbsp;/&nbsp;</h4>
+                                <input type="text" class="member_input" v-if="modify" v-model="work">
+                                <h4 v-else="modify" >
+                                    {{job}} / {{work}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name more">
+                                    學歷
+                                </h4>
+                                <select name="area" v-if="modify" v-model="education">
+                                    <option v-for="education in educations" :seleceted="education == educations">
+                                            {{education}}
+                                    </option>
+                                </select>
+                                <h4 v-if="modify">&nbsp;/&nbsp;</h4>
+                                <input type="text" class="member_input" v-if="modify" v-model="school">    
+                                <h4 v-else="modify" >
+                                    {{education}} / {{school}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name more">
+                                    我是
+                                </h4>
+                                <div class="check_box"  v-if="modify">
+                                    <sexs v-for="sex in sexs" :the-text="sex.sex" :checked="sex.checked" @click.native="checktrue(sex.sex,'sex')"></sexs>
+                                </div>
+                                <h4 v-else="modify">
+                                    {{sex}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name more">
+                                    性取向
+                                </h4>
+                                <div class="check_box"  v-if="modify">
+                                    <seo v-for="seo in seos" :the-text="seo.seo" :checked="seo.checked" @click.native="checktrue(seo.seo,'seo')"></seo>
+                                </div>
+                                <h4 v-else="modify" >
+                                    {{seo}}
+                                </h4>
+                            </div>
+
+                        </div>
+                <!---------------- 分界線------------------>
+                        <div class="border"></div>
+
+                <!---------------- 第三部分------------------>
+                        <div class="privaty">
+
+                            <div class="inputRow">
+                                <h4 class="name">
+                                    控管您的個人資料
+                                </h4>
+                                <i class="fas fa-info"></i>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name">
+                                    接受月老配對
+                                </h4>
+                                <div class="check_box"  v-if="modify">
+                                    <match v-for="match in matchs" :the-text="match.title" :checked="match.checked" @click.native="checktrue(match.title,'match')"></match>
+                                </div>
+                                <h4 v-else="modify" >
+                                    {{match}}
+                                </h4>
+                            </div>
+
+                            <div class="inputRow">
+                                <h4 class="name">
+                                    對外公開個人資訊
+                                </h4>
+                                <div class="check_box"  v-if="modify">
+                                    <pri v-for="pri in pris" :the-text="pri.title" :checked="pri.checked" @click.native="checktrue(pri.title,'pri')"></pri>
+                                </div>                                
+                                <h4 v-else="modify" >
+                                    {{pri}}
+                                </h4>
+                            </div>                        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>       
+    </div>
+
+    <!-- header -->
+    <script src="js/1_new.js"></script> 
+    <!-- 登入註冊，需要再新增登入成功後介面 -->
+    <script src="./login.js"></script>
+    <!-- 個人資料js -->
+    <script src="./js/member.js"></script>
+    <!-- oveflow -->
+    <script src="./js/overflow.js"></script>
+</body>
+</html>
+
+
+
