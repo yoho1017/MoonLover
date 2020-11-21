@@ -473,3 +473,230 @@ h5 {
 }
 
 // ===================== Dennis add for RWD end ===================
+
+
+
+
+// ===================== chan start ===================
+@mixin margin_auto() {
+  margin: 0 auto;
+}
+
+@mixin item_groups() {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin container() {
+  max-width: $max-width;
+  width: 100%;
+  margin: auto;
+}
+
+
+
+// -------------------------------------
+//客製化吉祥物圖片
+@mixin customerPic() {
+  height: 180px;
+  width: 170px;
+  background-color: #7ed5ea;
+  border: 5px solid black;
+  position: relative;
+  border-radius: 15px;
+}
+
+//吉祥物圖片專用
+@mixin customerPic3() {
+  height: 170px;
+  width: 170px;
+  background-color: #ffeea8;
+  border: 5px solid black;
+  position: relative;
+  border-radius: 15px;
+}
+
+@mixin PicContent1 {
+  width: 160px;
+  height: 140px;
+  border-radius: 15px;
+}
+
+@mixin PicContent2() {
+  width: 160px;
+  height: 135px;
+  border-radius: 15px;
+}
+
+//客製化和非客製化專用
+@mixin customerImg() {
+  height: 250px;
+  width: 170px;
+  background-color: #FFFFFF;
+  border: 5px solid #ac5454;
+  box-shadow: 0 0 0px 5px#ff7a7a;
+  position: relative;
+  border-radius: 15px;
+}
+
+//客製化和非客製化商品名稱
+@mixin easyCard {
+  text-align: center;
+  font-size: h3;
+  font-weight: bold;
+}
+
+//客製化和非客製化價格
+@mixin ImagePrice1 {
+  font-weight: bold;
+  font-size: h3;
+  text-align: center;
+}
+
+//數量增加按鈕
+@mixin qty_plus {
+  width: 30px;
+  height: 22px;
+  background: #7ed5ea;
+  border-radius: 15%;
+}
+
+//數量減少按鈕
+@mixin qty_minus {
+  width: 30px;
+  height: 22px;
+  background: #7ed5ea;
+  border-radius: 15%;
+}
+
+//中間數量顯示
+@mixin qty {
+  height: 22px;
+  width: 30px;
+}
+
+//商品圖
+@mixin productsImg() {
+  height: 130px;
+  width: 150px;
+  margin: auto;
+  // left: 0;
+  // right: 0;
+  // top: -50px;
+  // bottom: 0;
+  // margin: auto;
+}
+
+//商城-加入購物車按鈕
+@mixin shopCars() {
+  margin: 0 auto;
+  bottom: 2px;
+  font-weight: bold;
+  font-size: h4;
+  padding: 2px 5px;
+  background-color: #FF7A7A;
+  color: #FFFFFF;
+  display: inline-block;
+  margin: auto;
+  border-radius: 20px;
+  position: absolute;
+  transform: translateX(40%);
+}
+
+$fontSize-basic:10px;
+@mixin fontSize($fontSize-basic) {
+  h1 {
+      font-size: $fontSize-basic * 5;
+  }
+  h2 {
+      font-size: $fontSize-basic * 3;
+  }
+  h3 {
+      font-size: $fontSize-basic *2;
+  }
+  h4 {
+      font-size: $fontSize-basic *1.6;
+  }
+  h5 {
+      font-size: $fontSize-basic * 1;
+  }
+}
+
+//招牌
+@mixin signToBox( $sign_width, $sign_margin, $sign_padding, $a) {
+  //自訂名稱,招牌寬度
+  .signBox_1 {
+      @include margin_auto();
+      width: $sign_width;
+      border-radius: 15px;
+      border: 5px solid #ac5454;
+      background-color: #ff7a7a;
+      display: flex;
+      justify-content: center;
+      .signBox_2 {
+          margin: $sign_margin;
+          padding: $sign_padding;
+          border-radius: 15px;
+          border: 5px solid #ac5454;
+          width: $sign_width - $a;
+          background-color: #fff8ce;
+          .signBox_3 {
+              @include margin_auto();
+              margin: $sign_margin;
+              background-color: #ac5454;
+              .signBox_4 {
+                  @include margin_auto();
+                  font-size: $h1;
+                  border-radius: 250px/150px;
+                  width: $sign_width - $a*3;
+                  background-color: #fff8ce;
+                  text-align: center;
+                  color: #ac5454;
+              }
+          }
+      }
+  }
+}
+
+// 商品內容
+@mixin proToBox($Box, $wd, $i:null) {
+  //自訂名稱,招牌寬度
+  .proBox#{$Box} {
+      @include margin_auto();
+      width: $wd;
+      border-radius: 15px;
+      background-color: #ff7a7a;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      .proInBox#{$Box} {
+          height: 500px;
+          margin: 10px;
+          border-radius: 10px;
+          border: 8px solid #ac5454;
+          width: $wd + 5%;
+          background-color: #fff8ce;
+      }
+  }
+}
+
+//按鈕(padding寬度,背景顏色,邊框顏色,邊框角度,寬度,字體大小)
+@mixin btnN($w, $bgc, $borderColor, $bdr, $width, $font-size) {
+  padding: 10px $w;
+  background-color: $bgc;
+  border: 1px solid $borderColor;
+  border-radius: $bdr;
+  width: $width;
+  font-size: $font-size;
+  text-align: $text-align;
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  &:hover {
+      background-color: darken($bgc, 10);
+  }
+}
+
+// ===================== chan end ===================
