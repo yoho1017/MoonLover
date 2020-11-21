@@ -367,6 +367,85 @@ h5 {
 //=======================太田end==============================================
 
 
+
+// =================== 宗耘的mixin ======================================
+
+// ============= 頁籤元件 ==============================
+@mixin know_list($i, $wd) {
+  //名稱,頁籤寬度
+    ul.list_#{$i}{
+      font-size:30px;
+      display: flex;
+      justify-content: flex-end;
+      width: 98%;
+      margin:0px;
+
+        li{
+          &:hover {
+            cursor: pointer;
+          }
+
+        }
+
+        .tab.on {
+            margin: 0px;
+            padding: 15px 0px;
+            text-align: center;
+            width: $wd;
+            color: white;
+            list-style: none;
+            background-color: #AC5454;
+           
+            
+        }
+
+        .tab{
+            margin: 0px;
+            padding: 15px 0px;
+            text-align: center;
+            width: $wd;
+            color: white;
+            list-style: none;
+           
+            background-color:darken(#AC5454, 20);
+            border: 4px solid #AC5454;
+           
+        }
+        
+    }
+};
+
+
+
+// ============= 粉紅框架元件 ==============================
+@mixin know_pinkBox($Box, $wd, $inside_w ,$i: null) {
+//名稱,整體寬度,margin左右間距
+.pinkBox_#{$Box} {
+  width: $wd;
+  background-color: #AC5454;
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+
+  .inBox_#{$Box} {
+    width: $inside_w;
+    flex-wrap:wrap;
+    align-items: center; 
+    margin: 1% 0% ;
+    padding: 1%;
+    background-color: #fff8ce;
+    border: 8px solid #FF7A7A;
+    display: none;
+  }
+
+  .inBox_#{$Box}.on {
+      display: block;
+  }
+
+}
+};
+
+// =================== 宗耘end ======================================
 // ===================== Dennis add for RWD =======================
 
 @mixin rwd($breakpoint) {
