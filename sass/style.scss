@@ -4,9 +4,8 @@
   margin: 0;
 }
 
-
-img {
-  width: 100%;
+nav > .Logo > img {
+  width : 50%;
 }
 
 // ---------- base ---------- //
@@ -38,8 +37,14 @@ img {
 @import "page/moonMatch/small";
 @import "page/moonMatch/xsmall";
 
+//page_moonShop
+@import "page/moonShop/all";
+
 // page_MyInfo
-@import "page/MyInfo/MyInfo";
+@import "page/MyInfo/all";
+
+// page_MyInfo
+@import "page/MyOrder/all";
 
 // ---------- plugins ---------- //
 @import "plugins/allplugin";
