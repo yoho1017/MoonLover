@@ -1,0 +1,52 @@
+@include pinkBox(order, 100%);
+
+.pinkBox_order .inBox_order {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+}
+
+.orderTable {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.Mtbody {
+    background-color: #FFF8CE;
+    height: 300px;
+    overflow-y: auto;
+}
+
+@include insideScroll;
+
+.Mtd {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    margin: 2%;
+}
+
+.Mth {
+    background-color: #ff7a7a;
+}
+
+.Mtr {
+    display: flex;
+    border-top: 1px solid #FF8181;
+    border-bottom: 1px solid #FF8181;
+}
+
+.Th3 {
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.Tb3 {
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+}
+
+@include btn(detail, 35%, 5px); //驗證信按鈕
