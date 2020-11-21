@@ -132,7 +132,7 @@ h5 {
     right: 15px;
     .Logo{
       position: absolute;
-      left: 0;
+      left: 15px;
       width: $logoWd;
     }  
     @include navlist;
