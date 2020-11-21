@@ -6,8 +6,8 @@ $(document).ready(function(){
         $(this).addClass('on');
       
         
-        $('div.inBox_1').removeClass('on');
-        $('div.inBox_1.'+$(this).attr('data-target')).addClass('on');
+        $('div.inBox_map').removeClass('on');
+        $('div.inBox_map.'+$(this).attr('data-target')).addClass('on');
     });
    
 

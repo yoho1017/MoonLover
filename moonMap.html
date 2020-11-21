@@ -31,86 +31,181 @@
 </head>
 <body>
 
-    <!------------------------------header---------------------------------->
-    <header class="header">
-        <nav class="nav">
-           <div class="Logo"><img src="./images/logo.png"></div>
-           <ul class="navlist">
-               <li class="user"><a href="#"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
-               <li class="bars">
-                <button class="hamburger hamburger--collapse" type="button">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                   <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
-                    <ul class="barList">
-                        <li><a href="#">月老地圖</a></li>
-                        <li><a href="#">月老求籤</a></li>
-                        <li><a href="#">月老牽線</a></li>
-                        <li><a href="#">月老小知識</a></li>
-                        <li><a href="#">月老商城</a></li>
-                    </ul>
-                  
-                </li>
-              
-           </ul>
-        </nav>
-    </header>
     <div class="moonMap-wrapper">
-            <div class="signBox_1">
-                <div class="signInbox_1">
+        <!------------------------------header---------------------------------->
+        <header class="header">
+            <nav class="nav">
+               <div class="Logo"><img src="./images/logo.png"></div>
+               <ul class="navlist">
+                   <li class="user"><a href="#"><i class="fas fa-user fa-2x"></a></i></li>
+                   <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+                   <li class="bars">
+                    <button class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                          <span class="hamburger-inner"></span>
+                        </span>
+                      </button>
+                       <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+                        <ul class="barList">
+                            <li><a href="#">月老地圖</a></li>
+                            <li><a href="#">月老求籤</a></li>
+                            <li><a href="#">月老牽線</a></li>
+                            <li><a href="#">月老小知識</a></li>
+                            <li><a href="#">月老商城</a></li>
+                        </ul>
+                      
+                    </li>
+                  
+               </ul>
+            </nav>
+        </header>
+        <div class="moonMap-block">
+          
+            <div class="signBox_map">
+                <div class="signInbox_map">
                     台南大天后宮
                 </div>           
             </div>
-            <i class="fas fa-times-circle fa-2x" id="close"></i>
-            <ul class="list_map">
+            <!-- <i class="fas fa-times-circle fa-2x" id="close"></i> -->
+            <!-- 頁籤 -->
+            <ul class="list_map"> 
                 <li data-target="tab1" class="tab on" >廟宇介紹</li>
                 <li data-target="tab2" class="tab">周邊美食</li>
                 <li data-target="tab3" class="tab">留言專區</li>
             </ul>
-            <div class="pinkBox_1">
-                <div class="inBox_1 tab1 on">
-                    <div class="roundImgBlock">
-                        <div class="roundImg_1">
-                        <img src="./images/temple_01.jpg" class="temple_1">
+
+            <!-- 粉紅外框 -->
+            <div class="pinkBox_map">
+
+                <!-- 廟宇介紹區 -->
+                <div class="inBox_map tab1 on">
+
+                    <!-- 月老廟照片 -->
+                    <div class="roundImgBlock"> 
+                        <div class="roundImg_temp1">
+                        <img src="./images/moonMap/temple_01.jpg" class="temple_1">
                         </div>
-                        <div class="roundImg_2">
-                            <img src="./images/temple_01.jpg" class="temple_2">
+                        <div class="roundImg_temp2">
+                            <img src="./images/moonMap/temple_01.jpg" class="temple_2">
                         </div>
-                        <div class="roundImg_3">
-                            <img src="./images/temple_01.jpg" class="temple_3">
+                        <div class="roundImg_temp3">
+                            <img src="./images/moonMap/temple_01.jpg" class="temple_3">
                         </div>            
                     </div>
+
+                <!-- 月老廟介紹 -->
+                <div class="empleMessage">
+                    <div class="title">
+                        <div class="img_sz"><img src="./images/moonMap/香爐.png" alt="icon"></div>
+                        <h3>廟宇介紹</h3>
+                    </div>
+                    <hr>
+
+                    <!-- 廟宇內文介紹 -->
+                    <div class="empleContent_block">
+                        <p class="empleContent">
+                            大天后宮，舊稱東寧天妃宮，是臺灣第一座官建媽祖廟，爲主祀媽祖的廟宇，此外也是中華民國國定古蹟。
+                            該廟宇原址本為明朝寧靖王朱術桂所居住的寧靖王府邸，後來在寧靖王捨宅之後轉變成媽祖廟，舊有方志多記載是1684年由施琅入臺後改為媽祖廟。
+                            此外大天后宮原為寧靖王府邸，在政治上亦有重要象徵地位，故施琅當時在此接受鄭克塽的投降並立下「平臺紀略碑」，
+                            臺灣民主國第二任總統劉永福將此作為「總統府」。
+                        </p>
+                        <p class="empleContent">
+                            大天后宮供奉的主神為媽祖，這裡的月老特色是為本來就互相有意的雙方牽線，為愛情加溫，能終成眷屬。
+                            所以不管是還在曖昧期的男女，或是已經交往中求穩定扶持的情侶，都很適合來大天后宮拜月老！
+                        </p>
+                    </div>   
+                </div>
+
+                <!-- 交通資訊區塊 -->
+                <div class="empletraffic_block">
+                    <!-- 廟宇交通地圖 -->
+                    <div class="goMap"><img src="./images/moonMap/大天后宮交通map.jpg" alt="交通地圖"></div>
+                <!-- 交通資訊 -->
+                    <div class="empleContent_block">                           
+                        <div class="title">
+                            <div class="img_sz"><img src="./images/moonMap/香爐.png" alt="icon"></div>
+                            <h3>交通資訊</h3>
+                        </div>
+                        <hr>
+                        <p class="empleContent">地址： 700台南市中西區永福路二段227巷18號</p>
+                        <p class="empleContent">開放時間： 周一至周日 06:00~20:45</p>
+                        <p class="empleContent">開車前往：國道1號-永康交流道下-中正北路-中正南路-公園路-民族路二段
+                        -永福路二段-永福路二段227巷</p>                          
+                        
+                    </div>   
+                </div>
                     
                 </div>
-                <div class="inBox_1 tab2">
+
+                <!-- 美食景點區 -->
+                <div class="inBox_map tab2">
                     <div class="sceneMap">
-                    <img src="./images/台南大天后宮.jpg">
+                        <img src="./images/moonMap/台南大天后宮.jpg">
                     </div>
-                    <div class="sceneNew_1" id="style-1">
-                    <div class="newInBox_1">
-                        <h1>000000</h1> 
-                        <h1>000000</h1>                     
-                    </div>
-                    <div class="newInBox_1">
-                        <h1>000000</h1> 
-                        <h1>000000</h1>                     
-                    </div>
-                    <div class="newInBox_1">
-                        <h1>000000</h1> 
-                        <h1>000000</h1>                     
-                    </div>
-                    <div class="newInBox_1">
-                        <h1>000000</h1> 
-                        <h1>000000</h1>                     
-                    </div>
+
+                    <!-- 美食景點內文 -->
+                    <div class="sceneNew_map" id="style-1">
+                        <div class="newInBox_map">
+                            <div class="roundImg_map"><img src="./images/moonMap/咖啡icon.svg" alt="景點"></div>
+                            <div class="sceneText">
+                                <h3>Share House Cafe</h3> 
+                                <p>僻靜巷弄裡的老屋咖啡店，是個適合歇腳放鬆的好去處。</p> 
+                                <p>營業時間：週二至周日 09:00-18:30</p>
+                                <p>地址：台南市中西區新美街111號</p>
+                            </div>
+                        </div>
+                        <div class="newInBox_map">
+                            <div class="roundImg_map"><img src="./images/moonMap/餐廳icon.svg" alt="景點"></div>
+                            <div class="sceneText">
+                                <h3>福泰飯桌</h3> 
+                                <p>有著許多人公認台南最好吃的蝦捲，還有晚來就點不到的紅燒肉，尖峰時刻總是座無虛席。</p> 
+                                <p>營業時間：周一至周五 07:30-14:30</p>
+                                <p>地址：台南市中西區民族路二段240號</p>
+                            </div>
+                        </div>
+                        <div class="newInBox_map">
+                            <div class="roundImg_map"><img src="./images/moonMap/餐廳icon.svg" alt="景點"></div>
+                            <div class="sceneText">
+                                <h3>松村煙燻滷味</h3> 
+                                <p>獨特煙燻味，鹹香帶甜味的在地口味，價格實惠，是來台南必買的伴手禮之一 。</p> 
+                                <p>營業時間：周一至周日11：30-21：30</p>
+                                <p>地址：台南市中西區民族路二段319號</p>
+                            </div>
+                        </div>
+                        <div class="newInBox_map">
+                            <div class="roundImg_map"><img src="./images/moonMap/景點icon.svg" alt="景點"></div>
+                            <div class="sceneText">
+                                <h3>赤崁文化園區</h3> 
+                                <p>早期台南舊城發展的中心，區內古蹟眾多，是台灣少數擁有荷蘭、鄭氏建築的文化園區。</p> 
+                                <p>營業時間：周一至週日08:30-21:30</p>
+                                <p>地址：台南市中西區民族路二段212號)</p>
+                            </div>
+                        </div>
+                        <div class="newInBox_map">
+                            <div class="roundImg_map"><img src="./images/moonMap/景點icon.svg" alt="景點"></div>
+                            <div class="sceneText">
+                                <h3>開基武廟原正殿</h3> 
+                                <p>為1669年全台灣首座興建的關帝廟，故名為「開基武廟」。又因該廟與祀典武廟同樣祭祀關公但且面積較小，因此一般人都稱此廟為小關帝廟。</p> 
+                                <p>營業時間：周一至周日 07:00-21:00</p>
+                                <p>地址：台南市中西區新美街114號</p>
+                            </div>
+                        </div>
+                        <div class="newInBox_map">
+                            <div class="roundImg_map"><img src="./images/moonMap/景點icon.svg" alt="景點"></div>
+                            <div class="sceneText">
+                                <h3>祀典武廟</h3> 
+                                <p>台最早關帝廟，也是當時官建的祀典廟宇之一，裡面祀奉正氣凜然的關聖帝君，也被稱為大關帝廟。</p> 
+                                <p>營業時間：周一至周日06:00~21:00</p>
+                                <p>地址：台南市中西區永福路二段229號</p>
+                            </div>
+                        </div>
+                      
 
                     </div>
                 </div>
-                <!-- 留言區 -->
-                <div class="inBox_1 tab3">
+
+                <!-- 公版留言區 -->
+                <div class="inBox_map tab3">
                     <form  class="form" action="#">
                         <div class="userImg"></div>
                         <div class="userBlock">
@@ -127,20 +222,20 @@
                     </form>
 
                 </div>
-            
-            
+                    <!-- 月老 -->
+                <div class="YueLao_block">
+                    <div class="YueLao"><img src="./images/moonMap/月老.svg" alt="月老"></div>
+                    <div class="YueLaoCloud"><img src="./images/moonMap/月老座雲.svg" alt="月老座雲"></div>
+                </div> 
+          
             </div> 
-            <button class="btnBlue_1">完成</button>
-            <button class="btnRed_1">繼續修改</button>
-            
-        
-            
-        
-    
-            
-        
-            
+            <!-- <button class="btnBlue_1">完成</button>
+            <button class="btnRed_1">繼續修改</button> -->
+
         </div>
+        
+                
+    </div>
   
     <script src="js/1_new.js"></script>
 </body>
