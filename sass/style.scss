@@ -38,7 +38,10 @@ img {
 @import "page/moonMatch/xsmall";
 
 // page_MyInfo
-@import "page/MyInfo/MyInfo";
+@import "page/MyInfo/all";
+
+// page_MyInfo
+// @import "page/MyOrder/all";
 
 // ---------- plugins ---------- //
 @import "plugins/allplugin";
