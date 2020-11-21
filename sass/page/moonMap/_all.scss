@@ -1,123 +1,286 @@
-.moonMap-wrapper {
-    margin: 0 auto;
-    position: relative;
-    border: 1px solid black;
-    max-width: 1200px;
+.moonMap-wrapper{
+  background-color: #F0DED1;
+  // height: 120vh;
+  img{
     width: 100%;
-    top:50px;
-    z-index: 11;
-   
-     
-    //===============藍色關閉鍵(X)=============
-    @include times-circle {
-      top: 0%;
-      right: 0%;
-    }
-  
-    //==============招牌===============
-    @include signBox(1, 30%, 98%) {
-      top: 0%;
-      left: 10%;
-    }
-  
-    //==============頁籤==============
-    @include list(map, 10%);
-  
-    //=============頁籤定位顏色============
-    ul.list_map {
-        margin: 0;
-      li.tab.on {
-        background-color:  #ff7a7a;
-      }
-    }
-  
-    //==============頁籤內容=================
-    @include pinkBox(1, 100%) {
-      
-      .sceneMap {
-        margin-top: 60px;
-        width: 90%;
-        img {
-          width: 100%;
-        }
-      }
-    }
-  
-    //==============切換頁籤內容==============
-    div.inBox_1 {
-      display: none;
-    }
-  
-    div.inBox_1.on {
-      display: block;
-    }
-  
-    //==============按鈕===========================
-    @include btn(1, 200px, 10px);
-  
-    //=============廟宇照片=========================
-    .roundImgBlock {
-      border: 1px solid red;
-      width: 100%;
-      padding: 5%;
-      display: flex;
-      justify-content:space-around;
-      @include roundImg(1, 20%, #ffffff, #7ae6f7);
-      @include roundImg(2, 20%, #ffffff, #a9f031);
-      @include roundImg(3, 20%, #ffffff, #fa92ee);
-    }
-  
-    @include sceneNew(1, 100%, 100%);
-  
-    #style-1::-webkit-scrollbar-track {
-      background-color: #ff8181;
-      border-radius: 10px;
-    }
-    //===================捲軸寬度================
-    #style-1::-webkit-scrollbar {
-      width: 15px;
-    }
-    //==================捲軸本體顏色============
-    #style-1::-webkit-scrollbar-thumb {
-      background-color: #ac5454;
-      border-radius: 10px;
-    }
   }
-  
-  
-  // ===============留言區==================
-  
-  .form{
-    display: flex;
-    width: 100%;
-    border-radius: 15px;
-    background-color: white;
-    border: 1px solid #ccc;
-    .userImg{
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      overflow: hidden;
+  // 粉色整體外框
+    .moonMap-block{
+      margin: 0 auto;
+      position: relative;
+      top: 60px;     
       border: 1px solid black;
-    }
-    .userBlock{
+      max-width: 1200px;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      width: 70%;
-      border: 1px solid black;
-      .imgBlock{  
-        width: 100%;  
-        border: 1px solid red; 
+      justify-content: center;
+      align-items: center;
+      z-index: 11;
+     
+   
+      //===============藍色關閉鍵(X)=============
+      // @include times-circle {
+      //   top: 0%;
+      //   right: 0%;
+      // }
+    
+      //==============招牌===============
+      @include signBox(map, 30%, 98%) {
+        top: 0%;
+        left: 10%;
+      }
+    
+      //==============頁籤==============
+      @include list(map, 10%);
+    
+      //=============頁籤定位顏色============
+      ul.list_map {
+        margin: 0;
+        li.tab.on {
+          background-color: #ff7a7a;
+        }
+      }
+    
+   
+    
+      //==============切換頁籤內容==============
+      div.inBox_map {
+        display: none;
+      }
+    
+      div.inBox_map.on {
+        display: block;
+      }
+    
+
+         //==============頁籤內容=================
+         @include pinkBox(map, 96%);
+      //==============按鈕===========================
+      // @include btn(1, 200px, 10px);
+    
+      //============= 廟宇介紹區 =========================
+    
+      // 月老廟照片
+      .roundImgBlock {
+        border: 1px solid red;
+        width: 100%;
+        padding: 5%;
         display: flex;
-        justify-content: space-between;
-        .imgList{
-          list-style: none;
-          padding: 0;
+        justify-content: space-around;
+        @include roundImg(temp1, 20%, #ffffff, #7ae6f7);
+        @include roundImg(temp2, 20%, #ffffff, #a9f031);
+        @include roundImg(temp3, 20%, #ffffff, #fa92ee);
+      }
+    
+   
+    
+      @mixin titleH3 {
+        h3 {
+          font-size: 20px; //標題文字
+          margin: 0;
+          margin-left: 15px;
+          padding: 5px 15px;
+          color: white;
+          background-color: #ac8874;
+          @content;
+        }
+      }
+    
+      @mixin pEmpleContent {
+        p.empleContent {
+          font-size: 16px; //內文文字
+          @content;
+        }
+      }
+    
+      @mixin empleHr {
+        hr {
+          border: 1px solid #8a0000;
+          width: 100%;
+          @content;
+        }
+      }
+    
+      @mixin imgSz {
+        .img_sz {
+          width: 50px;
+          @content;
+        }
+      }
+    
+      //月老廟介紹
+      .empleMessage {
+        // border: 1px solid red;
+    
+        // 標題
+        .title {
           display: flex;
+          align-items: center;
+          @include imgSz;
+          @include titleH3;
+        }
+    
+        @include empleHr;
+    
+        // 廟宇內文介紹
+        .empleContent_block {
+          // border: 1px solid blue;
+    
+          @include pEmpleContent;
+        }
+      }
+    
+      // 交通資訊區塊
+      .empletraffic_block {
+        display: flex;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        // 廟宇交通地圖
+        .goMap {
+          width: 70%;
+          img {
+            box-shadow: 0 0 3px 3px #ccc;
+          }
+        }
+    
+        // 交通資訊
+        .empleContent_block {
+          display: flex;
+          flex-direction: column;
+          margin-left: 15px;
+          // 標題
+          .title {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            @include imgSz;
+            @include titleH3;
+          }
+          @include empleHr;
+          @include pEmpleContent {
+            margin: 5px 0;
+          }
+        }
+      }
+
+      // 美食景點內文 
+        .sceneMap {
+          margin-top: 60px;
+          width: 100%;
+          box-shadow: 0 0 5px 2px #ccc; 
+          // border: 1px solid green;      
+        }
+   
+        .sceneNew_map {
+          margin-top: 20px;
+          width: 100%;
+          height:500px;
+          overflow-y: scroll;
+          // border: 3px solid blue;
+          // ::-webkit-scrollbar-thumb {
+          //   background-color: yellow;
+          //   border-radius: 10px;
+          // }
           
+          
+          .newInBox_map {  
+            margin: 20px 0;      
+            font-size: 20px;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            box-shadow: 0 0 5px 2px #ccc;
+            .roundImg_map{
+              width: 15%;            
+            }
+            .sceneText{
+              margin-left: 30px;
+              h3{
+                color: #4D0810;
+                font-size: 20px;
+              }
+              p{
+                font-size: 16px;
+              }
+            
+            }
+          }
+        }
+        
+        // 卷軸樣式
+        #style-1::-webkit-scrollbar { //捲軸寬度
+          width: 15px;
+        }
+      
+        #style-1::-webkit-scrollbar-thumb { //捲軸本體顏色
+          background-color: #ac5454;
+          border-radius: 10px;
+        }
+        
+          #style-1::-webkit-scrollbar-track {
+            background-color: #ff8181;
+            border-radius: 10px;
+          }
+        
+
+
+
+ 
+    
+      // ===============留言區==================
+    
+      .form {
+        display: flex;
+        width: 100%;
+        border-radius: 15px;
+        background-color: white;
+        border: 1px solid #ccc;
+        .userImg {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 1px solid black;
+        }
+        .userBlock {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          width: 70%;
+          border: 1px solid black;
+          .imgBlock {
+            width: 100%;
+            border: 1px solid red;
+            display: flex;
+            justify-content: space-between;
+            .imgList {
+              list-style: none;
+              padding: 0;
+              display: flex;
+            }
+          }
+        }
+      }
+    
+      // 月老
+      .YueLao_block{
+        position: absolute;
+        bottom: -5%;
+        right:-20%;
+      
+        .YueLao{
+          width: 70%;
+        }
+        .YueLaoCloud{
+          position: absolute;
+          bottom:10px;
+          right: 70px;
+          width:90%;
         }
       }
     }
+    
   }
-  
