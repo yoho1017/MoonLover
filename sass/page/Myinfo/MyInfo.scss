@@ -1,4 +1,5 @@
-@include display;
+div.MyInfo-wrapper {
+    @include display;
 
 
 $CMargin: 4% 2%;
@@ -211,3 +212,4 @@ $phg: 2%;
     }
 
 }  
+}
