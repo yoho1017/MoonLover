@@ -1,0 +1,60 @@
+
+ img{
+   width:100%;         
+}
+
+// !------------------------------內文開始----------------------------------
+.box_moonDrawLots_1200{
+    border:1px solid red;
+    margin:0 auto;
+    max-width: 1200px;
+
+    .lantern{
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        .lantern_group1{
+            border:1px solid green;
+            max-width: 275px;
+            display: inline-flex;
+            .lantern_simple1{
+                border:1px solid red;
+                max-width: 118px;
+                
+                  }
+            .lantern_simple2{
+                border:1px solid red;
+                max-width: 102px;
+                margin-left:40px;
+                
+            }
+        }
+        .lantern_group2{
+            border:1px solid green;
+            max-width: 275px;
+            display: inline-flex;
+            .lantern_simple3{
+                border:1px solid red;
+                max-width: 102px;
+                
+             }
+            .lantern_simple4{
+                border:1px solid red;
+                max-width: 118px;
+                margin-left:40px;
+                
+            }
+        }
+    }   
+
+    .duelbox{
+        margin:0 auto;
+        max-width: 583px;
+        border:1px solid blue;
+        .duel_case{
+            max-width: 206px;
+            margin:0 auto;
+        }
+    }
+
+}
