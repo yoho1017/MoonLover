@@ -1,7 +1,7 @@
 @mixin signBoxShop( $sign_width, $sign_margin, $sign_padding, $a) {
     .signBox_1 {
         margin: right;
-        margin-top: 15px;
+        // margin-top: 15px;
         width: $sign_width;
         border-radius: 12px;
         background-color: #ff7a7a;
@@ -22,9 +22,12 @@
 
 
 .shop-wrapper{
-
-    margin:auto;
-    max-width: $max-width;
+    background-image: url('/images/index/花紋.svg');
+    background-repeat: repeat;
+    background-position: center center;
+    background-size: 20%;
+    z-index: 0;
+    height:100vh;
     width: 100%;
 //shop 招牌用
 
