@@ -230,6 +230,7 @@ h5 {
       outline-style: none;
       border: 0;
       background-color: $var;
+      cursor: pointer;
       &:hover {
         @if $var==#7ED5EA {
           background-color: #599aaa;

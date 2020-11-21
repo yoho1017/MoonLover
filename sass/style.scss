@@ -4,8 +4,9 @@
   margin: 0;
 }
 
-
-
+nav > .Logo > img {
+  width : 50%;
+}
 
 // ---------- base ---------- //
 @import "base/var";
@@ -39,7 +40,7 @@
 @import "page/MyInfo/all";
 
 // page_MyInfo
-// @import "page/MyOrder/all";
+@import "page/MyOrder/all";
 
 // ---------- plugins ---------- //
 @import "plugins/allplugin";
