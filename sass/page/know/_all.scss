@@ -1,6 +1,9 @@
 
 // =================== 宗耘的know_all.scss ======================================
 
+img{
+    width:100%;
+};
 
 // ============= 小知識粉紅區域呼叫 ==============================
 
@@ -27,6 +30,7 @@
             max-width:600px;
             text-align: left;
             border: 1px solid blue;
+            
 
             h3{
                 font-size: map-get($font_size, 'h3');
@@ -147,11 +151,28 @@
                 
             }
 
-            .love_god{
-                border: 1px solid black;
-                position:absolute;
-                right:-260px;
-                bottom:-80px;
+            .love_god_whole{
+                // border: 1px solid black;
+                max-width:400px ;
+                // position:absolute;
+                // right:-260px;
+                // bottom:-80px;
+
+                .love_god{
+                    border: 1px solid black;
+                    position:absolute;
+                    right:-260px;
+                    bottom:-80px;
+
+                }
+
+                .love_god_cloud{
+                    border: 1px solid black;
+                    position:absolute;
+                    right:-260px;
+                    bottom:-110px;
+                    
+                }
             }
         }
     
@@ -188,11 +209,28 @@
             }
         }
 
-        .love_god_left{
-            border: 1px solid black;
-            position:absolute;
-            left:-200px;
-            bottom:-40px;
+        .love_god_whole{
+            // border: 1px solid black;
+            max-width:400px ;
+            // position:absolute;
+            // right:-260px;
+            // bottom:-80px;
+
+            .love_god_left{
+                border: 1px solid black;
+                position:absolute;
+                left:-240px;
+                bottom:0px;
+
+            }
+
+            .love_god_cloud_left{
+                border: 1px solid black;
+                position:absolute;
+                left:-240px;
+                bottom:-40px;
+                
+            }
         }
     };
 
@@ -310,13 +348,30 @@
 
     }
 
+    .love_god_whole{
+        // border: 1px solid black;
+        max-width:400px ;
+        // position:absolute;
+        // right:-260px;
+        // bottom:-80px;
+
         .love_god_right_third{
             border: 1px solid black;
             position:absolute;
             right:-90px;
-            bottom:-40px;
+            bottom:-0px;
+
         }
 
+        .love_god_cloud_right_third{
+            border: 1px solid black;
+            position:absolute;
+            right:-90px;
+            bottom:-30px;
+            
+        }
+    }
+        
 };
 
 
