@@ -532,8 +532,8 @@ h5 {
 
 //客製化和非客製化專用
 @mixin customerImg() {
-  height: 250px;
-  width: 170px;
+  height: 260px;
+  width: 200px;
   background-color: #FFFFFF;
   border: 5px solid #ac5454;
   box-shadow: 0 0 0px 5px#ff7a7a;
@@ -544,15 +544,16 @@ h5 {
 //客製化和非客製化商品名稱
 @mixin easyCard {
   text-align: center;
-  font-size: h3;
+  font-size: 30px;
   font-weight: bold;
 }
 
 //客製化和非客製化價格
 @mixin ImagePrice1 {
   font-weight: bold;
-  font-size: h3;
+  font-size: 16px;
   text-align: center;
+  margin-top:5px;
 }
 
 //數量增加按鈕
@@ -573,15 +574,16 @@ h5 {
 
 //中間數量顯示
 @mixin qty {
-  height: 22px;
+  height: 30px;
   width: 30px;
 }
 
 //商品圖
 @mixin productsImg() {
-  height: 130px;
-  width: 150px;
-  margin: auto;
+  height: 90px;
+  width: 140px;
+  margin: 5px auto 0 auto;
+
   // left: 0;
   // right: 0;
   // top: -50px;
@@ -594,15 +596,19 @@ h5 {
   margin: 0 auto;
   bottom: 2px;
   font-weight: bold;
-  font-size: h4;
-  padding: 2px 5px;
+  font-size: 16px;
+  width:111px;
+  height:29px;
+  text-align:center;
+  padding: 6px;
   background-color: #FF7A7A;
   color: #FFFFFF;
   display: inline-block;
   margin: auto;
   border-radius: 20px;
   position: absolute;
-  transform: translateX(40%);
+  left:50%;
+  transform: translateX(-50%);
 }
 
 $fontSize-basic:10px;
@@ -648,7 +654,7 @@ $fontSize-basic:10px;
               background-color: #ac5454;
               .signBox_4 {
                   @include margin_auto();
-                  font-size: $h1;
+                  font-size: 50px;
                   border-radius: 250px/150px;
                   width: $sign_width - $a*3;
                   background-color: #fff8ce;
