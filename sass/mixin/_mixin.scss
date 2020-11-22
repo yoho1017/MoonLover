@@ -123,7 +123,7 @@ h5 {
 // ============= header_nav ==============================
 @mixin nav{
   .nav{
-    z-index: 10;
+    z-index: 999;
     max-width: 1920px;
     width: 100%;
     display: flex;
