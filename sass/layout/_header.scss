@@ -1,7 +1,8 @@
 
 .header {
+  
   @include nav;
-
+  top:0;
   .list.bars.barList.-on {
     right: 0;
   }
