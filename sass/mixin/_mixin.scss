@@ -308,6 +308,20 @@ h5 {
   }
 }
 
+// ====================太田加碼送 關閉鍵定位在右上角Fsize(icon大小,top,right)
+
+@mixin times-circle-position ($Fsize,$top,$right) {
+
+  .fas.fa-times-circle { //關閉按鈕
+    font-size: $Fsize;
+    position: absolute;
+    top: $top;
+    right: $right;
+    cursor: pointer;
+  }
+  
+}
+
 //====================== 酪梨姊姊end ============================================
 
 //=======================太田der==============================================
@@ -363,6 +377,31 @@ h5 {
   display:flex;
   justify-content: center;
   align-items: center;
+}
+
+//============= //燈箱 =================================
+
+@mixin pop($i) {
+
+  .#{$i}_pop { //燈箱
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0%;
+    z-index: 9999;
+  }
+
+  .#{$i}_pop_in { //燈箱內部
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(2px);
+  }
 }
 
 //=======================太田end==============================================
