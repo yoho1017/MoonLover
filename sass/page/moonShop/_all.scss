@@ -1,7 +1,7 @@
 @mixin signBoxShop( $sign_width, $sign_margin, $sign_padding, $a) {
     .signBox_1 {
         margin: right;
-        // margin-top: 15px;
+        margin-top: 15px;
         width: $sign_width;
         border-radius: 12px;
         background-color: #ff7a7a;
@@ -14,7 +14,8 @@
             border: 5px solid #ac5454;
             width: $sign_width - $a;
             background-color: #FFFFFF;
-            font-size: h3;
+            font-size: 20px;
+            font-weight: bold;
             text-align: center;
         }
     }
@@ -22,7 +23,8 @@
 
 
 .shop-wrapper{
-    background-image: url('/images/index/花紋.svg');
+    border:1px solid white;
+    background-image: url('./test.svg');
     background-repeat: repeat;
     background-position: center center;
     background-size: 20%;
@@ -45,11 +47,11 @@
 
 .container {
     @include container();
-    @include signBoxShop(250px, 2px, 5px, 10px);
+    @include signBoxShop(250px, 2px, 8px, 10px);
     position: relative;
     .orderImg {
         position: absolute;
-        right: -200px;
+        right: -100px;
         bottom: 0;
         z-index: 0;
     }
@@ -70,7 +72,7 @@
                 text-align: center;
                 bottom: 1px;
                 font-weight: bold;
-                font-size: h4;
+                font-size: 20px;
             }
             .tran {
                 position: absolute;
@@ -135,6 +137,7 @@
         }
         // 客制化圖片
         .CusImage1 {
+            padding:5px;
             @include customerImg();
             .easyCard {
                 @include easyCard();
@@ -147,14 +150,23 @@
             }
             .ImageContent1 {
                 @include productsImg();
+                width:140px;
+                height:90px;
             }
             .qty {
                 @include qty();
+               vertical-align: text-bottom;
             }
             .proAmount {
-                text-align: center;
+                 text-align:center;
                 bottom: 35px;
+              
             }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
+            }
+           
             .qty_plus {
                 @include qty_plus();
             }
@@ -163,6 +175,7 @@
             }
         }
         .CusImage2 {
+        
             @include customerImg();
             .easyCard {
                 @include easyCard();
@@ -175,13 +188,20 @@
             }
             .ImageContent1 {
                 @include productsImg();
+                width:140px;
+                height:90px;
             }
             .qty {
                 @include qty();
+               vertical-align: text-bottom;
             }
             .proAmount {
-                text-align: center;
-                bottom: 35px;
+                 text-align:center;
+                bottom: 35px;          
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
             .qty_plus {
                 @include qty_plus();
@@ -203,13 +223,21 @@
             }
             .ImageContent1 {
                 @include productsImg();
+                width:140px;
+                height:90px;
             }
             .qty {
                 @include qty();
+               vertical-align: text-bottom;
             }
             .proAmount {
-                text-align: center;
+                 text-align:center;
                 bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
             .qty_plus {
                 @include qty_plus();
@@ -231,13 +259,21 @@
             }
             .ImageContent1 {
                 @include productsImg();
+                width:140px;
+                height:90px;
             }
             .qty {
                 @include qty();
+               vertical-align: text-bottom;
             }
             .proAmount {
-                text-align: center;
+                 text-align:center;
                 bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
             .qty_plus {
                 @include qty_plus();
@@ -260,13 +296,21 @@
             }
             .ImageContent1 {
                 @include productsImg();
+                width:140px;
+                height:90px;
             }
             .qty {
                 @include qty();
+               vertical-align: text-bottom;
             }
             .proAmount {
-                text-align: center;
+                 text-align:center;
                 bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
             .qty_plus {
                 @include qty_plus();
@@ -288,13 +332,21 @@
             }
             .ImageContent1 {
                 @include productsImg();
+                width:140px;
+                height:90px;
             }
             .qty {
                 @include qty();
+               vertical-align: text-bottom;
             }
             .proAmount {
-                text-align: center;
+                 text-align:center;
                 bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
             .qty_plus {
                 @include qty_plus();
@@ -316,13 +368,21 @@
             }
             .ImageContent1 {
                 @include productsImg();
+                width:140px;
+                height:90px;
             }
             .qty {
                 @include qty();
+               vertical-align: text-bottom;
             }
             .proAmount {
-                text-align: center;
+                 text-align:center;
                 bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
             .qty_plus {
                 @include qty_plus();
@@ -347,10 +407,16 @@
             }
             .qty {
                 @include qty();
+               vertical-align: text-bottom;
             }
             .proAmount {
-                text-align: center;
+                 text-align:center;
                 bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
             .qty_plus {
                 @include qty_plus();

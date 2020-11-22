@@ -1,0 +1,154 @@
+
+.shoppingCar-wrapper{
+   margin:auto;
+    max-width: $max-width;
+    width: 100%;
+  border:1px solid white;
+  background-image: url('./images/index/花紋.svg');
+#ad {
+    margin-top: 130px;
+}
+
+#product {
+    margin-top: 35px;
+}
+
+.container {
+    border:1px solid blue;
+    @include margin_auto();
+    max-width: $max-width;
+    width: 100%;
+    @include signToBox(300px, 10px, 5px, 20px);
+    @include proToBox(1, 90%);
+    .cart-title {
+        width: 100%;
+        background-color: #ac5454;
+        // margin: $margin;
+        padding: 5px;
+    }
+    .product-title {
+        width:100%;
+        padding: 5px;
+        background-color: #FFFFFF;
+    }
+    .product-title tr:nth-child(1){
+        width:100px;
+        height:100px;
+        background-image: url("images/moonShopCar/悠遊卡.png");
+        border:5px solid red;
+        background-position: center;
+        background-size: cover;
+    }
+    .signBox_1 {
+        position: relative;
+        z-index: 99;
+    }
+    .orderImg {
+        right: -20px;
+        top: -130px;
+        position: absolute;
+        z-index: 0;
+        width: 180px;
+        height: 180px;
+        z-index: 0;
+    }
+    img {
+        border: 2px solid red;
+    }
+    .cart-title td {
+        padding: 0 50px;
+        color: #fff8ce;
+        font-size: 20px;
+    }
+    .product-title .pt1{
+        padding: 0 50px;
+        color:black;
+        font-size: 20px;
+        border-right:1px solid red;
+    }
+    .product-title .pt2{
+        padding: 0 50px;
+        color:black;
+        font-size: 20px;
+   
+    }
+
+    p {
+        background-color: #ff7a7a;
+        color: #fff8ce;
+        text-align: right;
+        font-size: 20px;
+        width: 100%;
+        margin-top: 5px;
+    }
+    .btn_groups {
+        position: absolute;
+        margin-bottom: 5px;
+        margin-right: 5px;
+    }
+    .btnBlue {
+        @include btnN(10px, #7ed5ea, 0, 48px, 150px, 20px);
+        margin-right: 20px;
+    }
+    .btnRed {
+        @include btnN(10px, #ff7a7a, 0, 48px, 150px, 20px);
+    }
+}
+
+// 輪播-------------
+.swiper-slide {
+    border: 5px solid #ac5454;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 0px 10px #ff7a7a;
+    border-radius: 15px;
+    padding:10px;
+    .easyCard {
+        @include easyCard();
+    }
+    .ImagePrice1 {
+        @include ImagePrice1();
+    }
+    .shopCars {
+        @include shopCars();
+    }
+    .ImageContent1 {
+        height: "130px";
+        width: "150px";
+       
+    }
+  
+    .proAmount {
+        text-align:center;
+        bottom: 35px;
+      
+    }
+    .proAmount i{
+        color:#7ed5ea;
+    }
+    .qty {
+        height: 35px;
+        width: 35px;
+        vertical-align: text-bottom;
+    }
+    .proAmount {
+        text-align: center;
+        bottom: 35px;
+    }
+
+    .shopCars {
+        margin: 0 auto;
+        bottom: 2px;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 6px 10px;
+        background-color: #FF7A7A;
+        color: #FFFFFF;
+        display: inline-block;
+        margin: auto;
+        border-radius: 20px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+}
