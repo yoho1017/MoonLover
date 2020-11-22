@@ -1,24 +1,4 @@
-$CMargin: 4% 2%;
-
 @mixin member{
-
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        height: $bodyHeight;
-        background-color: $backGround;
-    }
-
-    .header .nav {
-        position: static;
-    }
-
-    .Logo > img {
-        width : 50%;
-    }
     
     .list {
         text-align: center;
