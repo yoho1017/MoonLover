@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moonShop</title>
      <!-- TweenMax -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
      integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
@@ -13,7 +14,7 @@
    <!-- vue -->
    <script src="./js/Vue.js"></script>
     <!-- hamburgers_css -->
-   <link rel="stylesheet" href="/css/hamburgers.css">
+   <link rel="stylesheet" href="./css/hamburgers.css">
    <!-- 加密 js -->
    <script src="node_modules/crypto-js/crypto-js.js"></script>
    <!-- 發信 js -->
@@ -23,10 +24,9 @@
 
    <!-- icon -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   <!-- total css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/shop.js"></script>
 </head>
     <!-- ------------------------------------- -->
 <body>
@@ -156,7 +156,7 @@
             </div>
         </div>
     </div>
-    <!-- 吉祥物列 -->
+
     <!-- 吉祥物列 -->
     <div id="CusPictures">
         <div class="container">
@@ -173,19 +173,19 @@
                 </div>
                 <div class="CusPicture2">
                     <div class="PicContent2">
-                        <img src="images/狐仙-01.png" alt="狐仙" width="160px" height="135px">
+                        <img src="images/moonShop/狐仙-01.png" alt="狐仙" width="160px" height="135px">
                     </div>
                     <p>湖仙女</p>
                 </div>
                 <div class="CusPicture3">
                     <div class="PicContent2">
-                        <img src="images/兔兔-01.png" alt="兔兔" width="160px" height="135px">
+                        <img src="images/moonShop/兔兔-01.png" alt="兔兔" width="160px" height="135px">
                     </div>
                     <p>彩虹兔兔</p>
                 </div>
                 <div class="CusPicture4">
                     <div class="PicContent2">
-                        <img src="images/猴子-01.png" alt="猴子" width="160px" height="135px">
+                        <img src="images/moonShop/猴子-01.png" alt="猴子" width="160px" height="135px">
                     </div>
                     <p>好人猿</p>
                 </div>
@@ -199,16 +199,14 @@
                 <div class="CusImage1">
                     <div class="easyCard">悠遊卡</div>
                     <div class="ImageContent1">
-                        <img src="images/悠遊卡.png" alt="悠遊卡" height="130px" width="150px">
+                        <a href="moonShopDev.html"><img src="images/moonShop/悠遊卡.png" alt="悠遊卡"  height="90px" width="140px"></a>
                     </div>
                     <div class="ImagePrice1">300</div>
                     <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
-                            <input type='button' value='-' class='qty_minus' field='quantity' id='minus' />
-                            <!--
-                            --><input type='text' name='quantity' value='0' class='qty' id='number1'/>
-                            <!--
-                        --><input type='button' value='+' class='qty_plus' field='quantity' id='add'/>
+                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
+                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
+                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
                     </div>
                     <div class="shopCars">加入購物車</div>
@@ -216,16 +214,14 @@
                 <div class="CusImage2">
                     <div class="easyCard">悠遊卡</div>
                     <div class="ImageContent1">
-                        <img src="images/悠遊卡.png" alt="悠遊卡" height="130px" width="150px">
+                        <a href="moonShopDev.html"><img src="images/moonShop/悠遊卡.png" alt="悠遊卡"  height="90px" width="140px"></a>
                     </div>
                     <div class="ImagePrice1">300</div>
                     <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
-                            <input type='button' value='-' class='qty_minus' field='quantity' id='minus' />
-                            <!--
-                            --><input type='text' name='quantity' value='0' class='qty' id='number2'/>
-                            <!--
-                        --><input type='button' value='+' class='qty_plus' field='quantity' id='add'/>
+                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
+                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
+                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
                     </div>
                     <div class="shopCars">加入購物車</div>
@@ -233,16 +229,14 @@
                 <div class="CusImage3">
                     <div class="easyCard">悠遊卡</div>
                     <div class="ImageContent1">
-                        <img src="images/悠遊卡.png" alt="悠遊卡" height="130px" width="150px">
+                        <a href="moonShopDev.html"><img src="images/moonShop/悠遊卡.png" alt="悠遊卡" height="90px" width="140px"></a>
                     </div>
                     <div class="ImagePrice1">300</div>
                     <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
-                            <input type='button' value='-' class='qty_minus' field='quantity' id='minus' />
-                            <!--
-                            --><input type='text' name='quantity' value='0' class='qty' id='number'/>
-                            <!--
-                        --><input type='button' value='+' class='qty_plus' field='quantity' id='add'/>
+                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
+                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
+                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
                     </div>
                     <div class="shopCars">加入購物車</div>
@@ -250,16 +244,14 @@
                 <div class="CusImage4">
                     <div class="easyCard">悠遊卡</div>
                     <div class="ImageContent1">
-                        <img src="images/悠遊卡.png" alt="悠遊卡" height="130px" width="150px">
+                        <a href="moonShopDev.html"><img src="images/moonShop/悠遊卡.png" alt="悠遊卡"  height="90px" width="140px"></a>
                     </div>
                     <div class="ImagePrice1">300</div>
                     <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
-                            <input type='button' value='-' class='qty_minus' field='quantity' id='minus' />
-                            <!--
-                            --><input type='text' name='quantity' value='0' class='qty' id='number'/>
-                            <!--
-                        --><input type='button' value='+' class='qty_plus' field='quantity' id='add'/>
+                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
+                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
+                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
                     </div>
                     <div class="shopCars">加入購物車</div>
@@ -274,16 +266,14 @@
                 <div class="CusImage5">
                     <div class="easyCard">悠遊卡</div>
                     <div class="ImageContent1">
-                        <img src="images/悠遊卡.png" alt="悠遊卡" height="130px" width="150px">
+                        <a href="moonShopDev.html"><img src="images/moonShop/悠遊卡.png" alt="悠遊卡"  height="90px" width="140px"></a>
                     </div>
                     <div class="ImagePrice1">300</div>
                     <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
-                            <input type='button' value='-' class='qty_minus' field='quantity' id='minus' />
-                            <!--
-                            --><input type='text' name='quantity' value='0' class='qty' id='number'/>
-                            <!--
-                        --><input type='button' value='+' class='qty_plus' field='quantity' id='add'/>
+                        <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
+                         <input type='text' name='quantity' value='0' class='qty' id='number'/>
+                        <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
                     </div>
                     <div class="shopCars">加入購物車</div>
@@ -291,16 +281,14 @@
                 <div class="CusImage6">
                     <div class="easyCard">悠遊卡</div>
                     <div class="ImageContent1">
-                        <img src="images/悠遊卡.png" alt="悠遊卡" height="130px" width="150px">
+                        <a href="moonShopDev.html"><img src="images/moonShop/悠遊卡.png" alt="悠遊卡" height="90px" width="140px"></a>
                     </div>
                     <div class="ImagePrice1">300</div>
                     <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
-                            <input type='button' value='-' class='qty_minus' field='quantity' id='minus' />
-                            <!--
-                            --><input type='text' name='quantity' value='0' class='qty' id='number'/>
-                            <!--
-                        --><input type='button' value='+' class='qty_plus' field='quantity' id='add'/>
+                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
+                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
+                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
                     </div>
                     <div class="shopCars">加入購物車</div>
@@ -308,16 +296,14 @@
                 <div class="CusImage7">
                     <div class="easyCard">悠遊卡</div>
                     <div class="ImageContent1">
-                        <img src="images/悠遊卡.png" alt="悠遊卡" height="130px" width="150px">
+                        <a href="moonShopDev.html"><img src="images/moonShop/悠遊卡.png" alt="悠遊卡"  height="90px" width="140px"></a>
                     </div>
                     <div class="ImagePrice1">300</div>
                     <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
-                            <input type='button' value='-' class='qty_minus' field='quantity' id='minus' />
-                            <!--
-                            --><input type='text' name='quantity' value='0' class='qty' id='number'/>
-                            <!--
-                        --><input type='button' value='+' class='qty_plus' field='quantity' id='add'/>
+                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
+                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
+                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
                     </div>
                     <div class="shopCars">加入購物車</div>
@@ -325,25 +311,23 @@
                 <div class="CusImage8">
                     <div class="easyCard">悠遊卡</div>
                     <div class="ImageContent1">
-                        <img src="images/悠遊卡.png" alt="悠遊卡" height="130px" width="150px">
+                        <a href="moonShopDev.html"><img src="images/moonShop/悠遊卡.png" alt="悠遊卡"  height="90px" width="140px"></a>
                     </div>
                     <div class="ImagePrice1">300</div>
                     <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
-                            <input type='button' value='-' class='qty_minus' field='quantity' id='minus' />
-                            <!--
-                            --><input type='text' name='quantity' value='0' class='qty' id='number'/>
-                            <!--
-                        --><input type='button' value='+' class='qty_plus' field='quantity' id='add'/>
+                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
+                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
+                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
                     </div>
                     <div class="shopCars">加入購物車</div>
                 </div>
             </div>
-            <div class="orderImg">
-                <img class="order" src="images/月老-01.png" alt="月老" width=250px height=200px>
-                <img class="cloud2" src="images/shop_cloud.png" alt="cloud2" width=250px height=60px>
-            </div>
+            <!-- <div class="orderImg">
+                <img class="order" src="images/moonShop/月老-01.png" alt="月老" width="50px" height="50px">
+                <img class="cloud2" src="images/moonShop/shop_cloud22.png" alt="cloud2" width=250px height=60px>
+            </div> -->
         </div>
     </div>
 
@@ -351,6 +335,8 @@
 </div>
     <script src="./js/1_new.js"></script>
     <script src="./js/login.js"></script>
+      <!-- shop js -->
+  <script src="./js/shop.js"></script>
     </body>
 
 </html>

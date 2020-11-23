@@ -1,52 +1,110 @@
-@include pinkBox(order, 100%);
+div.MyOrder-wrapper {
 
-.pinkBox_order .inBox_order {
-    background-color: transparent;
-    border: none;
-    margin: 0;
-}
+    background-color: #F0DED1;
+    height: 100vh;
+    padding-top: 60px;
 
-.orderTable {
+    @include member;
+
+    img {
+        max-width : 100%;
+    }
+
     display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
+
+    @include member;
+    @include pinkBox(order, 100%);
+
+    .pinkBox_order .inBox_order {
+        background-color: transparent;
+        border: none;
+        margin: 0;
+    }
+
+    .orderTable {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    .Mtbody {
+        background-color: #FFF8CE;
+        height: 350px;
+        overflow-y: auto;
+    }
+
+    @include insideScroll;
+
+    .Mtd {
+        display: flex;
+        justify-content: center;
+        width: 20%;
+        margin: 2%;
+    }
+
+    .Mth {
+        background-color: #ff7a7a;
+    }
+
+    .Mtr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: $pinkBorder;
+    }
+
+    .Otd {
+        width: 25%;
+        justify-content: center;
+    }
+
+    .Th3 {
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+    }
+
+    .Tb3 {
+        margin: 0 auto;
+        text-align: center;
+        color: black;
+    }
+
+    @include btn(detail, 50%, 5px); //驗證信按鈕
+
+    @include pop(Odetail);
+    
+    @include pinkBox(Odetail,70%);
+
+    .pinkBox_Odetail {
+        position: relative;
+    }
+
+    .inBox_Odetail {
+        padding: 0 !important;
+        width : 100% !important;
+        background-color: transparent !important;
+        border: none !important;
+    }
+
+    .Otr {
+        background-color: #ff7a7a;
+        justify-content: flex-start;
+    }
+
+    .Otd {
+        width: 25%;
+    }
+
+    .priceAndCancel {
+        justify-content: flex-end;
+        border: none;
+    }
+
+    .priceTd {
+        margin: 2% 2%;
+    }
+
+    @include btn(cancel, 50%, 5px);
+
 }
-
-.Mtbody {
-    background-color: #FFF8CE;
-    height: 300px;
-    overflow-y: auto;
-}
-
-@include insideScroll;
-
-.Mtd {
-    display: flex;
-    justify-content: center;
-    width: 20%;
-    margin: 2%;
-}
-
-.Mth {
-    background-color: #ff7a7a;
-}
-
-.Mtr {
-    display: flex;
-    border-top: 1px solid #FF8181;
-    border-bottom: 1px solid #FF8181;
-}
-
-.Th3 {
-    margin: 0 auto;
-    text-align: center;
-    color: white;
-}
-
-.Tb3 {
-    margin: 0 auto;
-    text-align: center;
-    color: black;
-}
-
-@include btn(detail, 35%, 5px); //驗證信按鈕

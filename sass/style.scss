@@ -26,6 +26,7 @@ nav > .Logo > img {
 @import "page/index/all";
 
 // page_moonMap
+@import "page/moonMapList/all";
 @import "page/moonMap/all";
 @import "page/know/all";
 @import "page/moonDrawLots/all";
@@ -39,11 +40,17 @@ nav > .Logo > img {
 
 //page_moonShop
 @import "page/moonShop/all";
+//page_moonShopCar
+@import "page/moonShopCar/all";
+//page_moonShopDet
+@import "page/moonShopDet/all";
+
+
 
 // page_MyInfo
 @import "page/MyInfo/all";
 
-// page_MyInfo
+// page_MyOrder
 @import "page/MyOrder/all";
 
 // ---------- plugins ---------- //

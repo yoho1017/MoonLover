@@ -1,7 +1,137 @@
 .moonMatch-wrapper{
-    background-color: #EEBBB4;
-    background-image: url('/images/moonMatch/愛心.png');
+    background-color: #f0ded1;
+    img{
+        width: 100%;
+    }
     background-repeat: repeat;
     background-position: center center;
     background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .memberCards{
+        // border: 1px solid black;
+        margin-top: 10px;
+        display: flex;
+        .scene{
+            width: 373px;
+            height: 660px;
+            
+            /* 透視 */
+            perspective: 800px;
+
+            .card {
+                // border: 1px solid red;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                
+                transform-style: preserve-3d;
+                transform-origin: center center;
+                
+                transition: transform 1s; /* 轉場 */
+
+                .card_front, .card_back {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    
+                    backface-visibility: hidden; /* 設定背後看不到 */
+                }
+                .card_front {
+                    display: flex;
+                    justify-content: center;
+                    img{
+                        width: 70%;
+                    }
+                }
+                  
+                .card_back {
+                    background-color: white;
+                    background-image: url(/images/moonMatch/中選人物卡.svg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    transform: rotateY(180deg); /* 預設旋轉 180deg */
+                }
+            }
+            &:nth-child(1){
+                transform: translateY(-50%);
+            }
+            &:nth-child(2){
+                transform: translateY(-30%);
+            }
+            &:nth-child(3){
+                transform: translateY(-40%);
+            }
+            .card.flipped {
+                transform: rotateY(-180deg);
+            }
+        }
+
+
+    }
+
+    .loveGod{
+        // border: 1px solid blue;
+        width: 20%;
+        margin: 0 auto;
+        align-self: flex-end;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .exclamation{
+            opacity: 0;
+            .fa-exclamation{
+                color: #d65858;
+            }
+        }
+    }
+
+    .introLightbox{
+        background-color: #EEBBB4;
+        background-image: url('/images/moonMatch/愛心.png');
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        display: none;
+        .msgBox{
+            // border: 1px solid blue;
+            // display: none;
+            align-self: center;
+            opacity: 0;
+            transition: opacity .5s;
+            transform: translate(300px, 120px);
+        }
+        .msgBox.-on{
+            // display: flex;
+            opacity: 1;
+        }
+        .queryBox{
+            // border: 1px solid black;
+            align-self: center;
+            opacity: 0;
+            transition: opacity .5s;
+            background-image: url(/images/moonMatch/篩選框.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 393px;
+            height: 444px;
+        }
+        .queryBox.-on{
+            opacity: 1;
+        }
+    }
+    .introLightbox.-on{
+        display: flex;
+    }
 }

@@ -1,63 +1,69 @@
 
 // =================== 宗耘的know_all.scss ======================================
 
-img{
-    width:100%;
-};
-
 // ============= 小知識粉紅區域呼叫 ==============================
 
 @include know_pinkBox(1 , 100% , 48%);
 //   @include know_pinkBox(2 , 100% ,45%);
 
 // ============= 小知識第一頁左邊 ==============================
-.know_wrapper{
-    max-width: 1300px;
-    margin: 0 auto;
-    border: 1px solid red;
-    position: relative;
-    z-index: 11;
+.know_wrapper_bk_color{
+    background-color: #F0DED1;
+    height: 110vh;
+    
+    .know_wrapper{
+        max-width: 1300px;
+        top:60px;
+        margin: 0 auto;
+        border: 1px solid red;
+        position: relative;
+        z-index: 11;
+        
+        img{
+            width:100%;
+        }
 
-// ============= 頁籤呼叫 ==============================
-    @include know_list(1, 140px);
+    // ============= 頁籤呼叫 ==============================
+        @include know_list(1, 140px);
 
 
-// ============= 小知識第一頁左邊 ==============================
-    .pinkBox_1{
-        // border:1px solid black;
+    // ============= 小知識第一頁左邊 ==============================
+        .pinkBox_1{
+            // border:1px solid black;
 
-        .box_1200{
-            max-width:600px;
-            text-align: left;
-            border: 1px solid blue;
-            
+            .box_1200{
+                max-width:600px;
+                text-align: left;
+                border: 1px solid blue;
+                
 
-            h3{
-                font-size: map-get($font_size, 'h3');
-                margin: $margin_font;
-                background-color: #FFFFFF;
-                width: 60%;
-            }
+                h3{
+                    font-size: map-get($font_size, 'h3');
+                    margin: $margin_font;
+                    background-color: #FFFFFF;
+                    width: 60%;
+                }
 
-            h4{
-                font-size: map-get($font_size, 'h4');
-                margin: $margin_font;
+                h4{
+                    font-size: map-get($font_size, 'h4');
+                    margin: $margin_font;
 
-            }
+                }
 
-            .img_circle{
-                max-width: 135px;
-                display: flex;
+                .img_circle{
+                    max-width: 135px;
+                    display: flex;
 
-                img{
-                    margin: 20px 15px;
+                    img{
+                        margin: 20px 15px;
+                        
+                    }
+
                 }
 
             }
-
         }
     }
-
 };
 
 
@@ -153,12 +159,13 @@ img{
 
             .love_god_whole{
                 // border: 1px solid black;
-                max-width:400px ;
+                // max-width:400px ;
                 // position:absolute;
                 // right:-260px;
                 // bottom:-80px;
 
                 .love_god{
+                    max-width:350px ;
                     border: 1px solid black;
                     position:absolute;
                     right:-260px;
@@ -169,8 +176,8 @@ img{
                 .love_god_cloud{
                     border: 1px solid black;
                     position:absolute;
-                    right:-260px;
-                    bottom:-110px;
+                    right:-290px;
+                    bottom:-80px;
                     
                 }
             }
@@ -211,16 +218,17 @@ img{
 
         .love_god_whole{
             // border: 1px solid black;
-            max-width:400px ;
+            // max-width:400px ;
             // position:absolute;
             // right:-260px;
             // bottom:-80px;
 
             .love_god_left{
                 border: 1px solid black;
+                max-width:350px ;
                 position:absolute;
-                left:-240px;
-                bottom:0px;
+                left:-220px;
+                bottom:-60px;
 
             }
 
@@ -228,12 +236,11 @@ img{
                 border: 1px solid black;
                 position:absolute;
                 left:-240px;
-                bottom:-40px;
+                bottom:-60px;
                 
             }
         }
     };
-
 
 
 // <!--------------小知識第二頁右邊 -------------------------------------------->
@@ -290,10 +297,15 @@ img{
 
 // <!--------------小知識第三頁左邊 -------------------------------------------->
 .know_wrapper{
+    .box_text_short{
+        h3{
+           width: 40%;
+        }
 
-    .love_light{
-        max-width:524px;
-        margin: 40px 0px 0px 0px;
+        .love_light{
+            max-width:524px;
+            margin: 40px 0px 0px 0px;
+        }
     }
 
 };
@@ -350,24 +362,25 @@ img{
 
     .love_god_whole{
         // border: 1px solid black;
-        max-width:400px ;
+       
         // position:absolute;
         // right:-260px;
         // bottom:-80px;
 
         .love_god_right_third{
+            max-width:350px ;
             border: 1px solid black;
             position:absolute;
-            right:-90px;
-            bottom:-0px;
+            right:-150px;
+            bottom:-30px;
 
         }
 
         .love_god_cloud_right_third{
             border: 1px solid black;
             position:absolute;
-            right:-90px;
-            bottom:-30px;
+            right:-150px;
+            bottom:-50px;
             
         }
     }

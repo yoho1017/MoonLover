@@ -1,7 +1,8 @@
 
 .header {
+  
   @include nav;
-
+  top:0;
   .list.bars.barList.-on {
     right: 0;
   }
@@ -23,27 +24,9 @@
 $btnwd : 25%;
 $btnmg : 0 10px;
 
-.login_pop { //燈箱
-  display: none;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0%;
-  z-index: 9999;
-}
+@include pop(login);
 
 @include display; //display none and block and flex
-
-.login_pop_in { //燈箱內部
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, .5);
-  backdrop-filter: blur(2px);
-}
 
 @mixin account ($Box, $wd) { // 註冊和登入
   .account_#{$Box} {
@@ -62,12 +45,7 @@ $btnmg : 0 10px;
 
 @include times-circle; //關閉按鈕
 
-.fas.fa-times-circle { //關閉按鈕
-  font-size: 40px;
-  position: absolute;
-  top: -25px;
-  right: -20px;
-}
+@include times-circle-position (40px, -25px, -20px);
 
 .account_inbox { //註冊和登入內部
   width: 100%;
