@@ -54,6 +54,33 @@
         .duel_case{
             max-width: 206px;
             margin:0 auto;
+            
+            right:30%;
+        }
+       
+        // .throw{
+        //     max-width: 206px;
+        //     margin:0 auto;
+            
+        //     right:30%;
+        // }
+        .btn_go{
+            width: 126px;
+            height: 47px;
+            margin:0 auto;
+            cursor: pointer;
+            border-radius: 50px;
+            
+        }
+        .cloud{
+            
+        }
+    }
+    .MoonOfGod{
+        .god{
+            border:1px solid yellow;
+            max-width: 392px;
+            float:right;
         }
     }
 
