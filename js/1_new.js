@@ -8,6 +8,9 @@ $(document).ready(function(){
         
         $('div.inBox_map').removeClass('on');
         $('div.inBox_map.'+$(this).attr('data-target')).addClass('on');
+
+        $('div.YueLao_block').removeClass('on');
+        $('div.YueLao_block.'+$(this).attr('data-target')).addClass('on');
     });
    
 
@@ -29,7 +32,8 @@ $(document).ready(function(){
 
 });
 
-let vm=new Vue({
+// moonMapList
+let maplist=new Vue({
   el:'#Taiwan',
   data:{
     temples:[{name:'台北龍山寺',x:'130px',y:'185px'},{name:'台中慈德慈惠堂',x:'140px',y:'380px'},{name:'台中樂成宮',x:'0px',y:'10px'},{name:'雲林北港朝天宮',x:'0px',y:'10px'},{name:'台南大天后宮',x:'0px',y:'10px'}],
@@ -62,8 +66,16 @@ $(document).ready(function() {
   });
 });
 
+//moonMap 公版留言區 
+let moonmap=new Vue({
+  el:'#emple-message',
+  data:{
+    message:'',
+  },
+  methods:{
 
-
+  },
+});
 
 
 
