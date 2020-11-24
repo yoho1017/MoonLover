@@ -490,12 +490,12 @@ h5 {
 
 @mixin rwd($breakpoint) {
   @if $breakpoint=="large" {
-      @media all and (min-width: $screen-lg ) {
+      @media all and (max-width: $screen-lg ) {
           @content;
       }
   }
   @else if $breakpoint=="medium" {
-      @media all and (min-width: $screen-md ) {
+      @media all and (max-width: $screen-md ) {
           @content;
       }
   }
