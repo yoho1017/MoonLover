@@ -11,46 +11,47 @@
         max-width: 1200px;
         width: 100%;       
         .twMap{
-            width: 40%;
+            position: relative;
+            width: 100%;
             margin: 50px;
             border: 1px solid red;
-        }
-        ul.line-block{
-            position: absolute;
-            width: 40%;
-            top:17%;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            align-items: center;
-            border: 1px solid green;
-
-            .mapLine{              
-                width: 50%;
-                height: 2px;  
-                background-color: red;         
-               
-                             
-            }
-            .roundLink{
-                width: 20px;
-                height:20px;
-                border-radius: 50%;
-                background-color: rgb(255, 255, 255);
-                box-shadow: 0 0 0 4px red;            
-            }
-            .linkText{
-                margin-left: 15px;
-                a{
-                    font-size: 30px;
-                    display: flex;
-                    width: 250px;
-                    text-align: center;
-                    text-decoration: none;
-                    border: 1px solid green;
+            ul.line-block{
+                position: absolute;
+                width: 100%;
+                // top:17%;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                align-items: center;
+                border: 1px solid green;
+    
+                .mapLine{              
+                    width: 50%;
+                    height: 2px;  
+                    background-color: red;         
+                   
+                                 
                 }
-                 
+                .roundLink{
+                    width: 20px;
+                    height:20px;
+                    border-radius: 50%;
+                    background-color: rgb(255, 255, 255);
+                    box-shadow: 0 0 0 4px red;            
+                }
+                .linkText{
+                    margin-left: 15px;
+                    a{
+                        font-size: 30px;
+                        display: flex;
+                        width: 250px;
+                        text-align: center;
+                        text-decoration: none;
+                        border: 1px solid green;
+                    }
+                     
+                }
             }
         }
 
