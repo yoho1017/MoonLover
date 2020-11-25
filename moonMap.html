@@ -157,13 +157,13 @@
     <!-- 燈箱結束 -->
 
 
-    <div class="moonMap-wrapper">
-        <div class="moonMap-block" id="moonMapblock">
+    <div class="moonMap-wrapper" id="moonMap">
+        <div class="moonMap-block">
            
           
             <div class="signBox_map">
                 <div class="signInbox_map">
-                   {{templemessage[5].name}}
+                    台南大天后宮
                 </div>           
             </div>
          
@@ -187,7 +187,7 @@
                     <!-- 月老廟照片 -->
                     <div class="roundImgBlock"> 
                         <div class="roundImg_temp1">
-                            <img src="./images/moonMap/temple_01.jpg" class="temple_1">
+                        <img src="./images/moonMap/temple_01.jpg" class="temple_1">
                         </div>
                         <div class="roundImg_temp2">
                             <img src="./images/moonMap/temple_01.jpg" class="temple_2">
@@ -306,7 +306,7 @@
                       
 
                     </div>
-                </div>  
+                </div>
 
                 <!-- 公版留言區 -->
                 <div class="inBox_map tab3" id="emple-message">
@@ -321,7 +321,7 @@
                             
                             <!-- 使用者新增貼文 -->
                             <div class="user-messBlock">
-                                <textarea id="user-message" v-model="message"></textarea>                                       
+                                <textarea id="user-message"></textarea>                                       
                                 <div class="imgBlock">
                                     <ul class="imgList">
                                         <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
@@ -347,7 +347,7 @@
                                 
                                 <!-- 使用者新增貼文 -->
                                 <div class="user-messBlock">
-                                    <textarea id="user-message">{{message}}</textarea>                                       
+                                    <textarea id="user-message"></textarea>                                       
                                     <div class="imgBlock">
                                         <!-- 貼文區圖片 -->
                                         <ul class="imgList2">
@@ -383,9 +383,6 @@
                                
                             </ul>
                         </form>
-
-                      
-                        
 
                     </div>
                   
