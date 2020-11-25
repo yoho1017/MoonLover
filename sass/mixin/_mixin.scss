@@ -412,6 +412,22 @@ h5 {
   }
 }
 
+@mixin backstageBtn { //後台btn
+  .bkbtn {
+    margin: 0 2%;
+    padding: 1%;
+    border-radius: 10px;
+    background-color: #7ed5ea;
+    cursor: pointer;
+      h3 {
+        color: white;
+      }
+    &:hover {
+      background-color: #599aaa;
+    }
+  }
+}
+
 //=======================太田end==============================================
 
 

@@ -20,6 +20,7 @@ nav > .Logo > img {
 // ---------- layout ---------- //
 @import "layout/header";
 @import "layout/member";
+@import "layout/backstage";
 
 // ---------- page ---------- //
 // page_index
@@ -54,6 +55,9 @@ nav > .Logo > img {
 
 // page_MyMsg
 @import "page/MyMsg/all";
+
+// ----------backstage-------- //
+@import "page/backstage-example/all";
 
 // ---------- plugins ---------- //
 @import "plugins/allplugin";

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <!-- icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- jq -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- vue -->
+    <script src="./js/vue.js"></script>
+    <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
+    <title>籤詩管理</title>
+
+</head>
+<body>
+
+    <!------------------------------header---------------------------------->
+    <header class="header">
+        <nav class="nav navback" id="nav">
+        <div class="Logo"><img src="./images/logo.png"></div>
+            <div class="title"><h2>月老求籤 籤詩管理</h2></div>
+            <div class="logout">
+                <h3>
+                    登出
+                </h3>
+            </div>
+        </nav>
+    </header>    
+    <!-- wrapper請取自己的名稱，套用範例的格式 -->
+    <div id="backend" class="backstage-wrapper"> 
+
+            <!------------------------------內容---------------------------------->
+            
+                <!------------------------------側邊選單---------------------------------->
+        <aside>
+
+            <div class="username">
+                <h3 class="text" v-model="username">登入者 : {{username}}</h3>
+            </div>
+
+            <ul class="option">
+                <li class="list" v-for="list in lists">
+                    <a href="#" >
+                        <h3 class="listName" @click="backmenu(list)">
+                            {{list}}
+                        </h3>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <!------------------------------主要內容---------------------------------->
+
+        <main>
+            <div class="container">
+
+                <div class="editbar">
+                    <div class="bkbtn"><h3>新增籤詩</h3></div>
+                </div>
+
+                <table>
+                    <!-- 標題在thead class要按照下面方式寫才能吃到顏色-->
+                    <thead>
+                        <tr>
+                            <!-- td_***是設定寬度 -->
+                            <td class="thtd td_sexfat"><h3>1</h3></td>
+                            <td class="thtd"><h3>2</h3></td>
+                            <td class="thtd"><h3>3</h3></td>
+                            <td class="thtd"><h3>4</h3></td>
+                            <td class="thtd"><h3>5</h3></td>
+                            <td class="thtd"><h3>6</h3></td>
+                            <td class="thtd"><h3>7</h3></td>
+                        </tr>
+                    </thead>
+                    <!-- 內容在tbody，如果要新增行數就加一組tr -->
+                    <tbody>
+
+                        <tr>
+                            <td class="td_sexfat"><h3>列一</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列二</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列三</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列四</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列五</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列六</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列七</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列八</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列九</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+
+                        <tr>
+                            <td><h3>列十</h3></td>
+                            <td><h3>範例二</h3></td>
+                            <td><h3>範例三</h3></td>
+                            <td><h3>範例四</h3></td>
+                            <td><h3>範例五</h3></td>
+                            <td><h3>範例六</h3></td>
+                            <td><h3>範例七</h3></td>
+                        </tr>
+                        
+                    </tbody>
+
+                </table>
+            </div>
+        </main>
+
+
+    </div>
+
+    <!-- 後台js -->
+    <script src="./js/backstage.js"></script>
+</body>
+</html>

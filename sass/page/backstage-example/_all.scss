@@ -1,0 +1,12 @@
+// 請在_all.scss套用這個格式
+.backstage-wrapper {
+    display: flex;
+    background-color: #F0DED1;
+    height: 100%;
+
+    @include backstage; //引入後台版型
+    @include backstageBtn; //後台用btn
+
+    @include td (sexfat,25%); //td的寬度，class名稱要td_後面自己設名稱
+
+}

@@ -1,0 +1,153 @@
+@mixin backstage{
+    
+    .list {
+        text-align: center;
+        list-style: none;
+    }
+
+    .list:hover {
+        border-radius: 10px;
+        background-color: #FF7A7A;
+    }
+    
+    aside {
+        width: 15%;
+        // border: $bd;
+        margin: $BMargin;
+        @include flexCenter;
+        flex-direction: column;
+        position: fixed;
+
+        .username {
+            width : 100%;
+            @include flexCenter;
+            margin: 10% auto;
+            background-color: #FFE5BA;
+            border: 6px solid white;
+            border-radius: 10px;
+
+            .text {
+                color : #981A1A;
+            }
+        }
+    
+        .option {
+            width: 100%;
+            border: $bd;
+            margin: 0 10%;
+            background-color: #FFE5BA;
+            border: 6px solid white;
+            border-radius: 10px;
+            padding-inline-start: 0;
+        }
+
+        .list {
+            margin: 10% auto;
+        }
+
+        .list > * {
+            color: #981A1A;
+            text-decoration: none;
+        }
+
+        .listName {
+            font-weight: 400;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+    }
+ 
+    main {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        div.container {
+
+            margin: 2% 2%;
+            display: inline-block;
+            width: 70%;
+            border-radius: 10px;
+            margin-right: 5%;
+
+            .editbar {
+                display: flex;
+                margin: 0 auto;
+                margin-bottom: 2%;
+            }
+
+            table {
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                overflow: hidden;
+
+                thead, tbody {
+                    width: 100%;
+
+                    tr {
+                        display: flex;
+                        border-bottom: 1.5px solid white;
+
+                        .thtd {
+                            background-color: #ff7a7a;
+                            color: white;
+                        }
+
+                        td {
+                            display: flex;
+                            justify-content: center;
+                            width: 100%;
+                            padding: 2%;
+                            border-right: 1.5px solid white;
+                            background-color: #FFE5BA;
+                        }
+
+                        td:nth-last-child(1) {
+                            border-right: none;
+                        }
+
+                    }
+
+                    tr:nth-last-child(1) {
+                        border-bottom: none;
+                    }
+                    
+                }
+            }
+
+        }
+    }
+}
+
+@mixin insideScroll {
+    ::-webkit-scrollbar {
+        width: 15px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background-color: #FF8181; 
+        border-radius: 10px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #AC5454; 
+        border-radius: 10px;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background:#d65858; 
+      }
+}
+
+@mixin td ($name,$wd) {
+    .td_#{$name} {
+        width: $wd !important;
+    }
+}

@@ -59,7 +59,7 @@ var member = new Vue ({
         },
         getTime () {
             today = new Date();
-            date = today.getFullYear()+' '+(today.getMonth()+1)+' '+today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes();
+            date = today.getFullYear()+' '+ (today.getMonth()<10 ? '0' : '')  + (today.getMonth()+1)+' '+ (today.getDate()<10 ? '0' : '') + today.getDate() + ' ' + (today.getHours()<10 ? '0' : '') + today.getHours() + ':' + (today.getMinutes()<10 ? '0' : '') + today.getMinutes();
             return date;    
         },
         scrollTo () {
