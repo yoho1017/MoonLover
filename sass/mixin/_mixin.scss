@@ -560,6 +560,9 @@ h5 {
   border-radius: 30px;
 }
 
+
+
+
 //吉祥物圖片專用
 @mixin customerPic3() {
   height: 235px;
@@ -598,6 +601,9 @@ h5 {
   position: relative;
   border-radius: 15px;
 }
+
+//手機板480px客製化和非客製化專用外框大小
+
 
 //客製化和非客製化商品名稱
 @mixin easyCard {
@@ -699,6 +705,7 @@ $fontSize-basic:10px;
       background-color: #ff7a7a;
       display: flex;
       justify-content: center;
+      z-index: 5;
       .signBox_2 {
           margin: $sign_margin;
           padding: $sign_padding;
@@ -706,10 +713,12 @@ $fontSize-basic:10px;
           border: 5px solid #ac5454;
           width: $sign_width - $a;
           background-color: #fff8ce;
+          z-index: 5;
           .signBox_3 {
               @include margin_auto();
               margin: $sign_margin;
               background-color: #ac5454;
+              z-index: 5;
               .signBox_4 {
                   @include margin_auto();
                   font-size: 50px;
@@ -718,6 +727,7 @@ $fontSize-basic:10px;
                   background-color: #fff8ce;
                   text-align: center;
                   color: #ac5454;
+                  z-index: 5;
               }
           }
       }
@@ -725,24 +735,24 @@ $fontSize-basic:10px;
 }
 
 // 商品內容
-@mixin proToBox($Box, $wd, $i:null) {
+@mixin proToBox($Box, $i:null) {
   //自訂名稱,招牌寬度
   .proBox#{$Box} {
       @include margin_auto();
-      width: $wd;
       border-radius: 15px;
       background-color: #ff7a7a;
       display: flex;
       justify-content: center;
       position: relative;
+     
       .proInBox#{$Box} {
-          height: 500px;
-          margin: 10px;
-          border-radius: 10px;
-          border: 8px solid #ac5454;
-          width: $wd + 5%;
-          background-color: #fff8ce;
+        margin: 10px;
+        border-radius: 10px;
+        border: 8px solid #ac5454;
+        background-color: #fff8ce;
+        @content;
       }
+    @content;
   }
 }
 
@@ -760,6 +770,30 @@ $fontSize-basic:10px;
   color: white;
   &:hover {
       background-color: darken($bgc, 10);
+  }
+}
+
+@mixin signBoxShop( $sign_width, $sign_margin, $sign_padding, $a,$fz) {
+  .signBox_1 {
+      margin:auto;
+      margin: right;
+      // padding-top: 15px;
+      width: $sign_width;
+      border-radius: 12px;
+      background-color: #ff7a7a;
+      display: flex;
+      justify-content: center;
+      .signBox_2 {
+          margin: $sign_margin;
+          padding: $sign_padding;
+          border-radius: 12px;
+          border: 5px solid #ac5454;
+          width: $sign_width - $a;
+          background-color: #FFFFFF;
+          font-size: $fz;
+          font-weight: bold;
+          text-align: center;
+      }
   }
 }
 
