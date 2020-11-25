@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>moonMap</title>
 </head>
-<body>
+<body class="bgColorDefault">
 
    
    <!------------------------------header---------------------------------->
@@ -157,7 +157,7 @@
     <!-- 燈箱結束 -->
 
 
-    <div class="moonMap-wrapper">
+    <div class="moonMap-wrapper" id="moonMap">
         <div class="moonMap-block">
            
           
@@ -321,7 +321,7 @@
                             
                             <!-- 使用者新增貼文 -->
                             <div class="user-messBlock">
-                                <textarea id="user-message" v-model="message"></textarea>                                       
+                                <textarea id="user-message"></textarea>                                       
                                 <div class="imgBlock">
                                     <ul class="imgList">
                                         <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
@@ -347,7 +347,7 @@
                                 
                                 <!-- 使用者新增貼文 -->
                                 <div class="user-messBlock">
-                                    <textarea id="user-message">{{message}}</textarea>                                       
+                                    <textarea id="user-message"></textarea>                                       
                                     <div class="imgBlock">
                                         <!-- 貼文區圖片 -->
                                         <ul class="imgList2">

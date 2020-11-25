@@ -404,6 +404,14 @@ h5 {
   }
 }
 
+@mixin profileImg ($name,$wd) { //會員中心circle頭像
+  .#{$name}_img {
+      width: $wd;
+      height : $wd;
+      border-radius: 100px;
+  }
+}
+
 //=======================太田end==============================================
 
 
@@ -507,6 +515,11 @@ h5 {
   @else if $breakpoint=="xsmall" {
       @media all and (max-width: $screen-xs) {
           @content;
+      }
+  }
+  @else {
+      @media all and (max-width: $breakpoint) {
+        @content;
       }
   }
 }
