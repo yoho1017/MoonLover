@@ -15,6 +15,10 @@ div.MyOrder-wrapper {
     @include member;
     @include pinkBox(order, 100%);
 
+    .pinkBox_order {
+        height: $MHeight;
+    }
+
     .pinkBox_order .inBox_order {
         background-color: transparent;
         border: none;
@@ -25,12 +29,13 @@ div.MyOrder-wrapper {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
+        height: 100%;
     }
 
     .Mtbody {
         background-color: #FFF8CE;
-        height: 350px;
         overflow-y: auto;
+        border: 8px solid #FFF8CE;
     }
 
     @include insideScroll;
