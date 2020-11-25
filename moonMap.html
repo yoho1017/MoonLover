@@ -162,8 +162,8 @@
            
           
             <div class="signBox_map">
-                <div class="signInbox_map">
-                    台南大天后宮
+                <div class="signInbox_map" :tepmesg="value">
+                    {{tepmesg[5]}}
                 </div>           
             </div>
          
@@ -249,62 +249,16 @@
 
                     <!-- 美食景點內文 -->
                     <div class="sceneNew_map" id="style-1">
-                        <div class="newInBox_map">
-                            <div class="roundImg_map"><img src="./images/moonMap/咖啡icon.svg" alt="景點"></div>
+                        <div class="newInBox_map"v-for="(value,index) in mesg">
+                            <div class="roundImg_map"><img :src="value.src"></div>
                             <div class="sceneText">
-                                <h3>Share House Cafe</h3> 
-                                <p>僻靜巷弄裡的老屋咖啡店，是個適合歇腳放鬆的好去處。</p> 
-                                <p>營業時間：週二至周日 09:00-18:30</p>
-                                <p>地址：台南市中西區新美街111號</p>
-                            </div>
-                        </div>
-                        <div class="newInBox_map">
-                            <div class="roundImg_map"><img src="./images/moonMap/餐廳icon.svg" alt="景點"></div>
-                            <div class="sceneText">
-                                <h3>福泰飯桌</h3> 
-                                <p>有著許多人公認台南最好吃的蝦捲，還有晚來就點不到的紅燒肉，尖峰時刻總是座無虛席。</p> 
-                                <p>營業時間：周一至周五 07:30-14:30</p>
-                                <p>地址：台南市中西區民族路二段240號</p>
-                            </div>
-                        </div>
-                        <div class="newInBox_map">
-                            <div class="roundImg_map"><img src="./images/moonMap/餐廳icon.svg" alt="景點"></div>
-                            <div class="sceneText">
-                                <h3>松村煙燻滷味</h3> 
-                                <p>獨特煙燻味，鹹香帶甜味的在地口味，價格實惠，是來台南必買的伴手禮之一 。</p> 
-                                <p>營業時間：周一至周日11：30-21：30</p>
-                                <p>地址：台南市中西區民族路二段319號</p>
-                            </div>
-                        </div>
-                        <div class="newInBox_map">
-                            <div class="roundImg_map"><img src="./images/moonMap/景點icon.svg" alt="景點"></div>
-                            <div class="sceneText">
-                                <h3>赤崁文化園區</h3> 
-                                <p>早期台南舊城發展的中心，區內古蹟眾多，是台灣少數擁有荷蘭、鄭氏建築的文化園區。</p> 
-                                <p>營業時間：周一至週日08:30-21:30</p>
-                                <p>地址：台南市中西區民族路二段212號)</p>
-                            </div>
-                        </div>
-                        <div class="newInBox_map">
-                            <div class="roundImg_map"><img src="./images/moonMap/景點icon.svg" alt="景點"></div>
-                            <div class="sceneText">
-                                <h3>開基武廟原正殿</h3> 
-                                <p>為1669年全台灣首座興建的關帝廟，故名為「開基武廟」。又因該廟與祀典武廟同樣祭祀關公但且面積較小，因此一般人都稱此廟為小關帝廟。</p> 
-                                <p>營業時間：周一至周日 07:00-21:00</p>
-                                <p>地址：台南市中西區新美街114號</p>
-                            </div>
-                        </div>
-                        <div class="newInBox_map">
-                            <div class="roundImg_map"><img src="./images/moonMap/景點icon.svg" alt="景點"></div>
-                            <div class="sceneText">
-                                <h3>祀典武廟</h3> 
-                                <p>台最早關帝廟，也是當時官建的祀典廟宇之一，裡面祀奉正氣凜然的關聖帝君，也被稱為大關帝廟。</p> 
-                                <p>營業時間：周一至周日06:00~21:00</p>
-                                <p>地址：台南市中西區永福路二段229號</p>
+                                <h3>{{value.h3}}</h3> 
+                                <p>{{value.p1}}</p> 
+                                <p>{{value.p2}}</p>
+                                <p>{{value.p3}}</p>
                             </div>
                         </div>
                       
-
                     </div>
                 </div>
 
@@ -345,9 +299,11 @@
                                     <h3 class="userName">Diana</h3>
                                 </div>
                                 
-                                <!-- 使用者新增貼文 -->
+                                <!-- 使用者已貼文 -->
                                 <div class="user-messBlock">
-                                    <textarea id="user-message"></textarea>                                       
+                                    <div id="user-message02">
+                                        有家月老廟好靈驗的~要揪團嗎?
+                                    </div>                                       
                                     <div class="imgBlock">
                                         <!-- 貼文區圖片 -->
                                         <ul class="imgList2">
@@ -415,6 +371,7 @@
     </div>
   
     <script src="js/1_new.js"></script>
+    <script src="js/moonMap.js"></script>  
     <script src="./js/login.js"></script>
 </body>
 </html>
