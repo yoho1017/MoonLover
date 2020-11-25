@@ -67,7 +67,7 @@ $(document).ready(function() {
 });
 
 //moonMap 公版留言區 
-let moonmap=new Vue({
+new Vue({
   el:'#emple-message',
   data:{
     message:'',
@@ -76,6 +76,22 @@ let moonmap=new Vue({
 
   },
 });
+
+new Vue({
+  el:'#moonMapblock',
+  data:{
+    templemessage:[{name:'台北霞海城隍廟'},{name:'台北龍山寺'},{name:'台中慈德慈惠堂'},{name:'台中樂成宮'},{name:'雲林北港朝天宮'},{name:'台南大天后宮'}],
+    
+ },
+ components:{
+  'round-img':{
+    props:[""],
+   
+  },
+},
+methods:{
+},
+})
 
 
 

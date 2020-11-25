@@ -210,10 +210,13 @@
         padding: 15px;
         box-shadow: 0 0 5px 2px #ccc;
         .roundImg_map {
-          width: 15%;
+          width: 20%;
+          border: 1px solid black;
         }
         .sceneText {
+          width:70%;
           margin-left: 30px;
+          border: 1px solid black;
           h3 {
             color: #4d0810;
             font-size: 20px;
@@ -347,10 +350,11 @@
     .message_block {
       margin-top: 20px;
       overflow-y: scroll;
+      height: 500px;
       // border: 1px solid black;
       .userForm {
         width: 100%;
-        margin-top: 0;
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;      
