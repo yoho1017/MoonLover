@@ -10,6 +10,12 @@ var member = new Vue ({
             {id: 000001, date: '2020-10-16', price: '$ 300', status: '未出貨'},
             {id: 000002, date: '2020-10-18', price: '$ 600', status: '已完成'},
             {id: 000003, date: '2020-10-20', price: '$ 2000', status: '運送中'},
+            {id: 000003, date: '2020-10-20', price: '$ 2000', status: '運送中'},
+            {id: 000003, date: '2020-10-20', price: '$ 2000', status: '運送中'},
+            {id: 000003, date: '2020-10-20', price: '$ 2000', status: '運送中'},
+            {id: 000003, date: '2020-10-20', price: '$ 2000', status: '運送中'},
+            {id: 000003, date: '2020-10-20', price: '$ 2000', status: '運送中'},
+
         ],
         // 選取訂單明細id取得
         Odetail_data : '',
