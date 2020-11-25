@@ -517,6 +517,11 @@ h5 {
           @content;
       }
   }
+  @else {
+      @media all and (max-width: $breakpoint) {
+        @content;
+      }
+  }
 }
 
 // ===================== Dennis add for RWD end ===================
