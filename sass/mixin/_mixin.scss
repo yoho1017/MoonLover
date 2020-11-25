@@ -498,12 +498,12 @@ h5 {
 
 @mixin rwd($breakpoint) {
   @if $breakpoint=="large" {
-      @media all and (min-width: $screen-lg ) {
+      @media all and (max-width: $screen-lg ) {
           @content;
       }
   }
   @else if $breakpoint=="medium" {
-      @media all and (min-width: $screen-md ) {
+      @media all and (max-width: $screen-md ) {
           @content;
       }
   }
@@ -547,22 +547,22 @@ h5 {
 // -------------------------------------
 //客製化吉祥物圖片
 @mixin customerPic() {
-  height: 180px;
-  width: 170px;
+  height: 290px;
+  width: 252px;
   background-color: #7ed5ea;
-  border: 5px solid black;
+  border: 10px solid #FFFFFF;
   position: relative;
-  border-radius: 15px;
+  border-radius: 30px;
 }
 
 //吉祥物圖片專用
 @mixin customerPic3() {
-  height: 170px;
-  width: 170px;
+  height: 235px;
+  width: 235px;
   background-color: #ffeea8;
-  border: 5px solid black;
+  border: 10px solid #FFFFFF;
   position: relative;
-  border-radius: 15px;
+  border-radius: 30px;
 }
 
 @mixin PicContent1 {
@@ -572,9 +572,15 @@ h5 {
 }
 
 @mixin PicContent2() {
-  width: 160px;
-  height: 135px;
-  border-radius: 15px;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+
 }
 
 //客製化和非客製化專用
@@ -641,7 +647,7 @@ h5 {
 //商城-加入購物車按鈕
 @mixin shopCars() {
   margin: 0 auto;
-  bottom: 2px;
+  bottom: 10px;
   font-weight: bold;
   font-size: 16px;
   width:111px;

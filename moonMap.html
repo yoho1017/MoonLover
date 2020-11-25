@@ -177,6 +177,7 @@
 
             <!-- 粉紅外框 -->
             <div class="pinkBox_map">
+                <!-- 回地圖 -->
                 <div class="returnMap">
                     <a href="#">回地圖<i class="fas fa-arrow-circle-right fa-1x"></i></a>
                   </div>
@@ -308,26 +309,99 @@
                 </div>
 
                 <!-- 公版留言區 -->
-                <div class="inBox_map tab3">
-                    <form  class="form" action="#">
-                        <div class="userImg"></div>
-                        <div class="userBlock">
-                            <input type="text" v-modle=" message">
-                            <!-- <textarea name="input" id="input" cols="100" rows="5"></textarea> -->
-                            <div class="imgBlock">
-                                <ul class="imgList">
-                                    <li class="imgBut">按鈕</li>
-                                    <li class="img">照片一</li>
-                                </ul>
-                                <button type="submit" id="sumBut">新增貼文</button>
+                <div class="inBox_map tab3" id="emple-message">
+                    
+                    <!-- 使用者發布貼文區 -->
+                    <form  class="userForm" action="#">
+                        <div class="user_block">
+                            <div class="userImg_block">
+                                <div class="userImg"><img src="./images/moonMap/user01.jpg" alt="user01"></div>
+                                <h3 class="userName">Diana</h3>
+                            </div>
+                            
+                            <!-- 使用者新增貼文 -->
+                            <div class="user-messBlock">
+                                <textarea id="user-message" v-model="message"></textarea>                                       
+                                <div class="imgBlock">
+                                    <ul class="imgList">
+                                        <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
+                                        <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
+                                        <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>                                
+                                        <li class="imgBut"><i class="fas fa-plus-square fa-5x" id="addImg"></i></li>  
+                                    </ul>
+                                    <button type="submit" id="sumBut"><h3>新增貼文</h3></button>
+                                </div>                                
                             </div>
                         </div>
                     </form>
 
+                    <!-- 貼文區 -->
+                    <div class="message_block" id="style-1">
+                        <form  class="userForm" action="#" id="user-message">
+                            <i class="fas fa-exclamation-circle fa-1x end" id="edit" ></i>
+                            <div class="user_block">
+                                <div class="userImg_block">
+                                    <div class="userImg"><img src="./images/moonMap/user01.jpg" alt="user01"></div>
+                                    <h3 class="userName">Diana</h3>
+                                </div>
+                                
+                                <!-- 使用者新增貼文 -->
+                                <div class="user-messBlock">
+                                    <textarea id="user-message">{{message}}</textarea>                                       
+                                    <div class="imgBlock">
+                                        <!-- 貼文區圖片 -->
+                                        <ul class="imgList2">
+                                            <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
+                                            <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
+                                            <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>                                
+                                            <!-- <li class="imgBut"><i class="fas fa-plus-square fa-6x" id="addImg"></i></li>   -->
+                                        </ul>
+                                        <!-- <button type="submit" id="sumBut"><h3>新增貼文</h3></button> -->
+                                    </div>                                
+                                </div>
+                            </div>
+
+                            <!-- 訪客留言輸入框 -->
+                            <div class="input-block">
+                                <input type="text" class="visitors-input">
+                                <i class="fas fa-location-arrow fa-1x" id="arrow-but"></i>
+                            </div>
+
+                            <!-- 訪客留言區 -->
+                            <ul class="visitors-block">
+                               <li class="visitors-messagelist">
+                                   <div class="visitors-img"><img src="./images/moonMap/user02.jpg" alt="留言訪客照"></div>
+                                   <div class="visitors-message">揪團揪團揪團揪團</div>
+                                   <i class="fas fa-exclamation-circle fa-1x" id="edit"></i>
+                               </li>
+                               <li class="visitors-messagelist">
+                                    <div class="visitors-img"><img src="./images/moonMap/user02.jpg" alt="留言訪客照"></div>
+                                    <div class="visitors-message">揪團揪團揪團揪團</div>
+                                    <i class="fas fa-exclamation-circle fa-1x" id="edit"></i>
+                                </li>
+                               
+                               
+                            </ul>
+                        </form>
+
+                    </div>
+                  
+
+                   </form>
                 </div>
-                    <!-- 月老 -->
-                <div class="YueLao_block">
+                <!-- 月老 -->
+                <div class="YueLao_block tab1 on">
                     <div class="YueLao"><img src="./images/moonMap/月老.svg" alt="月老"></div>
+                    <div class="YueLaoCloud"><img src="./images/moonMap/月老座雲.svg" alt="月老座雲"></div>
+                </div> 
+
+                <div class="YueLao_block tab2">
+                    <div class="YueLao"><img src="./images/moonMap/月老.svg" alt="月老"></div>
+                    <div class="YueLaoCloud"><img src="./images/moonMap/月老座雲.svg" alt="月老座雲"></div>
+                </div> 
+
+                <div class="YueLao_block tab3">
+                    <div class="YueLao"><img src="./images/moonMap/月老2.svg" alt="月老"></div>
                     <div class="YueLaoCloud"><img src="./images/moonMap/月老座雲.svg" alt="月老座雲"></div>
                 </div> 
           
