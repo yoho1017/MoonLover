@@ -20,11 +20,8 @@ nav > .Logo > img {
 // ---------- layout ---------- //
 @import "layout/header";
 @import "layout/member";
-<<<<<<< HEAD
 @import "layout/backstage";
-=======
 @import "layout/bgSetting";
->>>>>>> fb7c677a743f55ab2783e83245732418b19cf4d3
 
 // ---------- page ---------- //
 // page_index
@@ -74,6 +71,7 @@ nav > .Logo > img {
 
 // ----------backstage-------- //
 @import "page/backstage-example/all";
+@import "page/backstage-draw/all";
 
 // ---------- plugins ---------- //
 @import "plugins/allplugin";
