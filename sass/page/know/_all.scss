@@ -179,6 +179,20 @@
                     right:-260px;
                     bottom:-80px;
 
+                    // @include rwd(medium){
+
+                    //     .love_god{
+                    //     position:absolute;
+                    //     right:-20px;
+                    //     bottom:-170px;
+
+                    //     img{
+                    //         width:100%;
+                    //     }
+
+                    //     }
+                    // }
+
                 }
 
                 .love_god_cloud{
@@ -186,6 +200,12 @@
                     position:absolute;
                     right:-290px;
                     bottom:-80px;
+
+                    // @include rwd(medium){
+                    //     position:absolute;
+                    //     right:-20px;
+                    //     bottom:-170px;
+                    // }
                     
                 }
             }
