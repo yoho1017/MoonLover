@@ -1,43 +1,47 @@
-@mixin signBoxShop( $sign_width, $sign_margin, $sign_padding, $a) {
-    .signBox_1 {
-        margin: right;
-        // padding-top: 15px;
-        width: $sign_width;
-        border-radius: 12px;
-        background-color: #ff7a7a;
-        display: flex;
-        justify-content: center;
-        .signBox_2 {
-            margin: $sign_margin;
-            padding: $sign_padding;
-            border-radius: 12px;
-            border: 5px solid #ac5454;
-            width: $sign_width - $a;
-            background-color: #FFFFFF;
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-        }
-    }
-}
 
 
-.shop-wrapper{
-    // border:1px solid white;
-    background-image: url('../images/index/花紋.svg');
+
+
+
+
+
+.bgShop{
+    background-image: url('/images/index/花紋.svg');
     background-repeat: repeat;
     background-position: center center;
     background-size: 20%;
     z-index: 0;
-    // height:100vh;
-    width: 100%;
+}
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+.shop-wrapper{
+    // border:1px solid white;
+    // background-image: url('/images/index/花紋.svg');
+    // background-repeat: repeat;
+    // background-position: center center;
+    // background-size: 20%;
+    // z-index: 0;
+  
+    
 //shop 招牌用
 #ad{
     padding-top:15px;
 }
 
 #CusPictures {
-    margin-top: 20px;
+    margin-top: 60px;
 }
 
 #CusImages {
@@ -48,12 +52,13 @@
     margin-top: 40px;
 }
 .container1{
+    border:1px solid red;
     // border:1px solid green;
     max-width: 1100px;
     width: 100%;
     margin: auto;
     position: relative;
-    @include signBoxShop(370px, 2px, 8px, 10px);
+    @include signBoxShop(370px, 2px, 8px, 10px,30px);
     .item_groups {
         @include item_groups();
         .CusPicture1 {
@@ -150,11 +155,21 @@
     position: relative;
     .orderImg {
         position: absolute;
-        right: -300px;
+        right:-80px;
+        transform:translateX(35%);
         bottom: 0;
         z-index: 0;
-        // border:1px solid red;
+        // width:100%;
+        border:1px solid red;
     }
+    // .oldperson{
+    //     border:1px solid red;
+     
+    //     width:300px;
+    //     height:200px;
+       
+
+    // }
     .cloud2 {
         position: absolute;
         right: -20px;
@@ -495,3 +510,95 @@
   }
     
 }
+
+/*_all.scss*/
+@media all and (max-width: 1347px) {
+    .shop-wrapper{
+    // @include signBoxShop(370px, 2px, 8px, 10px,30px);
+ .orderImg {
+        position: absolute;
+        left:-30px;
+        transform:translateX(35%);
+        bottom: 0;
+        z-index: 0;
+        // width:100%;
+        border:1px solid red;
+        // .cloud2{
+        //     display:none;
+        // }
+    }
+  }
+
+ }
+@media all and (max-width: 1247px) {
+    .shop-wrapper{
+    // @include signBoxShop(370px, 2px, 8px, 10px,30px);
+    .orderImg {
+               display:none;
+           }
+        }
+}
+@media all and (max-width:976px){
+    .shop-wrapper{
+    // @include signBoxShop(370px, 2px, 8px, 10px,30px);
+    .CusPicture1 {
+        margin: 20px 40px;
+    }
+    .CusPicture2 {
+        margin: 20px 40px;
+    }
+    .CusPicture3 {
+        margin: 20px 40px;
+    }
+    .CusPicture4 {
+        margin: 20px 40px;
+    }
+}
+}
+@media all and (max-width:865px){
+    .shop-wrapper{
+      @include signBoxShop(250px, 2px, 8px, 10px,20px);
+      #ad{
+        padding-top:50px;
+         }
+        .CusImage1 {
+            margin: 20px 45px;
+        }
+        .CusImage2 {
+            margin: 20px 45px;
+        }
+        .CusImage3 {
+            margin: 20px 45px;
+        }
+        .CusImage4 {
+            margin: 20px 45px;
+        }
+        .CusImage5 {
+            margin: 20px 45px;
+        }
+        .CusImage6 {
+            margin: 20px 45px;
+        }
+        .CusImage7 {
+            margin: 20px 45px;
+        }
+        .CusImage8 {
+            margin: 20px 45px;
+        }
+      }
+}
+@media all and (max-width:810px){
+.shop-wrapper{
+#ad{
+    padding-top:100px;
+}
+
+// @include signBoxShop(250px, 2px, 8px, 10px,20px);
+  
+}
+}
+
+
+  
+
+
