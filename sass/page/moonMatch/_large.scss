@@ -1,7 +1,17 @@
+// 共用斷點用字串帶入
 @include rwd(large) {
     .moonMatch-wrapper{
         .box {
             width: 300px;
+        }
+    }
+}
+
+// 自訂斷點直接填寫px數值
+@include rwd(1200px){
+    .moonMatch-wrapper{
+        .box{
+            width: 100px;
         }
     }
 }

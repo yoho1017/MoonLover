@@ -1,0 +1,327 @@
+div.MyMsg-wrapper {
+    
+    display: flex;
+    background-color: #F0DED1;
+    height: 100vh;
+    padding-top: 60px;
+
+    @mixin Mtext ($pd) {
+        .Mtext {
+            white-space: nowrap;
+            border-radius: 50px;
+            // border: 1px solid #000;
+            background-color: #fff;
+            padding: 1% 5%;
+            padding-#{$pd}: 15%;
+            margin: 2%;
+        }
+    }
+
+    @mixin Mtime ($pd) {
+        .Mtime {
+            // border: 1px solid #000;
+            height: 25%;
+            padding-#{$pd}: 7%;
+        }
+    }
+
+    @include member;
+    @include pinkBox(MyMsg, 100%);
+    @include pinkBox(inMsg, 100%);
+    @include insideScroll;
+    @include profileImg (person,60px);
+
+    .pinkBox_MyMsg {
+
+        height: $MHeight;
+
+        .inBox_MyMsg {
+            overflow-y: auto;
+            margin: 1% !important;
+            border: 8px solid #FFF8CE;
+            position: relative;
+    
+            .Msg {
+    
+                display: flex;
+                position: relative;
+                border-bottom: $pinkBorder2x;
+
+                .fas {
+                    position: absolute;
+                    top : 8%;
+                    right : 1%;
+                    color: #E0E0E0;
+                    cursor: pointer;
+                }
+    
+                .Mimage {
+                    @include flexCenter;
+                    // border: 1px solid red;
+                    width: 20%;
+                    padding: 1%;
+                    position: relative;
+
+                    .newMsg {
+                        width: 30px;
+                        height: 30px;
+                        position: absolute;
+                        top: 10%;
+                        left: 20%;
+                        border-radius: 100px;
+                        background-color: #7ED5EA;
+                        @include flexCenter;
+                        @include display;
+
+                        h2 {
+                            color: white;
+                        }
+                    }
+                }
+    
+                .Mcontent {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    // border: 1px solid blue;
+                    width: 60%;
+    
+                    .username {
+                        // border: 1px solid #000;
+                    }
+    
+                    .receiveMsg {
+                        // border: 1px solid #000;
+                    }
+                    
+                    .msgh3 {
+                        font-weight: normal;
+                    }
+                }
+    
+                .Mbtn {
+                    @include flexCenter;
+                    @include btn(read, 40%, 3%);
+    
+                    // border: 1px solid pink;
+                    width: 20%;
+    
+                }
+    
+            }
+        }
+
+    }
+
+    @include pop(block);
+
+    .blockPerson {
+        width: 50%;
+        position: fixed;
+        // background-color: blue;
+        @include flexCenter;
+
+        .inbox {
+            width: 70%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #FFF8CE;
+            border: 8px solid #ff7a7a;
+            padding: 10%;
+            border-radius: 20px;
+            position: relative;
+
+            .title {
+                margin : 5% auto;
+            }
+            
+            .string {
+                margin : 5% auto;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                .text {
+                    font-size: 16px;
+                    resize: none;
+                    margin-bottom: 10%;
+                }
+
+                @include btn(submit, 40%, 4%);
+                @include times-circle; //關閉按鈕
+                @include times-circle-position (40px, -25px, -20px);
+            }
+
+
+            
+        }
+    }
+
+    .pinkBox_inMsg {
+        height: $MHeight;
+
+        .inBox_inMsg {
+
+            margin: 1%;
+            border: none;
+            position: relative;
+
+            .msgbox {
+                overflow-y: auto;
+                // border: 1px solid black;
+                max-height: 85%;
+
+                .reiceive {
+
+                    display: flex;
+                    align-items: center;
+                    // border: 1px solid #000;
+    
+                    .img_box {
+                        width: 20%;
+                        @include flexCenter;
+                        // border: 1px solid #000;
+                    }
+    
+                    .textbox {
+                        display: flex;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        width: 80%;
+                        // border: 1px solid black;
+                    }
+    
+                    .upspace {
+                        border: 1px solid #000;
+                        height: 25%
+                    }
+    
+                    @include Mtext (right);
+    
+                    @include Mtime (left);
+    
+                }
+
+                .send {
+                    display: flex;
+                    align-items: center;
+                    // border: 1px solid #000;
+    
+                    .img_box {
+                        width: 20%;
+                        @include flexCenter;
+                        // border: 1px solid #000;
+                    }
+    
+                    .textbox {
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        width: 80%;
+                        // border: 1px solid black;
+                    }
+    
+                    .upspace {
+                        // border: 1px solid #000;
+                        height: 25%
+                    }
+    
+                    @include Mtext (left);
+    
+                    @include Mtime (right);
+    
+                }
+
+            }
+
+        }
+
+        .input_send {
+            width: 95%;
+            left: 50%;
+            transform: translate(-50%, -20px);
+            // border: 1px solid #000;
+            position: absolute;
+            bottom: 0;
+
+            .send_form {
+                @include flexCenter;
+
+                .msg_input {
+                    width: calc(100% - 65px);
+                    height: 50px;
+                    font-size: 20px;
+                    border-radius: 30px 0 0 30px;
+                    border: none;
+                    border-top: 1.5px solid #FF7A7A;
+                    border-bottom: 1.5px solid #FF7A7A;
+                    border-left: 1.5px solid #FF7A7A;
+                    padding-left: 20px;
+                    outline: none;
+                }
+
+                .sending_btn {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 100px;
+                    background-color: #FF7A7A;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:hover {
+                        background-color: #ac5454;
+
+                        .fas {
+                            animation-name: sendHover;
+                            animation-duration: 1s;
+                            animation-iteration-count: infinite;
+                            @keyframes sendHover {
+                                0% {
+                                    transform: translate(0) scaleX(-1);
+                                }
+                                50% {
+                                    transform: translate(10px,10px) scaleX(-1);
+                                }
+                                100% {
+                                    transform: translate(0) scaleX(-1);
+                                }
+                            }
+                        }
+
+                    }
+
+                    .fas {
+                        font-size: 30px;
+                        transform: scaleX(-1);
+                        color: white;
+                    }
+                }
+
+                .sending_btn::after {
+                    content: "";
+                    width: 25px;
+                    height: 50px - 3px;
+                    background-color: white;
+                    top: 0px;
+                    left: 0px;
+                    border-top: 1.5px solid #FF7A7A;
+                    border-bottom: 1.5px solid #FF7A7A;
+                    position: absolute;
+                    z-index: -1;
+                }
+
+            }
+
+        }
+
+    }
+
+}
