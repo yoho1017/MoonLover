@@ -20,7 +20,11 @@ nav > .Logo > img {
 // ---------- layout ---------- //
 @import "layout/header";
 @import "layout/member";
+<<<<<<< HEAD
 @import "layout/backstage";
+=======
+@import "layout/bgSetting";
+>>>>>>> fb7c677a743f55ab2783e83245732418b19cf4d3
 
 // ---------- page ---------- //
 // page_index
@@ -38,12 +42,24 @@ nav > .Logo > img {
 @import "page/moonMatch/small";
 @import "page/moonMatch/xsmall";
 
+
+
+
+
 //page_moonShop
 @import "page/moonShop/all";
+@import "page/moonShop/large";
+@import "page/moonShop/medium";
+@import "page/moonShop/small";
+@import "page/moonShop/xsmall";
 //page_moonShopCar
 @import "page/moonShopCar/all";
 //page_moonShopDet
 @import "page/moonShopDet/all";
+@import "page/moonShopDet/large";
+@import "page/moonShopDet/medium";
+@import "page/moonShopDet/small";
+@import "page/moonShopDet/xsmall";
 
 
 
