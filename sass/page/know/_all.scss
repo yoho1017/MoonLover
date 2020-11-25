@@ -82,19 +82,27 @@
                   
                 }
 
-                h5{
-                   font-size: map-get($font_size,'h5');
+                .next_page{
+
+                   p{
+                   font-size: map-get($font_size,'h3');
+                   margin:0 auto;
                    cursor: pointer;
-                    
+                   display: inline-flex;
+                   vertical-align: middle;
+               
+
+                    }
                         .switch_page{
                             display: inline-flex;
-                            vertical-align: text-bottom;
 
                                 .switch_page_d{
-                                    max-width: 14px;
-                                    margin:0px;
+                                    max-width: 24px;
+                                    margin-left:10px;
+                                    
 
                                         img{
+                                            vertical-align: middle;
                                             margin:0px;
                                             padding:0px;
                                             
@@ -258,19 +266,27 @@
                 margin:0px;
             }
 
-            h5{
-                font-size: map-get($font_size,'h5');
+            .next_page{
+
+                p{
+                font-size: map-get($font_size,'h3');
+                margin:0 auto;
                 cursor: pointer;
-                 
+                display: inline-flex;
+                vertical-align: middle;
+            
+
+                 }
                      .switch_page{
                          display: inline-flex;
-                         vertical-align: text-bottom;
 
                              .switch_page_d{
-                                 max-width: 14px;
-                                 margin:0px;
+                                 max-width: 24px;
+                                 margin-left:10px;
+                                 
 
                                      img{
+                                         vertical-align: middle;
                                          margin:0px;
                                          padding:0px;
                                          
@@ -278,7 +294,6 @@
                              }
                              
                      }
-
             }
                  
             h2{
