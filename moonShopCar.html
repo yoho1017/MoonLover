@@ -45,28 +45,33 @@
       height: 100%;
     }
 
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
+    /* body { */
+      /* background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+      /* font-size: 14px; */
+      /* color: #000;
       margin: 0;
-      padding: 0;
-    }
-
+      padding: 0; */
+    /* } */
+/* 
     .swiper-container {
+    max-width:992px;
      padding:10px;
       width: 100%;
       height: 100%;
       margin-top:130px;
-    }
+      display:flex;
+      flex-wrap: wrap;
 
-    .swiper-slide {
+    } */
+
+    /* .swiper-slide {
       text-align: center;
       font-size: 18px;
-      background: #fff;
-      width:130px;
-      height:320px;
+    
+      width:100%;
+      max-height:320px; 
+      height:350px; */
       
 
       /* Center slide text vertically */
@@ -82,11 +87,11 @@
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center; */
-    }
+    /* } */
   </style>
 </head>
 
-<body>
+<body class="bgColorDefault bgImgCloud">
      <!------------------------------header---------------------------------->
      <header class="header">
         <nav class="nav" id="nav">
@@ -222,37 +227,40 @@
         </div>
     </div>
 
-    <!-- 商品內容 -->
-    <div id="product">
-        <div class="container">
-            <div class="proBox1">
-                <div class="proInBox1">
+
+    
+
+<!-- 商品內容 -->
+    <!-- <div id="product">
+        <div class="container"> --> 
+            <!-- <div class="proBox1"> -->
+               <!-- <div class="proInBox1">
                     <div class="carContainer">
-                        <table class="cart-title">
+                        <table class="cart-title"> 
                             <thead>
                                 <tr>
                                     <td>商品圖片</td>
                                     <td>商品名稱</td>
                                     <td>單價</td>
                                     <td>數量</td>
-                                    <td>小計</td>
+                                    <td>小計</td>  -->
                                     <!--<th>可買量</th>-->
-                                    <td>刪除</td>
+                                     <!-- <td>刪除</td>
                                 </tr>
                             </thead>
                         </table>
                         <table class="product-title">
                             <thead>
                                 <tr>
-                                    <td class="pt1">
-                                     
-                                    </td>
-                                    <td class="pt1">商品名稱</td>
-                                    <td class="pt1">單價</td>
-                                    <td class="pt1">數量</td>
-                                    <td class="pt1">小計</td>
+                                    <td class="pt"> --> 
+                                      <!-- <img src="/images/moonShop/悠遊卡.png" alt="悠遊卡" width="10px" height:="10px"> -->
+                                    <!-- </td>
+                                    <td class="pt1">客製化悠遊卡</td>
+                                    <td class="pt2">NT.1000</td>
+                                    <td class="pt3">8</td>
+                                    <td class="pt3">NT.8000</td> -->
                                     <!--<th>可買量</th>-->
-                                    <td class="pt2">刪除</td>
+                                    <!-- <td class="pt4">刪除</td>
                                 </tr>
                             </thead>
                         </table>
@@ -262,16 +270,89 @@
                     </div>
                     <div id="button">
                         <div class="container">
-                            <div class="btn_groups">
+                           <div class="btn_groups">
                                 <div class="btnBlue">繼續購物</div>
-                                <div class="btnRed">加入購物車</div>
+                                    <div class="btnRed">前往結帳</div>
+                                </div>
                             </div>
+                        </div>
+                   </div>
+               -->
+            <!-- </div> -->
+         <!-- </div>
+    </div> -->
+
+<!-- 招牌重新做------------------------------------------------ -->
+<!-- <div id="adre">
+        <div class="container">
+                <div class="adouter">
+                    <div class="adinner">
+                         購物車
+                    </div>
+                </div>
+          </div>
+</div> -->
+<!-- 招牌重新做end------------------------------------------------ -->
+
+
+
+<!-- 商品內容(重新做) ------------------------------------------->
+<div id="things">
+    <div class="container">
+        <div class="thins_total">
+            <div class="thingsContent">
+                <table class="cars_titles">
+                 <thead>
+                     <tr>
+                         <td>商品圖片</td>
+                        <td>商品名稱</td>
+                        <td>單價</td>
+                        <td>數量</td>
+                        <td>小計</td>
+                        <!--<th>可買量</th>-->
+                        <td>刪除</td>
+                    </tr>
+                </thead>
+            </table>
+                <table class="cars_contents">
+                    <thead>
+                        <tr>
+                            <td>
+                            <!-- <img src="/images/moonShop/悠遊卡.png" alt="悠遊卡" width="150px" height:="150px"> -->
+                            </td>
+                            <td>客製化悠遊卡</td>
+                            <td>NT.1000</td>
+                            <td>8</td>
+                            <td>NT.8000</td>
+                                <!--<th>可買量</th>-->
+                            <td class="contents_delete"><p>刪除</p></td>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="cars_items">
+                    <p>總價NT.<span id="sumTotal">0</span></p>
+                </div>
+                <div id="cars_button">
+                    <div class="container">
+                       <div class="carsbtn_groups">
+                            <div class="cars_btnBlue">繼續購物</div>
+                            <div class="cars_btnRed">前往結帳</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<!-- 商品內容(結束) -------------------------------------------->
+
+
+
+
+
+
     <!-- 推薦商品 -->
     <div id="ad">
         <div class="container">
@@ -287,14 +368,14 @@
         </div>
     </div>
 
-    <!-- Swiper -->
- 
+    <!-- Swiper  -->
+
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
      <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="200px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -304,11 +385,11 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
     </div>
       <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="220px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -318,12 +399,12 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
     </div>
       <div class="swiper-slide">  
      <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="220px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -333,11 +414,11 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
     </div>
       <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="220px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -347,11 +428,11 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
     </div>
       <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="220px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -361,12 +442,14 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars">
+          <div class="innerCars">加入購物車</div>
+        </div>
     </div>
     <div class="swiper-slide">  
       <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="220px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -376,11 +459,11 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
     </div>
       <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="220px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -390,11 +473,11 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
     </div>
       <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="220px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -404,11 +487,11 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
     </div>
       <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="220px">
+          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
       </div>
       <div class="ImagePrice1">300</div>
       <div class="proAmount">
@@ -418,32 +501,32 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars">加入購物車</div>
+      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
     </div>
 
-    </div>
+    </div> 
     <!-- Add Pagination -->
     <!-- <div class="swiper-pagination"></div> -->
-  </div>
+  <!-- </div> -->
 
   <!-- Swiper JS -->
-  <script src="../package/swiper-bundle.min.js"></script>
+   <script src="../package/swiper-bundle.min.js"></script> 
 
   <!-- Initialize Swiper -->
   <script>
     var swiper = new Swiper('.swiper-container', {
       slidesPerView: 4,
       spaceBetween: 30,
-    //   pagination: {
+    // <!-- //   pagination: {
     //     el: '.swiper-pagination',
     //     clickable: true,
-    //   },
+    //   }, -->
     });
   </script>
     
 
-<script src="./js/1_new.js"></script>
-<script src="./js/login.js"></script>
+ <script src="./js/1_new.js"></script>
+<script src="./js/login.js"></script> 
     </div>
 </body>
 

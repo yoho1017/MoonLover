@@ -1,3 +1,38 @@
-@include rwd(small) {
-   
+//It is 768px
+@include rwd(648px) {
+    .shop-wrapper{
+        .container1{
+            .item_groups{      
+                .CusPicture4{
+                    margin-top:30px;
+                }
+            }
+        }
+        #pagination1{
+                margin-top:50px;
+        }
+    }
+}
+
+
+
+@include rwd(578px){
+    .shop-wrapper{
+        .container{
+            .item_groups{
+                .CusImage2{
+                    margin-top:20px;   
+                }
+                .CusImage4{
+                    margin-top:20px;    
+                }
+                .CusImage6{
+                    margin-top:20px;  
+                }
+                .CusImage8{
+                    margin-top:20px;  
+                }
+            }
+        }
+    }
 }

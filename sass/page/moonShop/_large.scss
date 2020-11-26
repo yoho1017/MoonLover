@@ -1,497 +1,519 @@
 /* _large.scss */
 @include rwd(large) {
-    .bgShop{
-        background-image: url('/images/index/花紋.svg');
-        background-repeat: repeat;
-        background-position: center center;
-        background-size: 20%;
-        z-index: 0;
+    
+.shop-wrapper{
+    // border:1px solid white;
+    // background-image: url('/images/index/花紋.svg');
+    // background-repeat: repeat;
+    // background-position: center center;
+    // background-size: 20%;
+    // z-index: 0;
+  
+    
+//shop 招牌用
+#ad{
+    padding-top:15px;
+}
+
+#CusPictures {
+    margin-top: 60px;
+}
+
+#CusImages {
+    margin-top: 60px;
+}
+
+#NonCusImages {
+    margin-top: 40px;
+}
+.container1{
+    // border:1px solid red;
+    // border:1px solid green;
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    @include signBoxShop(370px, 2px, 8px, 10px,30px);
+    .item_groups {
+        @include item_groups();
+        .CusPicture1 {
+            @include customerPic();
+            .PicContent1 {
+                @include PicContent1();
+            }
+            p {
+                position: absolute;
+                text-align: center;
+                bottom: 3px;
+                font-size: 23px;
+                left:50%;
+                transform:translateX(-50%);
+                
+            }
+            .tran {
+                position: absolute;
+                bottom: -50px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0px;
+                height: 0px;
+                border-top: 30px solid #FFFFFF;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+            }
+            .tran1 {
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0px;
+                height: 0px;
+                border-top: 20px solid#7ed5ea;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-bottom: 13px solid transparent;
+            }
+        }
+        .CusPicture2 {
+            padding:10px;
+            @include customerPic3();
+            .PicContent2 {
+                @include PicContent2();
+            }
+            p {
+                position: absolute;
+                bottom: 2px;
+                left:50%;
+                transform:translateX(-50%);
+                font-size: 20px;
+            }
+        }
+        .CusPicture3 {
+            padding:10px;
+            @include customerPic3();
+            .PicContent2 {
+                @include PicContent2();
+            }
+            p {
+                position: absolute;
+                bottom: 2px;
+                left:50%;
+                transform:translateX(-50%);
+                font-size: 20px;
+            }
+        }
+        .CusPicture4 {
+            padding:10px;
+            @include customerPic3();
+            .PicContent2 {
+                @include PicContent2();
+            }
+            p {
+                position: absolute;
+                bottom: 2px;
+                left:50%;
+                transform:translateX(-50%);
+                font-size: 20px;
+            }
+        }
+
+     }
+  }
+
+
+
+.container {
+    // border:1px solid blue;
+    @include container();
+  
+    position: relative;
+    .orderImg {
+        // position:fixed;
+        // right:0;
+        // bottom: 0;
+        // z-index: 0;
+        // width:100%;
+        // border:1px solid red;
     }
-        
-        
-        
-        .shop-wrapper{
-            // border:1px solid white;
-            // background-image: url('/images/index/花紋.svg');
-            // background-repeat: repeat;
-            // background-position: center center;
-            // background-size: 20%;
-            // z-index: 0;
-            
-            
-            //shop 招牌用
-            #ad{
-                padding-top:15px;
-            }
-            
-            #CusPictures {
-                margin-top: 20px;
-            }
-            
-            #CusImages {
-                margin-top: 60px;
-            }
-            
-            #NonCusImages {
-                margin-top: 40px;
-            }
-                    
-            .container1{
-                // border:1px solid green;
-                max-width: 1100px;
-                width: 100%;
-                margin: auto;
-                position: relative;
-                // @include signBoxShop(370px, 2px, 8px, 10px,30px);
-                .item_groups {
-                    @include item_groups();
-                    .CusPicture1 {
-                        @include customerPic();
-                        .PicContent1 {
-                            @include PicContent1();
-                        }
-                p {
-                    position: absolute;
-                    text-align: center;
-                    bottom: 3px;
-                    font-size: 23px;
-                    left:50%;
-                    transform:translateX(-50%);
-                    
-                }
-                .tran {
-                    position: absolute;
-                    bottom: -50px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 0px;
-                    height: 0px;
-                    border-top: 30px solid #FFFFFF;
-                    border-left: 20px solid transparent;
-                    border-right: 20px solid transparent;
-                    border-bottom: 20px solid transparent;
-                }
-                .tran1 {
-                    position: absolute;
-                    bottom: -30px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 0px;
-                    height: 0px;
-                    border-top: 20px solid#7ed5ea;
-                    border-left: 15px solid transparent;
-                    border-right: 15px solid transparent;
-                    border-bottom: 13px solid transparent;
-                }
-            }
-            .CusPicture2 {
-                padding:10px;
-                @include customerPic3();
-                .PicContent2 {
-                    @include PicContent2();
-                }
-                p {
-                    position: absolute;
-                    bottom: 2px;
-                    left:50%;
-                    transform:translateX(-50%);
-                    font-size: 20px;
-                }
-            }
-            .CusPicture3 {
-                padding:10px;
-                @include customerPic3();
-                .PicContent2 {
-                    @include PicContent2();
-                }
-                p {
-                    position: absolute;
-                    bottom: 2px;
-                    left:50%;
-                    transform:translateX(-50%);
-                    font-size: 20px;
-                }
-            }
-            .CusPicture4 {
-                padding:10px;
-                @include customerPic3();
-                .PicContent2 {
-                    @include PicContent2();
-                }
-                p {
-                    position: absolute;
-                    bottom: 2px;
-                    left:50%;
-                    transform:translateX(-50%);
-                    font-size: 20px;
-                }
-            }
-    
-         }
-      }
-    
-    
-    
-    .container {
+    // .oldperson{
+    //     border:1px solid red;
+     
+    //     width:300px;
+    //     height:200px;
+       
+
+    // }
+    .cloud2 {
+        position: absolute;
+        right: -20px;
+        z-index: 33;
+        bottom: 0;
         // border:1px solid blue;
-        @include container();
-      
-        position: relative;
-        .orderImg {
-            position: absolute;
-            right:-80px;
-            transform:translateX(-35%);
-            bottom: 0;
-            z-index: 0;
-            // width:100%;
-            border:1px solid red;
-        }
-        // .oldperson{
-        //     border:1px solid red;
-         
-        //     width:300px;
-        //     height:200px;
+    }
+    .item_groups {
+        @include item_groups();
+     
+        // 客制化圖片
+        .CusImage1 {
+            padding:8px;
+            @include customerImg();
+            .easyCard {
+                @include easyCard();
+            }
+            .ImagePrice1 {
+                @include ImagePrice1();
+            }
+            .shopCars {
+                @include shopCars();
+            }
+            .ImageContent1 {
+                @include productsImg();
            
-    
-        // }
-        .cloud2 {
-            position: absolute;
-            right: -20px;
-            z-index: 33;
-            bottom: 0;
-            // border:1px solid blue;
-        }
-        .item_groups {
-            @include item_groups();
-         
-            // 客制化圖片
-            .CusImage1 {
-                padding:8px;
-                @include customerImg();
-                .easyCard {
-                    @include easyCard();
-                }
-                .ImagePrice1 {
-                    @include ImagePrice1();
-                }
-                .shopCars {
-                    @include shopCars();
-                }
-                .ImageContent1 {
-                    @include productsImg();
-               
-                }
-                .qty {
-                    @include qty();
-                   vertical-align: text-bottom;
-                }
-                .proAmount {
-                     text-align:center;
-                    bottom: 35px;
-                  
-                }
-                .proAmount i{
-                    margin-top:5px;
-                    color:#7ed5ea;
-                }
-               
-                .qty_plus {
-                    @include qty_plus();
-                }
-                .qty_minus {
-                    @include qty_minus();
-                }
             }
-            .CusImage2 {
-                padding:8px;
-                @include customerImg();
-                .easyCard {
-                    @include easyCard();
-                }
-                .ImagePrice1 {
-                    @include ImagePrice1();
-                }
-                .shopCars {
-                    @include shopCars();
-                }
-                .ImageContent1 {
-                    @include productsImg();
-               
-                }
-                .qty {
-                    @include qty();
-                   vertical-align: text-bottom;
-                }
-                .proAmount {
-                     text-align:center;
-                    bottom: 35px;          
-                }
-                .proAmount i{
-                    margin-top:5px;
-                    color:#7ed5ea;
-                }
-                .qty_plus {
-                    @include qty_plus();
-                }
-                .qty_minus {
-                    @include qty_minus();
-                }
+            .qty {
+                @include qty();
+               vertical-align: text-bottom;
             }
-            .CusImage3 {
-                padding:8px;
-                @include customerImg();
-                .easyCard {
-                    @include easyCard();
-                }
-                .ImagePrice1 {
-                    @include ImagePrice1();
-                }
-                .shopCars {
-                    @include shopCars();
-                }
-                .ImageContent1 {
-                    @include productsImg();
+            .proAmount {
+                 text-align:center;
+                bottom: 35px;
               
-                }
-                .qty {
-                    @include qty();
-                   vertical-align: text-bottom;
-                }
-                .proAmount {
-                     text-align:center;
-                    bottom: 35px;
-                  
-                }
-                .proAmount i{
-                    margin-top:5px;
-                    color:#7ed5ea;
-                }
-                .qty_plus {
-                    @include qty_plus();
-                }
-                .qty_minus {
-                    @include qty_minus();
-                }
             }
-            .CusImage4 {
-                padding:8px;
-                @include customerImg();
-                .easyCard {
-                    @include easyCard();
-                }
-                .ImagePrice1 {
-                    @include ImagePrice1();
-                }
-                .shopCars {
-                    @include shopCars();
-                }
-                .ImageContent1 {
-                    @include productsImg();
-                 
-                }
-                .qty {
-                    @include qty();
-                   vertical-align: text-bottom;
-                }
-                .proAmount {
-                     text-align:center;
-                    bottom: 35px;
-                  
-                }
-                .proAmount i{
-                    margin-top:5px;
-                    color:#7ed5ea;
-                }
-                .qty_plus {
-                    @include qty_plus();
-                }
-                .qty_minus {
-                    @include qty_minus();
-                }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
-            // 非客制化圖片
-            .CusImage5 {
-                padding:8px;
-                @include customerImg();
-                .easyCard {
-                    @include easyCard();
-                }
-                .ImagePrice1 {
-                    @include ImagePrice1();
-                }
-                .shopCars {
-                    @include shopCars();
-                }
-                .ImageContent1 {
-                    @include productsImg();
-               
-                }
-                .qty {
-                    @include qty();
-                   vertical-align: text-bottom;
-                }
-                .proAmount {
-                     text-align:center;
-                    bottom: 35px;
-                  
-                }
-                .proAmount i{
-                    margin-top:5px;
-                    color:#7ed5ea;
-                }
-                .qty_plus {
-                    @include qty_plus();
-                }
-                .qty_minus {
-                    @include qty_minus();
-                }
+           
+            .qty_plus {
+                @include qty_plus();
             }
-            .CusImage6 {
-                padding:8px;
-                @include customerImg();
-                .easyCard {
-                    @include easyCard();
-                }
-                .ImagePrice1 {
-                    @include ImagePrice1();
-                }
-                .shopCars {
-                    @include shopCars();
-                }
-                .ImageContent1 {
-                    @include productsImg();
+            .qty_minus {
+                @include qty_minus();
+            }
+        }
+        .CusImage2 {
+            padding:8px;
+            @include customerImg();
+            .easyCard {
+                @include easyCard();
+            }
+            .ImagePrice1 {
+                @include ImagePrice1();
+            }
+            .shopCars {
+                @include shopCars();
+            }
+            .ImageContent1 {
+                @include productsImg();
+           
+            }
+            .qty {
+                @include qty();
+               vertical-align: text-bottom;
+            }
+            .proAmount {
+                 text-align:center;
+                bottom: 35px;          
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
+            }
+            .qty_plus {
+                @include qty_plus();
+            }
+            .qty_minus {
+                @include qty_minus();
+            }
+        }
+        .CusImage3 {
+            padding:8px;
+            @include customerImg();
+            .easyCard {
+                @include easyCard();
+            }
+            .ImagePrice1 {
+                @include ImagePrice1();
+            }
+            .shopCars {
+                @include shopCars();
+            }
+            .ImageContent1 {
+                @include productsImg();
+          
+            }
+            .qty {
+                @include qty();
+               vertical-align: text-bottom;
+            }
+            .proAmount {
+                 text-align:center;
+                bottom: 35px;
               
-                }
-                .qty {
-                    @include qty();
-                   vertical-align: text-bottom;
-                }
-                .proAmount {
-                     text-align:center;
-                    bottom: 35px;
-                  
-                }
-                .proAmount i{
-                    margin-top:5px;
-                    color:#7ed5ea;
-                }
-                .qty_plus {
-                    @include qty_plus();
-                }
-                .qty_minus {
-                    @include qty_minus();
-                }
             }
-            .CusImage7 {
-                padding:8px;
-                @include customerImg();
-                .easyCard {
-                    @include easyCard();
-                }
-                .ImagePrice1 {
-                    @include ImagePrice1();
-                }
-                .shopCars {
-                    @include shopCars();
-                }
-                .ImageContent1 {
-                    @include productsImg();
-                   
-                }
-                .qty {
-                    @include qty();
-                   vertical-align: text-bottom;
-                }
-                .proAmount {
-                     text-align:center;
-                    bottom: 35px;
-                  
-                }
-                .proAmount i{
-                    margin-top:5px;
-                    color:#7ed5ea;
-                }
-                .qty_plus {
-                    @include qty_plus();
-                }
-                .qty_minus {
-                    @include qty_minus();
-                }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
             }
-            .CusImage8 {
-                padding:8px;
-                @include customerImg();
-                .easyCard {
-                    @include easyCard();
-                }
-                .ImagePrice1 {
-                    @include ImagePrice1();
-                }
-                .shopCars {
-                    @include shopCars();
-                }
-                .ImageContent1 {
-                    @include productsImg();
-                }
-                .qty {
-                    @include qty();
-                   vertical-align: text-bottom;
-                }
-                .proAmount {
-                     text-align:center;
-                    bottom: 35px;
-                  
-                }
-                .proAmount i{
-                    margin-top:5px;
-                    color:#7ed5ea;
-                }
-                .qty_plus {
-                    @include qty_plus();
-                }
-                .qty_minus {
-                    @include qty_minus();
-                }
+            .qty_plus {
+                @include qty_plus();
+            }
+            .qty_minus {
+                @include qty_minus();
             }
         }
-        
-        
-    
-        .pagination {
-        margin-top: 20px;
-        width: 100%;
-        display: block;
-        font-size: 0;
-        text-align: center;
-        padding-bottom: 20px;
+        .CusImage4 {
+            padding:8px;
+            @include customerImg();
+            .easyCard {
+                @include easyCard();
+            }
+            .ImagePrice1 {
+                @include ImagePrice1();
+            }
+            .shopCars {
+                @include shopCars();
+            }
+            .ImageContent1 {
+                @include productsImg();
+             
+            }
+            .qty {
+                @include qty();
+               vertical-align: text-bottom;
+            }
+            .proAmount {
+                 text-align:center;
+                bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
+            }
+            .qty_plus {
+                @include qty_plus();
+            }
+            .qty_minus {
+                @include qty_minus();
+            }
         }
-    
-        table .pagination ul {
-        // border: 1px solid black;
-        display: inline-block;
-        font-size: 20px;
-        color: black;
+        // 非客制化圖片
+        .CusImage5 {
+            padding:8px;
+            @include customerImg();
+            .easyCard {
+                @include easyCard();
+            }
+            .ImagePrice1 {
+                @include ImagePrice1();
+            }
+            .shopCars {
+                @include shopCars();
+            }
+            .ImageContent1 {
+                @include productsImg();
+           
+            }
+            .qty {
+                @include qty();
+               vertical-align: text-bottom;
+            }
+            .proAmount {
+                 text-align:center;
+                bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
+            }
+            .qty_plus {
+                @include qty_plus();
+            }
+            .qty_minus {
+                @include qty_minus();
+            }
         }
-    
-        .pagination li {
-        // border: 1px solid black;
-        display: inline-block;
-        font-size: 20px;
-        color: black;
-        padding: 10px;
+        .CusImage6 {
+            padding:8px;
+            @include customerImg();
+            .easyCard {
+                @include easyCard();
+            }
+            .ImagePrice1 {
+                @include ImagePrice1();
+            }
+            .shopCars {
+                @include shopCars();
+            }
+            .ImageContent1 {
+                @include productsImg();
+          
+            }
+            .qty {
+                @include qty();
+               vertical-align: text-bottom;
+            }
+            .proAmount {
+                 text-align:center;
+                bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
+            }
+            .qty_plus {
+                @include qty_plus();
+            }
+            .qty_minus {
+                @include qty_minus();
+            }
         }
-    
-        .pagination .other:hover {
-        // background-color: pink;
-        color: red;
-        cursor: pointer;
+        .CusImage7 {
+            padding:8px;
+            @include customerImg();
+            .easyCard {
+                @include easyCard();
+            }
+            .ImagePrice1 {
+                @include ImagePrice1();
+            }
+            .shopCars {
+                @include shopCars();
+            }
+            .ImageContent1 {
+                @include productsImg();
+               
+            }
+            .qty {
+                @include qty();
+               vertical-align: text-bottom;
+            }
+            .proAmount {
+                 text-align:center;
+                bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
+            }
+            .qty_plus {
+                @include qty_plus();
+            }
+            .qty_minus {
+                @include qty_minus();
+            }
         }
-    
-        .pagination i{
-            color:#7ed5ea;
+        .CusImage8 {
+            padding:8px;
+            @include customerImg();
+            .easyCard {
+                @include easyCard();
+            }
+            .ImagePrice1 {
+                @include ImagePrice1();
+            }
+            .shopCars {
+                @include shopCars();
+            }
+            .ImageContent1 {
+                @include productsImg();
+            }
+            .qty {
+                @include qty();
+               vertical-align: text-bottom;
+            }
+            .proAmount {
+                 text-align:center;
+                bottom: 35px;
+              
+            }
+            .proAmount i{
+                margin-top:5px;
+                color:#7ed5ea;
+            }
+            .qty_plus {
+                @include qty_plus();
+            }
+            .qty_minus {
+                @include qty_minus();
+            }
         }
-        
-      }
-        
+    }
+    
+    
+
+    .pagination {
+    margin-top: 20px;
+    width: 100%;
+    display: block;
+    font-size: 0;
+    text-align: center;
+    padding-bottom: 20px;
+    }
+
+    table .pagination ul {
+    // border: 1px solid black;
+    display: inline-block;
+    font-size: 20px;
+    color: black;
+    }
+
+    .pagination li {
+    // border: 1px solid black;
+    display: inline-block;
+    font-size: 20px;
+    color: black;
+    padding: 10px;
+    }
+
+    .pagination .other:hover {
+    // background-color: pink;
+    color: red;
+    cursor: pointer;
+    }
+
+    .pagination i{
+        color:#7ed5ea;
+    }
+    
+  }
+    
+}
+}
+
+
+@include rwd(1347px){
+    .shop-wrapper{
+    // @include signBoxShop(370px, 2px, 8px, 10px,30px);
+    .container1{
+        .orderImg {
+            right:100%;
+            transform:translateX(100%);
+            z-index: 0;
+            border:1px solid red;
+            .cloud2{
+                left:5%;
+                }
+            }
+        }
     }
 }
+
+@include rwd(1310px){
+    .shop-wrapper{
+        .container{
+            .orderImg {
+                display:none;
+                      }
+            }
+        }
+    }
+
+
+      
+

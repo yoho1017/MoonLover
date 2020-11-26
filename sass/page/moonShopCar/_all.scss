@@ -1,154 +1,350 @@
-
+.body{
+    margin:auto;
+    width: 100%;
+    background-image: url('/images/index/花紋.svg');
+    background-repeat: repeat;
+    background-position: center center;
+    z-index: 0;
+}
 .shoppingCar-wrapper{
-   margin:auto;
-    max-width: $max-width;
-    width: 100%;
-  border:1px solid white;
-  background-image: url('./images/index/花紋.svg');
-#ad {
-    margin-top: 130px;
-}
-
-#product {
-    margin-top: 35px;
-}
-
-.container {
-    border:1px solid blue;
-    @include margin_auto();
-    max-width: $max-width;
-    width: 100%;
-    @include signToBox(300px, 10px, 5px, 20px);
-    @include proToBox(1, 90%);
-    .cart-title {
-        width: 100%;
-        background-color: #ac5454;
-        // margin: $margin;
-        padding: 5px;
-    }
-    .product-title {
-        width:100%;
-        padding: 5px;
-        background-color: #FFFFFF;
-    }
-    .product-title tr:nth-child(1){
-        width:100px;
-        height:100px;
-        background-image: url("images/moonShopCar/悠遊卡.png");
-        border:5px solid red;
-        background-position: center;
-        background-size: cover;
-    }
-    .signBox_1 {
-        position: relative;
-        z-index: 99;
-    }
-    .orderImg {
-        right: -20px;
-        top: -130px;
-        position: absolute;
-        z-index: 0;
-        width: 180px;
-        height: 180px;
-        z-index: 0;
-    }
-    img {
-        border: 2px solid red;
-    }
-    .cart-title td {
-        padding: 0 50px;
-        color: #fff8ce;
-        font-size: 20px;
-    }
-    .product-title .pt1{
-        padding: 0 50px;
-        color:black;
-        font-size: 20px;
-        border-right:1px solid red;
-    }
-    .product-title .pt2{
-        padding: 0 50px;
-        color:black;
-        font-size: 20px;
-   
-    }
-
-    p {
-        background-color: #ff7a7a;
-        color: #fff8ce;
-        text-align: right;
-        font-size: 20px;
-        width: 100%;
-        margin-top: 5px;
-    }
-    .btn_groups {
-        position: absolute;
-        margin-bottom: 5px;
-        margin-right: 5px;
-    }
-    .btnBlue {
-        @include btnN(10px, #7ed5ea, 0, 48px, 150px, 20px);
-        margin-right: 20px;
-    }
-    .btnRed {
-        @include btnN(10px, #ff7a7a, 0, 48px, 150px, 20px);
-    }
-}
-
-// 輪播-------------
-.swiper-slide {
-    border: 5px solid #ac5454;
-    background-color: #FFFFFF;
-    box-shadow: 0px 0px 0px 10px #ff7a7a;
-    border-radius: 15px;
-    padding:10px;
-    .easyCard {
-        @include easyCard();
-    }
-    .ImagePrice1 {
-        @include ImagePrice1();
-    }
-    .shopCars {
-        @include shopCars();
-    }
-    .ImageContent1 {
-        height: "130px";
-        width: "150px";
-       
-    }
   
-    .proAmount {
-        text-align:center;
-        bottom: 35px;
-      
-    }
-    .proAmount i{
-        color:#7ed5ea;
-    }
-    .qty {
-        height: 35px;
-        width: 35px;
-        vertical-align: text-bottom;
-    }
-    .proAmount {
-        text-align: center;
-        bottom: 35px;
-    }
+   
+      #ad {
+      padding-top: 130px;
+      }
+  
+      #product {
+      margin-top: 35px;
+      }
+      #adre{
+          padding-top: 130px;
+      }
 
-    .shopCars {
-        margin: 0 auto;
-        bottom: 2px;
-        font-weight: bold;
-        font-size: 20px;
-        padding: 6px 10px;
-        background-color: #FF7A7A;
-        color: #FFFFFF;
-        display: inline-block;
-        margin: auto;
-        border-radius: 20px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-}
+      #things{
+          margin-top: 60px;
+        //   border:2px solid green;
+      }
+ 
+    
+      .container {
+    //   border:1px solid blue;
+      @include signToBox(300px, 10px, 5px, 20px);
+      @include margin_auto();
+      @include proToBox(1){
+          width:100%;
+      };
+      max-width: $max-width;
+      width: 100%;
+         
+         
+          .orderImg {
+          right: -20px;
+          top: -130px;
+          position: absolute;
+          width: 180px;
+          height: 180px;
+        //   border: 2px solid red;
+          z-index:-5;
+          }
+ 
+          //商品內容
+          //商品標題
+          .cart-title {
+            width: 100%;
+            background-color: #ac5454;
+            padding: 5px;
+        }
+          //商品標題表格
+          .cart-title td {
+          width:16%;
+          text-align:center;
+         //  padding: 0 40px;
+          color: #fff8ce;
+          font-size: 16px;
+          border:1px solid blue;
+          }
+
+          //購買商品內容
+          .signBox_1 {
+            position: relative;
+            z-index: 5;
+            }
+          .product-title {
+            width:100%;
+            padding: 5px;
+            background-color: #FFFFFF;
+            }
+
+           
+            .product-title .pt{
+                width:16%; 
+           //  width:150px;
+           //  height:150px;
+           //  background-image: url(/images/moonShop/悠遊卡.png);
+           //  padding:0px 30px 0px 30px;
+           //  background-position: center;
+           //  background-repeat: no-repeat;
+           //  background-size:contain;
+            }
+
+            //悠遊卡開始
+            .product-title tr:nth-child(1){
+            width:100px;
+            height:100px;
+            background-image: url("images/moonShopCar/悠遊卡.png");
+            border:5px solid red;
+            background-position: center;
+            background-size: cover;
+            }
+            
+             
+          .product-title .pt1{
+         text-align:center;
+          width:16%;
+          color:black;
+          font-size: 16px;
+          border-right:1px solid red;
+          border-left:1px solid red;
+          }
+
+        //   悠遊卡結束
+         .product-title .pt2{
+         text-align:center;   
+         width:16%;
+          color:black;
+          font-size: 16px;
+          border-right:1px solid red;
+          }
+          .product-title .pt3{
+          text-align:center;
+          width:16%;
+          color:black;
+          font-size: 16px;
+          border-right:1px solid red; 
+          }
+          .product-title .pt4 {
+          width:16%;
+          color:#FFFFFF;
+          border-radius: 10px;
+          background-color:#ff7a7a;
+          text-align:center;
+      
+         }
+          .cart-item p {
+          color:#FFFFFF;
+          background-color: #ff7a7a;
+          text-align: right;
+          font-size: 20px;
+          width: 100%;
+          margin-top: 5px;
+          }
+ 
+         //  按鈕--------------------
+         .btn_groups {
+          position: absolute;
+        //   bottom: 50px;
+        //   right: 50px;
+          }
+          .btnBlue {
+          @include btnN(10px, #7ed5ea, 0, 48px, 150px, 20px);
+          margin-right: 20px;
+          }
+          .btnRed {
+          @include btnN(10px, #ff7a7a, 0, 48px, 150px, 20px);
+          }
+ 
+
+        //   商品重新做scss-----------------------------------
+        //招牌
+        
+            
+        .adouter{
+            display:flex;
+            justify-content: center;
+            background-image:  #ac5454;
+            .adinner{
+                // border-radius: 600px/200px;
+                text-align:center;
+                font-size:50px;
+                color:  #ac5454;
+                background-color: #fff8ce;             
+                margin:auto;
+            }
+        }
+    
+
+
+        // 商品外框顏色
+
+        .thingsContent{
+            // background-color:#FFFFFF;
+            border:5px solid #ac5454;
+            border-radius:20px;
+            box-shadow:0px 0px 0px 10px  #ff7a7a;         
+             //商品標題
+            .cars_titles {
+                width: 100%;
+                background-color: #ac5454;
+                padding: 5px;
+               
+                   //商品標題表格
+                td {
+                    width:16%;
+                    text-align:center;
+                    //  padding: 0 40px;
+                    color: #fff8ce;
+                    font-size: 16px;
+                }
+            }
+            // 購物車內容-------------------------------
+            .cars_contents{
+                width:100%;
+                padding: 5px;
+                td{
+                    width:16%;
+                    text-align:center;
+                } 
+                td:nth-child(1){
+                    width:16%;
+                    height:100px;
+                    background-image:url("/images/moonShop/悠遊卡.png");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    overflow: hidden;
+                    border-right:1px solid #ff7a7a;   
+                }  
+                td:nth-child(2){
+                    border-right:1px solid #ff7a7a; 
+                }
+                td:nth-child(3){
+                    border-right:1px solid #ff7a7a; 
+                }
+                td:nth-child(4){
+                    border-right:1px solid #ff7a7a; 
+                }
+                td:nth-child(5){
+                    border-right:1px solid #ff7a7a; 
+                }
+                td:nth-child(6) p{
+                    border:1px solid  #ff7a7a;
+                    border-radius: 30px;
+                    background-color: #ff7a7a;
+                    padding:10px;
+                    margin:0 10px;   
+                    color:#FFFFFF;                 
+                } 
+            
+            }
+                //  以下要再放回去巢狀
+               .cars_items p{
+                    margin:0 10px;
+                    text-align:right;
+                    background-color: #ff7a7a;
+                    color:#FFFFFF;
+                    font-size:20px;
+                }
+                .carsbtn_groups{
+                    margin:50px 10px 10px 0;
+                    display:flex;
+                    justify-content: flex-end;
+                    // border:1px solid green;
+                }
+                .cars_btnBlue{
+                    border:1px solid  #7ed5ea;
+                    background-color: #7ed5ea;
+                    border-radius: 30px;
+                    padding:10px 30px;
+                    font-size:20px;
+                    color:#FFFFFF;
+                    margin-right:10px;
+                }
+                .cars_btnRed{
+                    border:1px solid #ff7a7a;
+                    background-color:#ff7a7a;
+                    border-radius:30px;
+                    padding:10px 30px;
+                    font-size:20px;
+                    color:#FFFFFF;
+                }
+           
+            }
+      }
+  
+
+
+      // 輪播-------------
+      .swiper-container {
+        max-width:992px;
+         padding:10px;
+          width: 100%;
+          height: 100%;
+          margin-top:130px;
+          display:flex;
+          flex-wrap: wrap;
+          margin-bottom:25px;
+        }
+      .swiper-slide {
+      border: 5px solid #ac5454;
+      background-color: #FFFFFF;
+      box-shadow: 0px 0px 0px 10px #ff7a7a;
+      border-radius: 15px;
+      padding:10px;
+      text-align: center;
+      font-size: 18px;
+      width:100%;
+      max-height:320px; 
+      height:350px;
+      .easyCard {
+          @include easyCard();
+      }
+      .ImagePrice1 {
+          @include ImagePrice1();
+      }
+      .shopCars {
+          @include shopCars();
+      }
+      .ImageContent1 {
+          height: "130px";
+          width: "150px";
+         
+      }
+    
+      .proAmount {
+          text-align:center;
+          bottom: 35px;
+        
+      }
+      .proAmount i{
+          color:#7ed5ea;
+      }
+      .qty {
+          height: 35px;
+          width: 35px;
+          vertical-align: text-bottom;
+      }
+      .proAmount {
+          text-align: center;
+          bottom: 35px;
+      }
+  
+      .shopCars {
+          width:60%;
+          margin: 0 auto;
+          bottom: 2px;
+          font-weight: bold;
+          font-size: 20px;
+          background-color: #FF7A7A;
+          color: #FFFFFF;
+          display:flex;
+          justify-content: center;
+          align-items:center;
+          margin: auto;
+          border-radius: 20px;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          padding:20px 0;
+          }
+      }
+  }

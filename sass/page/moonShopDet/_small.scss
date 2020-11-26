@@ -1,7 +1,22 @@
-// @include rwd(small) {
-//     .moonMatch-wrapper{
-//         .box {
-//             width: 300px;
-//         }
-//     }
-// }
+@include rwd(691px) {
+    .shopDet-wrapper{
+        .container{
+            .proGroups {
+                display: flex;
+                border:1px solid red;
+                flex-direction: column;
+            }
+            .proWords {
+                width: 100%;    
+           }
+           .proImage {
+                width:100%;
+           }
+           img{
+             width:400px;
+             height:250px;
+             margin: auto;
+        }
+        }
+    }
+}
