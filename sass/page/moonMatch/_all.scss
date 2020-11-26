@@ -63,6 +63,46 @@
                     background-repeat: no-repeat;
                     background-position: center;
                     transform: rotateY(180deg); /* 預設旋轉 180deg */
+                    
+                    @include flexCenter;
+                    flex-direction: column;
+                    justify-content: flex-start;
+
+                    .memberPic-container{
+                        // border: 5px solid red;
+                        margin-top: 30px;
+                        @include profileImg (person,210px);
+                    }
+                    .memberProfile{
+                        // border: 5px solid orange;
+                        width: 100%;
+                        .mRow{
+                            // border: 1px solid red;
+                            margin: 10px 0;
+                            @include flexCenter;
+                            // justify-content: flex-start;
+                            h2{
+                                justify-self: center;
+                            }
+                            h3{
+                                margin-right: 20px;
+                            }
+                        }
+
+                        @include btn(choose, 30%, 5px);
+
+                        .btnGroup{
+                            // border: 1px solid red;
+                            width: 100%;
+                            margin-top: 20px;
+                            @include flexCenter;
+                            button{
+                                width: 30%;
+                                margin: 0 10px;
+                                font-size: 20px;
+                            }
+                        }
+                    }
                 }
             }
             &:nth-child(1){
