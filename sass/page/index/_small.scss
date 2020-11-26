@@ -1,0 +1,105 @@
+@include rwd(small) {
+    // --------------- 廟宇 --------------------------------
+    .index-wrapper{
+        //============= 廟宇======================
+       .temple01 {
+      
+           width: 80%;          
+           .roofBlock {
+           height: 35%;
+           // border: 1px solid rgb(253, 143, 0);
+           
+           // ========= 燈籠 ==============
+           .lanternBlock {            
+               width: 100%;             
+               top: -95px;
+               // border: 1px solid rgb(0, 116, 0);
+               .lantern {
+               width: $lanWd;
+            
+               .left {
+                 
+                   left: 0;
+               }
+               .right {
+                 
+                   right: 0;
+               }
+               }
+           }
+           }
+       
+           // =======中間icon=============
+           .iconBlock {        
+           width: 100%;
+           height: 50%;
+           margin-top: 15px;
+           // border: 1px solid black;
+       
+           // --- swiper css setting
+           .swiper-container {
+               // border: 1px solid rgb(189, 0, 94);
+               width: 60%;
+              
+           }
+           .swiper-slide {
+               a{
+               text-decoration: none;
+               }
+               .footer{
+               h2{
+                   color:#805E3E ;
+               } 
+               }
+               .icon-list1{
+                   width: 50%;
+               }
+               .icon-list2{
+                   width: 40%;
+                   // border: 1px solid green;
+               }
+               .icon-list3{
+                   width: 70%;
+                   // border: 1px solid green;
+               }
+              
+           }
+         
+           }
+       
+           // ========== 欄杆 =============
+           .railingBlock {
+                 
+           .railing {
+               border: 1px solid red;
+               width: 100%;
+               position: relative;
+               bottom: -50px;
+               z-index: 1;
+           }
+
+             //============左前雲==========
+           $cwd:320px;
+           .cloud.left {
+               position: absolute;
+               bottom: -110px;
+               left: -10%;
+               width: $cwd;
+               z-index: 3;
+               // border: 1px solid red;
+           }
+                   
+           // ===========右前雲============
+           .cloud.right {
+               position: absolute;
+               bottom: -110px;
+               right: -10%;
+               width: $cwd;
+               z-index: 3;
+               // border: 1px solid red;
+           }
+
+           }
+       }
+   }
+}

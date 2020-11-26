@@ -1,0 +1,211 @@
+@include rwd(large) {
+
+    .index-wrapper{
+         //============= 廟宇======================
+        .temple01 {          
+            width: 80%;          
+            .roofBlock {
+            height: 35%;
+            // border: 1px solid rgb(253, 143, 0);
+           
+            // ========= 燈籠 ==============
+            .lanternBlock {            
+                width: 100%;             
+                top: -135px;
+                // border: 1px solid rgb(0, 116, 0);
+                .lantern {
+                width: $lanWd;
+             
+                .left {
+                  
+                    left: 0;
+                }
+                .right {
+                  
+                    right: 0;
+                }
+                }
+            }
+            }
+        
+            // =======中間icon=============
+            .iconBlock {        
+            width: 70%;
+            height: 50%;
+            margin-top: 15px;
+            // border: 1px solid black;
+        
+            // --- swiper css setting
+            .swiper-container {
+                // border: 1px solid rgb(189, 0, 94);
+                width: 60%;
+               
+            }
+            .swiper-slide {
+                a{
+                text-decoration: none;
+                }
+                .footer{
+                h2{
+                    color:#805E3E ;
+                } 
+                }
+                .icon-list1{
+                    width: 50%;
+                }
+                .icon-list2{
+                    width: 40%;
+                    // border: 1px solid green;
+                }
+                .icon-list3{
+                    width: 70%;
+                    // border: 1px solid green;
+                }
+               
+            }
+          
+            }
+        
+            // ========== 欄杆 =============
+            .railingBlock {
+                  
+            .railing {
+                border: 1px solid red;
+                width: 100%;
+                position: relative;
+                bottom: -30px;
+                z-index: 1;
+            }
+
+              //============左前雲==========
+            $cwd:350px;
+            .cloud.left {
+                position: absolute;
+                bottom: -90px;
+                left: -10%;
+                width: $cwd;
+                z-index: 3;
+                // border: 1px solid red;
+            }
+                    
+            // ===========右前雲============
+            .cloud.right {
+                position: absolute;
+                bottom: -90px;
+                right: -10%;
+                width: $cwd;
+                z-index: 3;
+                // border: 1px solid red;
+            }
+
+            }
+        }
+    }
+}
+
+
+@include rwd(1200px) {
+
+    .index-wrapper{
+         //============= 廟宇======================
+        .temple01 {          
+            width: 80%;          
+            .roofBlock {
+            height: 35%;
+            // border: 1px solid rgb(253, 143, 0);
+           
+            // ========= 燈籠 ==============
+            .lanternBlock {            
+                width: 100%;             
+                top: -135px;
+                // border: 1px solid rgb(0, 116, 0);
+                .lantern {
+                width: $lanWd;
+             
+                .left {
+                  
+                    left: 0;
+                }
+                .right {
+                  
+                    right: 0;
+                }
+                }
+            }
+            }
+        
+            // =======中間icon=============
+            .iconBlock {        
+            width: 70%;
+            height: 50%;
+            margin-top: 15px;
+            // border: 1px solid black;
+        
+            // --- swiper css setting
+            .swiper-container {
+                // border: 1px solid rgb(189, 0, 94);
+                width: 60%;
+               
+            }
+            .swiper-slide {
+                a{
+                text-decoration: none;
+                }
+                .footer{
+                h2{
+                    color:#805E3E ;
+                } 
+                }
+                .icon-list1{
+                    width: 50%;
+                }
+                .icon-list2{
+                    width: 40%;
+                    // border: 1px solid green;
+                }
+                .icon-list3{
+                    width: 70%;
+                    // border: 1px solid green;
+                }
+               
+            }
+          
+            }
+        
+            // ========== 欄杆 =============
+            .railingBlock {
+                  
+            .railing {
+                border: 1px solid red;
+                width: 100%;
+                position: relative;
+                bottom: -30px;
+                z-index: 1;
+            }
+
+              //============左前雲==========
+            $cwd:350px;
+            .cloud.left {
+                position: absolute;
+                bottom: -90px;
+                left: -10%;
+                width: $cwd;
+                z-index: 3;
+                // border: 1px solid red;
+            }
+                    
+            // ===========右前雲============
+            .cloud.right {
+                position: absolute;
+                bottom: -90px;
+                right: -10%;
+                width: $cwd;
+                z-index: 3;
+                // border: 1px solid red;
+            }
+
+            }
+        }
+    }
+}
+
