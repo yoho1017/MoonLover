@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <!-- icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- jq -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- popper js -->
+    <script src="./node_modules/@popperjs/core/lib/popper.js"></script>
+    <!-- bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- vue -->
+    <script src="./js/vue.js"></script>
+    <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
+    <title>籤詩管理</title>
+
+</head>
+<body>
+
+    <!------------------------------header---------------------------------->
+    <header class="header">
+        <nav class="nav navback" id="nav">
+            <div class="title"><h2>月老求籤 籤詩管理</h2></div>
+            <div class="logout">
+                <h3>
+                    登出
+                </h3>
+            </div>
+        </nav>
+    </header>    
+    <!-- wrapper請取自己的名稱，套用範例的格式 -->
+    <div id="backend" class="backstage-draw-wrapper"> 
+
+            <!------------------------------內容---------------------------------->
+            
+                <!------------------------------側邊選單---------------------------------->
+        <aside>
+
+            <div class="Logo"><img src="./images/logo.png"></div>
+
+
+            <div class="username">
+                <h3 class="text">登入者 : {{username}}</h3>
+            </div>
+
+            <ul class="option">
+                <li class="list" v-for="list in lists">
+                    <a href="#" >
+                        <h3 class="listName" @click="backmenu(list)">
+                            {{list}}
+                        </h3>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <!------------------------------主要內容---------------------------------->
+
+        <main>
+            <div class="container">
+
+                <div class="editbar" v-if="menu">
+                    <div class="bkbtn_Blue" @click="add('n')"><h3>新增籤詩</h3></div>
+                </div>
+
+                <table v-if="menu">
+                    <!-- 標題在thead class要按照下面方式寫才能吃到顏色-->
+                    <thead>
+                        <tr>
+                            <!-- td_***是設定寬度 -->
+                            <td class="thtd td_55"><h3>編號</h3></td>
+                            <td class="thtd td_80"><h3>籤號</h3></td>
+                            <td class="thtd td_75"><h3>籤運</h3></td>
+                            <td class="thtd td_125"><h3>籤詩</h3></td>
+                            <td class="thtd td_125"><h3>聖意</h3></td>
+                            <td class="thtd td_125"><h3>求得此籤</h3></td>
+                            <td class="thtd td_75"><h3>狀態</h3></td>
+                            <td class="thtd td_75"><h3>編輯</h3></td>
+                        </tr>
+                    </thead>
+                    <!-- 內容在tbody，如果要新增行數就加一組tr -->
+                    <tbody>
+
+                        <tr is="row" v-for="data in sql" :id="data[0]" :num="data[1]" :lucky="data[2]" :content="data[3]" :detail="data[4]" :answer="data[5]"></tr>
+                        
+                    </tbody>
+
+                </table>
+
+                <table v-else="menu">
+
+                        <tr>
+                            <td class="td_30"><h4>籤號</h4></td>
+                            <td class="td_md">
+                                <textarea name="content" id="" cols="30" rows="1" class="editText" v-model="modify_data[1]">
+                                </textarea>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <!-- td_***是設定寬度 -->
+                            <td class="td_30"><h4>籤種</h4></td>
+                            <td class="td_md">                    <select class="input_status" v-model="modify_data[2]">
+                                    <option value="籤王">籤王</option>
+                                    <option value="上上大吉">上上大吉</option>
+                                    <option value="上">上</option>
+                                    <option value="中上">中上</option>
+                                    <option value="中">中
+                                    </option>
+                                    <option value="下">下
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td_30"><h4>籤句</h4></td>
+                            <td class="td_md">
+                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[3]">
+                                </textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td_30"><h4>聖意</h4></td>
+                            <td class="td_md">
+                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[4]">
+                                </textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td_30"><h4>求得此籤</h4></td>
+                            <td class="td_md">
+                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[5]">
+                                </textarea>
+                            </td>
+                        </tr>
+                                    
+                </table>
+
+                <nav aria-label="Page navigation example" v-if="menu">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+
+                <div class="btn" v-else="menu">
+                    <div class="bkbtn_Blue" @click="menu = true"><h3>取消</h3></div>
+                    <div class="bkbtn_Red" @click="change(modify_data[0])"><h3>送出</h3></div>
+                </div>
+
+            </div>
+
+        </main>
+
+
+    </div>
+
+    <!-- 後台js -->
+    <script src="./js/backstage-draw.js"></script>
+</body>
+</html>

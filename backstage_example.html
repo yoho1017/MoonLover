@@ -3,10 +3,14 @@
 <head>
     <!-- icon -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- jq -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- popper js -->
+    <script src="./node_modules/@popperjs/core/lib/popper.js"></script>
     <!-- vue -->
     <script src="./js/vue.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
@@ -18,7 +22,6 @@
     <!------------------------------header---------------------------------->
     <header class="header">
         <nav class="nav navback" id="nav">
-        <div class="Logo"><img src="./images/logo.png"></div>
             <div class="title"><h2>月老求籤 籤詩管理</h2></div>
             <div class="logout">
                 <h3>
@@ -34,6 +37,8 @@
             
                 <!------------------------------側邊選單---------------------------------->
         <aside>
+
+            <div class="Logo"><img src="./images/logo.png"></div>
 
             <div class="username">
                 <h3 class="text" v-model="username">登入者 : {{username}}</h3>
@@ -55,7 +60,7 @@
             <div class="container">
 
                 <div class="editbar">
-                    <div class="bkbtn"><h3>新增籤詩</h3></div>
+                    <div class="bkbtn_Blue"><h3>新增籤詩</h3></div>
                 </div>
 
                 <table>
@@ -76,109 +81,130 @@
                     <tbody>
 
                         <tr>
-                            <td class="td_sexfat"><h3>列一</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td class="td_sexfat"><h4>列一</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列二</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列二</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列三</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列三</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列四</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列四</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列五</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列五</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列六</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列六</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列七</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列七</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列八</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列八</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列九</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列九</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
 
                         <tr>
-                            <td><h3>列十</h3></td>
-                            <td><h3>範例二</h3></td>
-                            <td><h3>範例三</h3></td>
-                            <td><h3>範例四</h3></td>
-                            <td><h3>範例五</h3></td>
-                            <td><h3>範例六</h3></td>
-                            <td><h3>範例七</h3></td>
+                            <td><h4>列十</h4></td>
+                            <td><h4>範例二</h4></td>
+                            <td><h4>範例三</h4></td>
+                            <td><h4>範例四</h4></td>
+                            <td><h4>範例五</h4></td>
+                            <td><h4>範例六</h4></td>
+                            <td><h4>範例七</h4></td>
                         </tr>
                         
                     </tbody>
 
                 </table>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+
             </div>
+
         </main>
 
 

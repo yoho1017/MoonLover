@@ -17,6 +17,17 @@
         @include flexCenter;
         flex-direction: column;
         position: fixed;
+        top: 15px;
+
+        .Logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+               width: 50%; 
+            }
+        }
 
         .username {
             width : 100%;
@@ -77,6 +88,7 @@
                 display: flex;
                 margin: 0 auto;
                 margin-bottom: 2%;
+                @include backstageBtn (auto);
             }
 
             table {
@@ -100,6 +112,7 @@
                         td {
                             display: flex;
                             justify-content: center;
+                            align-items: flex-start;
                             width: 100%;
                             padding: 2%;
                             border-right: 1.5px solid white;
@@ -146,8 +159,35 @@
       }
 }
 
-@mixin td ($name,$wd) {
+@mixin td ($name,$wd) { //td自定義寬度
     .td_#{$name} {
         width: $wd !important;
+    }
+}
+
+@mixin pagination { //頁籤
+
+    .pagination {
+        margin-top: 5%;
+        justify-content: center;
+
+        .page-link {
+            font-size: 30px;
+            background-color : #ff7a7a;
+            color : white;
+
+            &:hover {
+                background-color:  #ac5454;
+            }
+        }
+    }
+
+}
+
+@mixin textarea ($fz) { //textarea寬度
+    .editText {
+        width: 80%;
+        font-size : $fz;
+        resize: none;
     }
 }

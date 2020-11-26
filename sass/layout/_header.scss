@@ -151,13 +151,6 @@ $btnmg : 0 10px;
   position: static !important;
   right: 0px !important;
 
-  .Logo {
-    top: 20px;
-    left: 50px !important;
-    @include flexCenter;
-    position: fixed !important;
-  }
-
   .title {
     width: 55%;
     display: flex;
