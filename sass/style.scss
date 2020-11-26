@@ -26,6 +26,11 @@ nav > .Logo > img {
 // ---------- page ---------- //
 // page_index
 @import "page/index/all";
+@import "page/index/large";
+@import "page/index/medium";
+@import "page/index/small";
+@import "page/index/xsmall";
+
 
 // page_moonMap
 @import "page/moonMapList/all";
