@@ -37,183 +37,300 @@
     <script src="./js/know_click.js"></script>
 
         <!-- hamburgers_css -->
-    <link rel="stylesheet" href="/css/hamburgers.css">
+    <link rel="stylesheet" href="./css/hamburgers.css">
 
     <!-- icon -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
-    <!------------------------------header---------------------------------->
-    <header class="header">
-        <nav class="nav" id="nav">
+    <!-- 背景 -->
+    <div class="moonDrawLots_bk_color">
 
-           <div class="Logo"><img src="./images/logo.png"></div>
-           <ul class="navlist">
-               <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
-               <li class="bars">
-                <button class="hamburger hamburger--collapse" type="button">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                   <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
-                    <ul class="barList">
-                        <li><a href="#">月老地圖</a></li>
-                        <li><a href="#">月老求籤</a></li>
-                        <li><a href="#">月老牽線</a></li>
-                        <li><a href="#">月老小知識</a></li>
-                        <li><a href="#">月老商城</a></li>
-                    </ul>
-                  
-                </li>
-              
-           </ul>
-        </nav>
-    </header>
+        <!------------------------------header---------------------------------->
+        <header class="header">
+            <nav class="nav" id="nav">
 
-    <!-- 登入登出 -->
-    <div class="login_pop" v-bind:class="{block:pop_block}" id="pop">
+            <div class="Logo"><img src="./images/logo.png"></div>
+            <ul class="navlist">
+                <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
+                <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+                <li class="bars">
+                    <button class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+                        <ul class="barList">
+                            <li><a href="#">月老地圖</a></li>
+                            <li><a href="#">月老求籤</a></li>
+                            <li><a href="#">月老牽線</a></li>
+                            <li><a href="#">月老小知識</a></li>
+                            <li><a href="#">月老商城</a></li>
+                        </ul>
+                    
+                    </li>
+                
+            </ul>
+            </nav>
+        </header>
 
-        <div class="login_pop_in">
+        <!-- 登入登出 -->
+        <div class="login_pop" v-bind:class="{block:pop_block}" id="pop">
 
-            <!-- 登入 -->
-            <div class="account_login" v-bind:class="{flex:log_flex}">
-                <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
-                <div class="account_inbox">
+            <div class="login_pop_in">
 
-                    <h1 class="account_text_login">會員登入</h1>
-                    <form method="post" action="loginR.php" @submit="login($event,login_username,login_pwd,'login')">
+                <!-- 登入 -->
+                <div class="account_login" v-bind:class="{flex:log_flex}">
+                    <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
+                    <div class="account_inbox">
 
-                        <div class="inputbox">
-                            <h3 class="input_text">帳號</h3>
-                            <input class="input_login" type="text" name="username"  :placeholder = "lgUsp" id="input_log_username" :change="clearChinese('login_username')" v-model="login_username" :class="{inp_error : lgUser == 1}" @click="input_log_user">
-                        </div>
+                        <h1 class="account_text_login">會員登入</h1>
+                        <form method="post" action="loginR.php" @submit="login($event,login_username,login_pwd,'login')">
 
-                        <div class="inputbox">
-                            <h3 class="input_text">密碼</h3>
-                            <input class="input_login" type="password" name="password"  :placeholder="lgPsp" id="input_log_pwd" v-model="login_pwd" :class="{inp_error : lgPwd == 1}" @click="input_log_pwd">
-                        </div>
-                        
-                        <div class="inputbox">
-                            <span class="input_text"></span>
-                            <p class="str_error h0" v-if="login_error">帳號或密碼錯誤<p>
-                        </div>
+                            <div class="inputbox">
+                                <h3 class="input_text">帳號</h3>
+                                <input class="input_login" type="text" name="username"  :placeholder = "lgUsp" id="input_log_username" :change="clearChinese('login_username')" v-model="login_username" :class="{inp_error : lgUser == 1}" @click="input_log_user">
+                            </div>
 
-                        <div class="submit_login">
-                            <button class="btn_signup btnBlue_signup" @click="btn_signup">註冊</button>
-                            <button class="btn_signup btnRed_signup">登入</button>
-                        </div>
+                            <div class="inputbox">
+                                <h3 class="input_text">密碼</h3>
+                                <input class="input_login" type="password" name="password"  :placeholder="lgPsp" id="input_log_pwd" v-model="login_pwd" :class="{inp_error : lgPwd == 1}" @click="input_log_pwd">
+                            </div>
+                            
+                            <div class="inputbox">
+                                <span class="input_text"></span>
+                                <p class="str_error h0" v-if="login_error">帳號或密碼錯誤<p>
+                            </div>
 
-                    </form>
+                            <div class="submit_login">
+                                <button class="btn_signup btnBlue_signup" @click="btn_signup">註冊</button>
+                                <button class="btn_signup btnRed_signup">登入</button>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
-            </div>
-                    <!-- 註冊 -->
-            <div class="account_signup" id="signup" v-bind:class="{flex:sign_flex}">
-                <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
-                <div class="account_inbox">
-                    <h1 class="account_text_signup">註冊</h1>
+                        <!-- 註冊 -->
+                <div class="account_signup" id="signup" v-bind:class="{flex:sign_flex}">
+                    <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
+                    <div class="account_inbox">
+                        <h1 class="account_text_signup">註冊</h1>
 
-                    <form method="post" action="signupR.php" @submit="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
+                        <form method="post" action="signupR.php" @submit="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
 
-                        <div class="inputbox inputbox_signup">
-                            <h3 class="input_text">帳號</h3>
-                            <input class="input_signup" type="text" name="username"  :placeholder="siUsp" id="input_sign_username" :change="clearChinese('signup_username')" v-model="signup_username" :class="{inp_error : siUser == 1}" @click="input_sign_user" @keyup="checkUser(signup_username)">
-                            <p class="right_space str_error" v-if="user_error == 2">此帳號有人使用</p>
-                            <p class="right_space str_clear" v-else-if="user_error == '1'">此帳號可以使用</p>
-                            <span class="right_space" v-else="user_error"></span>
-                        </div>
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">帳號</h3>
+                                <input class="input_signup" type="text" name="username"  :placeholder="siUsp" id="input_sign_username" :change="clearChinese('signup_username')" v-model="signup_username" :class="{inp_error : siUser == 1}" @click="input_sign_user" @keyup="checkUser(signup_username)">
+                                <p class="right_space str_error" v-if="user_error == 2">此帳號有人使用</p>
+                                <p class="right_space str_clear" v-else-if="user_error == '1'">此帳號可以使用</p>
+                                <span class="right_space" v-else="user_error"></span>
+                            </div>
 
-                        <div class="inputbox inputbox_signup">
-                            <h3 class="input_text">密碼</h3>
-                            <input class="input_signup" type="password" name="password"  :placeholder="siPsp" id="input_sign_pwd" v-model="signup_pwd" :class="{inp_error : siPwd == 1}" @click="input_sign_pwd">
-                            <input type="hidden" name="hide" id="hide" />
-                            <span class="right_space"></span>
-                        </div>
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">密碼</h3>
+                                <input class="input_signup" type="password" name="password"  :placeholder="siPsp" id="input_sign_pwd" v-model="signup_pwd" :class="{inp_error : siPwd == 1}" @click="input_sign_pwd">
+                                <input type="hidden" name="hide" id="hide" />
+                                <span class="right_space"></span>
+                            </div>
 
-                        <div class="inputbox inputbox_signup">
-                            <h3 class="input_text">確認密碼</h3>
-                            <input class="input_signup" type="password" id="input_repwd" :placeholder="siRePsp" v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd">
-                            <span class="right_space"></span>
-                        </div>
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">確認密碼</h3>
+                                <input class="input_signup" type="password" id="input_repwd" :placeholder="siRePsp" v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd">
+                                <span class="right_space"></span>
+                            </div>
 
-                        <div class="inputbox inputbox_signup">
-                            <h3 class="input_text">信箱</h3>
-                            <input class="input_signup" type="email" name="email"  id="email" v-model="signup_email" :placeholder="email" :class="{inp_error : siEmail == 1}" @click="input_sign_email">
-                            <button class="btnBlue_Ver" @click.prevent="submit_ver(signup_email)">{{send_email}}</button>
-                        </div>
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">信箱</h3>
+                                <input class="input_signup" type="email" name="email"  id="email" v-model="signup_email" :placeholder="email" :class="{inp_error : siEmail == 1}" @click="input_sign_email">
+                                <button class="btnBlue_Ver" @click.prevent="submit_ver(signup_email)">{{send_email}}</button>
+                            </div>
 
-                        <div class="inputbox inputbox_signup">
-                            <h3 class="input_text">驗證碼</h3>
-                            <input class="input_signup" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
-                            <button class="btnBlue_Ver" @click.prevent="ver_check">確認驗證碼</button>
-                        </div>
+                            <div class="inputbox inputbox_signup">
+                                <h3 class="input_text">驗證碼</h3>
+                                <input class="input_signup" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
+                                <button class="btnBlue_Ver" @click.prevent="ver_check">確認驗證碼</button>
+                            </div>
 
-                        <div class="submit_signup">
-                            <button type='submit' class="btn_signup btnRed_signup">送出</button>
-                        </div>
-                        
-                    </form>
+                            <div class="submit_signup">
+                                <button type='submit' class="btn_signup btnRed_signup">送出</button>
+                            </div>
+                            
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 燈箱結束 -->
+        <!-- 燈箱結束 -->
 
-    <!------------------------------內文開始---------------------------------->
+        <!------------------------------內文開始---------------------------------->
+        <!-- -----------------------------前面的雲朵------------------------- -->
+            <div class="front_cloud">
+                <div class="cloud_left"> 
+                    <img src="./images/moonDrawLots/step_1/左前雲.svg">
+                </div>
+                <div class="cloud_right">
+                    <img src="./images/moonDrawLots/step_1/右前雲.svg">
+                </div>
+            </div>  
+            <div class="box_moonDrawLots_1200">
+
+            <!-- 燈籠 -->
+                <div class="lantern">
+
+                    <div class="lantern_group1">
+                        <div class="lantern_simple1">
+                            <img src="./images/moonDrawLots/step_1/lantern_front.png" alt="lantern">
+                        </div>
+                        <div class="lantern_simple2">
+                            <img src="./images/moonDrawLots/step_1/lantern_back.png" alt="lantern">
+                        </div>
+                    </div>
+                    
+                    <div class="lantern_group2">
+                        <div class="lantern_simple3">
+                            <img src="./images/moonDrawLots/step_1/lantern_back.png" alt="lantern">
+                        </div>
+                        <div class="lantern_simple4">
+                            <img src="./images/moonDrawLots/step_1/lantern_front.png" alt="lantern">
+                        </div>
+                    
+                    </div>
+                </div>
+
+                <!-- 中間區域 -->
+
+                <div class="duelbox">
+
+                    <div class="cloud">
+                        <img src="./images/moonDrawLots/step_1/cloud.png" alt="cloud">
+                    </div>
+
+                    <div class="duel_case">
+                        <img src="./images/moonDrawLots/step_1/pencil_case.png" alt="duel_case">
+
+                    </div>
+
+                    <button class="btn_go">
+                        求籤
+                    </button>
+
+                    <!-- <div class="cloud">
+                        <img src="./images/moonDrawLots/step_1/cloud.png" alt="cloud">
+                    </div> -->
+                    
+                </div>
+                <div class="duelbox -on">
+
+                    <div class="cloud">
+                        <img src="./images/moonDrawLots/step_1/cloud.png" alt="cloud">
+                    </div>
+
+                    <div class="duel_case">
+                        <img src="./images/moonDrawLots/step_1/throw.png" alt="duel_case">
+
+                    </div>
+
+                    <button class="btn_go">
+                        擲筊
+                    </button>
+                </div> 
+
+
+                <div class="duelbox -on">
+                    
+                    <div class="result_letter">
+                        <div class="two_line">
+                                <div class="aside"></div>
+                                <div class="main">
+                                    佳偶耶？ <br>
+                                    神仙美眷也。
+                                 </div>
+                                <div class="block_aside"></div>
+                        </div>
+                     </div> 
+                 </div>    
+
+                    <!-- 月老跟對話框 -->
+                <!-- <div class="1200_god_fix"> -->
+                <div class="god_talk -on">
+
+                     <div class="talk">
+                        <h3>按下去</br>
+                            賜良緣
+                         </h3>
+                     </div>
+
+                    <div class="MoonOfGod">
+                         <div class="god">
+                              <img src="./images/moonDrawLots/step_1/god1.png" alt="god">
+
+                          </div>
+
+                     </div>
+                </div>
+
+                <!-- 結果頁月老 -->
+
+                <div class="god_talk">
+
+                    <div class="talk">
+                       <h3>籤來囉～</br>
+                        </h3>
+                    </div>
+
+                   <div class="MoonOfGod ">
+                        <div class="god">
+                             <img src="./images/moonDrawLots/step_1/god1.png" alt="god">
+
+                         </div>
+
+                    </div>
+               </div>
+            </div>
     
-    <!-- 燈籠 -->
-    <div class="box_moonDrawLots_1200">
-        <div class="lantern">
-
-            <div class="lantern_group1">
-                <div class="lantern_simple1">
-                    <img src="./images/moonDrawLots/step_1/lantern_front.png" alt="lantern">
-                </div>
-                <div class="lantern_simple2">
-                    <img src="./images/moonDrawLots/step_1/lantern_back.png" alt="lantern">
-                </div>
             
-            </div>
-            <div class="lantern_group2">
-                <div class="lantern_simple3">
-                    <img src="./images/moonDrawLots/step_1/lantern_back.png" alt="lantern">
-                </div>
-                <div class="lantern_simple4">
-                    <img src="./images/moonDrawLots/step_1/lantern_front.png" alt="lantern">
-                </div>
-            
-            </div>
-        </div>
 
-        <!-- 中間區域 -->
+                <!-- <div class="cloud">
+                    <img src="./images/moonDrawLots/step_1/cloud.png" alt="cloud">
+                </div> -->
+        
+        
+        <!-- -----------------------------前面的雲朵-------------------------
+            <div class="front_cloud">
+                   <div class="cloud_left"> 
+                  <img src="./images/moonDrawLots/step_1/左前雲.svg">
+           </div>
+               <div class="cloud_right">
+                <img src="./images/moonDrawLots/step_1/右前雲.svg">
+               </div>
+           </div>   -->
+        <!-- 月老跟對話框 -->
+            <!-- <div class="1200_god_fix"> -->
+                <!-- <div class="god_talk">
 
-        <div class="duelbox">
-            <div class="duel_case">
-                <img src="./images/moonDrawLots/step_1/pencil_case.png" alt="duel_case">
+                    <div class="talk">
+                        <h3>按下去</br>
+                            賜良緣
+                        </h3>
+                    </div>
 
-            </div>
-            <button class="btn_go">
-                求籤
-            </button>
-            <div class="cloud">
-                <img src="./images/moonDrawLots/step_1/cloud.png" alt="cloud">
-            </div>
-            
-        </div>
+                    <div class="MoonOfGod">
+                        <div class="god">
+                            <img src="./images/moonDrawLots/step_1/god1.png" alt="god">
 
-        <!-- 月老 -->
-        <div class="MoonOfGod">
-            <div class="god">
-                <img src="./images/moonDrawLots/step_1/god1.png" alt="god">
+                        </div>
 
-            </div>
+                    </div>
+                </div> -->
 
-        </div>
-
-    </div>
+            <!-- </div> -->
+      
+    
+    
 
     <script src="./js/1_new.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/login.js"></script>    
+    <script src="./js/overflow.js"></script>
 </body>
 </html>
