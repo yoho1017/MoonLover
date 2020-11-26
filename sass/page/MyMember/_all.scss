@@ -1,0 +1,176 @@
+.Mbody {
+    background-color: #F0DED1;
+    height: 100vh;
+    z-index: -5;
+}
+
+.Mymember-wrapper {
+
+    .roof {
+        width: 50%;
+        transform: translateY(-20%);
+        margin: auto;
+        img {
+            width: 100%;
+        }
+    }
+
+    main {
+
+
+        .option {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            margin: 3% auto;
+            // border: 1px solid #000;
+            position: relative;
+            z-index: 1;
+    
+            li {
+                margin: 0 auto;
+                list-style: none;
+    
+                a {
+                    text-decoration: none;                @include flexCenter;
+                    flex-direction: column;
+                }
+
+                img {
+                    width: 60%;
+                }
+    
+                @include btn(list,100%,2%);
+    
+                .btnRed_list {
+                    display: flex;
+                    justify-content: center;
+                    margin: 10% auto;
+                }
+                &:hover {
+                    .icon {
+                        animation-name: hover;
+                        animation-duration: 2s;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+    
+                        @keyframes hover {
+                            0% {
+                                transform: translateY(0);
+                            }
+                            25% {
+                                transform: translateY(-10%);
+                            }
+                            50% {
+                                transform: translateY(0);
+                            }
+                            75% {
+                                transform: translateY(10%);
+                            }
+                            100% {
+                                transform: translateY(0);
+                            }
+                        }
+                    }
+                    .btnRed_list {
+                        background-color: #ac5454;
+                    } 
+                }
+            }
+
+            .mascot {
+                width: 250px;
+                // border: 1px solid #000;
+                position: absolute;
+                top :0;
+                right: 0;
+                transform: translate(90%,-10%);
+                @include flexCenter;
+                flex-direction: column;
+
+                .chat {
+                    width: 100%;
+                    @include flexCenter;
+                    flex-direction: column;
+                    background-color: #FFEEA8;
+                    padding: 10% 3%;
+                    border-radius: 20px;
+                    border: 10px solid white;
+                    position: relative;
+                    margin-bottom: 5%;
+
+                    @include btn (create,80%,2%);
+
+                    h4, .btnRed_create {
+                        margin: 3% auto;
+                    } 
+
+                    .btnRed_create {
+                        @include flexCenter;
+                    }
+
+                    .triangle {
+                        position: absolute;
+                        top: 100%;
+                        border-style: solid;
+                        border-width: 30px 30px 0 30px;
+                        border-color: white transparent transparent transparent;
+                    }
+
+                    .trianglein {
+                        position: absolute;
+                        top: 99%;
+                        border-style: solid;
+                        border-width: 25px 20px 0 20px;
+                        border-color: #FFEEA8 transparent transparent transparent;
+                    }
+                }
+        
+                img {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+
+    .clouds {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        bottom: 0;
+        // border: 1px solid red;
+        z-index: -4;
+
+        .cloud {
+            // border: 1px solid #000;
+        }
+
+        .cloud1 {
+            transform: translate(2%,35%);
+        }
+
+        .cloud2 {
+            transform: translate(-7%,60%);
+        }
+
+        .cloud3 {
+            transform: translate(-53%,60%);
+        }
+
+        .cloud4 {
+            transform: translate(-36%,60%);
+        }
+
+        .cloud5 {
+            transform: translate(-48%,45%);
+            z-index: -1;
+        }
+
+
+        img {
+            width: 140%;
+        }
+    }
+
+}
