@@ -5,8 +5,11 @@
     height: 100%;
 
     @include backstage; //引入後台版型
-    @include backstageBtn; //後台用btn
+    @include backstageBtn (auto); //後台用btn
 
     @include td (sexfat,25%); //td的寬度，class名稱要td_後面自己設名稱
+
+    @include pagination; //引入pagination
+
 
 }
