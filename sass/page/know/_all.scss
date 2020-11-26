@@ -8,8 +8,8 @@
 
 // ============= 小知識第一頁左邊 ==============================
 .know_wrapper_bk_color{
-    background-color: #F0DED1;
-    height: 110vh;
+    // background-color: #F0DED1;
+    // height: 110vh;
     
     .know_wrapper{
         max-width: 1300px;
@@ -179,20 +179,7 @@
                     right:-260px;
                     bottom:-80px;
 
-                    // @include rwd(medium){
-
-                    //     .love_god{
-                    //     position:absolute;
-                    //     right:-20px;
-                    //     bottom:-170px;
-
-                    //     img{
-                    //         width:100%;
-                    //     }
-
-                    //     }
-                    // }
-
+               
                 }
 
                 .love_god_cloud{
@@ -201,11 +188,6 @@
                     right:-290px;
                     bottom:-80px;
 
-                    // @include rwd(medium){
-                    //     position:absolute;
-                    //     right:-20px;
-                    //     bottom:-170px;
-                    // }
                     
                 }
             }

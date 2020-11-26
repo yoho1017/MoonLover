@@ -1,0 +1,39 @@
+// 1920px-1366px
+
+// 1366
+// @include rwd(large) {
+//     .know_wrapper{
+//         .box {
+//             width: 300px;
+//         }
+//     }
+// }
+
+// 自訂斷點直接填寫px數值
+@include rwd(1210px){
+    .know_wrapper{
+        
+        .pinkBox_1{
+
+        
+            .box_1200{
+    
+                    h3{
+                    width:65%;
+                    }
+                    
+                .box_one_right{
+
+                    h2{
+                    width:30%;
+                    }
+                }
+            }
+    
+        }
+
+    }
+    
+   
+               
+}
