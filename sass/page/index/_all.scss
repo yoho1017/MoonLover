@@ -22,11 +22,14 @@
     margin: 0 auto;
     width: $temWd;
     height: 100vh;
+ 
     .roofBlock {
       height: 35%;
+      // max-height: 200px;
       border: 1px solid red;
       .roof {
         width: 100%;
+        // width: 1200px;
         position: relative;
         z-index: 3;
         border: 1px solid red;
@@ -57,14 +60,16 @@
   
     // =======中間icon=============
     .iconBlock {
+      
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 70%;
-      height: 50%;
+      // width: 70%;
+      // height: 50%;
+      width: 1000px;
+      height: 500px;
       overflow: hidden;
       margin: 0 auto;
-      margin-top: 15px;
       border: 1px solid black;
   
       // --- swiper css setting
@@ -74,6 +79,17 @@
         // height: 400px;  
         margin: 50px auto;
         overflow: hidden;
+      }
+      h2.iconbut {          
+        margin-top: 10px;          
+        width: 200px;
+        background-color: #FF7A7A;
+        color: white;
+        border-radius: 48px;
+        padding: 10px 10px;
+        &:hover{               
+          background-color: #AC5454;
+        }
       }
       .swiper-slide {
         text-align: center;
@@ -86,70 +102,61 @@
           text-decoration: none;
         }
 
-        .footer{
-           h2{
-             color:#805E3E ;
-           } 
-        }
-
-        // icon的按鈕
-        @mixin iconBut {
-           
-          a{
-            text-decoration: none;
-            @content;
-            h2{          
-              margin-top: 10px;          
-              width: 200px;
-              background-color: #FF7A7A;
-              color: white;
-              border-radius: 48px;
-              padding: 10px 10px;
-              &:hover{               
-                background-color: #AC5454;
-              }
-            }
-          }
+        h2.footer{         
+             color:#805E3E ;         
         }
 
      
+     
         .icon-list1{
-          width: 50%;
+          // width: 50%;
+          width: 400px;
+          margin-top: 50px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          // border: 1px solid green;
-          @include iconBut;
+          border: 1px solid green;
+          a{
+            text-decoration: none;         
+            
+          }
          
         }
 
         .icon-list2{
-          width: 40%;
+          width: 300px;
+          margin-top: 50px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          // border: 1px solid green;
-          @include iconBut;
+          border: 1px solid green;
+          a{
+            text-decoration: none;         
+          
+          }
          
         }
 
         .icon-list3{
-          width: 70%;
+          width: 500px;
+          margin-top: 50px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           // border: 1px solid green;
-          @include iconBut;
+          a{
+            text-decoration: none;         
+           
+          }    
          
         }
       }
       // --- swiper css setting end
   
-      .icon1 {
-       
+      .icon1 {     
         margin: 0 auto;
       }
     }
@@ -165,7 +172,9 @@
       position: relative;
       // border: 1px solid red;
       .railing {
+        border: 1px solid red;
         width: 100%;
+        // width: 1200px;
         position: relative;
         bottom: -20px;
         z-index: 1;
@@ -195,5 +204,113 @@
   }
    
   
+
+
+@include rwd(1770px){
+  .index-wrapper{
+    //============= 廟宇======================
+   .temple01 {          
+       width: 80%;          
+       .roofBlock {
+       height: 35%;
+       // border: 1px solid rgb(253, 143, 0);
+      
+       // ========= 燈籠 ==============
+       .lanternBlock {            
+           width: 100%;             
+           top: -140px;
+           // border: 1px solid rgb(0, 116, 0);
+           .lantern {
+           width: $lanWd;
+        
+           .left {
+             
+               left: 0;
+           }
+           .right {
+             
+               right: 0;
+           }
+           }
+       }
+       }
+   
+       // =======中間icon=============
+       .iconBlock {        
+       width: 70%;
+       height: 50%;
+       margin-top: 15px;
+       // border: 1px solid black;
+   
+       // --- swiper css setting
+       .swiper-container {
+           // border: 1px solid rgb(189, 0, 94);
+           width: 60%;
+          
+       }
+       .swiper-slide {
+         
+           .icon-list1{
+               width: 50%;
+           }
+           .icon-list2{
+               width: 100%;
+               // border: 1px solid green;
+           }
+           .icon-list3{
+               width: 70%;
+               // border: 1px solid green;
+           }
+          
+       }
+     
+       }
+   
+       // ========== 欄杆 =============
+       .railingBlock {
+             
+       .railing {
+           border: 1px solid red;
+           width: 100%;
+           position: relative;
+           bottom: -30px;
+           z-index: 1;
+       }
+
+         //============左前雲==========
+       $cwd:350px;
+       .cloud.left {
+           position: absolute;
+           bottom: -90px;
+           left: -10%;
+           width: $cwd;
+           z-index: 3;
+           // border: 1px solid red;
+       }
+               
+       // ===========右前雲============
+       .cloud.right {
+           position: absolute;
+           bottom: -90px;
+           right: -10%;
+           width: $cwd;
+           z-index: 3;
+           // border: 1px solid red;
+       }
+
+       }
+   }
+}
+}
+}
+body.overflow{
+  overflow: hidden;
+}
+
+@media all and (max-height:500px){
+  body.overflow{
+    overflow-y: auto;
+  }
+
 }
 
