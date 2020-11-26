@@ -1,142 +1,349 @@
+
 .shopDet-wrapper{
-    margin:auto;
-    max-width: $max-width;
-    width: 100%;
-    border:1px solid white;
-    background-image: url('/images/index/花紋.svg');
-#ad {
-    margin-top: 170px;
-}
+    // background-image: url('/images/index/花紋.svg');
+    // background-repeat: repeat;
+    // background-position: center center;
+    // background-size: 20%;
+    // z-index: 0;
+ 
+    #ad {
+    padding-top: 170px;
+    }
 
-#product {
+    #product {
     margin-top: 80px;
-}
+    }
 
-.container {
+    .container {
+    // border:1px solid red;
     @include margin_auto();
     max-width: $max-width;
     width: 100%;
     @include signToBox(300px, 7px, 7px, 20px);
-    @include proToBox(1, 90%);
+    @include proToBox(1);
     @include fontSize(10px);
+    position: relative;
     
-    .proGroups {
-        display: flex;
-    }
-    .proImage {
-        border: 1px solid red;
-        height: 500px;
-        width: 50%;
-        position: relative;
-        font-size: h4;
-    }
-    .proPicture {
-        width: 400px;
-        height: 300px;
-        border: 1px solid red;
-        position: absolute;
-        right: 0;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        margin: auto;
-        border-radius: 15px;
-        overflow: hidden;
-    }
-    .proWords {
-        border: 1px solid blue;
-        height: 500px;
-        width: 50%;
-        position: relative;
-    }
-    .proTitle1 {
-        margin-top: 50px;
-        font-size: 30px;
-        font-weight: bold;
-    }
-    .proContent1 {
-        margin: 20px 0;
-        font-size: 20px;
-        padding: 0 50px 0 0;
-        font-weight: bold;
-    }
-    .proPrice1 {
-        margin: 20px 0 20px 0;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    label {
-        font-size: 20px;
-        font-weight: bold;
-    }
+        .proGroups {
+            display: flex;
+            border:1px solid red;
+            // flex-direction: column;
+        }
+        .proImage {
+            width: 50%;
+            font-size: 16px;
+            border:1px solid blue;
 
+            ul{
+                list-style: none;
+                display: flex;
+                padding: 5px;
+                a{
+                    text-decoration: none;
+                }
+            }
+            img{
+                display: block;
+                border-radius: 15px;
+                margin: 15% auto;
+            }
+        }
+        
+        .proWords {
+            width: 50%;
+            border:1px solid green;
 
-    .proAmount {
-     
-        bottom: 35px;
-      
-    }
-    .proAmount i{
-        margin-top:5px;
-        color:#7ed5ea;
-    }
-    .qty {
-        width: 30px;
-        height: 30px;
-        vertical-align: text-bottom;
-    }
-    .qty_plus {
-        width: 30px;
-        height: 25px;
-        background: #7ed5ea;
-        border-radius: 15%;
-    }
-    .qty_minus {
-        width: 30px;
-        height: 25px;
-        background: #7ed5ea;
-        border-radius: 15%;
-    }
-    .proNumber p {
-        text-align: right;
-        margin-top: 80px;
-        font-size: 20px;
-        font-weight: bold;
-    }
+            .proTitle1 {
+                margin-top: 50px;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .proContent1 {
+                margin: 20px 0;
+                font-size: 20px;
+                padding: 0 50px 0 0;
+                font-weight: bold;
+            }
+            .proPrice1 {
+                margin: 20px 0 20px 0;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .proAmount {
+                bottom: 35px;
 
-    .orderImg {
-        width:50px;
-        height:50px;
-        background-image: url("/images/moonShopCar/月老-01.png");
-        background-position:center;
-        background-size:cover;
-        background-repeat: no-repeat;
-        position: absolute;
-        left: -10px;
-        bottom: 0;
-        border:1px solid red;
-    }
-    .cloud2 {
-        position: absolute;
-        left: -30px;
-        z-index: 33;
-        bottom: 0;
+                label {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                .qty {
+                    width: 30px;
+                    height: 30px;
+                    vertical-align: text-bottom;
+                }
+                i{
+                    margin-top:5px;
+                    color:#7ed5ea;
+                    width: 30px;
+                    height: 25px;
+                    border-radius: 15%;
+                }
+            }
+            p{
+                text-align: right;
+                margin: 20px 0;
+                font-size: 20px;
+                font-weight: bold;
+              
+            }
+
+            // button
+            .btn_groups {
+                text-align: left;
+                // position: absolute;
+                left: 0px;
+                margin-bottom:10px;
+                // bottom: -20px;
+    
+                .btnBlue {
+                    @include btnN(10px, #7ed5ea, 0, 48px, 150px, 20px);
+                    margin-right: 20px;
+                    text-decoration: none;
+                }
+                
+                .btnRed {
+                    @include btnN(10px, #ff7a7a, 0, 48px, 150px, 20px);
+                    text-decoration: none;
+                }
+            }
+        }
+        // oldman
+        .orderImg {
+            position: absolute;
+            left:-70px;
+            bottom: 0;
+            // border:1px solid red;
+        }
+        .cloud2 {
+            position: absolute;
+            left:-20px;
+            z-index: 33;
+            bottom: 6px;
+        }
     }
 }
 
-.btn_groups {
-    text-align: $text-align;
-    position: absolute;
-    left: 0px;
-    bottom: 50px;
-}
 
-.btnBlue {
-    @include btnN(10px, #7ed5ea, 0, 48px, 150px, 20px);
-    margin-right: 20px;
-}
+// @media all and (min-width: 1367px){
+//     .orderImg {
+//         position: absolute;
+//         left:-70px;
+//         bottom: 0;
+//         // border:1px solid red;
+//     }
+//     .cloud2 {
+//         position: absolute;
+//         left:-20px;
+//         z-index: 33;
+//         bottom: 6px;
+//     }
+//     .proGroups {
+//         display: flex;
+//         border:1px solid red;
+//         // flex-direction: column;
+//     }
+    
+//     .proWords {
+//         // width: 50%;
+//         border:1px solid green;
 
-.btnRed {
-    @include btnN(10px, #ff7a7a, 0, 48px, 150px, 20px);
-}
-}
+//         .proTitle1 {
+//             margin-top: 50px;
+//             font-size: 30px;
+//             font-weight: bold;
+//         }
+//         .proContent1 {
+//             margin: 20px 0;
+//             font-size: 20px;
+//             padding: 0 50px 0 0;
+//             font-weight: bold;
+//         }
+//         .proPrice1 {
+//             margin: 20px 0 20px 0;
+//             font-size: 20px;
+//             font-weight: bold;
+//         }
+//         .proAmount {
+//             bottom: 35px;
+
+//             label {
+//                 font-size: 20px;
+//                 font-weight: bold;
+//             }
+//             .qty {
+//                 width: 30px;
+//                 height: 30px;
+//                 vertical-align: text-bottom;
+//             }
+//             i{
+//                 margin-top:5px;
+//                 color:#7ed5ea;
+//                 width: 30px;
+//                 height: 25px;
+//                 border-radius: 15%;
+//             }
+//         }
+//         p{
+//             text-align: right;
+//             margin-top: 80px;
+//             font-size: 20px;
+//             font-weight: bold;
+//         }
+
+//         // button
+//         .btn_groups {
+//             text-align: $text-align;
+//             position: absolute;
+//             left: 0px;
+//             bottom: 50px;
+
+//             .btnBlue {
+//                 @include btnN(10px, #7ed5ea, 0, 48px, 150px, 20px);
+//                 margin-right: 20px;
+//                 text-decoration: none;
+//             }
+            
+//             .btnRed {
+//                 @include btnN(10px, #ff7a7a, 0, 48px, 150px, 20px);
+//                 text-decoration: none;
+//             }
+//         }
+//     }
+
+//     .proImage {
+//         // width: 50%;
+//         font-size: 16px;
+//         border:1px solid blue;
+
+//         ul{
+//             list-style: none;
+//             display: flex;
+//             padding: 5px;
+//             a{
+//                 text-decoration: none;
+//             }
+//         }
+//         img{
+//             display: block;
+//             border-radius: 15px;
+//             margin: 15% auto;
+//         }
+//     }
+//     .proGroups {
+//         display: flex;
+//         border:1px solid red;
+//         flex-direction: column;
+//     }
+// }
+
+
+// @media all and (max-width:710px){
+//     .proGroups {
+//         display: flex;
+//         border:1px solid red;
+//         // flex-direction: column;
+//     }
+    
+//     .proWords {
+//         width: 50%;
+//         border:1px solid green;
+
+//         .proTitle1 {
+//             margin-top: 50px;
+//             font-size: 30px;
+//             font-weight: bold;
+//         }
+//         .proContent1 {
+//             margin: 20px 0;
+//             font-size: 20px;
+//             padding: 0 50px 0 0;
+//             font-weight: bold;
+//         }
+//         .proPrice1 {
+//             margin: 20px 0 20px 0;
+//             font-size: 20px;
+//             font-weight: bold;
+//         }
+//         .proAmount {
+//             bottom: 35px;
+
+//             label {
+//                 font-size: 20px;
+//                 font-weight: bold;
+//             }
+//             .qty {
+//                 width: 30px;
+//                 height: 30px;
+//                 vertical-align: text-bottom;
+//             }
+//             i{
+//                 margin-top:5px;
+//                 color:#7ed5ea;
+//                 width: 30px;
+//                 height: 25px;
+//                 border-radius: 15%;
+//             }
+//         }
+//         p{
+//             text-align: right;
+//             margin-top: 80px;
+//             font-size: 20px;
+//             font-weight: bold;
+//         }
+
+//         // button
+//         .btn_groups {
+//             text-align: $text-align;
+//             position: absolute;
+//             left: 0px;
+//             bottom: 50px;
+
+//             .btnBlue {
+//                 @include btnN(10px, #7ed5ea, 0, 48px, 150px, 20px);
+//                 margin-right: 20px;
+//                 text-decoration: none;
+//             }
+            
+//             .btnRed {
+//                 @include btnN(10px, #ff7a7a, 0, 48px, 150px, 20px);
+//                 text-decoration: none;
+//             }
+//         }
+//     }
+
+//     .proImage {
+//         // width: 50%;
+//         font-size: 16px;
+//         border:1px solid blue;
+
+//         ul{
+//             list-style: none;
+//             display: flex;
+//             padding: 5px;
+//             a{
+//                 text-decoration: none;
+//             }
+//         }
+//         img{
+//             display: block;
+//             border-radius: 15px;
+//             margin: 15% auto;
+//         }
+//     }
+//     .proGroups {
+//         display: flex;
+//         border:1px solid red;
+//         flex-direction: column;
+//     }
+    
+// }

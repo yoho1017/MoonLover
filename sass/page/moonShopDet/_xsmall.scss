@@ -1,7 +1,10 @@
-// @include rwd(xsmall) {
-//     .moonMatch-wrapper{
-//         .box {
-//             width: 300px;
-//           }
-//     }
-// }
+@include rwd(450px) {
+    .shopDet-wrapper{
+        .container{    
+           img{
+             width:300px;
+             height:250px;
+            }
+        }
+    }
+}
