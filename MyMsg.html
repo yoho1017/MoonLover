@@ -21,7 +21,7 @@
     <title>留言板</title>
 
 </head>
-<body class="Mbody">
+<body>
 
        <!------------------------------header---------------------------------->
        <header class="header">
@@ -38,11 +38,11 @@
                   </button>
                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
                     <ul class="barList">
-                        <li><a href="#">月老地圖</a></li>
-                        <li><a href="#">月老求籤</a></li>
-                        <li><a href="#">月老牽線</a></li>
-                        <li><a href="#">月老小知識</a></li>
-                        <li><a href="#">月老商城</a></li>
+                        <li><a href="./moonMapList.html">月老地圖</a></li>
+                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                        <li><a href="./moonMatch.html">月老牽線</a></li>
+                        <li><a href="./know.html">月老小知識</a></li>
+                        <li><a href="./moonShop.html">月老商城</a></li>
                     </ul>
                   
                 </li>
@@ -146,10 +146,10 @@
                     <!------------------------------側邊選單---------------------------------->
             <aside>
                 <ul class="option">
-                    <li class="list" v-for="list in lists">
-                        <a href="#" >
-                            <h3 class="listName" @click="backmenu(list)">
-                                {{list}}
+                    <li class="list" v-for="(list,key) in lists" :key="key">
+                        <a :href="list.href">
+                            <h3 class="listName">
+                                {{list.list}}
                             </h3>
                         </a>
                     </li>

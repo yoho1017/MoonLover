@@ -107,6 +107,11 @@
 
                     .btnRed_create {
                         @include flexCenter;
+
+                        a{
+                            text-decoration: none;
+                            color: white;
+                        }
                     }
 
                     .triangle {

@@ -7,7 +7,12 @@ var member = new Vue ({
         // 送出驗證信按鈕文字
         send_email : '送出驗證信',
         // 會員中心頁籤
-        lists : ['個人資料','我的吉祥物','留言板','我的訂單'],
+        lists : [
+            {list: '個人資料', href : "./MyInfo.html"},
+            {list: '我的吉祥物', href : "#"},
+            {list : '留言板', href : "./MyMsg.html"},
+            {list : '我的訂單', href : "./MyOrder.html"}
+        ],
         // 會員名稱
         username : 'AsoJi',
         // 會員信箱
@@ -323,8 +328,9 @@ var member = new Vue ({
             }
         }
 
-        for (i = 0 ; i <= this.lists.length; i++) { //取得頁面title名字來綁定會員頁籤class
-            if (this.lists[i] == document.title) {
+        for (i = 0 ; i <= this.lists.length -1; i++) {
+            //取得頁面title名字來綁定會員頁籤class
+            if (this.lists[i].list == document.title) {
                 $('.listName').eq(i).addClass( "bold" );
             }
         }

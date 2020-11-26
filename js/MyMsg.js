@@ -3,7 +3,12 @@ var member = new Vue ({
     data : {
         // ---------------留言清單---------------
         // 會員中心頁籤
-        lists : ['個人資料','我的吉祥物','留言板','我的訂單'],
+        lists : [
+            {list: '個人資料', href : "./MyInfo.html"},
+            {list: '我的吉祥物', href : "#"},
+            {list : '留言板', href : "./MyMsg.html"},
+            {list : '我的訂單', href : "./MyOrder.html"}
+        ],
         // 收到留言
         messages : [
             {id: 1, name : '小芳', msg: '張互賓', image: '../images/MyMsg/person1.png', newnum: 1},
@@ -150,11 +155,13 @@ var member = new Vue ({
     },
     mounted() {
 
-        for (i = 0 ; i <= this.lists.length; i++) { //取得頁面title名字來綁定會員頁籤class
-            if (this.lists[i] == document.title) {
+        for (i = 0 ; i <= this.lists.length -1; i++) {
+            //取得頁面title名字來綁定會員頁籤class
+            if (this.lists[i].list == document.title) {
                 $('.listName').eq(i).addClass( "bold" );
             }
         }
+
 
         this.checkNewMsg ();
 
