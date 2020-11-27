@@ -32,7 +32,8 @@
                 list-style: none;
     
                 a {
-                    text-decoration: none;                @include flexCenter;
+                    text-decoration: none;                
+                    @include flexCenter;
                     flex-direction: column;
                 }
 
@@ -47,6 +48,7 @@
                     justify-content: center;
                     margin: 10% auto;
                 }
+                
                 &:hover {
                     .icon {
                         animation-name: hover;

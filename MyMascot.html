@@ -14,11 +14,14 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- vue -->
     <script src="./js/vue.js"></script>
+    <!-- croppie -->
+    <script src="./node_modules/croppie/croppie.js"></script>
+    <!-- 發信 js -->
+    <script src="./js/smtp.js"></script>
 
-    <title>我的訂單</title>
+    <title>我的吉祥物</title>
 
 </head>
-
 <body>
 
        <!------------------------------header---------------------------------->
@@ -135,158 +138,103 @@
                 </div>
             </div>
         </div>
-        <!-- 燈箱結束 -->
+        <!-- 燈箱結束 -->    
 
-    <div id="member" class="MyOrder-wrapper">
-        
-        <!-- 明細燈箱 -->
+        <div id="member" class="MyMascot-wrapper"> 
 
-        <div class="Odetail_pop"  :class="{block:pop_block}">
-            <div class="Odetail_pop_in">
-                <div class="pinkBox_Odetail">
-                    <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
-                    <div class="inBox_Odetail">
-                        <table class="orderTable">
+                <!------------------------------內容---------------------------------->
+                
+                    <!------------------------------側邊選單---------------------------------->
+            <aside>
+                <ul class="option">
+                    <li class="list" v-for="(list,key) in lists" :key="key">
+                        <a :href="list.href">
+                            <h3 class="listName">
+                                {{list.list}}
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <!------------------------------主要內容---------------------------------->
+            <main>
 
-                            <th class="Mth">
-    
-                                <tr class="Mtr Otr">
-                                    <td class="Mtd Otd"><h3 class="Th3">訂單明細</h3></td>
-                                    <td class="Mtd Otd"><h3 class="Th3">訂單編號:　{{Odetail_data.id}}</h3></td>
-                                    <td class="Mtd Otd"><h3 class="Th3">訂單日期:　{{Odetail_data.date}}</h3></td>
-                                </tr>
-    
-                            </th>
-    
-                            <tbody class="Mtbody Otbody">
-
-                                <tr class="Mtr">
-                                    <td class="Mtd">
-                                        商品照片
-                                    </td>
-                                    <td class="Mtd">
-                                        商品名稱
-                                    </td>
-                                    <td class="Mtd">
-                                        商品價格
-                                    </td>
-                                    <td class="Mtd">
-                                        訂購數量
-                                    </td>
-                                </tr>
-
-                                <tr v-for="(Odetail, key) in Odetails" :key="key" class="Mtr">
-                                    <td class="Mtd">
-                                        <img :src="Odetail.image">
-                                    </td>
-                                    <td class="Mtd">
-                                        {{Odetail.itemName}}
-                                    </td>
-                                    <td class="Mtd">
-                                        {{Odetail.price}}
-                                    </td>
-                                    <td class="Mtd">
-                                        {{Odetail.count}}
-                                    </td>
-                                </tr>
-
-                                <tr class="Mtr priceAndCancel price">
-                                    <td class="Mtd priceTd">
-                                        訂單 總金額 $300
-                                    </td>
-                                </tr>
-
-                                <tr class="Mtr priceAndCancel">
-                                    <td class="Mtd">
-                                        <button class="btnRed_cancel" @click.prevent="cancel(order.id)">
-                                            <h4>取消訂單</h4>
-                                        </button>
-                                    </td>
-                                </tr>
-       
-                            </tbody>
-                        </table>
+                <div class="pinkBox_mascot">
+                    <!---------------- 吉祥物客製化選單---------------- -->
+                    <div class="inBox_mascot ALeft">
+                        <div class="access">
+                            <div class="cus">
+                                <img src="./images/MyMascot/access1_1.png">
+                            </div>
+                            <div class="cus">
+                                <img src="./images/MyMascot/access1_2.png">
+                            </div>
+                            <div class="cus">
+                                <img src="./images/MyMascot/access1_3.png">
+                            </div>
+                            <div class="cus">
+                                <img src="./images/MyMascot/access1_4.png">
+                            </div>
+                        </div>
+                        <div class="list">
+                            <div class="page">
+                                <h3>面飾</h3>
+                            </div>
+                            <div class="page">
+                                <h3>頭飾</h3>
+                            </div>
+                            <div class="page">
+                                <h3>飾品</h3>
+                            </div>
+                            <div class="page">
+                                <h3>尾巴</h3>
+                            </div>
+                        </div>
+                    </div>
+            <!---------------------------- 會員資料------------------------------------>
+                    <div class="inBox_mascot ARight">
+                        <div class="smallMascot">
+                            <div class="monkey smallMas opacity">
+                                <img src="./images/MyMascot/monkey.png">
+                            </div>
+                            <div class="fox smallMas">
+                                <img src="./images/MyMascot/fox.png">
+                            </div>
+                            <div class="rabbit smallMas opacity">
+                                <img src="./images/MyMascot/rabbit.png">
+                            </div>
+                        </div>
+                        <div class="Mascot">
+                            <div class="mascotimg">
+                                <div class="chat">
+                                    <h3>
+                                        我是小狐仙
+                                    </h3>
+                                    <h4>
+                                        為女性代表的吉祥物
+                                        可以幫我做造型喔！
+                                    </h4>
+                                    <div class="triangle"></div>
+                                    <div class="trianglein"></div>    
+                                </div>
+                                <img src="./images/MyMascot/fox.png">
+                            </div>
+                        </div>
+                        <div class="Mrightspace">
+                            <button class="btnRed_submit"><h3>確認</h3></button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </main>       
+
         </div>
-
-        <!-- 燈箱結束 -->
-
-           <!------------------------------內容---------------------------------->
-        
-            <!------------------------------側邊選單---------------------------------->
-        <aside>
-            <ul class="option">
-                <li class="list" v-for="(list,key) in lists" :key="key">
-                    <a :href="list.href">
-                        <h3 class="listName">
-                            {{list.list}}
-                        </h3>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-           <!------------------------------主要內容---------------------------------->
-        <main>
-
-            <div class="pinkBox_order">
-                <div class="inBox_order">
-                    <table class="orderTable">
-
-                        <th class="Mth">
-
-                            <tr class="Mtr">
-                                <td class="Mtd"><h3 class="Th3">訂單編號</h3></td>
-                                <td class="Mtd"><h3 class="Th3">訂單日期</h3></td>
-                                <td class="Mtd"><h3 class="Th3">訂單金額</h3></td>
-                                <td class="Mtd"><h3 class="Th3">訂單狀態</h3></td>
-                                <td class="Mtd"></td>                               
-                               
-                            </tr>
-
-                        </th>
-
-                        <tbody class="Mtbody">
-
-                            <tr v-for="(order, key) in orders" :key="key" class="Mtr">
-                                <td class="Mtd">
-                                    {{ order.id }}
-                                </td>
-                                <td class="Mtd">
-                                    {{ order.date }}
-                                </td>
-                                <td class="Mtd">
-                                    {{ order.price }}
-                                </td>
-                                <td class="Mtd">
-                                    {{ order.status }}
-                                </td>
-                                <td class="Mtd">
-                                    <button class="btnBlue_detail" @click.prevent="Odetail(order.id)">
-                                        <h4>明細</h4>
-                                    </button>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-  
-
-                </div>
-            </div> 
-
-        </main>     
-
-    </div>
 
     <!-- header -->
     <script src="js/1_new.js"></script> 
     <!-- 登入註冊，需要再新增登入成功後介面 -->
     <script src="./js/login.js"></script>
-    <!-- 我的訂單js -->
-    <script src="./js/MyOrder.js"></script>
+    <!-- 個人資料js -->
+    <script src="./js/member.js"></script>
     <!-- oveflow -->
     <script src="./js/overflow.js"></script>
 </body>
