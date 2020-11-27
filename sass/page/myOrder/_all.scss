@@ -16,7 +16,7 @@ div.MyOrder-wrapper {
     @include pinkBox(order, 100%);
 
     .pinkBox_order {
-        height: $MHeight;
+        height: 80vh;
     }
 
     .pinkBox_order .inBox_order {
