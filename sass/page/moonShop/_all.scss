@@ -24,6 +24,15 @@
 #NonCusImages {
     margin-top: 40px;
 }
+a{
+    display:block;
+}
+i{
+    cursor: pointer;
+}
+img{
+    cursor: pointer;
+}
 .container1{
     // border:1px solid red;
     // border:1px solid green;
@@ -132,7 +141,7 @@
         bottom: 0;
         z-index: 0;
         // width:100%;
-        border:1px solid red;
+        // border:1px solid red;
     }
     // .oldperson{
     //     border:1px solid red;
@@ -164,6 +173,10 @@
             }
             .shopCars {
                 @include shopCars();
+                cursor: pointer;
+            }
+            .shopCars:hover{
+                background-color:#ac5454;
             }
             .ImageContent1 {
                 @include productsImg();
@@ -201,6 +214,10 @@
             }
             .shopCars {
                 @include shopCars();
+                cursor: pointer;
+            }
+            .shopCars:hover{
+                background-color:#ac5454;
             }
             .ImageContent1 {
                 @include productsImg();
@@ -236,6 +253,10 @@
             }
             .shopCars {
                 @include shopCars();
+                cursor: pointer;
+            }
+            .shopCars:hover{
+                background-color:#ac5454;
             }
             .ImageContent1 {
                 @include productsImg();
@@ -272,6 +293,10 @@
             }
             .shopCars {
                 @include shopCars();
+                cursor: pointer;
+            }
+            .shopCars:hover{
+                background-color:#ac5454;
             }
             .ImageContent1 {
                 @include productsImg();
@@ -309,6 +334,10 @@
             }
             .shopCars {
                 @include shopCars();
+                cursor: pointer;
+            }
+            .shopCars:hover{
+                background-color:#ac5454;
             }
             .ImageContent1 {
                 @include productsImg();
@@ -345,6 +374,10 @@
             }
             .shopCars {
                 @include shopCars();
+                cursor: pointer;
+            }
+            .shopCars:hover{
+                background-color:#ac5454;
             }
             .ImageContent1 {
                 @include productsImg();
@@ -381,6 +414,10 @@
             }
             .shopCars {
                 @include shopCars();
+                cursor: pointer;
+            }
+            .shopCars:hover{
+                background-color:#ac5454;
             }
             .ImageContent1 {
                 @include productsImg();
@@ -417,6 +454,10 @@
             }
             .shopCars {
                 @include shopCars();
+                cursor: pointer;
+            }
+            .shopCars:hover{
+                background-color:#ac5454;
             }
             .ImageContent1 {
                 @include productsImg();
@@ -464,15 +505,15 @@
     .pagination li {
     // border: 1px solid black;
     display: inline-block;
-    font-size: 20px;
+    font-size: 30px;
     color: black;
     padding: 10px;
     }
 
     .pagination .other:hover {
     // background-color: pink;
-    color: red;
-    cursor: pointer;
+        color: red;
+        cursor: pointer;
     }
 
     .pagination i{
