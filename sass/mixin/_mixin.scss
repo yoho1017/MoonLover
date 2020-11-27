@@ -798,9 +798,6 @@ $fontSize-basic:10px;
   cursor: pointer;
   display: inline-block;
   color: white;
-  &:hover {
-      background-color: darken($bgc, 10);
-  }
 }
 
 @mixin signBoxShop( $sign_width, $sign_margin, $sign_padding, $a,$fz) {

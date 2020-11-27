@@ -98,7 +98,7 @@
            <div class="Logo"><img src="./images/logo.png"></div>
            <ul class="navlist">
                <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+               <li class="car"><a href="./moonShopCar.html"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
                <li class="bars">
                 <button class="hamburger hamburger--collapse" type="button">
                     <span class="hamburger-box">
@@ -107,11 +107,11 @@
                   </button>
                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
                     <ul class="barList">
-                        <li><a href="#">月老地圖</a></li>
-                        <li><a href="#">月老求籤</a></li>
-                        <li><a href="#">月老牽線</a></li>
-                        <li><a href="#">月老小知識</a></li>
-                        <li><a href="#">月老商城</a></li>
+                        <li><a href="./moonMapList.html">月老地圖</a></li>
+                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                        <li><a href="./moonMatch.html">月老牽線</a></li>
+                        <li><a href="./know.html">月老小知識</a></li>
+                        <li><a href="./moonShop.html">月老商城</a></li>
                     </ul>
                   
                 </li>
@@ -335,8 +335,8 @@
                 <div id="cars_button">
                     <div class="container">
                        <div class="carsbtn_groups">
-                            <div class="cars_btnBlue">繼續購物</div>
-                            <div class="cars_btnRed">前往結帳</div>
+                            <a href="./moonShop.html"><div class="cars_btnBlue">繼續購物</div></a>
+                            <a href="#"><div class="cars_btnRed">前往結帳</div></a>
                         </div>
                     </div>
                 </div>
@@ -385,7 +385,9 @@
            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
       </span>
       </div>
-      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
+      <div class="shopCars">
+          <div class="innerCars">加入購物車</div>
+     </div>
     </div>
       <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
       <div class="ImageContent1">
