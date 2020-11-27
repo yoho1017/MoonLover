@@ -55,6 +55,7 @@
                     display: flex;
 
                     img{
+                        width: 100%;
                         margin: 20px 15px;
                         
                     }
@@ -200,7 +201,7 @@
     
     .know_wrapper{
         .box_second_left{
-            position: relative;
+            // position: relative;
 
             h2{
                 font-size: map-get($font_size, 'h2');
@@ -226,30 +227,30 @@
             }
         }
 
-        .love_god_whole{
+        // .love_god_whole{
             // border: 1px solid black;
             // max-width:400px ;
             // position:absolute;
             // right:-260px;
             // bottom:-80px;
 
-            .love_god_left{
-                border: 1px solid black;
-                max-width:350px ;
-                position:absolute;
-                left:-220px;
-                bottom:-60px;
+        //     .love_god_left{
+        //         border: 1px solid black;
+        //         max-width:350px ;
+        //         position:absolute;
+        //         left:-220px;
+        //         bottom:-60px;
 
-            }
+        //     }
 
-            .love_god_cloud_left{
-                border: 1px solid black;
-                position:absolute;
-                left:-240px;
-                bottom:-60px;
+        //     .love_god_cloud_left{
+        //         border: 1px solid black;
+        //         position:absolute;
+        //         left:-240px;
+        //         bottom:-60px;
                 
-            }
-        }
+        //     }
+        // }
     };
 
 
@@ -402,6 +403,73 @@
         }
     }
         
+};
+
+
+// rwd 1830斷點
+@include rwd(1830px) {
+
+    //第一頁右邊月老變小跟移動
+    .know_wrapper{
+        .know_one_right{
+
+            .love_god_whole{
+              
+                .love_god{
+                    width:280px;
+                    right:10px;
+                    bottom:-135px;
+
+                    img{
+                        width:100%;
+                    }
+               
+                }
+
+                .love_god_cloud{
+                    width:280px;
+                    right:10px;
+                    bottom:-115px;
+
+                    img{
+                        width:100%;
+                    }
+
+                    
+                }
+            }
+        }
+    }
+
+
+     //第三頁右邊月老變小跟移動
+     .know_wrapper{
+
+        .love_god_whole{
+            .love_god_right_third{
+                width:280px;
+                right:10px;
+                bottom:-135px;
+
+                img{
+                    width:100%;
+                }
+    
+            }
+    
+            .love_god_cloud_right_third{
+                width:280px;
+                right:10px;
+                bottom:-130px;
+
+                img{
+                    width:100%;
+                }
+                
+            }
+        }
+     }
+
 };
 
 

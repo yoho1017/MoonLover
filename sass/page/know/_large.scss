@@ -9,31 +9,210 @@
 //     }
 // }
 
+
+
 // 自訂斷點直接填寫px數值
-@include rwd(1210px){
-    .know_wrapper{
-        
-        .pinkBox_1{
+@include rwd(1210px) {
 
-        
-            .box_1200{
-    
+// ============= 小知識第一頁左邊 ==============================
+    .know_wrapper_bk_color{
+        .know_wrapper{
+
+            .pinkBox_1{
+
+                //Question大標背景色
+                .box_1200{
                     h3{
-                    width:65%;
-                    }
-                    
-                .box_one_right{
+                        width: 70%;  
 
-                    h2{
-                    width:30%;
+                    }
+
+                    .img_circle{
+                        max-width: 135px;
+                        display: flex;
+                        // flex-wrap:wrap;
+    
+                        img{
+                            margin: 20px 5px;
+                            
+                        }
+    
                     }
                 }
+            
             }
+
+        }
+    }
+
+ // ============= 小知識第一頁右邊 ==============================
+    .know_wrapper{
+        
+        .know_one_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:30%;
+            }
+        
+        }
+
+    }
+
+// <!--------小知識第二頁左邊 -------------------------->
+
+    .know_wrapper{
+        .box_second_left{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:35%;
+            }
+        }
+    }
+
+
+    // <!--------小知識第二頁右邊 -------------------------->
+
+    .know_wrapper{
+        .know_second_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:30%;
+            }
+        }
+    }
+
+  // <!--------小知識第三頁右邊 -------------------------->
+    
+  .know_wrapper{
+    .box_third_right{
+
+        //祈願Q&A大標背景色
+        h2{
+            width:25%;
+            text-align: center;
+        }
+    }
+  }
+
+
+
+};
+
+
+
+@include rwd(1060px) {
+
+    // ============= 小知識第一頁左邊 ==============================
+    .know_wrapper_bk_color{
+        .know_wrapper{
+
+            .pinkBox_1{
+
+                //Question大標背景色
+                .box_1200{
+                    h3{
+                        width: 80%;  
+
+                    }
+
+                }
+            
+            }
+
+        }
+    }
+
+ // ============= 小知識第一頁右邊 ==============================
+    .know_wrapper{
+        
+        .know_one_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:35%;
+            }
+        
+           
     
         }
 
     }
+
+// <!--------小知識第二頁左邊 -------------------------->
+
+    .know_wrapper{
+        .box_second_left{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:40%;
+            }
+        }
+    }
+
+
+    // <!--------小知識第二頁右邊 -------------------------->
+
+    .know_wrapper{
+        .know_second_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:35%;
+            }
+        }
+    }
+
+  // <!--------小知識第三頁右邊 -------------------------->
     
-   
-               
-}
+    .know_wrapper{
+        .box_third_right{
+            // position: relative;
+
+            //祈願Q&A大標背景色
+            h2{
+                width:35%;
+                text-align: center;
+            }
+        }
+
+       
+    }
+
+};
+
+@include rwd(970px) {
+
+    //第三頁右邊月老移動
+    .know_wrapper{
+
+        .love_god_whole{
+            .love_god_right_third{
+                width:280px;
+                right:10px;
+                bottom:-215px;
+
+                img{
+                    width:100%;
+                }
+    
+            }
+    
+            .love_god_cloud_right_third{
+                width:280px;
+                right:10px;
+                bottom:-210px;
+
+                img{
+                    width:100%;
+                }
+                
+            }
+        }
+    }
+
+    
+};

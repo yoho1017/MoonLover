@@ -1,0 +1,144 @@
+// 991px-768px
+
+//768
+@include rwd(small) {
+
+    // ============= 小知識粉紅區域呼叫 ==============================
+    @include know_pinkBox(1 , 90% , 92%);
+
+    // ============= 書的order順序顛倒 ==============================
+    .know_wrapper_bk_color{
+
+        .know_wrapper{
+            max-width: 700px;
+            margin: 0 auto;
+            // border: 1px solid blue;
+            
+            .pinkBox_1{
+                .order_2{
+                    order:2;
+                }
+            }
+
+        }
+
+    }
+  
+
+
+
+// ============= 小知識第一頁左邊 ==============================
+.know_wrapper_bk_color{
+    .know_wrapper{
+
+        .pinkBox_1{
+
+            //Question大標背景色
+            .box_1200{
+                margin: 0 auto;
+                h3{
+                    width: 60%;  
+
+                }
+
+                .img_circle{
+                    max-width: 135px;
+                    display: flex;
+                    // flex-wrap:wrap;
+
+                    img{
+                        width: 100%;
+                        margin: 20px 15px;
+                        
+                    }
+
+                }
+            }
+        
+        }
+
+    }
+}
+
+ // ============= 小知識第一頁右邊 ==============================
+ .know_wrapper{
+        
+    .know_one_right{
+
+        //祈願Q&A大標背景色
+        h2{
+            width:25%;
+        }
+
+        .love_god_whole{
+              
+            .love_god{
+                width:280px;
+                right:0px;
+                bottom:-820px;
+
+                img{
+                    width:100%;
+                }
+           
+            }
+
+            .love_god_cloud{
+                width:280px;
+                right:0px;
+                bottom:-820px;
+
+                img{
+                    width:100%;
+                }
+
+                
+            }
+        }
+    }
+    
+    
+
+}
+
+// <!--------小知識第二頁左邊 -------------------------->
+
+.know_wrapper{
+    .box_second_left{
+
+        //祈願Q&A大標背景色
+        h2{
+            width:30%;
+        }
+    }
+}
+
+  // <!--------小知識第二頁右邊 -------------------------->
+
+  .know_wrapper{
+    .know_second_right{
+
+        //祈願Q&A大標背景色
+        h2{
+            width:25%;
+        }
+    }
+}
+
+  // <!--------小知識第三頁右邊 -------------------------->
+    
+  .know_wrapper{
+    .box_third_right{
+
+        //祈願Q&A大標背景色
+        h2{
+            width:15%;
+            text-align: center;
+        }
+    }
+  }
+
+
+
+
+};
