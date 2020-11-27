@@ -201,7 +201,7 @@
                 <!-- 中間區域 -->
 
                 <!-- 求籤 -->
-                <div class="duelbox">
+                <div class="duelbox -on">
 
                     <div class="cloud">
                         <img src="./images/moonDrawLots/step_1/cloud.png" alt="cloud">
@@ -212,7 +212,7 @@
 
                     </div>
 
-                    <button class="btn_go">
+                    <button class="btn_go btn_go1">
                         求籤
                     </button>
 
@@ -223,7 +223,7 @@
                 </div>
 
                 <!-- 擲筊 -->
-                <div class="duelbox -on">
+                <div class="duelbox">
 
                     <div class="cloud">
                         <img src="./images/moonDrawLots/step_1/cloud.png" alt="cloud">
@@ -234,13 +234,13 @@
 
                     </div>
 
-                    <button class="btn_go">
+                    <button class="btn_go btn_go2">
                         擲筊
                     </button>
                 </div> 
 
                 <!-- 第三頁（求籤結果） -->
-                <div class="duelboxer -on">
+                <div class="duelboxer duelboxer1">
                     
                     <div class="result_letter">
                         <div class="two_line1">
@@ -267,7 +267,7 @@
                      </div> 
                  </div>    
                  <!-- 第四頁（求籤結果說明） -->
-                 <div class="duelboxer -on">
+                 <div class="duelboxer duelboxer2">
                     
                     <div class="result_letter">
                         <div class="two_line2">
@@ -303,7 +303,7 @@
                 
                     <!-- 月老跟對話框 -->
                 <!-- <div class="1200_god_fix"> -->
-                <div class="god_talk1">
+                <div class="god_talk god_talk1 -on">
 
                      <div class="talk">
                         <h3>按下去</br>
@@ -322,7 +322,7 @@
 
                 <!-- 結果頁月老 -->
 
-                <div class="god_talk2 -on">
+                <div class="god_talk god_talk2">
 
                     <div class="talk">
                        <h3>籤來囉～</br>
@@ -348,6 +348,24 @@
 
     <script src="./js/nav.js"></script>
     <script src="./js/login.js"></script>    
-    <script src="./js/overflow.js"></script>
+    <!-- <script src="./js/overflow.js"></script> -->
+    <script>
+        $(document).ready(function(){
+            // 第一步按鈕 求籤
+            $('.btn_go1').on('click', function(){
+                $('.duelbox').toggleClass('-on');
+            });
+            // 第二步按鈕 擲筊
+            $('.btn_go2').on('click', function(){
+                $('.duelbox').removeClass('-on'); // 一二屏消失
+                $('.duelboxer1').addClass('-on'); // 第三屏出現
+                $('.god_talk').toggleClass('-on') // 換月老
+            });
+
+            $('.duelboxer').on('click', function(){
+                $('.duelboxer').toggleClass('-on');
+            });
+        });
+    </script>
 </body>
 </html>
