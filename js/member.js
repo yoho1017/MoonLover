@@ -9,7 +9,7 @@ var member = new Vue ({
         // 會員中心頁籤
         lists : [
             {list: '個人資料', href : "./MyInfo.html"},
-            {list: '我的吉祥物', href : "#"},
+            {list: '我的吉祥物', href : "./MyMascot.html"},
             {list : '留言板', href : "./MyMsg.html"},
             {list : '我的訂單', href : "./MyOrder.html"}
         ],

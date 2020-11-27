@@ -1,0 +1,197 @@
+div.MyMascot-wrapper {
+    
+    background-color: #F0DED1;
+    height: 100vh;
+    padding-top: 60px;
+
+    @include member;
+
+    display: flex;
+    @include display;
+
+
+    $bwd: 25%;
+    $phg: 2%;
+
+    @include pinkBox(mascot, 100%);
+
+    .pinkBox_mascot {
+        border: 8px solid #ac5454;
+        height: $MHeight;
+
+        .pinkBox_mascot {
+            padding: 0;
+        }
+    }
+
+    .ALeft {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30% !important;
+        padding: 0 !important;
+        background-color: transparent !important;
+        border: none !important;
+
+        .access {
+            // border: 1px solid black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            width: 65%;
+            height: 100%;
+            border: 6px solid white;
+            background-color: #AC5454;
+            border-radius: 20px;
+
+            .cus {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                // border: 1px solid #000;
+                background-color: #FFF8CE;
+                border-radius: 10px;
+                padding: 10%;
+                cursor: pointer;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+        
+        .list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 35%;
+            height: 100%;
+            padding-top: 5%;
+
+            .page {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border: 5px solid white;
+                border-left: none;
+                background-color: #AC5454;
+                border-radius: 0 10px 10px 0;
+                padding: 5%;
+                margin: 5%;
+                cursor: pointer;
+
+                h3 {
+                    color : white;
+                }
+
+                &:hover {
+                    background-color: #ff7a7a;
+                }
+            }
+
+            .page:nth-child(1) {
+
+                background-color: white;
+
+                h3 {
+                    color : #AC5454;
+                }
+            }
+        }
+    }
+
+    .ARight {
+        display: flex;
+        width: 70% !important;
+        border: 6px solid white !important;
+        position: relative;
+
+        .smallMascot {
+            width: 25%;
+            // border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            
+            .smallMas {
+                img {
+                    width : 100%;
+                }
+            }
+
+            .opacity {
+                opacity: .5;
+            }
+        }
+
+        .Mascot {
+            width: 70%;
+            // border: 1px solid #000;
+            @include flexCenter;
+
+            .mascotimg {
+                margin-top: 30%;
+                @include flexCenter;
+                // border: 1px solid #000;
+                position: relative;
+
+                .chat {
+                    width: 50%;
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    background-color: white;
+                    padding: 5% 3%;
+                    border-radius: 20px;
+                    border: 10px solid #FF8484;
+                    position: absolute;
+                    bottom: 80%;
+                    left : 70%;
+
+                    h3 {
+                        color: #FF8484;
+                    }
+
+                    h4 {
+                        font-weight: 600;
+                    }
+                    
+                    .triangle {
+                        position: absolute;
+                        top: 100%;
+                        border-style: solid;
+                        border-width: 30px 35px 0 5px;
+                        border-color: #FF8484 transparent transparent transparent;
+                        left: 5%;
+                    }
+
+                    .trianglein {
+                        position: absolute;
+                        top: 99%;
+                        border-style: solid;
+                        border-width: 24px 25px 0 5px;
+                        border-color: white transparent transparent transparent;
+                        left: 7%;
+                    }
+
+
+                }
+
+                img {
+                    width : 90%;
+                }
+            }
+        }
+
+        .Mrightspace {
+            display: flex;
+            align-items: flex-end;
+            width: 25%;
+            // border: 1px solid #000;
+            
+            @include btn (submit,100%,5%);
+        }
+
+    }  
+}
