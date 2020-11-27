@@ -10,7 +10,7 @@
     margin: 0 auto;
     position: relative;
     top: 60px;
-    border: 1px solid black;
+    // border: 1px solid black;
     max-width: 1200px;
     width: 100%;
     display: flex;
@@ -59,7 +59,7 @@
       position: absolute;
       top: 70px;
       right: 100px;
-      border: 1px solid red;
+      // border: 1px solid red;
       a {
         text-decoration: none;
         font-size: 20px;
@@ -81,7 +81,7 @@
 
     // 月老廟照片
     .roundImgBlock {
-      border: 1px solid red;
+      // border: 1px solid red;
       width: 100%;
       padding: 5%;
       display: flex;
@@ -213,12 +213,12 @@
         box-shadow: 0 0 5px 2px #ccc;
         .roundImg_map {
           width: 20%;
-          border: 1px solid black;
+          // border: 1px solid black;
         }
         .sceneText {
           width: 70%;
           margin-left: 30px;
-          border: 1px solid black;
+          // border: 1px solid black;
           h3 {
             color: #4d0810;
             font-size: 20px;
