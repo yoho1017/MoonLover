@@ -130,10 +130,18 @@ h5 {
     justify-content: flex-end;
     position: fixed;
     right: 15px;
+    
     .Logo{
       position: absolute;
-      left: 15px;
+      top:10px;
+      left: 30px;
       width: $logoWd;
+      transform:scale(1);
+      transform-origin: center;
+      &:hover{
+        transform: scale(1.1);      
+        transition: all 0.1s;
+      }
     }  
     @include navlist;
     @include barList;

@@ -12,7 +12,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    z-index: 0;
+    z-index: -1;
   }
 
   //============= 廟宇======================
@@ -22,11 +22,12 @@
     // min-height: 100vh;
     // position: relative;
     // top: 250 * 100vw / 1920;
-    // border: 3px solid blue;
+    border: 3px solid blue;
 
     position: fixed;
     width: 70vw;
     height: 70vh;
+    min-height: 500px;
     top: (100vh - 70vh) / 2;
     left: (100vw - 70vw) / 2;
 
@@ -92,11 +93,12 @@
       // height: 50%;
       width: 50vw;
       height: 50vh;
+      min-height: 300px;
       top: (70vh - 50vh) / 2;
 
       overflow: hidden;
       margin: 0 auto;
-      // border: 1px solid black;
+      border: 1px solid black;
 
       // --- swiper css setting
       .swiper-container {
