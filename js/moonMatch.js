@@ -34,7 +34,10 @@ let moonMatchVue = new Vue({
     methods: {
         conditionQuery(){
             memberCardMove('down');
-            moonGodBack.restart();
+            moonGodBack.play();
+            $('.msgBoxContent').toggleClass('-on');
+            $('.msgBox').addClass('-on');
+            $('.queryBox').removeClass('-on');
             // $('.msgBox-container').css({
             //     alignItem
             // });
@@ -87,20 +90,23 @@ moonGodBack.stop();
 
 $(document).ready(function(){
 
-    // 點擊，切換 flipped 樣式
-    // $("div.card").on('click', function(){
-    //     $(this).toggleClass('flipped');
-    // });
-
     // 月老首次動畫
     setTimeout(() => {
         moonGod.restart();
     }, 1000);
 
+    // 牌卡首次動畫
     setTimeout(() => {
         memberCardMove('up');
     }, 1800);
 
+    // 篩選器首次動畫
+    setTimeout(() => {
+        $('.queryBox').toggleClass('-on');
+    }, 2500);
+
+
+    // 翻牌
     $('.card').on('click', function(){
         $(this).toggleClass('flipped');
 
@@ -108,26 +114,47 @@ $(document).ready(function(){
             backgroundColor: '#EEBBB4',
         });
 
-        $(this).css({
-            transform: 'scale(1.5) rotateY(-180deg) translateY(30%)',
-        });
-
         $(this).parent('.scene').css({
             zIndex: '10',
         });
 
-
     });
+
+    // 展開篩選條件
+    $('.btnRed_query').on('click', function(){
+        $('.queryBox').toggleClass('-on').css({
+
+        });
+        // $('.msgBoxContent').toggleClass('-on');
+    });
+
+    // 重選
+    $('.btnBlue_choose').on('click', function(e){
+        // console.log(e);
+        e.stopPropagation();
+
+        $('.moonMatch-body').css({
+            backgroundColor: '#F0DED1',
+        });
+
+        console.log($(this));
+        // $(this).parent('.card').css({
+        //     transform: 'scale(1) rotateY(0) translateY(0)',
+        // });
+        $(this).parents('.card').toggleClass('flipped');
+    });
+
 
 });
 
 function msgBoxOpen(){
-    $('.msgBox-container').toggleClass('-on');
-    $('.queryBox').toggleClass('-on');
+    $('.msgBox-container').addClass('-on');
+    // $('.queryBox').toggleClass('-on');
 };
 
-function memberCardMove(direction){
+function memberCardMove(direction,e){
     if(direction == 'up'){
+        // alert($(window).outerWidth());
         TweenMax.to('.memberCards', 1, {
             y: -320,
             scale: .7

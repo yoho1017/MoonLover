@@ -38,14 +38,14 @@
                     <span class="hamburger-box">
                       <span class="hamburger-inner"></span>
                     </span>
-                  </button>
+                </button>
                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
                     <ul class="barList">
-                        <li><a href="#">月老地圖</a></li>
-                        <li><a href="#">月老求籤</a></li>
-                        <li><a href="#">月老牽線</a></li>
-                        <li><a href="#">月老小知識</a></li>
-                        <li><a href="#">月老商城</a></li>
+                        <li><a href="./moonMapList.html">月老地圖</a></li>
+                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                        <li><a href="./moonMatch.html">月老牽線</a></li>
+                        <li><a href="./know.html">月老小知識</a></li>
+                        <li><a href="./moonShop.html">月老商城</a></li>
                     </ul>
                   
                 </li>
@@ -159,10 +159,10 @@
                             <img class="person_img" src="./images/10561547_1434602656822401_2771181283044187356_n.jpg">
                         </div>
                         <div class="memberProfile">
-                            <div class="mRow">
+                            <div class="mRow username">
                                 <h2>張作霖</h2>
                             </div>
-                            <div class="mRow">
+                            <div class="mRow introduction">
                                 <h4>這是強叔你知道的。</h4>
                             </div>
                             <div class="mRow">
@@ -183,7 +183,8 @@
                             </div>
                             <div class="btnGroup">
                                 <button class="btnBlue_choose"><h3>重選</h3></button>
-                                <button class="btnRed_choose"><h3>私訊</h3></button>
+                                <a href="./MyMsg.html" class="btnRed_choose"><h3>私訊</h3></a>
+                                <!-- <button class="btnRed_choose"><h3>私訊a</h3></button> -->
                             </div>
 
                         </div>
@@ -201,7 +202,14 @@
         <section class="godSection">
             <div class="msgBox-container">
                 <div class="msgBox">
-                    <h2>讓月老了解<br>你的理想條件喔！</h2>
+                    <div class="msgBoxContent -on">
+                        <h3>讓月老了解你的理想條件喔！</h2>
+                        <button class="btnRed_query">稟報月老</button>
+                    </div>
+                    <div class="msgBoxContent">
+                        <h3>選條紅線賜姻緣喔！</h3>
+                        <button class="btnRed_query">稟報月老</button>
+                    </div>
                 </div>
             </div>
             <div class="loveGod" id="loveGod">
@@ -273,6 +281,7 @@
     </div>
 
     <script src="./js/moonMatch.js"></script>
+    <script src="./js/nav.js"></script>
     <script src="./js/login.js"></script>
     
 </body>
