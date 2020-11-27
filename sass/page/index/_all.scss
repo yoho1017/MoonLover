@@ -82,14 +82,7 @@
       right: 100 * 100vw / 1920;
     }
 
-    // 月老
-    .YueLao {
-      position: absolute;
-      width: 300 * 100vw / 1920;
-      right: 50px;
-      bottom: -100px;
-    }
-
+    
     // =======中間icon=============
     .iconBlock {
       display: flex;
@@ -194,6 +187,15 @@
       position: absolute;
       bottom: -150 * 100vw / 1920;
     }
+
+    // 月老
+    .YueLao {
+      position: absolute;
+      width: 320 * 100vw / 1920;
+      right: 50px;
+      bottom: 50px;
+    }
+
 
     //============左前雲==========
     $cwd: 400 * 100vw / 1920;
