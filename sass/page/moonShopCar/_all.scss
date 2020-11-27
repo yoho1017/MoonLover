@@ -24,6 +24,16 @@
           margin-top: 60px;
         //   border:2px solid green;
       }
+      a{
+          display:block;
+          text-decoration: none;
+      }
+      img{
+          cursor: pointer;
+      }
+      i{
+          cursor: pointer;
+      }
  
     
       .container {
@@ -185,8 +195,7 @@
             .cars_titles {
                 width: 100%;
                 background-color: #ac5454;
-                padding: 5px;
-               
+                padding: 5px; 
                    //商品標題表格
                 td {
                     width:16%;
@@ -212,28 +221,33 @@
                     background-repeat: no-repeat;
                     background-size: cover;
                     overflow: hidden;
-                    border-right:1px solid #ff7a7a;   
+                    border-right:2px solid #ff7a7a; 
+                    cursor: pointer;  
                 }  
                 td:nth-child(2){
-                    border-right:1px solid #ff7a7a; 
+                    border-right:2px solid #ff7a7a; 
                 }
                 td:nth-child(3){
-                    border-right:1px solid #ff7a7a; 
+                    border-right:2px solid #ff7a7a; 
                 }
                 td:nth-child(4){
-                    border-right:1px solid #ff7a7a; 
+                    border-right:2px solid #ff7a7a; 
                 }
                 td:nth-child(5){
-                    border-right:1px solid #ff7a7a; 
+                    border-right:2px solid #ff7a7a; 
                 }
                 td:nth-child(6) p{
-                    border:1px solid  #ff7a7a;
-                    border-radius: 30px;
+                    // border:1px solid  #ff7a7a;
+                    border-radius: 25px;
                     background-color: #ff7a7a;
                     padding:10px;
-                    margin:0 10px;   
-                    color:#FFFFFF;                 
+                    margin:0 20px;   
+                    color:#FFFFFF;    
+                    cursor: pointer;             
                 } 
+                td:nth-child(6) p:hover{
+                    background-color:#ac5454;
+                }
             
             }
                 //  以下要再放回去巢狀
@@ -251,21 +265,29 @@
                     // border:1px solid green;
                 }
                 .cars_btnBlue{
-                    border:1px solid  #7ed5ea;
+                    
                     background-color: #7ed5ea;
                     border-radius: 30px;
                     padding:10px 30px;
                     font-size:20px;
                     color:#FFFFFF;
                     margin-right:10px;
+                    cursor: pointer;
+                }
+                .cars_btnBlue:hover{
+                    background-color:#599aaa;
                 }
                 .cars_btnRed{
-                    border:1px solid #ff7a7a;
+                
                     background-color:#ff7a7a;
                     border-radius:30px;
                     padding:10px 30px;
                     font-size:20px;
                     color:#FFFFFF;
+                    cursor: pointer;
+                }
+                .cars_btnRed:hover{
+                    background-color:#ac5454;
                 }
            
             }
@@ -303,6 +325,11 @@
       }
       .shopCars {
           @include shopCars();
+          cursor: pointer;
+        
+      }
+      .shopCars:hover{
+          background-color: #ac5454;
       }
       .ImageContent1 {
           height: "130px";
