@@ -17,7 +17,11 @@ div.MyInfo-wrapper {
 
     .pinkBox_account {
         border: 8px solid #ac5454;
-        height: $MHeight;
+        // height: $MHeight;
+    }
+
+    .inBox_account {
+        height : 70vh;
     }
 
     .ALeft {

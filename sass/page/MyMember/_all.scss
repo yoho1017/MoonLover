@@ -22,7 +22,7 @@
             width: 50%;
             display: flex;
             justify-content: center;
-            margin: 3% auto;
+            margin: 5% auto;
             // border: 1px solid #000;
             position: relative;
             z-index: 1;
@@ -38,7 +38,7 @@
                 }
 
                 img {
-                    width: 60%;
+                    width: 100%;
                 }
     
                 @include btn(list,100%,2%);
@@ -81,12 +81,12 @@
             }
 
             .mascot {
-                width: 250px;
+                width: 300px;
                 // border: 1px solid #000;
                 position: absolute;
                 top :0;
                 right: 0;
-                transform: translate(90%,-10%);
+                transform: translate(90%,0%);
                 @include flexCenter;
                 flex-direction: column;
 
