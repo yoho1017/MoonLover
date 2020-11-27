@@ -4,7 +4,7 @@
 @include rwd(small) {
 
     // ============= 小知識粉紅區域呼叫 ==============================
-    @include know_pinkBox(1 , 90% , 92%);
+    @include know_pinkBox(1 , 100% , 92%);
 
     // ============= 書的order順序顛倒 ==============================
     .know_wrapper_bk_color{
@@ -74,7 +74,7 @@
               
             .love_god{
                 width:280px;
-                right:0px;
+                right:-20px;
                 bottom:-820px;
 
                 img{
@@ -85,7 +85,7 @@
 
             .love_god_cloud{
                 width:280px;
-                right:0px;
+                right:-20px;
                 bottom:-820px;
 
                 img{
@@ -125,6 +125,21 @@
     }
 }
 
+// <!--------------小知識第三頁左邊 -------------------------------------------->
+.know_wrapper{
+    .box_text_short{
+       
+        div{
+            text-align: center;
+            .love_light{
+                max-width:524px;
+                margin: 40px 0px 0px 0px;
+            }
+        }
+    }
+
+};
+
   // <!--------小知識第三頁右邊 -------------------------->
     
   .know_wrapper{
@@ -135,7 +150,38 @@
             width:15%;
             text-align: center;
         }
+    
     }
+
+    .love_god_whole{
+     
+        .love_god_right_third{
+            width:280px;
+            right:10px;
+            bottom:-20px;
+
+            img{
+                width:100%;
+            }
+
+        }
+
+        .love_god_cloud_right_third{
+            width:280px;
+            right:10px;
+            bottom:-20px;
+
+            img{
+                width:100%;
+            }
+            
+        }
+    }
+
+
+
+
+
   }
 
 
