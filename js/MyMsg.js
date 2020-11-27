@@ -56,7 +56,7 @@ var member = new Vue ({
         submit (newText) {
             if (newText != '') {
                 this.myMsg.push( 
-                    {msg: newText, image: '../images/MyMsg/person_special.jpg', time: this.getTime ()}
+                    {msg: newText, image: './images/MyMsg/person_special.jpg', time: this.getTime ()}
                 );
                 setTimeout(this.scrollTo, .1);
                 this.newText = '';
