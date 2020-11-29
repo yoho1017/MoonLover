@@ -1,8 +1,12 @@
+.mList {
+    overflow: hidden;
+}
+
 div.MyInfo-wrapper {
     
     background-color: #F0DED1;
     height: 100vh;
-    padding-top: 60px;
+    padding-top: 100px;
 
     @include member;
 
@@ -43,6 +47,10 @@ div.MyInfo-wrapper {
 
         @include btn(Ver, 35%, 5px); //驗證信按鈕
         @include btn(submit, $bwd, $phg);
+
+        .btn {
+            margin: 0 40px;
+        }
         
         .submit {
             position: absolute;
@@ -53,9 +61,14 @@ div.MyInfo-wrapper {
         .MyInfoform {
             height: 100%;
             margin-top: 10px;
+            overflow-x: hidden;
             overflow-y: scroll;
             display: flex;
             flex-wrap: wrap;
+
+            .selection {
+                display: flex;
+            }
             
             .inputRow {
                 display: flex;
@@ -78,6 +91,10 @@ div.MyInfo-wrapper {
                 text-align: left;
             }
 
+            .mainH4 {
+                width : 40%;
+            }
+
             .more {
                 width: 30%
             }
@@ -90,7 +107,7 @@ div.MyInfo-wrapper {
                 // border: 1px solid #000;            
                 display: flex;
                 flex-wrap: wrap;
-                width: 50%;
+                width: 35%;
             }
 
             .member_input {
@@ -107,6 +124,23 @@ div.MyInfo-wrapper {
             .int_title {
                 margin: 10px;
                 margin-top: 0;
+            }
+
+        }
+
+        .modify {
+            .inputRow {
+                .checkboxH4 {
+                    margin-right: 5px;
+                }
+            }
+            .privaty {
+                i {
+                    margin-left : 1%;
+                }
+                .name {
+                    width : 29%;
+                }
             }
 
         }

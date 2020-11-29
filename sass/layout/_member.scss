@@ -61,6 +61,86 @@
         // border: $bd;
     
     }
+
+    // rwd
+
+    
+    @include rwd(large) {
+        aside {
+            width: 20%;
+        }
+        main {
+          width : 80%;
+        }
+    }
+
+    @include rwd(medium) {
+        aside {
+            width: 30%;
+        }
+        main {
+          width : 70%;
+        }
+    }
+
+    @include rwd(small) {
+        flex-direction: column;
+        align-items: center;
+
+        aside{
+            width : 100%;
+            margin: 0 10%;
+
+            .option {
+                display: flex;
+                margin: 0 2%;
+                border-radius: 10px 10px 0 0;
+                border: none;
+
+                li {
+                    margin: 0;
+                    width: 25%;
+
+                    h3 {
+                        line-height: 80px;
+                    }
+
+                    .bold {
+                        border-radius: 10px 10px 0 0;
+                        background-color: #981A1A;
+                        color: white;
+                    }
+
+                    &:hover {
+                        border-radius: 10px 10px 0 0;
+                    }
+                }
+            }
+        }
+
+        main {
+            width: 96%;
+            margin: 0% 2%;
+        }
+    }
+
+    @include rwd(xsmall) {
+        aside {
+            .option {
+
+                & > li:nth-child(2) {
+                    width :30%;
+                }
+
+                h3 {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+
+      
 }
 
 @mixin insideScroll {

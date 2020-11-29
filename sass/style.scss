@@ -75,12 +75,24 @@ nav > .Logo > img {
 
 // page_MyInfo
 @import "page/MyInfo/all";
+@import "page/MyInfo/large";
+@import "page/MyInfo/medium";
+@import "page/MyInfo/small";
+@import "page/MyInfo/xsmall";
 
 // page_MyOrder
 @import "page/MyOrder/all";
+@import "page/MyOrder/large";
+@import "page/MyOrder/medium";
+@import "page/MyOrder/small";
+@import "page/MyOrder/xsmall";
 
 // page_MyMsg
 @import "page/MyMsg/all";
+@import "page/MyMsg/large";
+@import "page/MyMsg/medium";
+@import "page/MyMsg/small";
+@import "page/MyMsg/xsmall";
 
 // page_Mymember
 @import "page/MyMember/all";
@@ -91,6 +103,10 @@ nav > .Logo > img {
 
 // page_MyMascot
 @import "page/MyMascot/all";
+@import "page/MyMascot/large";
+@import "page/MyMascot/medium";
+@import "page/MyMascot/small";
+@import "page/MyMascot/xsmall";
 
 // ----------backstage-------- //
 @import "page/backstage-example/all";

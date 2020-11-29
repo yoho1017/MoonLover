@@ -2,6 +2,7 @@
 <html lang="zh-hant">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- icon -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- 裁減圖片css -->
@@ -22,7 +23,7 @@
     <title>個人資料</title>
 
 </head>
-<body>
+<body class="mList">
 
        <!------------------------------header---------------------------------->
        <header class="header">
@@ -173,32 +174,32 @@
                                 修改完成
                             </h4>
                         </button>
-                        <button v-else="modify" class="btnRed_submit submit btn" @click="changeInfo">
+                        <button v-else="modify" class="btnRed_submit submit" @click="changeInfo">
                             <h4>
                                 修改資料
                             </h4>
                         </button>
                     <!---------------- 表單------------------>
-                        <form name="account" action="modifyR.php" class="MyInfoform">
+                        <form name="account" action="modifyR.php" class="MyInfoform" :class="{modify : modify}">
 
                             <div class="mainInfo">
                                 <div class="inputRow">
-                                    <h4 class="name">帳號</h4>
+                                    <h4 class="name mainH4">帳號</h4>
                                     <h4>{{username}}</h4>
                                 </div>
 
                                 <div class="inputRow" v-if="modify">
-                                    <h4 class="name">密碼</h4>
+                                    <h4 class="name mainH4">密碼</h4>
                                     <input type="password" class="member_input" v-model="pwd">
                                 </div>
 
                                 <div class="inputRow" v-if="modify">
-                                    <h4 class="name">重新輸入密碼</h4>
+                                    <h4 class="name mainH4">重新輸入密碼</h4>
                                     <input type="password" class="member_input" v-model="pwd">
                                 </div>
 
                                 <div class="inputRow">
-                                    <h4 class="name">信箱</h4>
+                                    <h4 class="name mainH4">信箱</h4>
                                     <input type="email" class="member_input" v-if="modify" v-model="email">
                                     <h4 v-else="modify">{{email}}</h4>
                                 </div>
@@ -210,7 +211,7 @@
                                 </div>
 
                                 <div class="inputRow" v-if="modify">
-                                    <h4 class="name">輸入驗證碼</h4>
+                                    <h4 class="name mainH4">輸入驗證碼</h4>
                                     <input class="member_input" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
                                 </div>
 
@@ -279,7 +280,7 @@
                                 </div>
 
                                 <div class="inputRow row_mult">
-                                    <h4 class="name more">
+                                    <h4 class="name more checkboxH4">
                                         興趣
                                     </h4>
                                     <div class="check_box"  v-if="modify">
@@ -304,17 +305,19 @@
                                     </h4>
                                 </div>
 
-                                <div class="inputRow">
+                                <div class="inputRow selectAndInput">
                                     <h4 class="name more">
                                         職業
                                     </h4>
-                                    <select name="area" v-if="modify" v-model="job">
-                                    　  <option v-for="job in jobs" :selected="job == jobs">
-                                            {{job}}
-                                        </option>
-                                    </select>
-                                    <h4 v-if="modify">&nbsp;/&nbsp;</h4>
-                                    <input type="text" class="member_input" v-if="modify" v-model="work">
+                                    <div class="selection" v-if="modify">
+                                        <select name="area"  v-model="job">
+                                        　  <option v-for="job in jobs" :selected="job == jobs">
+                                                {{job}}
+                                            </option>
+                                        </select>
+                                        <h4 class="h4space">&nbsp;/&nbsp;</h4>
+                                        <input type="text" class="member_input" v-model="work">
+                                    </div>
                                     <h4 v-else="modify" >
                                         {{job}} / {{work}}
                                     </h4>
@@ -324,20 +327,22 @@
                                     <h4 class="name more">
                                         學歷
                                     </h4>
-                                    <select name="area" v-if="modify" v-model="education">
-                                        <option v-for="education in educations" :seleceted="education == educations">
-                                                {{education}}
-                                        </option>
-                                    </select>
-                                    <h4 v-if="modify">&nbsp;/&nbsp;</h4>
-                                    <input type="text" class="member_input" v-if="modify" v-model="school">    
+                                    <div class="selection" v-if="modify">
+                                        <select name="area" v-model="education">
+                                            <option v-for="education in educations" :seleceted="education == educations">
+                                                    {{education}}
+                                            </option>
+                                        </select>
+                                        <h4>&nbsp;/&nbsp;</h4>
+                                        <input type="text" class="member_input" v-model="school">    
+                                    </div>
                                     <h4 v-else="modify" >
                                         {{education}} / {{school}}
                                     </h4>
                                 </div>
 
                                 <div class="inputRow">
-                                    <h4 class="name more">
+                                    <h4 class="name more checkboxH4">
                                         我是
                                     </h4>
                                     <div class="check_box"  v-if="modify">
@@ -349,7 +354,7 @@
                                 </div>
 
                                 <div class="inputRow">
-                                    <h4 class="name more">
+                                    <h4 class="name more checkboxH4">
                                         性取向
                                     </h4>
                                     <div class="check_box"  v-if="modify">
@@ -412,7 +417,7 @@
     <!-- 個人資料js -->
     <script src="./js/member.js"></script>
     <!-- oveflow -->
-    <script src="./js/overflow.js"></script>
+    <!-- <script src="./js/overflow.js"></script> -->
 </body>
 </html>
 
