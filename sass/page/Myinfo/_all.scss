@@ -1,12 +1,8 @@
-.mList {
-    overflow: hidden;
-}
-
 div.MyInfo-wrapper {
     
     background-color: #F0DED1;
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 75px;
 
     @include member;
 

@@ -23,7 +23,7 @@
     <title>我的吉祥物</title>
 
 </head>
-<body>
+<body class="mList">
 
        <!------------------------------header---------------------------------->
        <header class="header">
@@ -165,29 +165,29 @@
                     <div class="inBox_mascot ALeft">
                         <div class="access">
                             <div class="cus">
-                                <img src="./images/MyMascot/access1_1.png">
+                                <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/1.png'">
                             </div>
                             <div class="cus">
-                                <img src="./images/MyMascot/access1_2.png">
+                                <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/2.png'">
                             </div>
                             <div class="cus">
-                                <img src="./images/MyMascot/access1_3.png">
+                                <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/3.png'">
                             </div>
                             <div class="cus">
-                                <img src="./images/MyMascot/access1_4.png">
+                                <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/4.png'">
                             </div>
                         </div>
                         <div class="list">
-                            <div class="page">
+                            <div class="page" :class="{choice : deco == 0}" @click ="decoClick(0)">
                                 <h3>面飾</h3>
                             </div>
-                            <div class="page">
+                            <div class="page" :class="{choice : deco == 1}" @click ="decoClick(1)">
                                 <h3>頭飾</h3>
                             </div>
-                            <div class="page">
+                            <div class="page" :class="{choice : deco == 2}" @click ="decoClick(2)">
                                 <h3>飾品</h3>
                             </div>
-                            <div class="page">
+                            <div class="page" :class="{choice : deco == 3}" @click ="decoClick(3)">
                                 <h3>尾巴</h3>
                             </div>
                         </div>
@@ -195,30 +195,30 @@
             <!---------------------------- 會員資料------------------------------------>
                     <div class="inBox_mascot ARight">
                         <div class="smallMascot">
-                            <div class="monkey smallMas opacity">
-                                <img src="./images/MyMascot/monkey.png">
+                            <div class="monkey smallMas opacity" @click="choice(0)">
+                                <img src="./images/MyMascot/monkey.png" id="monkey">
                             </div>
-                            <div class="fox smallMas">
-                                <img src="./images/MyMascot/fox.png">
+                            <div class="fox smallMas" @click="choice(1)">
+                                <img src="./images/MyMascot/fox.png" id="fox">
                             </div>
-                            <div class="rabbit smallMas opacity">
-                                <img src="./images/MyMascot/rabbit.png">
+                            <div class="rabbit smallMas opacity" @click="choice(2)">
+                                <img src="./images/MyMascot/rabbit.png" id="rabbit">
                             </div>
                         </div>
                         <div class="Mascot">
                             <div class="mascotimg">
-                                <div class="chat">
+                                <div class="chat" v-show="guiding">
                                     <h3>
-                                        我是小狐仙
+                                        我是{{mascot.name}}
                                     </h3>
                                     <h4>
-                                        為女性代表的吉祥物
+                                        為{{mascot.guide}}的吉祥物
                                         可以幫我做造型喔！
                                     </h4>
                                     <div class="triangle"></div>
                                     <div class="trianglein"></div>    
                                 </div>
-                                <img src="./images/MyMascot/fox.png">
+                                <img :src="'./images/MyMascot/' + mascot.image"/>
                             </div>
                         </div>
                         <div class="Mrightspace">
@@ -235,8 +235,6 @@
     <!-- 登入註冊，需要再新增登入成功後介面 -->
     <script src="./js/login.js"></script>
     <!-- 個人資料js -->
-    <script src="./js/member.js"></script>
-    <!-- oveflow -->
-    <script src="./js/overflow.js"></script>
+    <script src="./js/mascot.js"></script>
 </body>
 </html>
