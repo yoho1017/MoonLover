@@ -3,72 +3,89 @@
     img{
         width: 100%;
     }
+    // 台灣地圖區
     .Taiwan-block{
         margin: 0 auto;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        max-width: 1200px;
-        width: 100%;       
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;        
+        border: 1px solid red;
         .twMap{
             position: relative;
-            width: 100%;
-            margin: 50px;
-            // border: 1px solid red;
-            ul.line-block{
-                position: absolute;
-                width: 100%;
-                // top:17%;
-                right: 0;
-                display: flex;
-                justify-content: center;
-                list-style: none;
-                align-items: center;
-                // border: 1px solid green;
-    
-                .mapLine{              
-                    width: 50%;
-                    height: 2px;  
-                    background-color: red;         
-                   
-                                 
-                }
-                .roundLink{
-                    width: 20px;
-                    height:20px;
-                    border-radius: 50%;
-                    background-color: rgb(255, 255, 255);
-                    box-shadow: 0 0 0 4px red;            
-                }
-                .linkText{
-                    margin-left: 15px;
-                    a{
-                        font-size: 30px;
-                        display: flex;
-                        width: 250px;
-                        text-align: center;
-                        text-decoration: none;
-                        // border: 1px solid green;
-                    }
-                     
-                }
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+                    
+            margin: 50px auto 0px;
+            border: 1px solid rgb(108, 17, 255);
+            embed{
+                width: 95%;
+                
             }
+            // 月老
+            .YueLao_block {
+                position: absolute; 
+                bottom: 0%;
+                right: 0%;
+                border: 1px solid black;
+                width: 30%;
+                // 對話框
+                .dialog{
+                    position: absolute;
+                    top: -65%;
+                    left: 15%;
+                    width: 280px;
+                    
+                    background-color: #FFEEA8;
+                    box-shadow: 0 0 0 8px white;
+                    border-radius: 30px;
+                    padding: 40px;
+                .h3{
+                  
+                    word-break: break-word;
+                }
+                
+                // 箭頭
+                &::before,&::after{
+                position: absolute;
+                top:100%;
+                left:50px;
+                border: solid transparent;
+                content: "";
+                height: 0;
+                width: 0;
+                pointer-events: none;
+                }
+                &::after{
+                    border-color: transparent;
+                    border-top-color: #FFEEA8;
+                    border-width: 15px;
+                    margin-left: 60px;
+                }
+                &::before{
+                    border-color: transparent;
+                    border-top-color: white;
+                    border-width: 30px;
+                    margin-left: 45px; 
+                }
+                }
+            
+                
+    
+                .YueLao {
+                  width: 90%;
+                }
+                .YueLaoCloud {
+                  position: absolute;
+                  bottom: 0px;
+                  right: 30px;
+                  width: 100%;
+                }
+              }
+                   
         }
 
-        // 月老
-        .YueLao_block {
-            position: absolute; 
-            bottom: 1%;
-            right: 0%;
-            .YueLao {
-              width: 90%;
-            }
-            .YueLaoCloud {
-              position: absolute;
-              bottom: 10px;
-              right: 30px;
-              width: 100%;
-            }
-          }
     }
 }
