@@ -2,6 +2,11 @@
 <html lang="zh-hant">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+    crossorigin="anonymous"></script>    
     <!-- icon -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- css -->
@@ -16,34 +21,34 @@
     <title>會員中心</title>
 
 </head>
-<body class="Mbody">
+<body class="Mbody bgImgCloud">
 
        <!------------------------------header---------------------------------->
        <header class="header">
         <nav class="nav" id="nav">
-           <div class="Logo"><img src="./images/logo.png"></div>
-           <ul class="navlist">
-               <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
-               <li class="bars">
-                <button class="hamburger hamburger--collapse" type="button">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                   <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
-                    <ul class="barList">
-                        <li><a href="./moonMapList.html">月老地圖</a></li>
-                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
-                        <li><a href="./moonMatch.html">月老牽線</a></li>
-                        <li><a href="./know.html">月老小知識</a></li>
-                        <li><a href="./moonShop.html">月老商城</a></li>
-                    </ul>
-                  
-                </li>
-              
-           </ul>
-        </nav>
+            <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
+            <ul class="navlist">
+                <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
+                <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+                <li class="bars">
+                 <button class="hamburger hamburger--collapse" type="button">
+                     <span class="hamburger-box">
+                       <span class="hamburger-inner"></span>
+                     </span>
+                   </button>
+                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+                     <ul class="barList">
+                         <li><a href="./moonMapList.html">月老地圖</a></li>
+                         <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                         <li><a href="./moonMatch.html">月老牽線</a></li>
+                         <li><a href="./know.html">月老小知識</a></li>
+                         <li><a href="./moonShop.html">月老商城</a></li>
+                     </ul>
+                   
+                 </li>
+               
+            </ul>
+         </nav>
     </header>
 
         <!-- 登入登出 -->
@@ -134,78 +139,94 @@
         </div>
         <!-- 燈箱結束 -->    
 
+
+
         <div id="member" class="Mymember-wrapper"> 
 
-            <div class="roof">
-                <img src="./images/MyMember/roof.png">
-            </div>
+        <!-- 廟宇 -->
+            <div class="temple01">
 
-                <!------------------------------內容---------------------------------->
-                
-            <!------------------------------主要內容---------------------------------->
-            <main>
+                <div class="roof"><img src="./images/index/屋頂.png">
+                    <div class="lantern left"><img src="./images/MyMember/燈籠.svg"></div>
+                    <div class="lantern right"><img src="./images/MyMember/燈籠.svg"></div>                                  
+                </div>
 
-                <ul class="option">
+        <!-- 主要內容 -->
+                <main>
 
-                    <li>
-                        <a href="./MyInfo.html">
-                            <img src="./images/MyMember/MyInfo.png" class="icon">
-                            <div class="btnRed_list">
-                                <h3>個人資料</h3>
+
+                    <ul class="option">
+
+                        <li>
+                            <a href="./MyInfo.html">
+                                <img src="./images/MyMember/MyInfo.png" class="icon">
+                                <div class="btnRed_list">
+                                    <h3>個人資料</h3>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./MyOrder.html">
+                                <img src="./images/MyMember/mascot.png" class="icon">
+                                <div class="btnRed_list">
+                                    <h3>我的吉祥物</h3>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./MyMsg.html">
+                                <img src="./images/MyMember/MyMsg.png" class="icon">
+                                <div class="btnRed_list">
+                                    <h3>留言板</h3>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./MyOrder.html">
+                                <img src="./images/MyMember/MyOrder.png" class="icon">
+                                <div class="btnRed_list">
+                                    <h3>我的訂單</h3>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- <div class="mascot">
+                            <div class="chat">
+                                <h4>快來客製化自己的吉祥物吧 !</h4>
+                                <div class="btnRed_create">
+                                    <a href="./MyMascot.html">
+                                        <h3>創建吉祥物</h3>
+                                    </a>
+                                </div>
+                                <span class="triangle"></span>
+                                <span class="trianglein"></span>
                             </div>
-                        </a>
-                    </li>
+                            <img src="./images/MyMember/mascot.png">
+                        </div> -->
 
-                    <li>
-                        <a href="./MyMsg.html">
-                            <img src="./images/MyMember/MyMsg.png" class="icon">
-                            <div class="btnRed_list">
-                                <h3>留言板</h3>
-                            </div>
-                        </a>
-                    </li>
+                    </ul>
 
-                    <li>
-                        <a href="./MyOrder.html">
-                            <img src="./images/MyMember/MyOrder.png" class="icon">
-                            <div class="btnRed_list">
-                                <h3>我的訂單</h3>
-                            </div>
-                        </a>
-                    </li>
-
-                    <div class="mascot">
-                        <div class="chat">
-                            <h4>快來客製化自己的吉祥物吧 !</h4>
-                            <div class="btnRed_create">
-                                <a href="./MyMascot.html">
-                                    <h3>創建吉祥物</h3>
-                                </a>
-                            </div>
-                            <span class="triangle"></span>
-                            <span class="trianglein"></span>
-                        </div>
-                        <img src="./images/MyMember/mascot.png">
-                    </div>
-
-                </ul>
+                </div>
 
             </main>  
             
             <div class="clouds">
-                <div class="cloud cloud1">
+                <div class="cloud cloud1" id="c1">
                     <img src="./images/MyMember/LC1.png">
                 </div>
-                <div class="cloud cloud2">
+                <div class="cloud cloud2" id="c2">
                     <img src="./images/MyMember/LC2.png">
                 </div>
-                <div class="cloud cloud3">
+                <div class="cloud cloud3" id="c3">
                     <img src="./images/MyMember/LC3.png">
                 </div>
-                <div class="cloud cloud4">
+                <div class="cloud cloud4" id="c4">
                     <img src="./images/MyMember/RC2.png">
                 </div>
-                <div class="cloud cloud5">
+                <div class="cloud cloud5" id="c5">
                     <img src="./images/MyMember/RC1.png">
                 </div>
             </div>
@@ -213,9 +234,11 @@
         </div>
 
     <!-- header -->
-    <script src="js/1_new.js"></script> 
+    <script src="js/nav.js"></script> 
     <!-- 登入註冊，需要再新增登入成功後介面 -->
     <script src="./js/login.js"></script>
+    <!-- scroll.js -->
+    <script src="./js/srcoll.js"></script>
     <!-- oveflow -->
     <script src="./js/overflow.js"></script>
 </body>

@@ -1,17 +1,47 @@
 .Mbody {
-    background-color: #F0DED1;
-    height: 100vh;
     z-index: -5;
 }
 
 .Mymember-wrapper {
 
-    .roof {
-        width: 50%;
-        transform: translateY(-20%);
-        margin: auto;
-        img {
+    img {
+        width: 100%;
+    }
+
+    .temple01 {
+        margin: 0 auto;
+        position: fixed;
+        width: 70vw;
+        height: 70vh;
+        top: (100vh - 70vh) / 2;
+        left: (100vw - 70vw) / 2;    
+
+        .roof {
             width: 100%;
+            position: absolute;
+            // border: 1px solid red;
+            top: -310 * 100vw / 1920;
+            z-index: 3;
+            // ========= 燈籠 ==============
+            .lantern.left {
+              position: absolute;
+              width: 10%;
+              z-index: -1;
+              bottom: -100px;
+              left: 0px;
+            }
+            .lantern.right {
+              position: absolute;
+              width: 10%;
+              z-index: -1;
+              bottom: -100px;
+              right: 0px;
+            }      
+          // ==========燈籠光暈=============
+          .light {
+            border-radius: 50%;
+            box-shadow: 0px 0px 80px 30px #ffef61;
+          }
         }
     }
 
@@ -19,11 +49,14 @@
 
 
         .option {
-            width: 50%;
+            width: 70%;
+            height: 70vh;
             display: flex;
             justify-content: center;
-            margin: 5% auto;
-            // border: 1px solid #000;
+            align-items: center ;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            border: 1px solid #000;
             position: relative;
             z-index: 1;
     
@@ -79,101 +112,86 @@
                     } 
                 }
             }
-
-            .mascot {
-                width: 300px;
-                // border: 1px solid #000;
-                position: absolute;
-                top :0;
-                right: 0;
-                transform: translate(90%,0%);
-                @include flexCenter;
-                flex-direction: column;
-
-                .chat {
-                    width: 100%;
-                    @include flexCenter;
-                    flex-direction: column;
-                    background-color: #FFEEA8;
-                    padding: 10% 3%;
-                    border-radius: 20px;
-                    border: 10px solid white;
-                    position: relative;
-                    margin-bottom: 5%;
-
-                    @include btn (create,80%,2%);
-
-                    h4, .btnRed_create {
-                        margin: 3% auto;
-                    } 
-
-                    .btnRed_create {
-                        @include flexCenter;
-
-                        a{
-                            text-decoration: none;
-                            color: white;
-                        }
-                    }
-
-                    .triangle {
-                        position: absolute;
-                        top: 100%;
-                        border-style: solid;
-                        border-width: 30px 30px 0 30px;
-                        border-color: white transparent transparent transparent;
-                    }
-
-                    .trianglein {
-                        position: absolute;
-                        top: 99%;
-                        border-style: solid;
-                        border-width: 25px 20px 0 20px;
-                        border-color: #FFEEA8 transparent transparent transparent;
-                    }
-                }
-        
-                img {
-                    width: 100%;
-                }
-            }
-
         }
     }
 
+
+
+
+
+            // .mascot {
+            //     width: 300px;
+            //     // border: 1px solid #000;
+            //     position: absolute;
+            //     top :0;
+            //     right: 0;
+            //     transform: translate(90%,0%);
+            //     @include flexCenter;
+            //     flex-direction: column;
+
+            //     .chat {
+            //         width: 100%;
+            //         @include flexCenter;
+            //         flex-direction: column;
+            //         background-color: #FFEEA8;
+            //         padding: 10% 3%;
+            //         border-radius: 20px;
+            //         border: 10px solid white;
+            //         position: relative;
+            //         margin-bottom: 5%;
+
+            //         @include btn (create,80%,2%);
+
+            //         h4, .btnRed_create {
+            //             margin: 3% auto;
+            //         } 
+
+            //         .btnRed_create {
+            //             @include flexCenter;
+
+            //             a{
+            //                 text-decoration: none;
+            //                 color: white;
+            //             }
+            //         }
+
+            //         .triangle {
+            //             position: absolute;
+            //             top: 100%;
+            //             border-style: solid;
+            //             border-width: 30px 30px 0 30px;
+            //             border-color: white transparent transparent transparent;
+            //         }
+
+            //         .trianglein {
+            //             position: absolute;
+            //             top: 99%;
+            //             border-style: solid;
+            //             border-width: 25px 20px 0 20px;
+            //             border-color: #FFEEA8 transparent transparent transparent;
+            //         }
+            //     }
+        
+            //     img {
+            //         width: 100%;
+            //     }
+            // }
+
+
     .clouds {
-        position: absolute;
-        width: 100%;
+        position: fixed;
+        width: 1920px;
         display: flex;
-        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -8%;
         // border: 1px solid red;
         z-index: -4;
+        // display: none;
 
         .cloud {
             // border: 1px solid #000;
         }
-
-        .cloud1 {
-            transform: translate(2%,35%);
-        }
-
-        .cloud2 {
-            transform: translate(-7%,60%);
-        }
-
-        .cloud3 {
-            transform: translate(-53%,60%);
-        }
-
-        .cloud4 {
-            transform: translate(-36%,60%);
-        }
-
-        .cloud5 {
-            transform: translate(-48%,45%);
-            z-index: -1;
-        }
-
 
         img {
             width: 140%;

@@ -48,3 +48,40 @@ t5.fromTo(['#cloudRight'],2,{ transformOrigin:'left bottom',rotation:0,ease:Powe
 
 t6.fromTo(['#cloudaheadL'],2,{ transformOrigin:'right bottom',rotation:0,ease:Power0.easeNone},{ rotation:-5,ease:Power0.easeNone});
 t7.fromTo(['#cloudaheadR'],2,{ transformOrigin:'left bottom',rotation:0,ease:Power0.easeNone},{ rotation:5,ease:Power0.easeNone});
+
+// 太田使用
+
+var c1 = new TimelineMax({
+    repeat : -1,
+    yoyo: true 
+});
+
+var c2 = new TimelineMax({
+    repeat : -1,
+    yoyo: true 
+});
+
+var c3 = new TimelineMax({
+    repeat : -1,
+    yoyo: true 
+});
+
+var c4 = new TimelineMax({
+    repeat : -1,
+    yoyo: true 
+});
+
+var c5 = new TimelineMax({
+    repeat : -1,
+    yoyo: true 
+});
+
+c1.fromTo(['#c1'],6,{ transformOrigin:'right bottom',rotation:0, y: 170,ease:Power0.easeNone},{ x : 100, rotation:-6,ease:Power0.easeNone});
+
+c2.fromTo(['#c2'],6,{ transformOrigin:'right bottom',rotation:0, y: 340, ease:Power0.easeNone},{ x : -80, rotation:6,ease:Power0.easeNone});
+
+c3.fromTo(['#c3'],6,{ transformOrigin:'right bottom',rotation:0,x: -150, y: 240, ease:Power0.easeNone},{ x : -150, rotation:6,ease:Power0.easeNone});
+
+c4.fromTo(['#c4'],6,{ transformOrigin:'right bottom',rotation:0, x: -100, y : 270, ease:Power0.easeNone},{ x : -150, rotation:6,ease:Power0.easeNone});
+
+c5.fromTo(['#c5'],6,{ transformOrigin:'right bottom',rotation:0, x: -150, y: 240, ease:Power0.easeNone},{ x : -250, rotation:6,ease:Power0.easeNone});
