@@ -265,8 +265,14 @@ var member = new Vue ({
             template : 
             `
             <span class="check_list">
-                <h4 class="interest int_title">{{theText}}</h4>
-                <input type="checkbox" :id="theText" :checked="checked">
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked">
+                        <span class="checkbox__control">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                            <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                        </span>
+                    <h4 class="interest int_title">{{theText}}</h4>
+                </label>
             </span>
             `,
         },
@@ -275,9 +281,15 @@ var member = new Vue ({
             props : ['the-text','checked'],
             template : 
             `
-            <span class="check_list">
-                <h4 class="int_title">{{theText}}</h4>
-                <input type="checkbox" :id="theText" :checked="checked" name="sex">
+            <span class="check_list">                                
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked" name="sex">
+                    <span class="checkbox__control">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                        <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                    </span>
+                    <h4 class="int_title">{{theText}}</h4>
+                </label>
             </span>
             `,
         },
@@ -286,9 +298,15 @@ var member = new Vue ({
             props : ['the-text','checked'],
             template : 
             `
-            <span class="check_list">
-                <h4 class="int_title">{{theText}}</h4>
-                <input type="checkbox" :id="theText" :checked="checked" name="seo">
+            <span class="check_list">                              
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked" name="seo">
+                    <span class="checkbox__control">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                        <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                    </span>
+                    <h4 class="int_title">{{theText}}</h4>
+                </label>
             </span>
             `,
         },
@@ -297,9 +315,15 @@ var member = new Vue ({
             props : ['the-text','checked'],
             template : 
             `
-            <span class="check_list">
-                <h4 class="int_title">{{theText}}</h4>
-                <input type="checkbox" :id="theText" :checked="checked" name="match">
+            <span class="check_list">                
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked" name="match">
+                    <span class="checkbox__control">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                        <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                    </span>
+                    <h4 class="int_title">{{theText}}</h4>
+                </label>
             </span>
             `,
         },
@@ -308,9 +332,15 @@ var member = new Vue ({
             props : ['the-text','checked'],
             template : 
             `
-            <span class="check_list">
-                <h4 class="int_title">{{theText}}</h4>
-                <input type="checkbox" :id="theText" :checked="checked" name="pri">
+            <span class="check_list">    
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked" name="pri">
+                    <span class="checkbox__control">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+                        <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+                    </span>
+                    <h4 class="int_title">{{theText}}</h4>
+                </label>
             </span>
             `,
         }
