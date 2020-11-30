@@ -1,0 +1,54 @@
+@mixin dialog($top,$left,$width,$font) {
+    .Taiwan-block{
+
+        .twMap{
+
+            .YueLao_block{
+
+                .dialog{
+                    top:$top;
+                    left: $left;
+                    width: $width;
+                   h3{
+                       font-size: $font;
+                   }
+                }
+            } 
+        } 
+    } 
+}
+
+
+@include rwd(large) { //1366
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 1000px;
+                height: 900px;
+            }
+        }
+
+        
+    }
+}
+
+@include rwd(1020px) { //1366
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 950px;
+                height: 850px;
+            }
+        }
+
+        @include dialog(-190px,0px,270px,18px);
+    }
+}

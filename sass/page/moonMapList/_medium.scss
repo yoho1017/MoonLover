@@ -1,0 +1,75 @@
+@mixin dialog($top,$left,$width,$font) {
+    .Taiwan-block{
+
+        .twMap{
+
+            .YueLao_block{
+
+                .dialog{
+                    top:$top;
+                    left: $left;
+                    width: $width;
+                   h3{
+                       font-size: $font;
+                   }
+                }
+            } 
+        } 
+    } 
+}
+
+@include rwd(medium) {
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 900px;
+                height: 800px;
+            }
+        }
+        @include dialog(-190px,0px,260px,17px);
+
+        
+    }
+}
+
+@include rwd(900px) {
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 800px;
+                height: 700px;
+            }
+        }
+        @include dialog(-185px,0px,230px,16px);
+
+        
+    }
+}
+
+@include rwd(800px) {
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 700px;
+                height: 600px;
+            }
+        }
+        @include dialog(-185px,0px,200px,13px);
+
+        
+    }
+}
+
+

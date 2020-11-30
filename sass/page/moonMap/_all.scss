@@ -33,7 +33,9 @@
 
     //==============頁籤==============
     @include list(map, 10%);
-
+    ul.list_map li {
+      font-size: 20px;
+    }
     //=============頁籤定位顏色============
     ul.list_map {
       margin: 0;
@@ -296,16 +298,10 @@
               }
               #addImg {
                 color: #ff7a7a;
-                transform: scale(1);
+               
               }
 
-              &:hover {
-                #addImg {
-                  cursor: pointer;
-                  color: #ac5454;
-                  transform: scale(1.1);
-                }
-              }
+             
             }
 
             // 貼文區圖片
@@ -403,7 +399,7 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          margin-top: 60px;
+          margin-top: 20px;
           width: 100%;
           // border: 1px solid red;
           // overflow-y: scroll;
@@ -437,18 +433,20 @@
     div.YueLao_block.on {
       display: block;
       position: absolute;
-      bottom: -5%;
-      right: -20%;
-
+      bottom: -6%;
+      right: -10%;
+      width: 35%;
+      
       .YueLao {
         position: relative;
         width: 70%;
+        margin: 0 auto;
       }
       .YueLaoCloud {
         position: absolute;
         bottom: 10px;
-        right: 70px;
-        width: 90%;
+        right: 10%;
+        width: 80%;
       }
     }
 
@@ -458,19 +456,20 @@
 
     div.YueLao_block.tab2 {
       .YueLao {
-        width: 70%;
+        width: 60%;
         z-index: -1;
-        top: -10px;
-        transform: rotate(30deg);
+        top: -25px;
+        right: -20%;
+        transform: rotate(25deg);
       }
     }
 
     div.YueLao_block.tab3 {
       .YueLao {
-        width: 70%;
+        width: 60%;
         z-index: -1;
-        top: -40px;
-        right: -5%;
+        top: -30px;
+        right: -20%;
         transform: rotate(30deg);
       }
     }
@@ -493,3 +492,60 @@
     border-radius: 10px;
   }
 }
+
+// ----------RWD----------------
+@mixin moonMap-block($moonwid) {
+  .moonMap-block{
+    width:$moonwid;
+  }
+}
+
+@mixin signfont($fontsize) {
+  .moonMap-block{
+    .signBox_map{
+      .signInbox_map{
+        font-size:$fontsize
+      }
+    }
+  }
+}
+
+@mixin lilist($liwid,$lisize) {
+  .moonMap-block{
+    .signBox_map{
+        ul.list_map {
+          li {
+            width: $liwid;
+            font-size: $lisize;
+          }
+        }
+    }
+  }
+}
+
+@include rwd(1550px){
+  .moonMap-wrapper{
+    @include moonMap-block(75%);
+    @include signfont(49px);
+  }
+}
+
+@include rwd(1527px){
+  .moonMap-wrapper{
+    @include signfont(48px);
+  }
+}
+
+@include rwd(1470px){
+  .moonMap-wrapper{
+    @include signfont(46px);
+  }
+}
+
+
+@include rwd(1415px){
+  .moonMap-wrapper{
+    @include signfont(44px);
+  }
+}
+
