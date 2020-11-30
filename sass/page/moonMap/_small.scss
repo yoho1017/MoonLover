@@ -1,0 +1,205 @@
+// 外框大小
+@mixin moonMap-block($moonwid) {
+    .moonMap-block{
+      width:$moonwid;
+    }
+  }
+//  招牌字大小 
+  @mixin signfont($fontsize) {
+    .moonMap-block{
+      .signBox_map{       
+        .signInbox_map{
+          font-size:$fontsize
+        }
+      }
+    }
+  }
+
+//   招牌大小
+  @mixin signBox_map($signbox) {
+    .moonMap-block{
+        .signBox_map{
+            width: $signbox;
+        }
+    }
+  }
+  
+//   頁籤
+  @mixin lilist($liwid,$lisize) {
+    .moonMap-block{  
+        ul.list_map {
+          li {
+            width: $liwid;
+            font-size: $lisize;
+          }
+        }
+      
+    }
+  }
+
+    //   回到地圖
+    @mixin returnMap($top,$right,$font) {    
+        .moonMap-block{
+            .returnMap{
+                top:$top;
+                right: $right;
+                a{
+                  font-size: $font;
+                }
+            }
+        }
+    }
+
+    // 廟宇照片
+@mixin roundImg($Imgwid) {
+    .moonMap-block{
+      .roundImgBlock{
+        .roundImg_temp1{
+          width:$Imgwid;
+        }
+        .roundImg_temp2{
+          display: none;
+        }
+        .roundImg_temp3{
+          display: none;
+        }
+      }
+    }
+  }
+
+// 月老
+  @mixin YueLao{
+    .moonMap-block{
+        div.YueLao_block.on{
+            display: none;
+        }
+    }
+}
+
+
+// 標籤3內容
+@mixin sumBut($width,$font) {
+    .moonMap-block{
+      .userForm{
+        .user_block{
+          .user-messBlock{
+            .imgBlock{
+              #sumBut{
+                width: $width;
+                h3{
+                  font-size: $font;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @mixin fa-plus($font) {
+    .moonMap-block {
+      .fas.fa-plus-square.fa-5x{
+        font-size: $font;
+      }
+    }
+  }
+
+//訪客留言輸入鍵   
+@mixin arrow-but($right) {
+    .moonMap-block{
+        .message_block{
+
+            .userForm{
+
+                .input-block{
+
+                    #arrow-but{
+                        right: $right;
+                    }
+                } 
+            } 
+        } 
+
+    } 
+}
+
+@include rwd(small){
+    .moonMap-wrapper{
+        .moonMap-block{
+            .signBox_map{
+               top:38px; 
+               border: 1px;
+            }  
+          }
+        @include moonMap-block(100%);
+        @include signBox_map(35%);
+        @include signfont(25px);       
+    }
+}
+
+@include rwd(746px){
+    .moonMap-wrapper{     
+        @include roundImg(60%);      
+    }
+}
+
+@include rwd(571px){
+    .moonMap-wrapper{
+        @include sumBut(26%,15px);
+        @include fa-plus(2.8em);
+      }
+}
+
+@include rwd(568px){
+  .moonMap-wrapper{
+      @include sumBut(27%,14px);
+      @include fa-plus(2.8em);
+    }
+}
+
+@include rwd(564px){
+    .moonMap-wrapper{       
+        @include lilist(15%,16px);
+    }
+}
+
+@include rwd(551px){
+    .moonMap-wrapper{
+      
+        @include fa-plus(2.8em);
+      }
+}
+
+@include rwd(536px){
+    .moonMap-wrapper{
+        
+        @include lilist(16%,15px);
+      
+
+    }
+}
+
+@include rwd(526px){
+  .moonMap-wrapper{
+    
+    @include sumBut(28%,13px);
+  }
+}
+
+@include rwd(509px){
+    .moonMap-wrapper{
+        
+        @include fa-plus(2.5em);
+      }
+}
+
+@include rwd(503px){
+    .moonMap-wrapper{
+        
+        @include signfont(22px);
+      
+
+    }
+}
+

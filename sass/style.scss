@@ -34,7 +34,15 @@ nav > .Logo > img {
 
 // page_moonMap
 @import "page/moonMapList/all";
+@import "page/moonMapList/large";
+@import "page/moonMapList/medium";
+@import "page/moonMapList/small";
+@import "page/moonMapList/xsmall";
 @import "page/moonMap/all";
+@import "page/moonMap/large";
+@import "page/moonMap/medium";
+@import "page/moonMap/small";
+@import "page/moonMap/xsmall";
 
 // page_know
 @import "page/know/all";
@@ -42,6 +50,7 @@ nav > .Logo > img {
 @import "page/know/medium";
 @import "page/know/small";
 @import "page/know/xsmall";
+
 
 
 

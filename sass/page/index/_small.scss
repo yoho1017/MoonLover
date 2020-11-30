@@ -1,14 +1,129 @@
+@mixin iconBlock($width1, $width2) {
+  .iconBlock {
+    .swiper-slide {
+      .icon-list1 {
+        width: $width1; // 50%
+      }
+      .icon-list2 {
+        width: $width2; // 30%
+      }
+      .icon-list3 {
+        width: $width1; //50%
+      }
+    }
+  }
+}
+
+@mixin iconblock-font($font, $h2width) {
+  .iconBlock {
+    h2.iconbut {
+      font-size: $font;
+      width: $h2width;
+    }
+    .swiper-slide {
+      h2.footer {
+        font-size: $font;
+      }
+    }
+  }
+}
+
 @include rwd(small) {
-    // --------------- 廟宇 --------------------------------
-    .index-wrapper{
-        //============= 廟宇======================
-       .temple01 {
-      
-        width: 70vw;
-        height: 70vh;
-        top:(100vh - 70vh) / 2;
-        left: (100vw - 70vw) / 2;        
-           
-       }
-   }
+  .index-wrapper {
+    .main {
+      .temple01 {
+        width: 95%;
+        height: 550px;
+        // @include iconBlock(40%, 20%);
+        // @include iconblock-font(18px,120px);
+
+        .YueLao {
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+
+@include rwd(740px) {
+  .index-wrapper {
+    .main {
+      .temple01 {
+        width: 100%;
+        height: 500px;
+        // @include iconBlock(40%, 20%);
+        // @include iconblock-font(18px,120px);
+
+        .YueLao {
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+
+@include rwd(670px) {
+  .index-wrapper {
+    .main {
+      .temple01 {
+        width: 100%;
+        height: 450px;
+        // @include iconBlock(40%, 20%);
+        // @include iconblock-font(18px,120px);
+        .pillar.left,
+        .pillar.right {
+          width: 60px;
+          height: 650px;
+        }
+        .iconBlock {
+          width: 60%;
+          height: 60%;
+        }
+        .railing {
+          bottom: -110px;
+        }
+      }
+    }
+  }
+}
+
+@include rwd(560px) {
+  .index-wrapper {
+    .main {
+      .temple01 {
+        .pillar.left,
+        .pillar.right {
+          top: -120px;
+          width: 60px;
+          height: 650px;
+        }
+
+        .roof {
+        
+          .lantern.left,
+          .lantern.right {
+            width: 13%;
+            bottom: -70px;
+          }
+        }
+        .iconBlock {
+          width: 50%;
+          height: 50%;
+        }
+        .YueLao {
+          width: 35%;
+        }
+        .cloud {
+          width: 240px;
+        }
+        .cloud.aheadR {
+          right: 20px;
+        }
+        .cloud.aheadL {
+          left: 20px;
+        }
+        @include iconblock-font(10px,80px);
+      }
+    }
+  }
 }

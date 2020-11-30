@@ -1,7 +1,21 @@
 @include rwd(xsmall) {
 
    .MyMascot-wrapper {
+      .pinkBox_mascot {
 
-   }
+            .ARight {
+               .Mascot {
+                  .mascotimg {
+                     .chat {
+                        width: 80%;
+                        bottom: 110%;
+                        left: 55%;
+                     }
+                  }
+               }
+            } 
+         }
+
+      }
    
 }

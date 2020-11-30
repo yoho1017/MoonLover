@@ -2,7 +2,7 @@ div.MyMascot-wrapper {
     
     background-color: #F0DED1;
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 75px;
 
     @include member;
 
@@ -54,6 +54,8 @@ div.MyMascot-wrapper {
                 border-radius: 10px;
                 padding: 10%;
                 cursor: pointer;
+                height: 20%;
+                overflow: hidden;
 
                 img {
                     max-width: 100%;
@@ -90,12 +92,20 @@ div.MyMascot-wrapper {
                 }
             }
 
-            .page:nth-child(1) {
+            .choice {
 
                 background-color: white;
 
                 h3 {
                     color : #AC5454;
+                }
+
+                &:hover {
+                    background-color: white;
+
+                    h3 {
+                        color : #AC5454;
+                    }
                 }
             }
         }
@@ -104,6 +114,8 @@ div.MyMascot-wrapper {
     .ARight {
         display: flex;
         width: 70% !important;
+        justify-content: center;
+        flex-direction: column;
         border: 6px solid white !important;
         position: relative;
 
@@ -130,9 +142,9 @@ div.MyMascot-wrapper {
             width: 70%;
             // border: 1px solid #000;
             @include flexCenter;
+            margin: 0 auto;
 
             .mascotimg {
-                margin-top: 30%;
                 @include flexCenter;
                 // border: 1px solid #000;
                 position: relative;
@@ -187,11 +199,11 @@ div.MyMascot-wrapper {
 
         .Mrightspace {
             display: flex;
-            align-items: flex-end;
-            width: 25%;
+            justify-content: flex-end;
+            width: 100%;
             // border: 1px solid #000;
             
-            @include btn (submit,100%,5%);
+            @include btn (submit,25%,2%);
         }
 
     }  
