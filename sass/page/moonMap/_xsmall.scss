@@ -1,0 +1,199 @@
+// 外框大小
+@mixin moonMap-block($moonwid) {
+  .moonMap-block{
+    width:$moonwid;
+  }
+}
+//  招牌字大小 
+@mixin signfont($fontsize) {
+  .moonMap-block{
+    .signBox_map{       
+      .signInbox_map{
+        font-size:$fontsize
+      }
+    }
+  }
+}
+
+//   招牌大小
+@mixin signBox_map($signbox) {
+  .moonMap-block{
+      .signBox_map{
+          width: $signbox;
+      }
+  }
+}
+
+//   頁籤
+@mixin lilist($liwid,$lisize) {
+  .moonMap-block{  
+      ul.list_map {
+        li {
+          width: $liwid;
+          font-size: $lisize;
+        }
+      }
+    
+  }
+}
+
+  //   回到地圖
+  @mixin returnMap($top,$right,$font) {    
+      .moonMap-block{
+          .returnMap{
+              top:$top;
+              right: $right;
+              a{
+                font-size: $font;
+              }
+          }
+      }
+  }
+
+  // 廟宇照片
+@mixin roundImg($Imgwid) {
+  .moonMap-block{
+    .roundImgBlock{
+      .roundImg_temp1{
+        width:$Imgwid;
+      }
+      .roundImg_temp2{
+        display: none;
+      }
+      .roundImg_temp3{
+        display: none;
+      }
+    }
+  }
+}
+
+// 月老
+@mixin YueLao{
+  .moonMap-block{
+      div.YueLao_block.on{
+          display: none;
+      }
+  }
+}
+
+
+// 標籤3內容
+@mixin sumBut($width,$font) {
+  .moonMap-block{
+    .userForm{
+      .user_block{
+        .user-messBlock{
+          .imgBlock{
+            #sumBut{
+              width: $width;
+              h3{
+                font-size: $font;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin fa-plus($font) {
+  .moonMap-block {
+    .fas.fa-plus-square.fa-5x{
+      font-size: $font;
+    }
+  }
+}
+
+//訪客留言輸入鍵   
+@mixin arrow-but($right) {
+  .moonMap-block{
+      .message_block{
+
+          .userForm{
+
+              .input-block{
+
+                  #arrow-but{
+                      right: $right;
+                  }
+              } 
+          } 
+      } 
+
+  } 
+}
+
+@include rwd(xsmall) { //480
+    .moonMap-wrapper{
+       
+        @include fa-plus(2.5em);
+      }
+}
+
+@include rwd(471px) { 
+  .moonMap-wrapper{
+      @include arrow-but(4%);
+      @include sumBut(29%,13px);
+      @include fa-plus(2.2em);
+    }
+}
+
+@include rwd(460px) {
+  .moonMap-wrapper{
+    @include lilist(17%,15px);
+  }
+
+}
+
+@include rwd(465px) { 
+  .moonMap-wrapper{
+    
+      @include sumBut(29%,13px);
+      @include fa-plus(2.2em);
+    }
+}
+
+@include rwd(455px) { 
+  .moonMap-wrapper{
+    
+      @include sumBut(29%,12px);
+      @include fa-plus(2em);
+    }
+}
+
+@include rwd(433px) {
+  .moonMap-wrapper{
+    @include lilist(18%,15px);
+    @include sumBut(30%,12px);
+  }
+}
+
+@include rwd(431px) {
+  .moonMap-wrapper{
+
+    @include signfont(20px);
+  }
+}
+
+@include rwd(420px) {
+  .moonMap-wrapper{
+
+    @include sumBut(31%,12px);
+  }
+}
+
+@include rwd(375px) {
+  .moonMap-wrapper{
+    .moonMap-block{
+      .signBox_map{
+         top:35px; 
+         border: 1px;
+      }  
+    }
+      
+    @include lilist(19%,14px);
+    @include sumBut(35%,10px);
+    @include signfont(17px);
+  }
+}
