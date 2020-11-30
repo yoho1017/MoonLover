@@ -132,15 +132,19 @@ h5 {
     right: 15px;
     
     .Logo{
+      
       position: absolute;
       top:10px;
       left: 30px;
-      width: $logoWd;
+      width: $logoWd; //100px
       transform:scale(1);
       transform-origin: center;
       &:hover{
         transform: scale(1.1);      
         transition: all 0.1s;
+      }
+      img{
+        width: 100%;
       }
     }  
     @include navlist;
