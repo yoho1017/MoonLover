@@ -1,0 +1,243 @@
+@mixin moonMap-block($moonwid) {
+  .moonMap-block{
+    width:$moonwid;
+  }
+}
+
+@mixin signfont($fontsize) {
+  .moonMap-block{
+    .signBox_map{
+      .signInbox_map{
+        font-size:$fontsize
+      }
+    }
+  }
+}
+
+@mixin lilist($liwid,$lisize) {
+  .moonMap-block{  
+      ul.list_map {
+        li {
+          width: $liwid;
+          font-size: $lisize;
+        }
+      }
+    
+  }
+}
+
+@mixin empletraffic {
+  .moonMap-block{
+    .empletraffic_block{
+      flex-wrap: wrap;
+      justify-content: center;
+      .goMap{     
+        width: 80%;
+        order: 2;
+        margin-top: 20px;
+      }
+      .empleContent_block{       
+        order: 1;
+        .title{
+         justify-content: flex-start;
+        }
+      }
+    }
+  }
+}
+
+  //   回到地圖
+  @mixin returnMap($top,$right,$font) {    
+    .moonMap-block{
+        .returnMap{
+            top:$top;
+            right: $right;
+            a{
+              font-size: $font;
+            }
+        }
+    }
+}
+
+// 廟宇照片
+@mixin roundImg($Imgwid) {
+  .moonMap-block{
+    .roundImgBlock{
+      .roundImg_temp1{
+        width:$Imgwid;
+      }
+      .roundImg_temp2{
+        display: none;
+      }
+      .roundImg_temp3{
+        display: none;
+      }
+    }
+  }
+}
+
+// 月老
+@mixin YueLao{
+  .moonMap-block{
+      div.YueLao_block.on{
+          display: none;
+      }
+  }
+}
+
+// 標籤3內容
+@mixin sumBut($width,$font) {
+  .moonMap-block{
+    .userForm{
+      .user_block{
+        .user-messBlock{
+          .imgBlock{
+            #sumBut{
+              width: $width;
+              h3{
+                font-size: $font;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin fa-plus($font) {
+  .moonMap-block {
+    .fas.fa-plus-square.fa-5x{
+      font-size: $font;
+    }
+  }
+}
+
+//訪客留言輸入鍵   
+@mixin arrow-but($right) {
+  .moonMap-block{
+      .message_block{
+
+          .userForm{
+
+              .input-block{
+
+                  #arrow-but{
+                      right: $right;
+                  }
+              } 
+          } 
+      } 
+
+  } 
+}
+
+@include rwd(large) { //1366
+  .moonMap-wrapper {
+   
+    @include signfont(42px);
+  }
+}
+
+@include rwd(1300px) {
+  .moonMap-wrapper {
+    @include arrow-but(3%);
+    @include signfont(40px);
+  }
+}
+
+@include rwd(1280px){
+  .moonMap-wrapper{
+    @include returnMap(70px,90px,18px);
+    @include lilist( 10% ,17px);
+  }
+}
+
+@include rwd(1243px) {
+  .moonMap-wrapper {
+   
+    @include signfont(38px);
+  }
+}
+
+
+
+@include rwd(1186px) {
+  .moonMap-wrapper {
+    // @include arrow-but(25px);
+    @include roundImg(40%);
+    @include empletraffic;
+    @include signfont(36px);
+  }
+}
+
+
+
+@include rwd(1167px){
+  .moonMap-wrapper{
+    @include sumBut(20%,18px);
+    @include fa-plus(3.8em);
+  }
+}
+
+
+@include rwd(1129px) {
+  .moonMap-wrapper {  
+    @include signfont(34px);
+  }
+}
+
+
+
+
+@include rwd(1111px) {
+  .moonMap-wrapper {
+   
+    @include lilist(12%,17px);
+  }
+}
+
+
+@include rwd(1081px){
+  .moonMap-wrapper{
+    @include sumBut(20%,17px);
+    @include fa-plus(3.5em);
+  }
+}
+
+@include rwd(1073px) {
+  .moonMap-wrapper {
+    @include fa-plus(3.5em);
+    @include signfont(32px);
+  }
+}
+
+
+@include rwd(1038px){
+  .moonMap-wrapper{
+    @include sumBut(20%,16px);
+    // @include fa-plus(3.5em);
+  }
+}
+
+
+@include rwd(1017px) {
+  .moonMap-wrapper {
+   
+    @include signfont(30px);
+  }
+}
+
+@include rwd(995px){
+  .moonMap-wrapper{
+    @include sumBut(21%,16px);
+    @include fa-plus(3em);
+  }
+}
+
+
+
+
+
+
+

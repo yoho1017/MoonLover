@@ -270,8 +270,12 @@ h5 {
       margin: 2%;
       padding: 1%;
       width: $swd2;
+      position: relative;
       background-color: #fff8ce;
-      
+      background-image: url("/images/index/招牌花紋.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 98%;     
     }
   }
 }

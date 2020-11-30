@@ -3,41 +3,82 @@
     img{
         width: 100%;
     }
+    // 手機板
+    .twMap-phone{
+        position: fixed;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 550px;
+        top: 20px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin:  auto;        
+        background-color: #F0DED1;
+        background-image: url(../images/moonMapList/台灣.svg);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+       
+        .temple-link {
+            font-size: 0;
+            margin: 10px 0;
+            width:25%;
+            border: 3px solid #FF7A7A;
+            border-radius: 10px;
+            overflow: hidden;
+            transform: scale(1);
+            &:hover{
+                transform: scale(1.1);
+               
+            }
+        }
+    }
+
     // 台灣地圖區
     .Taiwan-block{
         margin: 0 auto;
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;        
+        width: 100%;
+        height: 100%;        
         border: 1px solid red;
+        margin: 0px auto 0px;
         .twMap{
-            position: relative;
+            position: absolute;
             display: flex;
             justify-content: center;
-            max-width: 1200px;
-                    
-            margin: 50px auto 0px;
+            width: 1100px;
+            height: 1000px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin:  auto;        
+        
             border: 1px solid rgb(108, 17, 255);
-            embed{
+            embed{ //地圖
                 width: 95%;
                 
             }
             // 月老
             .YueLao_block {
                 position: absolute; 
-                bottom: 0%;
-                right: 0%;
+                bottom: 0;
+                right: 0;
                 border: 1px solid black;
                 width: 30%;
                 // 對話框
                 .dialog{
                     position: absolute;
-                    top: -65%;
-                    left: 15%;
+                    top: -200px;
+                    left: 0px;
                     width: 280px;
-                    
                     background-color: #FFEEA8;
                     box-shadow: 0 0 0 8px white;
                     border-radius: 30px;
@@ -75,17 +116,60 @@
                 
     
                 .YueLao {
-                  width: 90%;
+                  width: 100%;
                 }
                 .YueLaoCloud {
                   position: absolute;
                   bottom: 0px;
-                  right: 30px;
+                  right: 0px;
                   width: 100%;
                 }
               }
                    
         }
 
+    }
+}
+
+
+
+
+
+// 月老對話框
+@mixin dialog($top,$left,$width,$font) {
+    .Taiwan-block{
+
+        .twMap{
+
+            .YueLao_block{
+
+                .dialog{
+                    top:$top;
+                    left: $left;
+                    width: $width;
+                   h3{
+                       font-size: $font;
+                   }
+                }
+            } 
+        } 
+    } 
+}
+
+
+@include rwd(1870px){
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 1000px;
+                height: 900px;
+            }
+        }
+
+        
     }
 }

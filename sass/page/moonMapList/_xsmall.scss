@@ -1,0 +1,36 @@
+@include rwd(xsmall) {
+    .moonMapAll-wrapper{
+        .Taiwan-block{
+            .twMap{
+                display: none;
+            }
+        } 
+        .Taiwan-block{
+            .twMap-phone{
+                display: flex;
+            }
+        }
+
+        
+    }
+}
+
+@include rwd(414px){
+    .moonMapAll-wrapper{
+        .twMap-phone{
+            .temple-link {
+                width:35%;
+            }
+        }
+    }
+}
+
+@include rwd(320px){
+    .moonMapAll-wrapper{
+        .twMap-phone{
+            .temple-link {
+                width:40%;
+            }
+        }
+    }
+}
