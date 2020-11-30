@@ -1,0 +1,182 @@
+// 767-480px
+
+
+
+//480
+@include rwd(xsmall) {
+ // ============= 小知識第一頁右邊 ==============================
+    //月老調位置
+    .know_wrapper{
+        
+        .know_one_right{
+
+            .love_god_whole{
+              
+                .love_god{
+                    width:180px;
+                    right:-22px;
+                    bottom:-885px;
+    
+                    img{
+                        width:100%;
+                    }
+               
+                }
+    
+                .love_god_cloud{
+                    width:180px;
+                    right:-22px;
+                    bottom:-875px;
+    
+                    img{
+                        width:100%;
+                    }
+    
+                    
+                }
+            }
+        
+           
+    
+        }
+
+    }
+
+};
+
+
+
+
+//320
+@include rwd(320px) {
+// ============= 小知識第一頁左邊 ==============================
+    //圓圈圖調margin
+    .know_wrapper_bk_color{
+        .know_wrapper{
+    
+            .pinkBox_1{
+    
+                //Question大標背景色
+                .box_1200{
+                    .img_circle{
+                        max-width: 80px;
+                        display: flex;
+                        // flex-wrap:wrap;
+    
+                        img{
+                            width: 100%;
+                            margin: 20px 3px;
+                            
+                        }
+    
+                    }
+                }
+            
+            }
+    
+        }
+    }
+
+    // ============= 小知識第一頁左邊 ==============================
+    .know_wrapper_bk_color{
+        .know_wrapper{
+
+            .pinkBox_1{
+
+                //Question大標背景色
+                .box_1200{
+                    h3{
+                        width: 90%;  
+
+                    }
+
+                
+                }
+            
+            }
+
+        }
+    }
+
+    // ============= 小知識第一頁右邊 ==============================
+    .know_wrapper{
+        
+        .know_one_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:65%;
+            }
+        
+        }
+
+    }
+
+    // <!--------小知識第二頁左邊 -------------------------->
+
+    .know_wrapper{
+        .box_second_left{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:65%;
+            }
+        }
+    }
+
+
+    // <!--------小知識第二頁右邊 -------------------------->
+
+    .know_wrapper{
+        .know_second_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:65%;
+            }
+        }
+    }
+
+    // <!--------小知識第三頁右邊 -------------------------->
+
+    .know_wrapper{
+        .box_third_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:65%;
+                text-align: center;
+            }
+        }
+    }
+
+
+
+    // ============= 小知識第一頁右邊 ==============================
+    //月老調位置
+    .know_wrapper{
+        
+        .know_one_right{
+
+            .love_god_whole{
+                display: none;
+              
+            }
+        
+           
+    
+        }
+
+    }
+
+
+    // <!--------小知識第三頁右邊 -------------------------->
+    .know_wrapper{
+        .love_god_whole{
+            display: none;
+        
+        }
+    }
+
+};
+
