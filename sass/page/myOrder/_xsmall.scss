@@ -1,7 +1,25 @@
 @include rwd(xsmall) {
 
    .MyOrder-wrapper {
+      main {
+         .pinkBox_pc {
+             display: none;
+         }
+         .pinkBox_mobile {
+             .inBox_order {
+                 .orderTable {
 
+                     .Mtbody {
+                         .Mtr {
+                             .Mtitle{
+                                width : 40% !important;
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+     }
    }
    
 }

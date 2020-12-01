@@ -20,13 +20,21 @@
         top: 15px;
 
         .Logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flexCenter;
+            cursor: pointer;
 
-            img {
-               width: 50%; 
+            a {
+                @include flexCenter;
+
+                img {
+                    width: 50%; 
+                }
             }
+
+            &:hover{
+                transform: scale(1.1);      
+                transition: all 0.1s;
+            }        
         }
 
         .username {
@@ -39,6 +47,7 @@
 
             .text {
                 color : #981A1A;
+                font-weight: bold;
             }
         }
     
@@ -76,7 +85,7 @@
         display: flex;
         justify-content: flex-end;
 
-        div.container {
+        div.Bcontainer {
 
             margin: 2% 2%;
             display: inline-block;

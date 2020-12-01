@@ -1,7 +1,128 @@
 @include rwd(xsmall) {
     .moonMatch-wrapper{
-        .box {
-            width: 300px;
-          }
+        .memberCards{
+            .scene{
+                width: $cardWidth * 0.39;
+                height: $cardHeight * 0.39;
+
+                .card {    
+                    .card_back {                        
+                        .memberPic-container{
+                            margin-top: 15px;
+                        }
+                        .memberProfile{    
+                            .btnGroup{
+                                margin-top: 0px;
+                            }
+                        }
+                    }
+                }
+                &:nth-child(1){
+                    transform: translateY(0%);
+                }
+                &:nth-child(2){
+                    transform: translateY(-18%);
+                }
+                &:nth-child(3){
+                    transform: translateY(12%);
+                }
+                .card.flipped {
+                    transform: rotateY(-180deg) scale(1.5) translateY(25%);
+                }
+            }
+        }
+        .godSection{
+            .loveGod{
+                right: 10px;
+                bottom: -5px;
+                img{
+                    width: 150px;
+                }
+                .god{
+                    margin-bottom: -30px;
+                }
+            }
+        
+            .msgBox-container{
+                width: 180px;
+                height: 125px;
+
+                bottom: 50px;
+                right: 130px;
+                
+                .msgBoxContent{
+                    h3{ 
+                        font-size: 12px;
+                    }
+                    .btnRed_query{
+                        font-size: 12px;
+                        padding: 5px 15px;
+                        margin-top: 8px;
+                    }
+                }
+            }
+    
+            .queryBox{    
+                form{                    
+                    width: 300px;
+                    height: 340px;
+    
+    
+                    @include btn(queryBox, 30%, 5px);
+                    display: flex;
+                    flex-direction: column;
+    
+    
+                    .qRow {
+                        width: 90%;
+                        margin: 8
+                        px auto;
+    
+                        h3{
+                            margin-right: 12px;;
+                        }
+    
+                        select{
+                            width: 60%;
+                            text-align: center;
+                            border: 2px solid #FF7A7A;
+                        }
+    
+                        .check_box {
+                            display: flex;
+                            flex-wrap: wrap;
+                            width: 70%;
+        
+                            .check_list {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                h4{
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+    
+                        
+                    }
+                    .btnGroup{
+                        width: 100%;
+                        margin-top: 10px;
+                        @include flexCenter;
+                        button{
+                            width: 30%;
+                            margin: 0 10px;
+                        }
+                    }
+    
+                    
+                }
+            }
+            .queryBox.-on{
+                display: block;
+                opacity: 1;
+            }
+    
+        }
     }
 }

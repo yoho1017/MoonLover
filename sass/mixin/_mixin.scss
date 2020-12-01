@@ -31,6 +31,7 @@ h5 {
       padding: 0;
       li {
         margin-left: 30px;
+ 
         &:hover {
           a {
             i {
@@ -45,6 +46,11 @@ h5 {
           i {
             padding-top: 10px;
             color: #58150d;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 0 2px #58150D;
+            border-radius: 50%;           
+            width: 50px;
+            height: 50px;
           }
         }
       }
@@ -129,16 +135,19 @@ h5 {
     display: flex;
     justify-content: flex-end;
     position: fixed;
+    top:8px;
     right: 15px;
     
     .Logo{
-      
       position: absolute;
       top:10px;
       left: 30px;
       width: $logoWd; //100px
       transform:scale(1);
       transform-origin: center;
+      background-color: rgba(#ffffff, 1);
+      box-shadow: 0 0 5px 5px #fff9d7;
+      border-radius: 50%;
       &:hover{
         transform: scale(1.1);      
         transition: all 0.1s;
@@ -290,6 +299,7 @@ h5 {
   .roundImg_#{$rn} {
     width: $rwd;
     border-radius: 50%;
+    font-size: 0;
     box-shadow: 0px 0px 0px 10px $inB, 0px 0px 0px 15px $outB;
     overflow: hidden;
     .temple_#{$rn} {
@@ -676,6 +686,8 @@ h5 {
 
 
 
+
+
 // ===================== chan start ===================
 @mixin margin_auto() {
   margin: 0 auto;
@@ -820,6 +832,7 @@ h5 {
   position: absolute;
   left:50%;
   transform: translateX(-50%);
+  line-height: 17px;
 }
 
 $fontSize-basic:10px;

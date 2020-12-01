@@ -1,8 +1,8 @@
 div.MyMascot-wrapper {
     
-    background-color: #F0DED1;
     height: 100vh;
-    padding-top: 75px;
+    padding-top: 130px;
+    padding-bottom : 50px;
 
     @include member;
 
@@ -17,11 +17,7 @@ div.MyMascot-wrapper {
 
     .pinkBox_mascot {
         border: 8px solid #ac5454;
-        // height: $MHeight;
-
-        .pinkBox_mascot {
-            padding: 0;
-        }
+        margin-bottom: 50px;
     }
 
     .ALeft {
@@ -192,7 +188,7 @@ div.MyMascot-wrapper {
                 }
 
                 img {
-                    width : 90%;
+                    width : 80%;
                 }
             }
         }

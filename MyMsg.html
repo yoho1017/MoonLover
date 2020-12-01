@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+    crossorigin="anonymous"></script>        
     <!-- icon -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- 裁減圖片css -->
@@ -23,7 +27,7 @@
     <title>留言板</title>
 
 </head>
-<body>
+<body class="mList">
 
        <!------------------------------header---------------------------------->
        <header class="header">
@@ -31,7 +35,7 @@
             <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
             <ul class="navlist">
                 <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-                <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+                <li class="car"><a href="#"><i class="fas fa-shopping-cart fa-2x"></a></i></li>              
                 <li class="bars">
                  <button class="hamburger hamburger--collapse" type="button">
                      <span class="hamburger-box">
@@ -139,7 +143,36 @@
                 </div>
             </div>
         </div>
-        <!-- 燈箱結束 -->    
+        <!-- 燈箱結束 -->
+
+        <!-- 背景雲 -->
+        
+        <div class="membercloud">
+            <div class="cloud cloud1" id="rtct">
+                <img src="./images/style/rtct.png">
+            </div>
+            <div class="cloud cloud2" id="rtcb">
+                <img src="./images/style/rtcb.png">
+            </div>
+            <div class="cloud cloud3" id="ltcr">
+                <img src="./images/style/ltcr.png">
+            </div>
+            <div class="cloud cloud4" id="ltcl">
+                <img src="./images/style/ltcl.png">
+            </div>
+            <div class="cloud cloud5" id="rbcr">
+                <img src="./images/style/rbcr.png">
+            </div>
+            <div class="cloud cloud6" id="rbcl">
+                <img src="./images/style/rbcl.png">
+            </div>
+            <div class="cloud cloud7" id="lbcb">
+                <img src="./images/style/lbcb.png">
+            </div>
+            <div class="cloud cloud8" id="lbct">
+                <img src="./images/style/lbct.png">
+            </div>
+        </div>
 
         <div id="member" class="MyMsg-wrapper"> 
 
@@ -224,6 +257,8 @@
     <script src="js/1_new.js"></script> 
     <!-- 登入註冊，需要再新增登入成功後介面 -->
     <script src="./js/login.js"></script>
+    <!-- scroll.js -->
+    <script src="./js/srcoll.js"></script>
     <!-- 留言板js -->
     <script src="./js/MyMsg.js"></script>
 </body>

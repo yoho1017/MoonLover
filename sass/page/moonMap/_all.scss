@@ -253,6 +253,7 @@
           align-items: center;
           width: 20%;
           .userImg {
+            font-size: 0;
             width: 80%;
             margin: 15px;
             border-radius: 50%;
@@ -310,6 +311,7 @@
               width: 100%;
               // border: 1px solid green;
               list-style: none;
+              font-size: 0;
               padding: 0;
               display: flex;
               justify-content: space-between;
@@ -412,6 +414,7 @@
             box-shadow: 0px 1px 2px 1px #ccc;
             // border: 1px solid blue;
             .visitors-img {
+              font-size: 0;
               width: 10%;
               margin: 15px;
               border-radius: 50%;

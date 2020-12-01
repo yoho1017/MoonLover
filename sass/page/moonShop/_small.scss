@@ -36,3 +36,295 @@
         }
     }
 }
+
+
+@include rwd(576px){
+    .shop-wrapper{
+        .container{
+            .item_groups{
+                .CusImage1{
+             
+                    width:300px;
+                    height:390px;
+            
+                .ImageContent1{
+                    border:1px solid blue;
+                    width:210px;
+                    height:135px;
+                    margin-top:30px;
+                    // background-size:cover;
+                    // background-position: center;
+                    // background-repeat: no-repeat;
+                    // background-image: url(/images/moonShop/悠遊卡.png);
+                }
+                img{
+                    width:210px;
+                    height:135px;
+                }
+                .ImagePrice1{
+                    margin-top:20px;
+                }
+                .eCard{
+                    width:105px;
+                    height:105px;
+                }
+                .qty{
+                   width:40px;
+                   height:40px;
+                   font-size:20px;
+                }
+                i{
+                    font-size:50px;
+                }
+                .shopCars{
+                    bottom:15px;
+                }
+            }
+
+                .CusImage2{
+                    margin-top:20px;
+                    width:300px;
+                    height:390px;   
+                    .ImageContent1{
+                        border:1px solid blue;
+                        width:210px;
+                        height:135px;
+                        margin-top:30px;
+                        // background-size:cover;
+                        // background-position: center;
+                        // background-repeat: no-repeat;
+                        // background-image: url(/images/moonShop/悠遊卡.png);
+                    }
+                    img{
+                        width:210px;
+                        height:135px;
+                    }
+                    .ImagePrice1{
+                        margin-top:20px;
+                    }
+                    .bigpillow{
+                        width:105px;
+                        height:105px;
+                    }
+                    .qty{
+                        width:40px;
+                        height:40px;
+                        font-size:20px;
+                     }
+                     i{
+                         font-size:50px;
+                     }
+                     .shopCars{
+                         bottom:15px;
+                     }
+                }
+                .CusImage3{
+                
+                    width:300px;
+                    height:390px;   
+                    .ImageContent1{
+                        border:1px solid blue;
+                        width:210px;
+                        height:135px;
+                        margin-top:30px;
+                        // background-size:cover;
+                        // background-position: center;
+                        // background-repeat: no-repeat;
+                        // background-image: url(/images/moonShop/悠遊卡.png);
+                    }
+                    img{
+                        width:210px;
+                        height:135px;
+                    }
+                    .ImagePrice1{
+                        margin-top:20px;
+                    }
+                    .bigmask{
+                        width:90px;
+                        height:90px;
+                    }
+                    .qty{
+                        width:40px;
+                        height:40px;
+                        font-size:20px;
+                     }
+                     i{
+                         font-size:50px;
+                     }
+                     .shopCars{
+                         bottom:15px;
+                     } 
+                }
+                .CusImage4{
+                    margin-top:20px;
+                    width:300px;
+                    height:390px;   
+                    .ImageContent1{
+                        border:1px solid blue;
+                        width:210px;
+                        height:135px;
+                        margin-top:30px;
+                        // background-size:cover;
+                        // background-position: center;
+                        // background-repeat: no-repeat;
+                        // background-image: url(/images/moonShop/悠遊卡.png);
+                    }
+                    img{
+                        width:210px;
+                        height:135px;
+                    }
+                    .ImagePrice1{
+                        margin-top:20px;
+                    }
+                    .bignotebook{
+                        width:105px;
+                        height:105px;
+                    }
+                    .qty{
+                        width:40px;
+                        height:40px;
+                        font-size:20px;
+                     }
+                     i{
+                         font-size:50px;
+                     }
+                     .shopCars{
+                         bottom:15px;
+                     }   
+                }
+                .CusImage5{
+            
+                    width:300px;
+                    height:390px;   
+                    .ImageContent1{
+                        border:1px solid blue;
+                        width:210px;
+                        height:135px;
+                        margin-top:30px;
+                        // background-size:cover;
+                        // background-position: center;
+                        // background-repeat: no-repeat;
+                        // background-image: url(/images/moonShop/悠遊卡.png);
+                    }
+                    img{
+                        width:210px;
+                        height:135px;
+                    }
+                    .ImagePrice1{
+                        margin-top:20px;
+                    }
+                    .qty{
+                        width:40px;
+                        height:40px;
+                        font-size:20px;
+                     }
+                     i{
+                         font-size:50px;
+                     }
+                     .shopCars{
+                         bottom:15px;
+                     }   
+                }
+                .CusImage6{
+                    margin-top:20px;
+                    width:300px;
+                    height:390px;   
+                    .ImageContent1{
+                        border:1px solid blue;
+                        width:210px;
+                        height:135px;
+                        margin-top:30px;
+                        // background-size:cover;
+                        // background-position: center;
+                        // background-repeat: no-repeat;
+                        // background-image: url(/images/moonShop/悠遊卡.png);
+                    }
+                    img{
+                        width:210px;
+                        height:135px;
+                    }
+                    .ImagePrice1{
+                        margin-top:20px;
+                    }
+                    .qty{
+                        width:40px;
+                        height:40px;
+                        font-size:20px;
+                     }
+                     i{
+                         font-size:50px;
+                     }
+                     .shopCars{
+                         bottom:15px;
+                     }    
+                }
+                .CusImage7{
+      
+                    width:300px;
+                    height:390px;   
+                    .ImageContent1{
+                        border:1px solid blue;
+                        width:210px;
+                        height:135px;
+                        margin-top:30px;
+                        // background-size:cover;
+                        // background-position: center;
+                        // background-repeat: no-repeat;
+                        // background-image: url(/images/moonShop/悠遊卡.png);
+                    }
+                    img{
+                        width:210px;
+                        height:135px;
+                    }
+                    .ImagePrice1{
+                        margin-top:20px;
+                    }
+                    .qty{
+                        width:40px;
+                        height:40px;
+                        font-size:20px;
+                     }
+                     i{
+                         font-size:50px;
+                     }
+                     .shopCars{
+                         bottom:15px;
+                     }   
+                }
+                .CusImage8{
+                    margin-top:20px;
+                    width:300px;
+                    height:390px;   
+                    .ImageContent1{
+                        border:1px solid blue;
+                        width:210px;
+                        height:135px;
+                        margin-top:30px;
+                        // background-size:cover;
+                        // background-position: center;
+                        // background-repeat: no-repeat;
+                        // background-image: url(/images/moonShop/悠遊卡.png);
+                    }
+                    img{
+                        width:210px;
+                        height:135px;
+                    }
+                    .ImagePrice1{
+                        margin-top:20px;
+                    }
+                    .qty{
+                        width:40px;
+                        height:40px;
+                        font-size:20px;
+                     }
+                     i{
+                         font-size:50px;
+                     }
+                     .shopCars{
+                         bottom:15px;
+                     }   
+                }
+            }
+        }
+    }
+}

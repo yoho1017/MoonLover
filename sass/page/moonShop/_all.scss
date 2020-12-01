@@ -180,7 +180,18 @@ img{
             }
             .ImageContent1 {
                 @include productsImg();
-           
+                position: relative;  
+            }
+            .eCard{
+                width:70px;
+                height:70px;
+                position: absolute;
+                border:1px solid red;
+                top:0;
+                bottom:0;
+                left:0;
+                right:30px;
+                margin:auto;
             }
             .qty {
                 @include qty();
@@ -221,7 +232,19 @@ img{
             }
             .ImageContent1 {
                 @include productsImg();
+                position: relative;  
            
+            }
+            .bigpillow{
+                width:70px;
+                height:70px;
+                position: absolute;
+                border:1px solid red;
+                top:0;
+                bottom:0;
+                left:0;
+                right:0;
+                margin:auto; 
             }
             .qty {
                 @include qty();
@@ -260,7 +283,19 @@ img{
             }
             .ImageContent1 {
                 @include productsImg();
+                position: relative;  
           
+            }
+            .bigmask{
+                width:55px;
+                height:55px;
+                position: absolute;
+                border:1px solid red;
+                top:0;
+                bottom:0;
+                left:0;
+                right:0;
+                margin:auto;
             }
             .qty {
                 @include qty();
@@ -300,7 +335,19 @@ img{
             }
             .ImageContent1 {
                 @include productsImg();
+                position: relative;  
              
+            }
+            .bignotebook{
+                width:70px;
+                height:70px;
+                position: absolute;
+                border:1px solid red;
+                top:0;
+                bottom:0;
+                left:0;
+                right:0;
+                margin:auto;
             }
             .qty {
                 @include qty();

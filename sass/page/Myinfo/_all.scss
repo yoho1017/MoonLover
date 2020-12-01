@@ -6,9 +6,8 @@ div.MyInfo-wrapper {
 
     @include checkbox;
   
-    background-color: #F0DED1;
     height: 100vh;
-    padding-top: 75px;
+    padding-top: 130px;
 
     @include member;
 
@@ -23,11 +22,11 @@ div.MyInfo-wrapper {
 
     .pinkBox_account {
         border: 8px solid #ac5454;
-        // height: $MHeight;
+        margin-bottom: 50px;
     }
 
     .inBox_account {
-        height : 70vh;
+        height : 65vh;
     }
 
     .ALeft {
@@ -64,7 +63,7 @@ div.MyInfo-wrapper {
             height: 100%;
             margin-top: 10px;
             overflow-x: hidden;
-            overflow-y: scroll;
+            overflow-y: auto;
             display: flex;
             flex-wrap: wrap;
 
@@ -136,6 +135,18 @@ div.MyInfo-wrapper {
                 .checkboxH4 {
                     margin-right: 15px;
                 }
+                .disabled {
+                    outline: 1px solid black;
+                    background-color: rgb(177, 177, 177);
+                }
+            }
+            .mainInfo{
+              i {
+                  color : #599aaa;
+                  cursor: pointer;
+                  font-size: 20px;
+                  margin-left: 1%;
+              }
             }
             .privaty {
                 i {

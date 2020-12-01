@@ -1,7 +1,24 @@
 @include rwd(large) {
 
   .MyOrder-wrapper {
-
+    .Odetail_pop {
+      .Odetail_pop_in {
+        .pinkBox_Odetail {
+          width : 85%;
+        }
+      }
+    }
+    main {
+      .pinkBox_order {
+        .inBox_order {
+          .orderTable {
+            .Mtbody {
+              min-height: 85%;
+            }
+          }
+        }
+      }
+    }
   }
   
 }

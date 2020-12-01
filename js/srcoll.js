@@ -51,6 +51,8 @@ t7.fromTo(['#cloudaheadR'],2,{ transformOrigin:'left bottom',rotation:0,ease:Pow
 
 // 太田使用
 
+// 會員中心入口雲
+
 var c1 = new TimelineMax({
     repeat : -1,
     yoyo: true 
@@ -85,3 +87,31 @@ c3.fromTo(['#c3'],6,{ transformOrigin:'right bottom',rotation:0,x: -150, y: 240,
 c4.fromTo(['#c4'],6,{ transformOrigin:'right bottom',rotation:0, x: -100, y : 270, ease:Power0.easeNone},{ x : -150, rotation:6,ease:Power0.easeNone});
 
 c5.fromTo(['#c5'],6,{ transformOrigin:'right bottom',rotation:0, x: -150, y: 240, ease:Power0.easeNone},{ x : -250, rotation:6,ease:Power0.easeNone});
+
+// 會員中心共用雲
+
+var mbc1 = new TimelineMax({
+    repeat : -1,
+    yoyo: false 
+});
+
+var cloudborder = ["#rtct","#rtcb","#lbcb","#lbct"]
+
+mbc1.to(cloudborder,2,{scale: 2,ease:Power0.easeNone})
+.to(cloudborder,3,{scale: 1,ease:Power0.easeNone});
+
+var mbc2 = new TimelineMax({
+    repeat : -1,
+    yoyo: true 
+});
+
+var mbc3 = new TimelineMax({
+    repeat : -1,
+    yoyo: true 
+});
+
+var cloudToRight = ["#ltcl","#rbcl"];
+var cloudToLeft = ["#ltcr","#rbcr"];
+
+mbc2.fromTo(cloudToRight,5,{x: 0,ease:Power0.easeNone},{x: 100,ease:Power0.easeNone});
+mbc3.fromTo(cloudToLeft,5,{x: 0,ease:Power0.easeNone},{x: -100,ease:Power0.easeNone});
