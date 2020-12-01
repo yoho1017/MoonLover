@@ -49,7 +49,8 @@
             img{
                 display: block;
                 border-radius: 20px;
-                margin: 15% auto;
+                margin: 5% auto 0 auto;
+            
             }
         }
         
@@ -95,7 +96,7 @@
             }
             p{
                 text-align: right;
-                margin: 20px 0;
+                margin: 20px 65px 20px 0;
                 font-size: 20px;
                 font-weight: bold;
               
@@ -130,15 +131,15 @@
         // oldman
         .orderImg {
             position: absolute;
-            left:-70px;
+            left:-145px;
             bottom: 0;
             // border:1px solid red;
         }
         .cloud2 {
             position: absolute;
-            left:-20px;
+            left:50px;
             z-index: 33;
-            bottom: 6px;
+            bottom: 8px;
         }
     }
 }

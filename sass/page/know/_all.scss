@@ -41,7 +41,7 @@
                     font-size: map-get($font_size, 'h3');
                     margin: $margin_font;
                     background-color: #FFFFFF;
-                    width: 60%;
+                    width: 65%;
                 }
 
                 h4{
@@ -154,6 +154,7 @@
                 border: 1px solid #8A0000;
                 width:100%;
                 margin:0px;
+                margin-bottom: 25px;
             }
 
             h2{
@@ -200,32 +201,36 @@
     // <!--------------小知識第二頁左邊 -------------------------------------------->
     
     .know_wrapper{
-        .box_second_left{
-            // position: relative;
+    
+            .box_second_left{
+                // position: relative;
+          
+                h2{
+                    font-size: map-get($font_size, 'h2');
+                    color:#FFFFFF;
+                    background-color:#AC8874;
+                    text-align: center;
+                    margin:$margin_font;
+                    width:30%;
+                }
 
-            h2{
-                font-size: map-get($font_size, 'h2');
-                color:#FFFFFF;
-                background-color:#AC8874;
-                text-align: center;
-                margin:$margin_font;
-                width:30%;
+                .align_center{
+                    text-align: center;
+                }
+
+                .video{
+                    max-width: 417px;
+                    margin: 0 auto;
+                }
+
+                .video>img{
+                    width:100%;
+                    margin: 20px 0px 0px 0px;
+                }
             }
 
-            .align_center{
-                text-align: center;
-            }
-
-            .video{
-                max-width: 417px;
-                margin: 0 auto;
-            }
-
-            .video>img{
-                width:100%;
-                margin: 20px 0px 0px 0px;
-            }
-        }
+            
+        
 
         // .love_god_whole{
             // border: 1px solid black;
@@ -418,7 +423,7 @@
                 .love_god{
                     width:280px;
                     right:10px;
-                    bottom:-135px;
+                    bottom:-150px;
 
                     img{
                         width:100%;
@@ -429,7 +434,7 @@
                 .love_god_cloud{
                     width:280px;
                     right:10px;
-                    bottom:-115px;
+                    bottom:-140px;
 
                     img{
                         width:100%;

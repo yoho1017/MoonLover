@@ -290,6 +290,7 @@ h5 {
   .roundImg_#{$rn} {
     width: $rwd;
     border-radius: 50%;
+    font-size: 0;
     box-shadow: 0px 0px 0px 10px $inB, 0px 0px 0px 15px $outB;
     overflow: hidden;
     .temple_#{$rn} {
@@ -676,6 +677,8 @@ h5 {
 
 
 
+
+
 // ===================== chan start ===================
 @mixin margin_auto() {
   margin: 0 auto;
@@ -820,6 +823,7 @@ h5 {
   position: absolute;
   left:50%;
   transform: translateX(-50%);
+  line-height: 17px;
 }
 
 $fontSize-basic:10px;

@@ -125,6 +125,40 @@
 
 };
 
+@include rwd(880px) {
+    //第一頁右邊月老變小跟移動
+    .know_wrapper{
+        .know_one_right{
+
+            .love_god_whole{
+              
+                .love_god{
+                    width:280px;
+                    right:10px;
+                    bottom:-205px;
+
+                    img{
+                        width:100%;
+                    }
+               
+                }
+
+                .love_god_cloud{
+                    width:280px;
+                    right:10px;
+                    bottom:-190px;
+
+                    img{
+                        width:100%;
+                    }
+
+                    
+                }
+            }
+        }
+    }
+}
+
 
 @include rwd(890px) {
 
@@ -137,7 +171,7 @@
                     //Question大標背景色
                     .box_1200{
                         h3{
-                            width: 95%;  
+                            width: 100%;  
     
                         }
     

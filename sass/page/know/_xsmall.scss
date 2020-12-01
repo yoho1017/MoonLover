@@ -1,0 +1,256 @@
+// 767-480px
+
+
+
+//480
+// @include rwd(xsmall) {
+
+// };
+
+//375
+@include rwd(375px) {
+       // ============= 小知識第一頁左邊 ==============================
+       .know_wrapper_bk_color{
+        .know_wrapper{
+
+            .pinkBox_1{
+
+                //Question大標背景色
+                .box_1200{
+                    h3{
+                        width: 80%;  
+
+                    }
+
+                }
+            
+            }
+
+        }
+    }
+
+ // ============= 小知識第一頁右邊 ==============================
+    .know_wrapper{
+        
+        .know_one_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:55%;
+            }
+
+        }
+
+    }
+
+// <!--------小知識第二頁左邊 -------------------------->
+
+    .know_wrapper{
+        .box_second_left{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:60%;
+            }
+        }
+    }
+
+
+    // <!--------小知識第二頁右邊 -------------------------->
+
+    .know_wrapper{
+        .know_second_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:55%;
+            }
+        }
+    }
+
+  // <!--------小知識第三頁右邊 -------------------------->
+    
+    .know_wrapper{
+        .box_third_right{
+            // position: relative;
+
+            //祈願Q&A大標背景色
+            h2{
+                width:40%;
+                text-align: center;
+            }
+        }
+
+       
+    }
+}
+
+//365
+
+@include rwd(365px) {
+    // ============= 小知識第一頁右邊 ==============================
+    .know_wrapper{
+            
+        .know_one_right{
+            //小知識字變小
+            .know_title{
+                font-size: 40px;
+
+            }
+
+
+        }
+
+    }
+
+        // ============= 小知識第三頁右邊 ==============================
+        .know_wrapper{
+        
+            .box_third_right {
+                //小知識字變小
+                .know_title{
+                    font-size: 40px;
+        
+                }
+    
+    
+            }
+    
+        }
+
+}
+
+//320
+@include rwd(320px) {
+// ============= 小知識第一頁左邊 ==============================
+    //圓圈圖調margin
+    .know_wrapper_bk_color{
+        .know_wrapper{
+    
+            .pinkBox_1{
+    
+                //Question大標背景色
+                .box_1200{
+                    .img_circle{
+                        max-width: 80px;
+                        display: flex;
+                        // flex-wrap:wrap;
+    
+                        img{
+                            width: 100%;
+                            margin: 20px 3px;
+                            
+                        }
+    
+                    }
+                }
+            
+            }
+    
+        }
+    }
+
+    // ============= 小知識第一頁左邊 ==============================
+    .know_wrapper_bk_color{
+        .know_wrapper{
+
+            .pinkBox_1{
+
+                //Question大標背景色
+                .box_1200{
+                    h3{
+                        width: 90%;  
+
+                    }
+
+                
+                }
+            
+            }
+
+        }
+    }
+
+    // ============= 小知識第一頁右邊 ==============================
+    .know_wrapper{
+        
+        .know_one_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:65%;
+            }
+
+        }
+
+    }
+
+    // <!--------小知識第二頁左邊 -------------------------->
+
+    .know_wrapper{
+        .box_second_left{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:65%;
+            }
+        }
+    }
+
+
+    // <!--------小知識第二頁右邊 -------------------------->
+
+    .know_wrapper{
+        .know_second_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:65%;
+            }
+        }
+    }
+
+    // <!--------小知識第三頁右邊 -------------------------->
+
+    .know_wrapper{
+        .box_third_right{
+
+            //祈願Q&A大標背景色
+            h2{
+                width:65%;
+                text-align: center;
+            }
+
+        }
+    }
+
+
+
+    // ============= 小知識第一頁右邊 ==============================
+    //月老調位置
+    .know_wrapper{
+        
+        .know_one_right{
+
+            .love_god_whole{
+                display: none;
+              
+            }
+        
+           
+    
+        }
+
+    }
+
+
+    // <!--------小知識第三頁右邊 -------------------------->
+    .know_wrapper{
+        .love_god_whole{
+            display: none;
+        
+        }
+    }
+
+};
+

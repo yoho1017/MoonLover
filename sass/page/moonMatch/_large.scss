@@ -1,44 +1,36 @@
-@include rwd(large) {
+@include rwd(1440px) {
     .moonMatch-wrapper{
         .memberCards{
             .scene{
-                width: 220px;
-                height: 400px;
+                width: $cardWidth * 0.67;
+                height: $cardHeight * 0.67;
     
-                .card {               
-                    .card_back {
+                .card {    
+                    .card_back {                        
                         .memberPic-container{
-                            margin-top: 20px;
+                            margin-top: 30px;
                             @include profileImg (person,130px);
                         }
                         .memberProfile{
-                            width: 100%;
+                            $h5: 8px;
+                            h2{ font-size: $h5 * 2.5; }
+                            h3{ font-size: $h5 * 2; }
+                            h4{ font-size: $h5 * 1.5; }
                             .mRow{
                                 margin: 5px auto;
                                 padding: 0 30px;
-                                h2{font-size: 20px;}
-                                h3{font-size: 16px;}
-                                h4{font-size: 14px;}
                             }
     
-                            @include btn(choose, 35%, 5px);
+                            @include btn(choose, 25%, 5px);
+    
                             .btnGroup{
-                                margin-top: 20px;
-                                h3{
-                                    font-size: 16px;
-                                }
+                                margin-top: 10px;
                             }
                         }
                     }
                 }
-                &:nth-child(1){
-                    transform: translateY(-30%);
-                }
-                &:nth-child(2){
-                    transform: translateY(-10%);
-                }
-                &:nth-child(3){
-                    transform: translateY(-20%);
+                .card.flipped {
+                    transform: rotateY(-180deg) scale(1.3) translateY(25%);
                 }
             }
     
@@ -46,120 +38,174 @@
         }
 
         .godSection{
-            // border: 1px solid red;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-    
-            >div{
-                width: 33.3%;
-                // border: 1px solid red;
-            }
-    
-    
             .loveGod{
-                // margin: 0 auto;
-                position: fixed;
-                bottom: 0;
-                right: 0;
-                // left: 100%;
-                // transform: translateX(-100%);
-                z-index: 0;
-    
-        
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                right: 50px;
+                bottom: -3px;
                 img{
-                    // border: 1px solid red;
-                    width: 350px;
-                }
-                .exclamation{
-                    opacity: 0;
-                    .fa-exclamation{
-                        color: #d65858;
-                    }
+                    width: 320px;
                 }
                 .god{
-                    margin-bottom: -100px;
+                    margin-bottom: -80px;
                 }
             }
         
             .msgBox-container{
-                opacity: 0;
-                transition: opacity $msgBoxShow;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                z-index: 1;
+                width: 310px;
+                height: 250px;
     
-                .msgBox{
-                    // border: 1px solid yellow;
-                    width: 300px;
-                    height: 250px;
-                    @include flexCenter;
+                bottom: 130px;
+                right: 330px;
+            }
+            
     
-                    background-image: url(../images/moonMatch/對話框.svg);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: contain;
+            .queryBox{
+                form{
+                    
+                    width: 400px;
+                    height: 450px;
     
-                    transition: left 1s;
+                    @include btn(queryBox, 30%, 5px);
+                    display: flex;
+                    flex-direction: column;
     
-                    position: fixed;
-                    bottom: 10px;
-                    left: 25%;
-                }
-                .msgBox.-on{
-                    // transform: translateX(900px);
-                    left: 50%;
-                }
     
-                
-                .msgBoxContent{
-                    // border: 1px solid black;
-                    color: #A22A18;
-                    text-align: center;
-                    display: none;
-                    .btnRed_query{
-                        font-size: 20px;
-                        color: white;
-                        padding: 10px 20px;
-                        border-radius: 48px;
+                    .qRow {
+                        width: 70%;
+                        display: flex;
                         align-items: center;
-                        outline-style: none;
-                        border: 0;
-                        background-color: #ff7a7a;
-                        cursor: pointer;
-                        margin-top: 10px;
+                        margin: 15px auto;
     
-                        &:hover{
-                            background-color: #ac5454;
+                        h3{
+                            margin-right: 15px;;
+                        }
+    
+                        select{
+                            width: 60%;
+                            text-align: center;
+                            outline: none;
+                            font-size: 20px;
+                            // background-color:transparent;
+                            border: 3px solid #FF7A7A;
+                        }
+    
+                        .check_box {
+                            display: flex;
+                            flex-wrap: wrap;
+                            width: 60%;
+        
+                            .check_list {
+                                // border: 1px solid green;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-right: 10px;
+                            }
+                        }
+    
+                        
+                    }
+                    .btnGroup{
+                        width: 100%;
+                        margin-top: 20px;
+                        @include flexCenter;
+                        button{
+                            width: 30%;
+                            margin: 0 10px;
                         }
                     }
     
-                }
-                .msgBoxContent.-on{
-                    display: inline;
+                    
                 }
             }
-            .msgBox-container.-on{
+            .queryBox.-on{
+                display: block;
                 opacity: 1;
+            }
+    
+        }
+    }
+}
+
+@include rwd(large) {
+    .moonMatch-wrapper{
+        .memberCards{
+            .scene{
+                width: $cardWidth * 0.67;
+                height: $cardHeight * 0.67;
+    
+                .card {    
+                    .card_back {                        
+                        .memberPic-container{
+                            margin-top: 30px;
+                            @include profileImg (person,130px);
+                        }
+                        .memberProfile{
+                            $h5: 8px;
+                            h2{ font-size: $h5 * 2.5; }
+                            h3{ font-size: $h5 * 2; }
+                            h4{ font-size: $h5 * 1.5; }
+                            .mRow{
+                                margin: 5px auto;
+                                padding: 0 30px;
+                            }
+    
+                            @include btn(choose, 25%, 5px);
+    
+                            .btnGroup{
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+                .card.flipped {
+                    transform: rotateY(-180deg) scale(1.3) translateY(25%);
+                }
+            }
+    
+    
+        }
+
+        .godSection{
+            .loveGod{
+                right: 10px;
+                bottom: -3px;
+                img{
+                    width: 300px;
+                }
+                .god{
+                    margin-bottom: -80px;
+                }
+            }
+        
+            .msgBox-container{
+                width: 290;
+                height: 230px;
+    
+                right: 300px;
             }
     
             .queryBox{
                 display: none;
                 opacity: 0;
                 transition: opacity $msgBoxShow;
+    
+                position: fixed;
+                right: 50px;
+                bottom: 350px;
+                // transform: translateY(50%);
                 form{
+                    border: 10px solid white;
                     border-radius: 30px;
                     margin: 0 auto;
-                    
+                    // background-image: url(../images/moonMatch/篩選框.svg);
+                    // background-size: contain;
+                    // background-position: center;
+                    // background-repeat: no-repeat;
                     background-color: #FFEEA8;
                     width: 400px;
                     height: 450px;
     
+                    // transform: translate(-200px, -400px);
     
                     @include btn(queryBox, 30%, 5px);
                     display: flex;
@@ -182,6 +228,253 @@
                             text-align: center;
                             outline: none;
                             font-size: 20px;
+                            // background-color:transparent;
+                            border: 3px solid #FF7A7A;
+                        }
+    
+                        .check_box {
+                            display: flex;
+                            flex-wrap: wrap;
+                            width: 60%;
+        
+                            .check_list {
+                                // border: 1px solid green;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-right: 10px;
+                            }
+                        }
+    
+                        
+                    }
+                    .btnGroup{
+                        // border: 1px solid red;
+                        width: 100%;
+                        margin-top: 20px;
+                        @include flexCenter;
+                        button{
+                            width: 30%;
+                            margin: 0 10px;
+                        }
+                    }
+    
+                    
+                }
+            }
+            .queryBox.-on{
+                display: block;
+                opacity: 1;
+            }
+    
+        }
+    }
+}
+
+@include rwd(1280px){
+    .moonMatch-wrapper{
+        .godSection{
+            .loveGod{
+                right: 10px;
+                bottom: -3px;
+                img{
+                    width: 280px;
+                }
+                .god{
+                    margin-bottom: -80px;
+                }
+            }
+        
+            .msgBox-container{
+                width: 280px;
+                height: 216px;
+    
+                bottom: 100px;
+                right: 250px;
+            }
+    
+            .queryBox{
+                display: none;
+                opacity: 0;
+                transition: opacity $msgBoxShow;
+    
+                position: fixed;
+                right: 50px;
+                bottom: 350px;
+                // transform: translateY(50%);
+                form{
+                    border: 10px solid white;
+                    border-radius: 30px;
+                    margin: 0 auto;
+                    // background-image: url(../images/moonMatch/篩選框.svg);
+                    // background-size: contain;
+                    // background-position: center;
+                    // background-repeat: no-repeat;
+                    background-color: #FFEEA8;
+                    width: 400px;
+                    height: 450px;
+    
+                    // transform: translate(-200px, -400px);
+    
+                    @include btn(queryBox, 30%, 5px);
+                    display: flex;
+                    flex-direction: column;
+    
+    
+                    .qRow {
+                        width: 70%;
+                        // border: 1px solid red;
+                        display: flex;
+                        align-items: center;
+                        margin: 15px auto;
+    
+                        h3{
+                            margin-right: 15px;;
+                        }
+    
+                        select{
+                            width: 60%;
+                            text-align: center;
+                            outline: none;
+                            font-size: 20px;
+                            // background-color:transparent;
+                            border: 3px solid #FF7A7A;
+                        }
+    
+                        .check_box {
+                            display: flex;
+                            flex-wrap: wrap;
+                            width: 60%;
+        
+                            .check_list {
+                                // border: 1px solid green;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-right: 10px;
+                            }
+                        }
+    
+                        
+                    }
+                    .btnGroup{
+                        // border: 1px solid red;
+                        width: 100%;
+                        margin-top: 20px;
+                        @include flexCenter;
+                        button{
+                            width: 30%;
+                            margin: 0 10px;
+                        }
+                    }
+    
+                    
+                }
+            }
+            .queryBox.-on{
+                display: block;
+                opacity: 1;
+            }
+    
+        }
+    }
+}
+
+@include rwd(1090px) {
+    .moonMatch-wrapper{
+        .memberCards{
+            .scene{
+                width: $cardWidth * 0.55;
+                height: $cardHeight * 0.55;
+    
+                .card {    
+                    .card_back {                        
+                        .memberPic-container{
+                            margin-top: 20px;
+                            @include profileImg (person,90px);
+                        }
+                        .memberProfile{
+                            $h5: 5px;
+                            h2{ font-size: $h5 * 2.5; }
+                            h3{ font-size: $h5 * 2; }
+                            h4{ font-size: $h5 * 1.5; }
+                        }
+                    }
+                }
+                .card.flipped {
+                    transform: rotateY(-180deg) scale(1.3) translateY(25%);
+                }
+            }
+    
+    
+        }
+
+        .godSection{
+            .loveGod{
+                right: 10px;
+                bottom: -3px;
+                img{
+                    width: 260px;
+                }
+                .god{
+                    margin-bottom: -80px;
+                }
+            }
+        
+            .msgBox-container{
+                width: 260px;
+                height: 200px;
+    
+                bottom: 100px;
+                right: 220px;
+            }
+    
+            .queryBox{
+                display: none;
+                opacity: 0;
+                transition: opacity $msgBoxShow;
+    
+                position: fixed;
+                right: 50px;
+                bottom: 350px;
+                // transform: translateY(50%);
+                form{
+                    border: 10px solid white;
+                    border-radius: 30px;
+                    margin: 0 auto;
+                    // background-image: url(../images/moonMatch/篩選框.svg);
+                    // background-size: contain;
+                    // background-position: center;
+                    // background-repeat: no-repeat;
+                    background-color: #FFEEA8;
+                    width: 400px;
+                    height: 450px;
+    
+                    // transform: translate(-200px, -400px);
+    
+                    @include btn(queryBox, 30%, 5px);
+                    display: flex;
+                    flex-direction: column;
+    
+    
+                    .qRow {
+                        width: 70%;
+                        // border: 1px solid red;
+                        display: flex;
+                        align-items: center;
+                        margin: 15px auto;
+    
+                        h3{
+                            margin-right: 15px;;
+                        }
+    
+                        select{
+                            width: 60%;
+                            text-align: center;
+                            outline: none;
+                            font-size: 20px;
+                            // background-color:transparent;
+                            border: 3px solid #FF7A7A;
                         }
     
                         .check_box {

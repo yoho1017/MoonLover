@@ -1,14 +1,79 @@
+@mixin iconBlock($width1, $width2) {
+    .iconBlock {
+      .swiper-slide {
+        .icon-list1 {
+          width: $width1; // 50%
+        }
+        .icon-list2 {
+          width: $width2; // 30%
+        }
+        .icon-list3 {
+          width: $width1; //50%
+        }
+      }
+    }
+  }
+  
+  
+  
+  @mixin iconblock-font($font,$h2width) {
+    
+    .iconBlock{ 
+        h2.iconbut{
+          font-size: $font;
+          width: $h2width;
+        }
+      .swiper-slide{
+        h2.footer{
+          font-size: $font;
+        }
+      }
+    }
+  }
 @include rwd(medium) {
-    // --------------- 廟宇 --------------------------------
-    .index-wrapper{
-        //============= 廟宇======================
-       .temple01 {
-      
-        width: 70vw;
-        height: 70vh;
-        top:(100vh - 70vh) / 2;
-        left: (100vw - 70vw) / 2;        
-      
-       }
-   }
-}
+    .index-wrapper {
+        .main {
+       
+          .temple01 {
+            
+            width: 90%;
+            height: 550px;
+            
+            
+            .pillar.left,
+            .pillar.right {
+         
+              width: 65px;
+              height: 750px;
+            }
+            .YueLao {
+                width: 27%;
+              }
+           
+            
+            @include iconblock-font(20px,150px);
+          }
+        }
+      }
+    }
+
+    @include rwd(860px) {
+        .index-wrapper {
+            .main {
+           
+              .temple01 {
+                
+                width: 95%;
+                height: 550px;
+                .iconBlock {
+                    width: 65%;
+                    height: 65%;
+                  }
+
+              }
+            }
+          }
+        }
+  
+    
+    
