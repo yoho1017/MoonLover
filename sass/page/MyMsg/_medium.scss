@@ -1,7 +1,40 @@
 @include rwd(medium) {
-
     div.MyMsg-wrapper {
-        padding-top: 100px;
-    }
+        .pinkBox_MyMsg {
+            .inBox_MyMsg {
+                .Msg {
+                    .Mimage {
+                        .newMsg {
+                            width: 25px;
+                            height: 25px;
+                            left: 20%;
+                            h2 {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+    
+        }    
+        .blockPerson {
+            width: 70%;    
+            .inbox {
+                .title {
+                    font-size: 26px;                    
+                }
+                
+                .string {
+                    font-size: 16px; 
+                }
+    
+                form {
+                    .text {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+      }
     
 }

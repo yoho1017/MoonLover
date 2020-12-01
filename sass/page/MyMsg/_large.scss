@@ -1,7 +1,20 @@
 @include rwd(large) {
+  div.MyMsg-wrapper {
+    .pinkBox_MyMsg {
+        .inBox_MyMsg {
+            .Msg {
+                .Mimage {
+                    .newMsg {
+                        left: 25%;
+                    }
+                }
+                .Mbtn {
+                    @include btn(read, 60%, 3%);
+                }
+    
+            }
+        }
 
-  .MyMsg-wrapper {
-
+    }
   }
-  
 }

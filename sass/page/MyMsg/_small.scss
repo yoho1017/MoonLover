@@ -1,7 +1,43 @@
 @include rwd(small) {
-
-    .MyMsg-wrapper {
-
-    }
+    div.MyMsg-wrapper {
+        .pinkBox_MyMsg {
+            .inBox_MyMsg {
+                .Msg {
+                    .Mimage {
+                        .newMsg {
+                            width: 20px;
+                            height: 20px;
+                            h2 {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+        
+                    .Mcontent {
+                        .username {
+                            h2{
+                                font-size: 20px;
+                            }
+                        }
+                        .receiveMsg {
+                            h3{
+                                font-size: 16px;
+                            }
+                        }
+                        
+                    }
+        
+                    .Mbtn {
+                        .btnBlue_read{
+                            h3{
+                                font-size: 16px;
+                            }
+                        }
+                    }
+        
+                }
+            }
     
+        }
+    }
 }
