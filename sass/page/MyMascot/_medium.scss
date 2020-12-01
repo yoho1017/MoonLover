@@ -1,7 +1,7 @@
 @include rwd(medium) {
 
-    .MyMascot-wrapper {
-        
+    div.MyMascot-wrapper {
+        padding-top: 100px;
         main {
           .pinkBox_mascot {
             flex-direction: column-reverse;

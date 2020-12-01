@@ -92,6 +92,8 @@ var member = new Vue ({
         ],
         // 修改資料(true為修改中狀態)
         modify : false,
+        // 修改信箱
+        changeEmail : false,
         // 註冊驗證碼錯誤
         siVer : 0,
         // 驗證碼placeholder
@@ -136,6 +138,7 @@ var member = new Vue ({
 
         submitInfo () { //修改完成
             this.modify = false,
+            this.changeEmail = false;
             this.CheckboxToInt()
         },
 
@@ -180,6 +183,10 @@ var member = new Vue ({
                     document.account.pri[i].checked = false;
                 }
             } 
+        },
+
+        modifyEmail () { //修改email
+            this.changeEmail = true;
         },
 
         SetVerNum () { //產生驗證碼

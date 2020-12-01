@@ -1,5 +1,6 @@
 @include rwd(medium) {
-    .MyInfo-wrapper {
+    div.MyInfo-wrapper {
+        padding-top: 100px;
         main{
             .ALeft {
                 display: none;

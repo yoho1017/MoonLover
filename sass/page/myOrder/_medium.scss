@@ -1,7 +1,32 @@
 @include rwd(medium) {
 
-    .MyOrder-wrapper {
-
+    div.MyOrder-wrapper {
+        padding-top: 100px;
+        main {
+            .pinkBox_order {
+                .inBox_order {
+                    .orderTable {
+                        .Mtbody {
+                            .Mtr {
+                                .Mtd {
+                                    margin: 2% 1%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .priceAndCancel {
+            .Mtd {
+                width : 40%;
+                .btnRed_cancel {
+                    padding: 10px;
+                }
+            }
+        }
+        .Th3 {
+            white-space: nowrap;
+        }
     }
-
 }

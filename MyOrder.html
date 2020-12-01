@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body class="mList">
 
        <!------------------------------header---------------------------------->
        <header class="header">
@@ -204,6 +204,78 @@
                                         </button>
                                     </td>
                                 </tr>
+                        
+                            </tbody>
+
+                        </table>
+
+                        <table class="orderTable odMobile" v-for="(Odetail, key) in Odetails" :key="key">
+    
+                            <tbody class="Mtbody Otbody">
+
+                                <tr class="Mtr">
+                                    <td class="Mtd Mti"><img :src="Odetail.image"></td>
+                                </tr>
+
+                                <tr class="Mtr">
+                                    <td class="Mtd Mtitle">
+                                        商品名稱
+                                    </td>
+                                    <td class="Mtd">
+                                        {{Odetail.itemName}}
+                                    </td>
+                                 </tr>
+
+                                 <tr class="Mtr">
+                                    <td class="Mtd Mtitle">
+                                        訂單編號
+                                    </td>
+                                    <td class="Mtd">
+                                        {{Odetail_data.id}}
+                                    </td>
+                                 </tr>
+
+                                 <tr class="Mtr">
+                                    <td class="Mtd Mtitle">
+                                        訂單日期
+                                    </td>
+                                    <td class="Mtd">
+                                        {{Odetail_data.date}}
+                                    </td>
+                                 </tr>
+
+                                 <tr class="Mtr">
+                                    <td class="Mtd Mtitle">
+                                        商品價格
+                                    </td>
+                                    <td class="Mtd">
+                                        {{Odetail.price}}
+                                    </td>
+                                 </tr>
+
+                                 <tr class="Mtr">
+                                    <td class="Mtd Mtitle">
+                                        訂購數量
+                                    </td>
+                                    <td class="Mtd">
+                                        {{Odetail.count}}
+                                    </td>
+                                 </tr>
+
+
+                                <tr class="Mtr priceAndCancel price">
+                                    <td class="Mtd priceTd">
+                                        訂單 總金額 $300
+                                    </td>
+                                </tr>
+
+                                <tr class="Mtr priceAndCancel">
+                                    <td class="Mtd">
+                                        <button class="btnRed_cancel" @click.prevent="cancel(order.id)">
+                                            <h4>取消訂單</h4>
+                                        </button>
+                                    </td>
+                                </tr>
        
                             </tbody>
                         </table>
@@ -231,7 +303,7 @@
            <!------------------------------主要內容---------------------------------->
         <main>
 
-            <div class="pinkBox_order">
+            <div class="pinkBox_order pinkBox_pc">
                 <div class="inBox_order">
                     <table class="orderTable">
 
@@ -273,10 +345,48 @@
                         </tbody>
                     </table>
 
-  
-
                 </div>
             </div> 
+
+            <div class="pinkBox_order pinkBox_mobile" v-for="(order, key) in orders" :key="key">
+                <div class="inBox_order">
+                    <table class="orderTable">
+
+                        <tbody class="Mtbody">
+
+                            <tr class="Mtr">
+                                <td class="Mtd Mtitle">訂單編號</td>
+                                <td class="Mtd">{{ order.id }}</td>
+                            </tr>
+
+                            <tr class="Mtr">
+                                <td class="Mtd Mtitle">訂單日期</td>
+                                <td class="Mtd">{{ order.date }}</td>
+                            </tr>
+
+                            <tr class="Mtr">
+                                <td class="Mtd Mtitle">訂單金額</td>
+                                <td class="Mtd">{{ order.price }}</td>
+                            </tr>
+
+                            <tr class="Mtr">
+                                <td class="Mtd Mtitle">訂單狀態</td>
+                                <td class="Mtd">{{ order.status }}</td>
+                            </tr>
+
+                            <tr class="Mtr Mtb">
+                                <td class="Mtd">
+                                    <button class="btnBlue_detail" @click.prevent="Odetail(order.id)">
+                                        <h4>明細</h4>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
 
         </main>     
 

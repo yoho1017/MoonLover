@@ -80,10 +80,11 @@
 
     @include rwd(medium) {
         aside {
-            width: 30%;
+            width: 25%;
+            margin: 4% 0;
         }
         main {
-          width : 70%;
+          width : 75%;
         }
     }
 

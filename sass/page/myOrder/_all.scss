@@ -1,7 +1,5 @@
 div.MyOrder-wrapper {
 
-    background-color: #F0DED1;
-    height: 100vh;
     padding-top: 75px;
 
     @include member;
@@ -30,6 +28,10 @@ div.MyOrder-wrapper {
         justify-content: flex-start;
         flex-direction: column;
         height: 100%;
+    }
+
+    .odMobile {
+        display: none;
     }
 
     .Mtbody {
@@ -111,5 +113,9 @@ div.MyOrder-wrapper {
     }
 
     @include btn(cancel, 50%, 5px);
+
+    .pinkBox_mobile {
+        display: none;
+    }
 
 }

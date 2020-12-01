@@ -200,22 +200,23 @@
 
                                 <div class="inputRow">
                                     <h4 class="name mainH4">信箱</h4>
-                                    <input type="email" class="member_input type_text" v-if="modify" v-model="email">
+                                    <input type="email" class="member_input type_text" v-if="modify" :class="{ disabled: changeEmail == false }" v-model="email" :disabled ="modifyEmail == false">
+                                    <i class="fas fa-edit" v-if="modify" @click="modifyEmail"></i>
                                     <h4 v-else="modify">{{email}}</h4>
                                 </div>
 
-                                <div class="inputRow verify" v-if="modify">
+                                <div class="inputRow verify" v-if="changeEmail">
                                     <button class="btnBlue_Ver btn" @click.prevent="submit_ver(email)">
                                         <h4>{{send_email}}</h4>
                                     </button>
                                 </div>
 
-                                <div class="inputRow" v-if="modify">
+                                <div class="inputRow" v-if="changeEmail">
                                     <h4 class="name mainH4">輸入驗證碼</h4>
                                     <input class="member_input type_text" type="number" name="number" :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
                                 </div>
 
-                                <div class="inputRow verify" v-if="modify">
+                                <div class="inputRow verify" v-if="changeEmail">
                                     <button class="btnBlue_Ver btn" @click.prevent="ver_check">
                                         <h4>確認驗證碼</h4>
                                     </button>
@@ -291,7 +292,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="inputRow">
+                                <div class="inputRow row_mult">
                                     <h4 class="name more">
                                         居住地
                                     </h4>
@@ -305,7 +306,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="inputRow selectAndInput">
+                                <div class="inputRow selectAndInput row_mult">
                                     <h4 class="name more">
                                         職業
                                     </h4>
@@ -323,7 +324,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="inputRow">
+                                <div class="inputRow row_mult">
                                     <h4 class="name more">
                                         學歷
                                     </h4>
