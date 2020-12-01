@@ -6,9 +6,8 @@ div.MyInfo-wrapper {
 
     @include checkbox;
   
-    background-color: #F0DED1;
     height: 100vh;
-    padding-top: 75px;
+    padding-top: 130px;
 
     @include member;
 
@@ -23,11 +22,11 @@ div.MyInfo-wrapper {
 
     .pinkBox_account {
         border: 8px solid #ac5454;
-        // height: $MHeight;
+        margin-bottom: 50px;
     }
 
     .inBox_account {
-        height : 70vh;
+        height : 65vh;
     }
 
     .ALeft {

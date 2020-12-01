@@ -1,5 +1,56 @@
-.mList {
+.mList, .Mbody {
     background-color: #F0DED1;
+    overflow-X: hidden;
+    z-index: -3;
+
+    // cloud
+
+    .membercloud {
+        position: fixed;
+        z-index: -2;
+        width: 100%;
+        height : 100%;
+        // border: 1px solid red;
+        overflow: hidden;
+
+        .cloud {
+            position: absolute;
+        }
+
+        .cloud1, .cloud2 {
+            top: 0;
+            right: 0;
+        }
+
+        .cloud3 {
+            left : 10%;
+            top : 20%;
+        }
+
+        .cloud4 {
+            left: 0%;
+            top: 24%;
+        }
+
+        .cloud5 {
+            right : 0;
+            top : 60%;
+        }
+
+        .cloud6 {
+            right: 10%;
+            top : 65%;
+        }
+
+        .cloud7, .cloud8 {
+            left: 0;
+            bottom : 0;
+        }
+
+        img {
+            max-width : 100%;
+        }
+    }
 }
 
 @mixin member{
@@ -27,6 +78,7 @@
         margin: $CMargin;
         @include flexCenter;
         align-items: flex-start;
+        position: fixed;
     
         .option {
             width: 100%;
@@ -62,7 +114,7 @@
         display: inline-block;
         width: 70%;
         height: 400px;
-        // border: $bd;
+        margin-left: 25%;
     
     }
 
@@ -81,7 +133,7 @@
     @include rwd(medium) {
         aside {
             width: 25%;
-            margin: 4% 0;
+            margin: 3% 0;
         }
         main {
           width : 75%;
@@ -95,6 +147,7 @@
         aside{
             width : 100%;
             margin: 0 10%;
+            position: static;
 
             .option {
                 display: flex;

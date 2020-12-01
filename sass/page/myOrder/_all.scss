@@ -1,6 +1,6 @@
 div.MyOrder-wrapper {
 
-    padding-top: 75px;
+    padding-top: 130px;
 
     @include member;
 
@@ -14,7 +14,7 @@ div.MyOrder-wrapper {
     @include pinkBox(order, 100%);
 
     .pinkBox_order {
-        height: 80vh;
+        height: 70vh;
     }
 
     .pinkBox_order .inBox_order {

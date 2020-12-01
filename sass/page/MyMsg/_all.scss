@@ -1,9 +1,8 @@
 div.MyMsg-wrapper {
     
     display: flex;
-    background-color: #F0DED1;
     height: 100vh;
-    padding-top: 75px;
+    padding-top: 130px;
 
     @mixin Mtext ($pd) {
         .Mtext {
@@ -34,7 +33,7 @@ div.MyMsg-wrapper {
 
     .pinkBox_MyMsg {
 
-        height: 80vh;
+        height: 70vh;
 
         .inBox_MyMsg {
             overflow-y: auto;
