@@ -190,6 +190,40 @@
 
 };
 
+@include rwd(695px) {
+    //第一頁右邊月老變小跟移動
+    .know_wrapper{
+        .know_one_right{
+
+            .love_god_whole{
+              
+                .love_god{
+                    width:260px;
+                    right:-17px;
+                    bottom:-830px;
+
+                    img{
+                        width:100%;
+                    }
+               
+                }
+
+                .love_god_cloud{
+                    width:260px;
+                    right:-17px;
+                    bottom:-830px;
+
+                    img{
+                        width:100%;
+                    }
+
+                    
+                }
+            }
+        }
+    }
+}
+
 
 @include rwd(675px) {
     // ============= 小知識第一頁左邊 ==============================
@@ -294,8 +328,8 @@
             .love_god_whole{
               
                 .love_god{
-                    width:250px;
-                    right:-34px;
+                    width:260px;
+                    right:-17px;
                     bottom:-830px;
     
                     img{
@@ -305,9 +339,9 @@
                 }
     
                 .love_god_cloud{
-                    width:250px;
-                    right:-34px;
-                    bottom:-820px;
+                    width:260px;
+                    right:-17px;
+                    bottom:-830px;
     
                     img{
                         width:100%;
@@ -381,9 +415,9 @@
             .love_god_whole{
               
                 .love_god{
-                    width:250px;
-                    right:-32px;
-                    bottom:-885px;
+                    width:260px;
+                    right:-17px;
+                    bottom:-830px;
     
                     img{
                         width:100%;
@@ -392,9 +426,9 @@
                 }
     
                 .love_god_cloud{
-                    width:250px;
-                    right:-32px;
-                    bottom:-875px;
+                    width:260px;
+                    right:-17px;
+                    bottom:-830px;
     
                     img{
                         width:100%;
@@ -483,9 +517,9 @@
             .love_god_whole{
               
                 .love_god{
-                    width:220px;
-                    right:-18px;
-                    bottom:-885px;
+                    width:250px;
+                    right:-20px;
+                    bottom:-850px;
     
                     img{
                         width:100%;
@@ -494,9 +528,9 @@
                 }
     
                 .love_god_cloud{
-                    width:220px;
-                    right:-18px;
-                    bottom:-875px;
+                    width:250px;
+                    right:-20px;
+                    bottom:-850px;
     
                     img{
                         width:100%;
@@ -561,7 +595,7 @@
 
                         img{
                             width: 100%;
-                            margin: 20px 8px;
+                            margin: 20px 2px;
                             
                         }
 
@@ -584,7 +618,7 @@
                 .love_god{
                     width:200px;
                     right:-15px;
-                    bottom:-885px;
+                    bottom:-855px;
     
                     img{
                         width:100%;
@@ -595,7 +629,7 @@
                 .love_god_cloud{
                     width:200px;
                     right:-15px;
-                    bottom:-875px;
+                    bottom:-845px;
     
                     img{
                         width:100%;
@@ -641,3 +675,112 @@
 
 
 };
+
+
+@include rwd(445px){
+
+        // ============= 小知識第一頁左邊 ==============================
+    //圓圈圖調margin
+    .know_wrapper_bk_color{
+        .know_wrapper{
+
+            .pinkBox_1{
+
+                //Question大標背景色
+                .box_1200{
+                    .img_circle{
+                        max-width: 80px;
+                        display: flex;
+                        // flex-wrap:wrap;
+
+                        img{
+                            width: 100%;
+                            margin: 20px 4px;
+                            
+                        }
+
+                    }
+                }
+            
+            }
+
+        }
+    }
+     // ============= 小知識第一頁右邊 ==============================
+    //月老調位置
+    .know_wrapper{
+        
+        .know_one_right{
+
+            .love_god_whole{
+              
+                .love_god{
+                    width:180px;
+                    right:-15px;
+                    bottom:-890px;
+    
+                    img{
+                        width:100%;
+                    }
+               
+                }
+    
+                .love_god_cloud{
+                    width:180px;
+                    right:-15px;
+                    bottom:-880px;
+    
+                    img{
+                        width:100%;
+                    }
+    
+                    
+                }
+            }
+        
+           
+    
+        }
+
+    }
+};
+
+
+
+@include rwd(440px){
+
+      // ============= 小知識第一頁右邊 ==============================
+    //月老調位置
+    .know_wrapper{
+        
+        .know_one_right{
+
+            .love_god_whole{
+                display: none;
+              
+                .love_god{
+                  
+                    img{
+                        width:100%;
+                    }
+               
+                }
+    
+                .love_god_cloud{
+               
+    
+                    img{
+                        width:100%;
+                    }
+    
+                    
+                }
+            }
+        
+           
+    
+        }
+
+    }
+
+}
