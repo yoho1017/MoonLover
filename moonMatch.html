@@ -29,8 +29,8 @@
 <body class="moonMatch-body bgColorDefault bgImgHeart">
     <header class="header">
         <nav class="nav" id="nav">
-           <div class="Logo"><img src="./images/logo.png"></div>
-           <ul class="navlist">
+            <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
+            <ul class="navlist">
                <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
                <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
                <li class="bars">
@@ -200,18 +200,6 @@
             </div>
         </section>
         <section class="godSection">
-            <div class="msgBox-container">
-                <div class="msgBox">
-                    <div class="msgBoxContent -on">
-                        <h3>讓月老了解你的理想條件喔！</h2>
-                        <button class="btnRed_query">稟報月老</button>
-                    </div>
-                    <div class="msgBoxContent">
-                        <h3>選條紅線賜姻緣喔！</h3>
-                        <button class="btnRed_query">稟報月老</button>
-                    </div>
-                </div>
-            </div>
             <div class="loveGod" id="loveGod">
                 <div class="exclamation">
                     <i class="fas fa-exclamation fa-3x"></i>
@@ -221,6 +209,17 @@
                 <img src="./images/moonMatch/月老.svg" class="god">
                 <img src="./images/moonMatch/雲.svg" class="cloud"> 
             </div>
+            <div class="msgBox-container -on">
+                    <div class="msgBoxContent -on">
+                        <h3>告訴我你的理想條件喔！</h2>
+                        <button class="btnRed_query">稟報月老</button>
+                    </div>
+                    <div class="msgBoxContent">
+                        <h3>選條紅線賜姻緣喔！</h3>
+                        <button class="btnRed_query">稟報月老</button>
+                    </div>
+            </div>
+            
             <div class="queryBox" id="qBox">
                 <form action="">
                     <div class="qRow">
@@ -271,15 +270,17 @@
                     </div>
                     <div class="btnGroup">
                         <button class="btnBlue_queryBox" @click.prevent="conditionQuery"><h3>完成</h3></button>
-                        <button class="btnRed_queryBox" @click.prevent="defaultQuery"><h3>預設篩選</h3></button>
                     </div>
                 </form>
             </div>
         </section>
+        <div class="backCloud backCloud1"><img src="./images/index/背景雲.svg"></div>
+        <div class="backCloud backCloud2"><img src="./images/index/背景雲.svg"></div>
         
 
     </div>
 
+    <script src="./js/srcoll.js"></script>
     <script src="./js/moonMatch.js"></script>
     <script src="./js/nav.js"></script>
     <script src="./js/login.js"></script>

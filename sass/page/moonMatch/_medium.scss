@@ -1,44 +1,28 @@
 @include rwd(medium) {
     .moonMatch-wrapper{
         .memberCards{
+            margin-top: 20px;
             .scene{
-                width: 220px;
-                height: 400px;
     
-                .card {               
-                    .card_back {
+                .card {    
+                    .card_back {                        
                         .memberPic-container{
-                            margin-top: 20px;
-                            @include profileImg (person,130px);
+                            @include profileImg (person,60px);
                         }
                         .memberProfile{
-                            width: 100%;
                             .mRow{
-                                margin: 5px auto;
-                                padding: 0 30px;
-                                h2{font-size: 20px;}
-                                h3{font-size: 16px;}
-                                h4{font-size: 14px;}
+                                margin: 3px auto;
+                                padding: 0 18px;
                             }
-    
-                            @include btn(choose, 35%, 5px);
-                            .btnGroup{
-                                margin-top: 20px;
-                                h3{
-                                    font-size: 16px;
-                                }
-                            }
+                            $h5: 4px;
+                            h2{ font-size: $h5 * 2.4; }
+                            h3{ font-size: $h5 * 2.2; }
+                            h4{ font-size: $h5 * 2; }
                         }
                     }
                 }
-                &:nth-child(1){
-                    transform: translateY(-30%);
-                }
-                &:nth-child(2){
-                    transform: translateY(-10%);
-                }
-                &:nth-child(3){
-                    transform: translateY(-20%);
+                .card.flipped {
+                    transform: rotateY(-180deg) scale(1.5) translateY(25%);
                 }
             }
     
@@ -46,102 +30,32 @@
         }
 
         .godSection{
-            // border: 1px solid red;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-    
-            >div{
-                width: 33.3%;
-                // border: 1px solid red;
-            }
-    
-    
             .loveGod{
-                // margin: 0 auto;
-                position: fixed;
-                bottom: 100px;
-                right: 0;
-                z-index: 0;
-    
-        
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                right: 10px;
+                bottom: -3px;
                 img{
-                    // border: 1px solid red;
-                    width: 150px;
-                }
-                .exclamation{
-                    opacity: 0;
-                    .fa-exclamation{
-                        color: #d65858;
-                    }
+                    width: 240px;
                 }
                 .god{
-                    margin-bottom: -40px;
+                    margin-bottom: -50px;
                 }
             }
         
             .msgBox-container{
-                opacity: 0;
-                transition: opacity $msgBoxShow;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                z-index: 1;
+                width: 240px;
+                height: 180px;
     
-                .msgBox{
-                    // border: 1px solid yellow;
-                    width: 200px;
-                    height: 125px;
-                    @include flexCenter;
+                bottom: 100px;
+                right: 200px;
     
-                    background-image: url(../images/moonMatch/對話框.svg);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-    
-                    transition: left 1s;
-    
-                    position: fixed;
-                    bottom: 10px;
-                    left: 10%;
-
-                }
-                .msgBox.-on{
-                    // transform: translateX(900px);
-                    left: 50%;
-                }
-    
-                
                 .msgBoxContent{
-                    // border: 1px solid black;
-                    color: #A22A18;
-                    text-align: center;
-                    display: none;
-
-                    font-size: 16px;
-                    h3{
+                    h3{ 
                         font-size: 16px;
                     }
                     .btnRed_query{
                         font-size: 16px;
-                        padding: 5px 10px;
-                        border-radius: 30px;
-                        align-items: center;
-                        outline-style: none;
-                        border: 0;
-                        background-color: #ff7a7a;
-                        cursor: pointer;
-                        margin-top: 10px;
-    
-                        &:hover{
-                            background-color: #ac5454;
-                        }
                     }
-    
+                    
                 }
                 .msgBoxContent.-on{
                     display: inline;
@@ -155,19 +69,24 @@
                 display: none;
                 opacity: 0;
                 transition: opacity $msgBoxShow;
-
-                right: 50%;
-                transform: translate(25%, 50%);
-                // bottom: 50%;
+    
+                position: fixed;
+                right: 50px;
+                bottom: 350px;
                 // transform: translateY(50%);
                 form{
+                    border: 10px solid white;
                     border-radius: 30px;
                     margin: 0 auto;
-                    
+                    // background-image: url(../images/moonMatch/篩選框.svg);
+                    // background-size: contain;
+                    // background-position: center;
+                    // background-repeat: no-repeat;
                     background-color: #FFEEA8;
                     width: 400px;
                     height: 450px;
     
+                    // transform: translate(-200px, -400px);
     
                     @include btn(queryBox, 30%, 5px);
                     display: flex;
@@ -190,6 +109,8 @@
                             text-align: center;
                             outline: none;
                             font-size: 20px;
+                            // background-color:transparent;
+                            border: 3px solid #FF7A7A;
                         }
     
                         .check_box {
