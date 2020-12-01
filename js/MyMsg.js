@@ -11,9 +11,9 @@ var member = new Vue ({
         ],
         // 收到留言
         messages : [
-            {id: 1, name : '小芳', msg: '張互賓', image: '../images/MyMsg/person1.png', newnum: 1},
-            {id: 2, name : '蘋果姊姊', msg: '星期六我們去大稻埕霞海城隍廟', image: '../images/MyMsg/person2.png', newnum: 0},
-            {id: 3, name : '酪梨姊姊', msg: '要揪團嗎?', image: '../images/MyMsg/person3.png', newnum: 2},
+            {id: 1, name : '小芳', msg: '張互賓', image: './images/MyMsg/person1.png', newnum: 1},
+            {id: 2, name : '蘋果姊姊', msg: '星期六我們去大稻埕霞海城隍廟', image: './images/MyMsg/person2.png', newnum: 0},
+            {id: 3, name : '酪梨姊姊', msg: '要揪團嗎?', image: './images/MyMsg/person3.png', newnum: 2},
         ],
         // 新留言顯示
         newStr : '傳送一則新留言給你',
@@ -22,11 +22,11 @@ var member = new Vue ({
         MsgMenu : true,
         // 朋友訊息
         frMsg : [
-            {name : '小芳', msg: '互賓', image: '../images/MyMsg/person1.png', time: '2020 10 17 12:24'},
+            {name : '小芳', msg: '互賓', image: './images/MyMsg/person1.png', time: '2020 10 17 12:24'},
         ],
         // 自己訊息
         myMsg : [
-            {msg: '= =??', image: '../images/MyMsg/person_special.jpg', time: '2020 10 17 12:24'},
+            {msg: '= =??', image: './images/MyMsg/person_special.jpg', time: '2020 10 17 12:24'},
         ],
         // 發送出去的訊息
         newText : '',
@@ -56,7 +56,7 @@ var member = new Vue ({
         submit (newText) {
             if (newText != '') {
                 this.myMsg.push( 
-                    {msg: newText, image: '../images/MyMsg/person_special.jpg', time: this.getTime ()}
+                    {msg: newText, image: './images/MyMsg/person_special.jpg', time: this.getTime ()}
                 );
                 setTimeout(this.scrollTo, .1);
                 this.newText = '';

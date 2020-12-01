@@ -1,0 +1,29 @@
+@include rwd(xsmall) {
+     // --------------- 廟宇 --------------------------------
+     .Mymember-wrapper{
+        //============= 廟宇======================
+       .temple01 {
+         width: 80vw;
+         left: (100vw - 80vw) / 2;    
+         
+         .roof {
+            top : -36.14583vw;
+
+            .lantern.left {
+               bottom: -100px;
+            }
+
+            .lantern.right {
+               bottom: -100px;
+            }
+         }
+
+         .option {
+            li{
+               width: 45%;
+            }
+         }
+
+       }
+   }
+}

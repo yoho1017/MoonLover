@@ -1,0 +1,28 @@
+@include rwd(large) {
+  .MyInfo-wrapper {
+    main {
+      .ARight {
+        .MyInfoform {
+          .verify {
+            width : 100%;
+          }
+          .check_box {
+            width : 70%;
+          }
+        }
+        .submit {
+          width: 30%;
+          padding: 4%;
+        }
+        .privaty {
+          margin-bottom: 20%;
+          .inputRow {
+            .name {
+              width : 45%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

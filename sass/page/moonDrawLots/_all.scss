@@ -91,6 +91,7 @@ $cwd:698px;
         }   
 
         .duelbox{
+            display: none;
             margin:0 auto;
 
             max-width: 583px;
@@ -157,6 +158,7 @@ $cwd:698px;
         }
             // ---------------------------------結果頁（兩頁）------------------------------
         .duelboxer{
+            display: none;
                 margin:0 auto;
             .result_letter{
                 margin:0 auto;
@@ -391,8 +393,9 @@ $cwd:698px;
             }   
                 
         }
-        .-on{
-            display: none;
+        .duelbox.-on,
+        .duelboxer.-on{
+            display: block;
         }
 
 
@@ -402,6 +405,7 @@ $cwd:698px;
 
         .god_talk1{
             display: inline-flex;
+            display: none;
             // border:1px solid blue;
             transform: translate(620px, -230px);
         
@@ -445,6 +449,7 @@ $cwd:698px;
         }
         .god_talk2{
             display: inline-flex;
+            display: none;
             // border:1px solid blue;
             transform: translate(200px, -10px);
         
@@ -485,6 +490,11 @@ $cwd:698px;
                     // position: absolute;
                 }
             }
+        }
+
+        .god_talk1.-on,
+        .god_talk2.-on{
+            display: inline-flex;
         }
 
 

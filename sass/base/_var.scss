@@ -2,7 +2,7 @@
 
 $liwd: 200px; //header_nav連結的寬  mixin-82
 $nomove: -235px; //點擊出現的nav頁位移  mixin-68
-$logoWd: 200px; //logo 大小 mixin-115
+$logoWd: 100px; //logo 大小 mixin-115
 $x: 2%; //內框要減的寬度 mixin-161
 
 $temWd: 100%; //廟整體比 header-38
@@ -30,6 +30,16 @@ $CMargin: 4% 2%; //會員中心asideMargin
 $BMargin: 1% 5%; //後台asideMargin
 
 $MHeight: 450px; //會員中心高度
+
+// select預設設定
+
+$Swd : 100px;
+$Spd : 1%;
+$SpdL: 5px;
+$SpdR: 30px;
+
+// 以上
+
 
 // =============== 太田end =============================================
 

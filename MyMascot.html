@@ -2,6 +2,7 @@
 <html lang="zh-hant">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- icon -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- 裁減圖片css -->
@@ -9,7 +10,7 @@
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- hamburgers_css -->
-    <link rel="stylesheet" href="/css/hamburgers.css">
+    <link rel="stylesheet" href="./css/hamburgers.css">
     <!-- jq -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- vue -->
@@ -22,34 +23,34 @@
     <title>我的吉祥物</title>
 
 </head>
-<body>
+<body class="mList">
 
        <!------------------------------header---------------------------------->
        <header class="header">
         <nav class="nav" id="nav">
-           <div class="Logo"><img src="./images/logo.png"></div>
-           <ul class="navlist">
-               <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
-               <li class="bars">
-                <button class="hamburger hamburger--collapse" type="button">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                   <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
-                    <ul class="barList">
-                        <li><a href="./moonMapList.html">月老地圖</a></li>
-                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
-                        <li><a href="./moonMatch.html">月老牽線</a></li>
-                        <li><a href="./know.html">月老小知識</a></li>
-                        <li><a href="./moonShop.html">月老商城</a></li>
-                    </ul>
-                  
-                </li>
-              
-           </ul>
-        </nav>
+            <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
+            <ul class="navlist">
+                <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
+                <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+                <li class="bars">
+                 <button class="hamburger hamburger--collapse" type="button">
+                     <span class="hamburger-box">
+                       <span class="hamburger-inner"></span>
+                     </span>
+                   </button>
+                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+                     <ul class="barList">
+                         <li><a href="./moonMapList.html">月老地圖</a></li>
+                         <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                         <li><a href="./moonMatch.html">月老牽線</a></li>
+                         <li><a href="./know.html">月老小知識</a></li>
+                         <li><a href="./moonShop.html">月老商城</a></li>
+                     </ul>
+                   
+                 </li>
+               
+            </ul>
+         </nav>
     </header>
 
         <!-- 登入登出 -->
@@ -164,29 +165,29 @@
                     <div class="inBox_mascot ALeft">
                         <div class="access">
                             <div class="cus">
-                                <img src="./images/MyMascot/access1_1.png">
+                                <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/1.png'">
                             </div>
                             <div class="cus">
-                                <img src="./images/MyMascot/access1_2.png">
+                                <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/2.png'">
                             </div>
                             <div class="cus">
-                                <img src="./images/MyMascot/access1_3.png">
+                                <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/3.png'">
                             </div>
                             <div class="cus">
-                                <img src="./images/MyMascot/access1_4.png">
+                                <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/4.png'">
                             </div>
                         </div>
                         <div class="list">
-                            <div class="page">
+                            <div class="page" :class="{choice : deco == 0}" @click ="decoClick(0)">
                                 <h3>面飾</h3>
                             </div>
-                            <div class="page">
+                            <div class="page" :class="{choice : deco == 1}" @click ="decoClick(1)">
                                 <h3>頭飾</h3>
                             </div>
-                            <div class="page">
+                            <div class="page" :class="{choice : deco == 2}" @click ="decoClick(2)">
                                 <h3>飾品</h3>
                             </div>
-                            <div class="page">
+                            <div class="page" :class="{choice : deco == 3}" @click ="decoClick(3)">
                                 <h3>尾巴</h3>
                             </div>
                         </div>
@@ -194,30 +195,30 @@
             <!---------------------------- 會員資料------------------------------------>
                     <div class="inBox_mascot ARight">
                         <div class="smallMascot">
-                            <div class="monkey smallMas opacity">
-                                <img src="./images/MyMascot/monkey.png">
+                            <div class="monkey smallMas opacity" @click="choice(0)">
+                                <img src="./images/MyMascot/monkey.png" id="monkey">
                             </div>
-                            <div class="fox smallMas">
-                                <img src="./images/MyMascot/fox.png">
+                            <div class="fox smallMas" @click="choice(1)">
+                                <img src="./images/MyMascot/fox.png" id="fox">
                             </div>
-                            <div class="rabbit smallMas opacity">
-                                <img src="./images/MyMascot/rabbit.png">
+                            <div class="rabbit smallMas opacity" @click="choice(2)">
+                                <img src="./images/MyMascot/rabbit.png" id="rabbit">
                             </div>
                         </div>
                         <div class="Mascot">
                             <div class="mascotimg">
-                                <div class="chat">
+                                <div class="chat" v-show="guiding">
                                     <h3>
-                                        我是小狐仙
+                                        我是{{mascot.name}}
                                     </h3>
                                     <h4>
-                                        為女性代表的吉祥物
+                                        為{{mascot.guide}}的吉祥物
                                         可以幫我做造型喔！
                                     </h4>
                                     <div class="triangle"></div>
                                     <div class="trianglein"></div>    
                                 </div>
-                                <img src="./images/MyMascot/fox.png">
+                                <img :src="'./images/MyMascot/' + mascot.image"/>
                             </div>
                         </div>
                         <div class="Mrightspace">
@@ -234,8 +235,6 @@
     <!-- 登入註冊，需要再新增登入成功後介面 -->
     <script src="./js/login.js"></script>
     <!-- 個人資料js -->
-    <script src="./js/member.js"></script>
-    <!-- oveflow -->
-    <script src="./js/overflow.js"></script>
+    <script src="./js/mascot.js"></script>
 </body>
 </html>

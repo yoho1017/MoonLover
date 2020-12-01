@@ -2,6 +2,7 @@
 <html lang="zh-hant">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- icon -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- 裁減圖片css -->
@@ -9,7 +10,7 @@
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- hamburgers_css -->
-    <link rel="stylesheet" href="/css/hamburgers.css">
+    <link rel="stylesheet" href="./css/hamburgers.css">
     <!-- jq -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- vue -->
@@ -22,34 +23,34 @@
     <title>個人資料</title>
 
 </head>
-<body>
+<body class="mList">
 
        <!------------------------------header---------------------------------->
        <header class="header">
         <nav class="nav" id="nav">
-           <div class="Logo"><img src="./images/logo.png"></div>
-           <ul class="navlist">
-               <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
-               <li class="bars">
-                <button class="hamburger hamburger--collapse" type="button">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                   <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
-                    <ul class="barList">
-                        <li><a href="./moonMapList.html">月老地圖</a></li>
-                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
-                        <li><a href="./moonMatch.html">月老牽線</a></li>
-                        <li><a href="./know.html">月老小知識</a></li>
-                        <li><a href="./moonShop.html">月老商城</a></li>
-                    </ul>
-                  
-                </li>
-              
-           </ul>
-        </nav>
+            <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
+            <ul class="navlist">
+                <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
+                <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+                <li class="bars">
+                 <button class="hamburger hamburger--collapse" type="button">
+                     <span class="hamburger-box">
+                       <span class="hamburger-inner"></span>
+                     </span>
+                   </button>
+                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+                     <ul class="barList">
+                         <li><a href="./moonMapList.html">月老地圖</a></li>
+                         <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                         <li><a href="./moonMatch.html">月老牽線</a></li>
+                         <li><a href="./know.html">月老小知識</a></li>
+                         <li><a href="./moonShop.html">月老商城</a></li>
+                     </ul>
+                   
+                 </li>
+               
+            </ul>
+         </nav>
     </header>
 
         <!-- 登入登出 -->
@@ -173,33 +174,33 @@
                                 修改完成
                             </h4>
                         </button>
-                        <button v-else="modify" class="btnRed_submit submit btn" @click="changeInfo">
+                        <button v-else="modify" class="btnRed_submit submit" @click="changeInfo">
                             <h4>
                                 修改資料
                             </h4>
                         </button>
                     <!---------------- 表單------------------>
-                        <form name="account" action="modifyR.php" class="MyInfoform">
+                        <form name="account" action="modifyR.php" class="MyInfoform" :class="{modify : modify}">
 
                             <div class="mainInfo">
                                 <div class="inputRow">
-                                    <h4 class="name">帳號</h4>
+                                    <h4 class="name mainH4">帳號</h4>
                                     <h4>{{username}}</h4>
                                 </div>
 
                                 <div class="inputRow" v-if="modify">
-                                    <h4 class="name">密碼</h4>
-                                    <input type="password" class="member_input" v-model="pwd">
+                                    <h4 class="name mainH4">密碼</h4>
+                                    <input type="password" class="member_input type_text" v-model="pwd">
                                 </div>
 
                                 <div class="inputRow" v-if="modify">
-                                    <h4 class="name">重新輸入密碼</h4>
-                                    <input type="password" class="member_input" v-model="pwd">
+                                    <h4 class="name mainH4">重新輸入密碼</h4>
+                                    <input type="password" class="member_input type_text" v-model="pwd">
                                 </div>
 
                                 <div class="inputRow">
-                                    <h4 class="name">信箱</h4>
-                                    <input type="email" class="member_input" v-if="modify" v-model="email">
+                                    <h4 class="name mainH4">信箱</h4>
+                                    <input type="email" class="member_input type_text" v-if="modify" v-model="email">
                                     <h4 v-else="modify">{{email}}</h4>
                                 </div>
 
@@ -210,8 +211,8 @@
                                 </div>
 
                                 <div class="inputRow" v-if="modify">
-                                    <h4 class="name">輸入驗證碼</h4>
-                                    <input class="member_input" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
+                                    <h4 class="name mainH4">輸入驗證碼</h4>
+                                    <input class="member_input type_text" type="number" name="number" :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
                                 </div>
 
                                 <div class="inputRow verify" v-if="modify">
@@ -248,7 +249,7 @@
                                     <h4 class="name more">
                                         暱稱
                                     </h4>
-                                    <input type="text" class="member_input" v-if="modify" v-model="nickname">
+                                    <input type="text" class="member_input type_text" v-if="modify" v-model="nickname">
                                     <h4 v-else="modify">
                                         {{nickname}}
                                     </h4>
@@ -258,7 +259,7 @@
                                     <h4 class="name more">  
                                         關於會員
                                     </h4>
-                                    <input type="text" class="member_input" v-if="modify" v-model="about">
+                                    <input type="text" class="member_input type_text" v-if="modify" v-model="about">
                                     <h4 v-else="modify">
                                         {{about}}
                                     </h4>
@@ -279,7 +280,7 @@
                                 </div>
 
                                 <div class="inputRow row_mult">
-                                    <h4 class="name more">
+                                    <h4 class="name more checkboxH4">
                                         興趣
                                     </h4>
                                     <div class="check_box"  v-if="modify">
@@ -304,17 +305,19 @@
                                     </h4>
                                 </div>
 
-                                <div class="inputRow">
+                                <div class="inputRow selectAndInput">
                                     <h4 class="name more">
                                         職業
                                     </h4>
-                                    <select name="area" v-if="modify" v-model="job">
-                                    　  <option v-for="job in jobs" :selected="job == jobs">
-                                            {{job}}
-                                        </option>
-                                    </select>
-                                    <h4 v-if="modify">&nbsp;/&nbsp;</h4>
-                                    <input type="text" class="member_input" v-if="modify" v-model="work">
+                                    <div class="selection" v-if="modify">
+                                        <select name="area"  v-model="job">
+                                        　  <option v-for="job in jobs" :selected="job == jobs">
+                                                {{job}}
+                                            </option>
+                                        </select>
+                                        <h4 class="h4space">&nbsp;/&nbsp;</h4>
+                                        <input type="text" class="member_input type_text" v-model="work">
+                                    </div>
                                     <h4 v-else="modify" >
                                         {{job}} / {{work}}
                                     </h4>
@@ -324,20 +327,22 @@
                                     <h4 class="name more">
                                         學歷
                                     </h4>
-                                    <select name="area" v-if="modify" v-model="education">
-                                        <option v-for="education in educations" :seleceted="education == educations">
-                                                {{education}}
-                                        </option>
-                                    </select>
-                                    <h4 v-if="modify">&nbsp;/&nbsp;</h4>
-                                    <input type="text" class="member_input" v-if="modify" v-model="school">    
+                                    <div class="selection" v-if="modify">
+                                        <select name="area" v-model="education">
+                                            <option v-for="education in educations" :seleceted="education == educations">
+                                                    {{education}}
+                                            </option>
+                                        </select>
+                                        <h4>&nbsp;/&nbsp;</h4>
+                                        <input type="text" class="member_input type_text" v-model="school">    
+                                    </div>
                                     <h4 v-else="modify" >
                                         {{education}} / {{school}}
                                     </h4>
                                 </div>
 
                                 <div class="inputRow">
-                                    <h4 class="name more">
+                                    <h4 class="name more checkboxH4">
                                         我是
                                     </h4>
                                     <div class="check_box"  v-if="modify">
@@ -349,7 +354,7 @@
                                 </div>
 
                                 <div class="inputRow">
-                                    <h4 class="name more">
+                                    <h4 class="name more checkboxH4">
                                         性取向
                                     </h4>
                                     <div class="check_box"  v-if="modify">
@@ -412,7 +417,7 @@
     <!-- 個人資料js -->
     <script src="./js/member.js"></script>
     <!-- oveflow -->
-    <script src="./js/overflow.js"></script>
+    <!-- <script src="./js/overflow.js"></script> -->
 </body>
 </html>
 

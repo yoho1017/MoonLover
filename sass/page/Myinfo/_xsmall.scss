@@ -1,0 +1,63 @@
+@include rwd(xsmall) {
+   .MyInfo-wrapper {
+
+      main {
+          
+          .pinkBox_account {
+
+
+              .ARight {
+                 form {
+                     .name {
+                        width : 20%;
+                     }
+
+                     .mainInfo, .moreInfo {
+                        width : 95%;
+                     }
+
+                     .privaty {
+                        transform: translateX(0);
+                        .inputRow {
+                           .name {
+                              width : 60%;
+                           }
+                        }
+                     }
+                 }
+
+                 .modify {
+                     .mainInfo, .moreInfo, .privaty {
+                        width : 100%;
+                     }
+                     .moreInfo {
+                        .name {
+                            width : 30%;
+                        }
+                     }
+                     .name {
+                        width : 30%;
+                     }
+                     .inputRow {
+                        .check_box {
+                           width : 60%;
+                        }
+                     }
+                     .privaty {
+                        i {
+                           margin-left: -9%;
+                        }
+                     }
+                 }
+                 .submit {
+                    width : 50%;
+                    padding: 7%;
+                 }
+              }
+          }
+
+      }
+
+
+   }
+}

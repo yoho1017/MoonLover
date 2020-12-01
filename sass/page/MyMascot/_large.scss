@@ -1,0 +1,28 @@
+@include rwd(large) {
+
+  .MyMascot-wrapper {
+
+    main {
+      .pinkBox_mascot {
+          .inBox_mascot {
+              min-height: 450px;
+
+              .Mascot {
+                margin: 0 auto;
+              }
+
+              .mascotimg {
+                .chat {
+                  padding: 3% 3%;
+                }
+                img {
+                  width : 100%;
+                }
+              }
+          }
+      }
+    }
+
+  }
+  
+}

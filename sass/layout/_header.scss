@@ -143,6 +143,106 @@ $btnmg : 0 10px;
   height: 0;
 }
 
+// 登入註冊RWD
+
+@include rwd (large) {
+  .account_login {
+    width: 45%;
+  }
+  .account_signup {
+    width: 60%;
+  }
+}
+
+@include rwd (medium) {
+  .account_login {
+    width: 55%;
+  }
+  .account_signup {
+    width: 70%;
+  }
+}
+
+@include rwd (small) {
+
+  .account_login {
+    width: 85%;
+
+    .inputbox {
+      flex-wrap: wrap;
+    }
+  
+    .input_text {
+      width: 100%;
+      padding-left: 10%;
+      margin-bottom: 5%;
+      text-align: left;
+    }
+  
+    .input_login {
+      width: 80%;
+      margin: auto;
+    }
+
+    .submit_login {
+      margin: 35px auto;
+    }
+
+    .btn_signup {
+      width : 35%;
+      font-size: 20px;
+      margin: 0 auto;
+    }
+
+  }
+
+  .account_signup {
+
+    width: 85%;
+
+      .account_inbox {
+        height: 85vh;
+        overflow: auto;
+      }
+    
+      .inputbox_signup {
+        flex-wrap: wrap;
+      }
+    
+      .input_text {
+        width: 100%;
+        padding-left: 10%;
+        margin-bottom: 5%;
+        text-align: left;
+      }
+    
+      .input_signup {
+        width: 80%;
+      }
+    
+      .btnBlue_Ver {
+        width: 40%;
+        margin-left: 46%;
+        margin-top: 5%;
+        font-size: 20px;
+      }
+    
+      .submit_signup {
+        margin: 30px auto;
+      }
+
+      .btnRed_signup {
+        width : 50%;
+        font-size: 20px;
+      }
+
+    }
+  
+  }
+@include rwd (xmall) {
+
+}
+
 // --------------------------後台用---------------------
 
 .navback {

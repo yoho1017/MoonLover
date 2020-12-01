@@ -90,7 +90,7 @@ h5 {
         list-style: none;
         background-color: rgb(250, 250, 250);
         box-shadow: 0 0 5px 3px rgb(255, 154, 154);
-        background-image: url('/images/籤風格01.jpg'); 
+        background-image: url('../images/籤風格01.jpg'); 
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;   
@@ -130,10 +130,22 @@ h5 {
     justify-content: flex-end;
     position: fixed;
     right: 15px;
+    
     .Logo{
+      
       position: absolute;
-      left: 15px;
-      width: $logoWd;
+      top:10px;
+      left: 30px;
+      width: $logoWd; //100px
+      transform:scale(1);
+      transform-origin: center;
+      &:hover{
+        transform: scale(1.1);      
+        transition: all 0.1s;
+      }
+      img{
+        width: 100%;
+      }
     }  
     @include navlist;
     @include barList;
@@ -262,8 +274,12 @@ h5 {
       margin: 2%;
       padding: 1%;
       width: $swd2;
+      position: relative;
       background-color: #fff8ce;
-      
+      background-image: url("/images/index/招牌花紋.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 98%;     
     }
   }
 }
@@ -437,6 +453,107 @@ h5 {
           background-color: #ac5454;
         }
       }
+    }
+  }
+}
+
+@mixin input_text { //input type text layout (input class要設定type_text)
+  .type_text {
+    outline: 1px solid #7ED5EA;
+    border: none;
+
+    &:focus {
+        transition: outline .2s;
+        outline: 3px solid #7ED5EA;
+    }
+  }
+}
+
+@mixin select ($Swd,$Spd,$SpdL,$SpdR) { //選單layout
+
+  // 因為icon是代入背景圖，寬度和padding需要自行調整。
+  // 預設var帶入為以下設定，可以在include的時候決定代入var或自行代入參數
+  // $Swd : 100px; width
+  // $Spd : 1%; padding
+  // $SpdL: 5px; paddoing-left
+  // $SpdR: 30px; padding-right
+
+  select {
+    border: 1px solid #7ED5EA;
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    -o-appearance:none;
+    -khtml-appearance:none;
+    &::-ms-expand { display: none;}
+
+    width: $Swd; 
+    padding: $Spd;
+    padding-left: $SpdL;
+    padding-right: $SpdR;
+    background: url("../../../images/style/input_arrow.png") no-repeat right center;
+    background-color: white;
+
+    option {
+        &:hover {
+            background-color: #7ED5EA;
+        }
+    }
+
+    &:focus {
+        outline: 2px solid #7ED5EA;
+    }
+  }  
+}
+
+@mixin checkbox { //checkboxlayout
+
+  // 因為checbox需要用span取代整組樣式，請代入下面的html
+
+  // <label class="checkbox">
+  //   <input type="checkbox" class="checkbox" name=""> //這裡放原始checkbox，只要class一樣其他自行設定
+  //   <span class="checkbox__control">
+  //   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+  //       <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+  //   </span>
+  // </label>
+
+  .check_box {
+    input {
+        display: none;
+
+        &:focus + .checkbox__control {
+            box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
+        }
+    
+        &:checked + .checkbox__control svg {
+            transform: scale(1.5);
+        }
+    
+    }
+  }
+
+  .checkbox {
+      display: grid;
+      grid-template-columns: min-content auto;
+      grid-gap: 0;
+      font-size: 1rem;
+      color:  #7ED5EA;
+  }
+
+  .checkbox__control {
+    display: inline-grid;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    background-color: white;
+
+    svg {
+        transition: transform 0.1s ease-in 25ms;
+        transform: scale(0);
+        transform-origin: bottom left;
     }
   }
 }

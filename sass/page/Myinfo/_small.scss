@@ -1,0 +1,110 @@
+@include rwd(small) {
+
+    .MyInfo-wrapper {
+        padding-top: 150px !important;
+
+        main {
+            
+            .pinkBox_account {
+                border-radius: 0 0 10px 10px;
+                margin-bottom: 3%;
+
+                .ALeft {
+                    display: none;
+                }
+
+                .ARight {
+                    height: auto;
+                    margin: 0;
+                    border-radius: 0;
+                    border: none !important;
+                    display: flex;
+                    flex-direction: column;
+
+                    // 表單統一設定
+                    form {
+                        overflow-y: visible;
+                        overflow-x: hidden;
+                        justify-content: center;
+                        order : 1;
+
+                        & > div:nth-child(1){ order: 2; }
+                        & > div:nth-child(2){ order: 1; }
+                        & > div:nth-child(3){ order: 3; }
+                        & > div:nth-child(4){ order: 4; }
+                        & > div:nth-child(5){ order: 5; }
+                        & > div:nth-child(6){ order: 6; }
+
+                        h4 {
+                            white-space: nowrap;
+                        }
+
+                        .mainInfo {
+                            width : 75%;
+                        }
+
+                        .moreInfo {
+                            width : 75%;
+                        }
+
+                        .privaty {
+                            transform: translateX(10%);
+                            margin-bottom: 0;
+
+                            .name {
+                                width : 40%;
+                            }
+                        }
+                    }
+
+                    // 表單修改畫面設定
+                    .modify {
+
+                        .mainInfo, .moreInfo, .privaty {
+                            width : 80%;
+                        }
+
+                        .moreInfo {
+                            .name {
+                                width : 40%;
+                            }
+                        }
+
+                        .inputRow {
+                            width : 100%;
+                            align-items: flex-start;
+                            
+                            .check_box {
+                                width : 50%;
+                            }
+
+                            .selection {
+                                flex-wrap: wrap;
+                                width : 50%;
+
+                                select {
+                                    margin-bottom: 15px;
+                                }
+                            }
+                        }
+
+                        .privaty {
+                            transform: translateX(0);
+                        }
+                    }
+
+                    .submit {
+                        width: 40%;
+                        padding: 3%;
+                        position: static;
+                        order : 2;
+                        margin: 3% auto;
+                    }
+                }
+            }
+
+        }
+
+
+   }
+}
