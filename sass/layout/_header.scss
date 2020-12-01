@@ -253,10 +253,13 @@ $btnmg: 0 10px;
   right: 0px !important;
 
   .title {
-    width: 55%;
+    width: 58%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    .smallTitle {
+      height: 30px;
+    }
   }
 
   .logout {
