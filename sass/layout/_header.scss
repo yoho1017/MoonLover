@@ -6,6 +6,10 @@
   }
 
   .hamburger {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px #58150D;
     &:focus {
       outline: none;
     }
@@ -15,6 +19,7 @@
       }
     }
   }
+  
 }
 
 // ====================以下為登入註冊燈箱=========================
@@ -281,15 +286,17 @@ $btnmg: 0 10px;
         width: 60px;
       }
       .fas.fa-user.fa-2x {
+        text-align: center;
         font-size: 1.8em;
       }
-      .far.fa-shopping-cart.fa-2x {
+      .fas.fa-shopping-cart.fa-2x {
+        text-align: center;
         font-size: 1.8em;
       }
       .hamburger-inner,
       .hamburger-inner::before,
       .hamburger-inner::after {
-        width: 30px;
+        width: 40px;
         height: 4px;
       }
     }
