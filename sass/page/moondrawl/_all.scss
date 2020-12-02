@@ -235,8 +235,8 @@
 
     margin-top:180px;
 
-    // width:936px;
-    // height: 530px;
+    width:936px;
+    height: 530px;
 
     // width: 290px;
     // height:500px;
@@ -253,7 +253,7 @@
         width: 870px;
         border: 1px solid orange;
         display: inline-flex;
-        flex-wrap: wrap;
+        flex-wrap: no-wrap;
 
         .title_left{
             width:380px;
