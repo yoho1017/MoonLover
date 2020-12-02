@@ -1,14 +1,36 @@
 var nav = new Vue ({
     el: '#nav',
+    data : {
+        // 帳號顯示
+        userid : null,
+        member : '#',
+    },
     methods: {
 
         login () {
             // 點擊跳出登入燈箱
             account.$data.pop_block = true,
             account.$data.log_flex = true    
+        },
+
+        logout () {
+            axios.post('./php/logoutR.php').then(function () {
+                window.location.reload()
+            })        
         }
 
-    }
+    },
+    mounted() {
+        (function () {
+            axios.post('./php/sessionR.php').then(function (response) {
+                data = response.data;
+                if (data != '') {
+                    nav.$data.userid = data;
+                    nav.$data.member = './mymember.html';
+                }
+            })                
+        }());
+    },
 });
 
 var account =  new Vue ({
@@ -88,7 +110,7 @@ var account =  new Vue ({
         siVer : 0,
 
         // 登入帳號placeholder
-        lgUsp : "請輸入英文或數字",
+        lgUsp : "請輸入帳號或註冊信箱",
 
         // 登入密碼plcaceholder
         lgPsp : "請輸入至少8個字元，包含大小寫",
@@ -112,13 +134,17 @@ var account =  new Vue ({
     
     methods: {
 
-        clearChinese(key){ //帳號禁止中文
+        clearChinese(key){ //帳號禁止中文和符號
             this[key] = this[key].replace(/[^\a-\z\A-\Z0-9]/g, '');
-        }, 
+        },
+
+        clearChineseLogin(key){ //帳號登入禁止中文可使用email
+            this[key] = this[key].replace(/[^\a-\z\A-\Z0-9\@._-]/g, '');
+        },
 
         checkUser (username){ //確認是否存在會員
             if(username != ''){
-              axios.get('checkUser.php', {
+              axios.get('./php/checkUserR.php', {
                  params: {
                     username: username
                  }
@@ -296,11 +322,12 @@ var account =  new Vue ({
                 // 傳遞資料
                 var params = new URLSearchParams();params.append('username', username);params.append('password', cryptpwd);
                 
-                axios.post('LoginR.php', params).then(function (response) {
+                axios.post('./php/LoginR.php', params).then(function (response) {
                     message = response.data;
                     if (message == false) {
                         account.$data.login_error = true;
                     }else{
+                        alert(`歡迎回來 ! ${message}`);
                         window.location.reload()
                     }
                 })                
@@ -375,7 +402,7 @@ var account =  new Vue ({
 
         input_log_user () {
             this.lgUser = 0;
-            this.lgUsp = "請輸入英文或數字";
+            this.lgUsp = "請輸入帳號或註冊信箱";
         },
 
         input_log_pwd () {
@@ -393,6 +420,5 @@ var account =  new Vue ({
         },
 
     },
-
 })
 
