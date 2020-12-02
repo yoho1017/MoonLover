@@ -1,7 +1,8 @@
-// .moonMatch-body{
-//     height: 100vh;
-//     overflow: hidden;
-// }
+$cardWidth: 330px;
+$cardHeight: 600px;
+.moonMatch-body{
+    overflow: hidden;
+}
 .moonMatch-wrapper{
     overflow: hidden;
     height: 100vh;
@@ -13,14 +14,25 @@
     img{
         width: 100%;
     }
+    // 背景雲
+    .backCloud {
+        position: fixed;
+        opacity: 0.7;
+        z-index: 0;
+
+      }
+      .backCloud1{ bottom: 0; }
+      .backCloud2 { top: 0; transform: rotate(-180deg);}
 
     .memberCards{
         // border: 1px solid green;
         margin-top: 10px;
         display: flex;
+        z-index: 1;
         .scene{
-            width: 330px;
-            height: 600px;
+
+            width: $cardWidth;
+            height: $cardHeight;
             
             /* 透視 */
             perspective: 800px;
@@ -36,8 +48,6 @@
                 
                 transform-style: preserve-3d;
                 transform-origin: center center;
-
-                // transform: rotateY(0) scale(1) translateY(0);
                 
                 transition: transform 1s; /* 轉場 */
 
@@ -49,6 +59,7 @@
                     height: 100%;
                     
                     backface-visibility: hidden; /* 設定背後看不到 */
+                    -webkit-backface-visibility: hidden;//再设置隐藏
                 }
                 .card_front {
                     display: flex;
@@ -71,9 +82,8 @@
                     justify-content: flex-start;
 
                     .memberPic-container{
-                        // border: 5px solid red;
-                        margin-top: 30px;
-                        @include profileImg (person,210px);
+                        margin-top: 40px;
+                        @include profileImg (person,190px);
                     }
                     .memberProfile{
                         // border: 5px solid orange;
@@ -81,12 +91,9 @@
                         .mRow{
                             // border: 1px solid red;
                             margin: 10px auto;
-                            padding: 0 50px;
+                            padding: 0 40px;
                             @include flexCenter;
                             justify-content: flex-start;
-                            // h2{
-                            //     justify-self: center;
-                            // }
                             h3{
                                 margin-right: 20px;
                             }
@@ -122,7 +129,7 @@
                 transform: translateY(-20%);
             }
             .card.flipped {
-                transform: rotateY(-180deg) scale(1.5) translateY(30%);
+                transform: rotateY(-180deg) scale(1.2) translateY(20%);
             }
         }
 
@@ -132,31 +139,22 @@
     .godSection{
         // border: 1px solid red;
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-
-        >div{
-            width: 33.3%;
-            // border: 1px solid red;
-        }
+        z-index: 2;
+        position: relative;
+        bottom: 0;
 
 
         .loveGod{
-            // margin: 0 auto;
+            // border: 1px solid red;
             position: fixed;
             bottom: 0;
-            right: 0;
-            // left: 100%;
-            // transform: translateX(-100%);
+            right: 100px;
             z-index: 0;
-
     
             display: flex;
             flex-direction: column;
             align-items: center;
             img{
-                // border: 1px solid red;
                 width: 350px;
             }
             .exclamation{
@@ -171,41 +169,30 @@
         }
     
         .msgBox-container{
+            // border: 1px solid yellow;
             opacity: 0;
             transition: opacity $msgBoxShow;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+            @include flexCenter;
             z-index: 1;
+            width: 330px;
+            height: 250px;
+            background-image: url(../images/moonMatch/對話框.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
 
-            .msgBox{
-                // border: 1px solid yellow;
-                width: 300px;
-                height: 250px;
-                @include flexCenter;
-
-                background-image: url(../images/moonMatch/對話框.svg);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-
-                transition: left 1s;
-
-                position: fixed;
-                bottom: 10px;
-                left: 25%;
-            }
-            .msgBox.-on{
-                // transform: translateX(900px);
-                left: 65%;
-            }
-
+            position: fixed;
+            bottom: 150px;
+            right: 400px;
             
             .msgBoxContent{
-                // border: 1px solid black;
                 color: #A22A18;
                 text-align: center;
                 display: none;
+                h3{ 
+                    font-size: 20px;
+                    margin-top: 20%;
+                }
                 .btnRed_query{
                     font-size: 20px;
                     color: white;
@@ -239,16 +226,12 @@
 
             position: fixed;
             right: 50px;
-            bottom: 50%;
-            transform: translateY(50%);
+            bottom: 350px;
+            // transform: translateY(50%);
             form{
                 border: 10px solid white;
                 border-radius: 30px;
                 margin: 0 auto;
-                // background-image: url(../images/moonMatch/篩選框.svg);
-                // background-size: contain;
-                // background-position: center;
-                // background-repeat: no-repeat;
                 background-color: #FFEEA8;
                 width: 400px;
                 height: 450px;
@@ -261,7 +244,7 @@
 
 
                 .qRow {
-                    width: 70%;
+                    width: 80%;
                     // border: 1px solid red;
                     display: flex;
                     align-items: center;
@@ -276,6 +259,7 @@
                         text-align: center;
                         outline: none;
                         font-size: 20px;
+                        border: 3px solid #FF7A7A;
                     }
 
                     .check_box {
@@ -295,7 +279,6 @@
                     
                 }
                 .btnGroup{
-                    // border: 1px solid red;
                     width: 100%;
                     margin-top: 20px;
                     @include flexCenter;

@@ -25,7 +25,11 @@
     <!------------------------------header---------------------------------->
     <header class="header">
         <nav class="nav navback" id="nav">
-            <div class="title"><h2>月老求籤 籤詩管理</h2></div>
+            <div class="title"><h1>月老求籤　|</h1>
+                <h2 class="smallTitle" v-if="title === 'menu'">　籤詩管理</h2>
+                <h2 class="smallTitle" v-else-if="title === 'add'">　籤詩新增</h2>
+                <h2 class="smallTitle" v-else="title === 'modify'">　籤詩修改</h2>
+            </div>
             <div class="logout">
                 <h3>
                     登出
@@ -41,11 +45,11 @@
                 <!------------------------------側邊選單---------------------------------->
         <aside>
 
-            <div class="Logo"><img src="./images/logo.png"></div>
+            <div class="Logo"><a href="./landingpage.html"><img src="./images/logo.png"></a></div>
 
 
             <div class="username">
-                <h3 class="text">登入者 : {{username}}</h3>
+                <h2 class="text">登入者 : {{username}}</h2>
             </div>
 
             <ul class="option">
@@ -61,7 +65,7 @@
         <!------------------------------主要內容---------------------------------->
 
         <main>
-            <div class="container">
+            <div class="Bcontainer">
 
                 <div class="editbar" v-if="menu">
                     <div class="bkbtn_Blue" @click="add('n')"><h3>新增籤詩</h3></div>

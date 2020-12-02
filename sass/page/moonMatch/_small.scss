@@ -1,7 +1,133 @@
 @include rwd(small) {
     .moonMatch-wrapper{
-        .box {
-            width: 300px;
+        .memberCards{
+            margin-top: 130px;
+            .scene{
+                width: $cardWidth * 0.5;
+                height: $cardHeight * 0.5;
+    
+                .card {    
+                    .card_back {                        
+                        .memberPic-container{
+                            margin-top: 15px;
+                        }
+                        .memberProfile{
+
+                            @include btn(choose, 25%, 5px);
+    
+                            .btnGroup{
+                                margin-top: 8px;
+                            }
+                        }
+                    }
+                }
+                .card.flipped {
+                    transform: rotateY(-180deg) scale(1.5) translateY(25%);
+                }
+            }
+        }
+
+        .godSection{
+            .loveGod{
+                right: 10px;
+                bottom: -3px;
+                img{
+                    width: 220px;
+                }
+                .god{
+                    margin-bottom: -50px;
+                }
+            }
+        
+            .msgBox-container{
+                width: 220px;
+                height: 167px;
+
+                bottom: 90px;
+
+                .msgBoxContent{
+                    h3{ 
+                        font-size: 14px;
+                    }
+                    .btnRed_query{
+                        font-size: 14px;
+                    }
+                }
+            }
+            
+    
+            .queryBox{    
+                right: 50%;
+                bottom: 50%;
+                transform: translateX(50%) translateY(40%);
+                
+                form{                    
+                    width: 300px;
+                    height: 340px;
+    
+    
+                    @include btn(queryBox, 30%, 5px);
+                    display: flex;
+                    flex-direction: column;
+    
+    
+                    .qRow {
+                        width: 90%;
+                        // border: 1px solid red;
+                        display: flex;
+                        align-items: center;
+                        margin: 10px auto;
+    
+                        h3{
+                            margin-right: 15px;
+                            font-size: 16px;
+                        }
+    
+                        select{
+                            width: 60%;
+                            text-align: center;
+                            font-size: 16px;
+                            border: 2px solid #FF7A7A;
+                        }
+    
+                        .check_box {
+                            display: flex;
+                            flex-wrap: wrap;
+                            width: 70%;
+        
+                            .check_list {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        }
+    
+                        
+                    }
+                    .btnGroup{
+                        // border: 1px solid red;
+                        width: 100%;
+                        margin-top: 20px;
+                        @include flexCenter;
+                        button{
+                            width: 30%;
+                            margin: 0 8px;
+
+                            h3{
+                                font-size: 16px;
+                            }
+
+                        }
+                    }
+    
+                    
+                }
+            }
+            .queryBox.-on{
+                display: block;
+                opacity: 1;
+            }
+    
         }
     }
 }

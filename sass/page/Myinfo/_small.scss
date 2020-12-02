@@ -1,7 +1,7 @@
 @include rwd(small) {
 
-    .MyInfo-wrapper {
-        padding-top: 150px !important;
+    div.MyInfo-wrapper {
+        padding-top: 150px;
 
         main {
             
@@ -41,6 +41,10 @@
 
                         .mainInfo {
                             width : 75%;
+                            i {
+                                font-size: 30px;
+                                margin-left: 2%;
+                            }
                         }
 
                         .moreInfo {
@@ -72,7 +76,7 @@
 
                         .inputRow {
                             width : 100%;
-                            align-items: flex-start;
+                            align-items: center;
                             
                             .check_box {
                                 width : 50%;
@@ -86,6 +90,10 @@
                                     margin-bottom: 15px;
                                 }
                             }
+                        }
+
+                        .row_mult {
+                            align-items: flex-start;
                         }
 
                         .privaty {

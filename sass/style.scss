@@ -4,6 +4,12 @@
   margin: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap'); //思源黑體
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
 nav > .Logo > img {
   width : 50%;
 }

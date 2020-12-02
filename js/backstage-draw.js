@@ -1,3 +1,10 @@
+var nav = new Vue({
+    el: '#nav',
+    data: {
+        title: 'menu',
+    },
+});
+
 var backend = new Vue({
     el: '#backend',
     data: {
@@ -30,9 +37,11 @@ var backend = new Vue({
                 this.sql[data] = this.modify_data;
             }
             this.menu = true;
+            nav.$data.title = 'menu';
         },
         add(id) {
             this.menu = false;
+            nav.$data.title = 'add';
             this.modify_data = [id, '', '籤王', '', '', '', ''];
         }
     },
@@ -62,6 +71,7 @@ var backend = new Vue({
                     window.scrollTo(0, 0);
                     data = id - 1;
                     backend.$data.menu = false;
+                    nav.$data.title = 'modify';
                     backend.$data.modify_data = backend.$data.sql[data];
                 },
             }

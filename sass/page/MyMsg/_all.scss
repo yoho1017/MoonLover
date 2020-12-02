@@ -1,18 +1,18 @@
 div.MyMsg-wrapper {
     
     display: flex;
-    background-color: #F0DED1;
     height: 100vh;
-    padding-top: 75px;
+    padding-top: 130px;
 
     @mixin Mtext ($pd) {
         .Mtext {
-            white-space: nowrap;
+            // white-space: nowrap;
             border-radius: 50px;
             // border: 1px solid #000;
             background-color: #fff;
-            padding: 1% 5%;
-            padding-#{$pd}: 15%;
+            // padding: 1% 5%;
+            padding: 5px 15px;
+            padding-#{$pd}: 40px;
             margin: 2%;
         }
     }
@@ -33,7 +33,7 @@ div.MyMsg-wrapper {
 
     .pinkBox_MyMsg {
 
-        height: 80vh;
+        height: 70vh;
 
         .inBox_MyMsg {
             overflow-y: auto;
@@ -67,7 +67,7 @@ div.MyMsg-wrapper {
                         height: 30px;
                         position: absolute;
                         top: 10%;
-                        left: 20%;
+                        left: 30%;
                         border-radius: 100px;
                         background-color: #7ED5EA;
                         @include flexCenter;
@@ -164,7 +164,7 @@ div.MyMsg-wrapper {
     }
 
     .pinkBox_inMsg {
-        height: 80vh;
+        height: 70vh;
 
         .inBox_inMsg {
 
@@ -195,12 +195,12 @@ div.MyMsg-wrapper {
                         flex-direction: column;
                         width: 80%;
                         // border: 1px solid black;
+                        .upspace {
+                            border: 1px solid #000;
+                            height: 25%
+                        }
                     }
     
-                    .upspace {
-                        border: 1px solid #000;
-                        height: 25%
-                    }
     
                     @include Mtext (right);
     

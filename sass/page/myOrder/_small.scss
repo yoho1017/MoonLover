@@ -1,7 +1,83 @@
 @include rwd(small) {
 
-    .MyOrder-wrapper {
-      
+    div.MyOrder-wrapper {
+      padding-top: 150px;
+        .Mtd {
+            margin: 2% 0;
+        }
+        .Odetail_pop {
+            .Odetail_pop_in {
+                .pinkBox_Odetail {
+                    .inBox_Odetail {
+                        .orderTable {
+                            display: none;
+                        }
+                        .odMobile {
+                            display: flex;
+                            .Otbody {
+                                .Mtr {
+                                    .Mtd {
+                                        width : 60%;
+                                        .btnRed_cancel {
+                                            width: 70%;
+                                        }
+                                    }
+                                    .Mtitle, .Mti {
+                                        width : 40%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        main {
+            .pinkBox_pc {
+                display: none;
+            }
+            .pinkBox_mobile {
+                display: flex;
+                margin-bottom: 25px;
+                height : auto;
+                .inBox_order {
+                    .orderTable {
+
+                        .Mtbody {
+                            min-height: auto;
+                            & > .Mtr:nth-child(1) {
+                                border-top: 1px solid #FF8181;
+                            }
+                            .Mtr {
+                                border-right: 1px solid #FF8181;
+                                border-left: 1px solid #FF8181;
+                                justify-content: flex-start;
+                                .Mtd {
+                                    width : 75%;
+                                    justify-content: flex-start;
+                                    margin: 0% 1%;
+                                    padding: 2%;
+                                }
+                                .Mtitle {
+                                    width: 25%;
+                                    justify-content: center;
+                                    border-right: 1px solid #FF8181;
+                                }
+                            }
+                            .Mtb {
+                                justify-content: flex-end;
+                                .Mtd {
+                                    justify-content: flex-end;
+                                }
+                                .btnBlue_detail {
+                                    width: 35%;
+                                    padding: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-    
 }

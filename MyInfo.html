@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+    crossorigin="anonymous"></script>            
     <!-- icon -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- 裁減圖片css -->
@@ -31,7 +35,7 @@
             <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
             <ul class="navlist">
                 <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-                <li class="car"><a href="#"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
+                <li class="car"><a href="#"><i class="fas fa-shopping-cart fa-2x"></a></i></li>              
                 <li class="bars">
                  <button class="hamburger hamburger--collapse" type="button">
                      <span class="hamburger-box">
@@ -139,7 +143,37 @@
                 </div>
             </div>
         </div>
-        <!-- 燈箱結束 -->    
+        <!-- 燈箱結束 -->   
+        
+        <!-- 背景雲 -->
+
+        <div class="membercloud">
+            <div class="cloud cloud1" id="rtct">
+                <img src="./images/style/rtct.png">
+            </div>
+            <div class="cloud cloud2" id="rtcb">
+                <img src="./images/style/rtcb.png">
+            </div>
+            <div class="cloud cloud3" id="ltcr">
+                <img src="./images/style/ltcr.png">
+            </div>
+            <div class="cloud cloud4" id="ltcl">
+                <img src="./images/style/ltcl.png">
+            </div>
+            <div class="cloud cloud5" id="rbcr">
+                <img src="./images/style/rbcr.png">
+            </div>
+            <div class="cloud cloud6" id="rbcl">
+                <img src="./images/style/rbcl.png">
+            </div>
+            <div class="cloud cloud7" id="lbcb">
+                <img src="./images/style/lbcb.png">
+            </div>
+            <div class="cloud cloud8" id="lbct">
+                <img src="./images/style/lbct.png">
+            </div>
+        </div>
+        
 
         <div id="member" class="MyInfo-wrapper"> 
 
@@ -200,22 +234,23 @@
 
                                 <div class="inputRow">
                                     <h4 class="name mainH4">信箱</h4>
-                                    <input type="email" class="member_input type_text" v-if="modify" v-model="email">
+                                    <input type="email" class="member_input type_text" v-if="modify" :class="{ disabled: changeEmail == false }" v-model="email" :disabled ="modifyEmail == false">
+                                    <i class="fas fa-edit" v-if="modify" @click="modifyEmail"></i>
                                     <h4 v-else="modify">{{email}}</h4>
                                 </div>
 
-                                <div class="inputRow verify" v-if="modify">
+                                <div class="inputRow verify" v-if="changeEmail">
                                     <button class="btnBlue_Ver btn" @click.prevent="submit_ver(email)">
                                         <h4>{{send_email}}</h4>
                                     </button>
                                 </div>
 
-                                <div class="inputRow" v-if="modify">
+                                <div class="inputRow" v-if="changeEmail">
                                     <h4 class="name mainH4">輸入驗證碼</h4>
                                     <input class="member_input type_text" type="number" name="number" :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
                                 </div>
 
-                                <div class="inputRow verify" v-if="modify">
+                                <div class="inputRow verify" v-if="changeEmail">
                                     <button class="btnBlue_Ver btn" @click.prevent="ver_check">
                                         <h4>確認驗證碼</h4>
                                     </button>
@@ -291,7 +326,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="inputRow">
+                                <div class="inputRow row_mult">
                                     <h4 class="name more">
                                         居住地
                                     </h4>
@@ -305,7 +340,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="inputRow selectAndInput">
+                                <div class="inputRow selectAndInput row_mult">
                                     <h4 class="name more">
                                         職業
                                     </h4>
@@ -323,7 +358,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="inputRow">
+                                <div class="inputRow row_mult">
                                     <h4 class="name more">
                                         學歷
                                     </h4>
@@ -414,10 +449,10 @@
     <script src="js/1_new.js"></script> 
     <!-- 登入註冊，需要再新增登入成功後介面 -->
     <script src="./js/login.js"></script>
+    <!-- scroll.js -->
+    <script src="./js/srcoll.js"></script>
     <!-- 個人資料js -->
     <script src="./js/member.js"></script>
-    <!-- oveflow -->
-    <!-- <script src="./js/overflow.js"></script> -->
 </body>
 </html>
 
