@@ -158,31 +158,42 @@
 
 
 // 第三頁
-// .duelboxer{
+.duelboxer{
 
-//     border:1px solid red;
+    border:1px solid red;
 
-//     margin-top:180px;
+    margin-top:180px;
 
-//     width:936px;
-//     height: 530px;
+    //img 高
+    max-width:424px; 
 
-//     // width: 290px;
-//     // height:500px;
-//     //測試title是否會掉下來
+    // width:936px;
+    // height: 530px;
+    //bk_img 寬高
 
-//     display: inline-flex;
+    // width: 290px;
+    // height:500px;
+    //測試title是否會掉下來
 
-//     align-items:center;
-//     justify-content: center;
+    // display: inline-flex;
 
-//     background-image: url(../images/moondrawl/step_1/two_line.png);
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items:center;
+    justify-content: center;
+
+    // background-image: url(../images/moondrawl/step_1/two_line.png);
 
     .title{
-        width:530px;
+        width:290px;
         border: 1px solid red;
-        display: inline-flex;
-        flex-wrap:no-wrap;
+        display: flex;
+        flex-wrap:wrap;
+        align-items:center;
+        justify-content: center;
+        position: absolute;
+        
 
 
         .decoration{
@@ -206,70 +217,223 @@
         }
 
 
-            h1.ins{
-                font-size: map-get($font_size, 'h1');
+            h2.ins{
+                font-size: map-get($font_size, 'h2');
                 border: 1px solid purple;
                 text-align: left;
                 align-self: center;
-                margin-left:30px;
+                
+                margin-top:20px;
             }
         
     }
 
-//     .deco_img{
-//         width:178px;
-//         border: 1px solid blue;
-//         margin-bottom: -300px;
-        
-//         img{
-//             width:100%;
-//         }
-//     }
+    // 籤花紋 先不要
 
-// };
+    // .deco_img{
+    //     width:178px;
+    //     border: 1px solid blue;
+    //     margin-bottom: -300px;
+        
+    //     img{
+    //         width:100%;
+    //     }
+    // }
+
+};
 
 
 // 第四頁//
 .duelboxer2{
-    border:1px solid black;
+    border:1px solid red;
 
     margin-top:180px;
 
-    width:936px;
-    height: 530px;
+    max-width:554px; //img 高
+
+    // width:936px;
+    // height: 530px;
+    //bk_img 寬高
 
     // width: 290px;
     // height:500px;
-    // 測試title是否會掉下來
+    //測試title是否會掉下來
 
-    display: inline-flex;
+    // display: inline-flex;
+
+    display: flex;
+    flex-wrap: wrap;
 
     align-items:center;
     justify-content: center;
 
-    background-image: url(../images/moondrawl/step_1/two_line.png);
+    // background-image: url(../images/moondrawl/step_1/two_line.png);
 
-    .title_sec{
-        width: 870px;
-        border: 1px solid orange;
-        display: inline-flex;
-        flex-wrap: no-wrap;
 
-        .title_left{
-            width:380px;
-            border: 1px solid green;
-            text-align: left;
-            justify-self: center;
+       //被面籤詩重要資訊
+        .title_sec{
+            width:433px;
+            border: 1px solid black;
+            display: flex;
+            flex-wrap:wrap;
+            align-items:center;
+            justify-content: center;
+            position: absolute;
+
+                .title{ 
+                width:400px;
+                border: 1px solid red;
+                display: inline-flex;
+                flex-wrap:nowrap;
+                align-items:center;
+                justify-content: center;
+                // position: absolute;
+                
+
+
+                    .decoration{
+                        border: 1px solid blue;
+                        width: 175px;
+                        height:257px;
+
+                        background-image: url(../images/moondrawl/step_1/text1.png);
+
+                        display:flex;
+                        align-items:center;
+                        justify-content: center;
+
+                        h1.ins_title{
+                            border: 1px solid green;
+                            font-size: map-get($font_size, 'h1');
+                            color: white;
+                            background-color: #FF7A7A;
+                            padding: 23px 8px;
+                        }
+                    }
+
+
+                    h2.ins{
+                        font-size: map-get($font_size, 'h2');
+                        border: 1px solid purple;
+                        text-align: left;
+                        align-self: center;
+                        margin-left:20px;
+                    }
+                
+                }
+
+
+
+                //背面籤詩解釋內容
+                .title_left{
+                    width:380px;
+                    border: 1px solid green;
+                    text-align: left;
+                    justify-self: center;
+                    margin-top:20px;
+
+
+                    h3{
+                        font-size: map-get($font_size, 'h3');
+                        color:#FA8674;
+
+                    }
+                }
+        
+        }
+
+//duelboxer2結尾
+}
+
+
+
+//月老第一/二頁對話框
+.god_talk{
+    width:500px;
+    border: 1px solid green;
+    position: absolute;
+    right:0px;
+    bottom:0px;
+    display: inline-flex;
+
+
+        .talk{
+            width: 290px;
+            height: 200px;
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center; 
+            
+            background-image: url(../images/moondrawl/step_1/talk_new.png);
+
 
             h3{
                 font-size: map-get($font_size, 'h3');
-                color:#FA8674;
+               
+            }
 
+        }
+
+
+        .MoonOfGod{
+            width:320px;
+            border: 1px solid red;
+
+            img{
+                width:100%;
             }
         }
-    }
+
+
 
 }
+
+
+//結果頁月老
+
+.god_talk2{
+
+    width:500px;
+    border: 1px solid green;
+    position: absolute;
+    right:0px;
+    bottom:0px;
+    display: inline-flex;
+
+
+        .talk{
+            width: 290px;
+            height: 200px;
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center; 
+            
+            background-image: url(../images/moondrawl/step_1/talk_new.png);
+
+
+            h3{
+                font-size: map-get($font_size, 'h3');
+               
+            }
+
+        }
+
+
+        .MoonOfGod{
+            width:320px;
+            border: 1px solid red;
+
+            img{
+                width:100%;
+            }
+        }
+
+
+}
+
+
 
 
 
