@@ -30,6 +30,9 @@ nav > .Logo > img {
 @import "layout/bgSetting";
 
 // ---------- page ---------- //
+// page_landingpage
+@import "page/landingpage/all";
+
 // page_index
 @import "page/index/all";
 @import "page/index/large";
@@ -141,6 +144,7 @@ nav > .Logo > img {
 @import "page/backstage-draw/all";
 @import "page/backstage-products/all";
 @import "page/backstage-publicMsg/all";
+@import "page/backstage-member/all";
 
 // ---------- plugins ---------- //
 @import "plugins/allplugin";

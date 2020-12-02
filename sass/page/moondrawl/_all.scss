@@ -104,11 +104,11 @@
 
                 //R的時候燈籠要縮小(510px)
 
-
+                .duelbox{
+                    display: none;
 
                     //中間區域雲朵
                     .cloud{
-                        // display:none;
                         width: 583px;
                         transform: translateY(300px);
                         border: 1px solid black;
@@ -121,7 +121,6 @@
 
                     //中間籤筒
                     .duel_case{
-                        // display:none;
                         margin:0 auto;
                         width: 206px;
                         transform: translateY(-230px);
@@ -136,7 +135,6 @@
 
                     //中間按鈕
                     .btn_go{
-                        // display:none;
                         transform: translateY(-200px);
                         font-size: 30px;
                         padding: 10px 30px;
@@ -153,6 +151,13 @@
                             
                          }
                     }
+                }
+
+                .duelbox.-on{
+                    display: block;
+                }
+
+                    
 
 
 
@@ -180,6 +185,7 @@
     // display: inline-flex;
 
     display: flex;
+    display: none;
     flex-wrap: wrap;
 
     align-items:center;
@@ -247,7 +253,6 @@
 
 };
 
-
 // 第四頁//
 .duelboxer2{
 
@@ -268,6 +273,7 @@
     // display: inline-flex;
 
     display: flex;
+    display: none;
     flex-wrap: wrap;
 
     align-items:center;
@@ -353,6 +359,13 @@
 //duelboxer2結尾
 }
 
+.dBoxSwitch{
+    display: none;
+}
+.dBoxSwitch.-on{
+    display: flex;
+}
+
 
 
 //月老第一/二頁對話框
@@ -364,6 +377,7 @@
     right:0px;
     bottom:-30px;
     display: inline-flex;
+    display: none;
 
     // display:none;
 
@@ -401,77 +415,14 @@
             }
         }
 
+}
 
-
+.god_talk.-on{
+    display: inline-flex;
 }
 
 
 //結果頁月老
-
-.god_talk2{
-
-    width:500px;
-    border: 1px solid green;
-    position: absolute;
-    right:0px;
-    bottom:0px;
-    display: inline-flex;
-
-    display:none;
-
-        .talk{
-            width: 290px;
-            height: 200px;
-
-            display: inline-flex;
-            justify-content: center;
-            align-items: center; 
-            
-            background-image: url(../images/moondrawl/step_1/talk_new.png);
-
-
-            h3{
-                font-size: map-get($font_size, 'h3');
-               
-            }
-
-        }
-
-
-        .MoonOfGod{
-            width:320px;
-            border: 1px solid red;
-
-            img{
-                width:100%;
-            }
-        }
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-            
-    
-    
-    
-    
-    
-    
-    
-    
-
-
 
 
     // 中間1200區域結尾
