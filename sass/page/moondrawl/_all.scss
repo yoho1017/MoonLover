@@ -1,0 +1,308 @@
+// =================== 求籤.scss ======================================
+
+
+.large_line{
+    width:100%;
+    height: 100%;
+    border: 1px solid red;
+    position: fixed;
+    display: flex;
+    justify-items: center;
+
+    .front_clord_left{
+        width:35% ;
+        position: absolute;
+        left:0px;
+        bottom:-150px;
+        border: 1px solid black;
+
+        img{
+            width:100%;
+        }
+    }
+
+    .front_clord_right{
+        width:35% ;
+        position: absolute;
+        right: 0px;
+        bottom:-150px;
+        border: 1px solid black;
+       
+        img{
+            width:100%;
+        }
+    }
+
+
+    // 中間1200區域
+    .middle_line{
+        width: 1200px;
+        position: relative;
+        margin: 0 auto;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        display: flex;
+        border: 1px solid blue;
+        text-align: center;
+    
+    
+        
+
+
+
+                //左燈籠
+                .lantern_group1{
+                border:1px solid green;
+                width: 275px;
+                display: inline-flex;
+                position: absolute;
+                left:0px;
+                top:0px;
+
+                    .lantern_simple1{
+                        border:1px solid red;
+                        width: 118px;
+                        
+                    }
+                    .lantern_simple2{
+                        border:1px solid red;
+                        width: 102px;
+                        margin-left:40px;
+                        
+                    }
+
+                }
+
+
+
+                //右燈籠
+                .lantern_group2{
+                    border:1px solid green;
+                    width: 275px;
+                    display: inline-flex;
+                    position: absolute;
+                    right:0px;
+                    top:0px;
+
+                    .lantern_simple3{
+                        border:1px solid red;
+                        width: 102px;
+                        
+                    }
+
+                    .lantern_simple4{
+                        border:1px solid red;
+                        width: 118px;
+                        margin-left:40px;
+    
+                        
+                    }
+                }
+
+                //R的時候燈籠要縮小(510px)
+
+
+
+                    //中間區域雲朵
+                    .cloud{
+                        display:none;
+                        width: 583px;
+                        transform: translateY(450px);
+                        border: 1px solid black;
+
+                        img{
+                            width:100%;
+                        }
+                    }
+
+
+                    //中間籤筒
+                    .duel_case{
+                        display:none;
+                        margin:0 auto;
+                        width: 206px;
+                        transform: translateY(-80px);
+                        border: 1px solid red;
+
+                        img{
+                            width:100%;
+                        }
+                    }
+
+                    
+
+                    //中間按鈕
+                    .btn_go{
+                        display:none;
+                        transform: translateY(-50px);
+                        font-size: 30px;
+                        padding: 10px 30px;
+                        border-radius:48px;
+                        
+                         background-color: #FF7A7A;
+                         color:white;
+                         border:none;
+                         outline: none;
+                         cursor: pointer;
+         
+                         &:hover{
+                             background-color: #ac5454;
+                            
+                         }
+                    }
+
+
+
+// -------------------結果頁（兩頁）------------------------------//
+
+
+// 第三頁
+// .duelboxer{
+
+//     border:1px solid red;
+
+//     margin-top:180px;
+
+//     width:936px;
+//     height: 530px;
+
+//     // width: 290px;
+//     // height:500px;
+//     //測試title是否會掉下來
+
+//     display: inline-flex;
+
+//     align-items:center;
+//     justify-content: center;
+
+//     background-image: url(../images/moondrawl/step_1/two_line.png);
+
+    .title{
+        width:530px;
+        border: 1px solid red;
+        display: inline-flex;
+        flex-wrap:no-wrap;
+
+
+        .decoration{
+            border: 1px solid blue;
+            width: 175px;
+            height:257px;
+
+            background-image: url(../images/moondrawl/step_1/text1.png);
+
+            display:flex;
+            align-items:center;
+            justify-content: center;
+
+            h1.ins_title{
+                border: 1px solid green;
+                font-size: map-get($font_size, 'h1');
+                color: white;
+                background-color: #FF7A7A;
+                padding: 23px 8px;
+            }
+        }
+
+
+            h1.ins{
+                font-size: map-get($font_size, 'h1');
+                border: 1px solid purple;
+                text-align: left;
+                align-self: center;
+                margin-left:30px;
+            }
+        
+    }
+
+//     .deco_img{
+//         width:178px;
+//         border: 1px solid blue;
+//         margin-bottom: -300px;
+        
+//         img{
+//             width:100%;
+//         }
+//     }
+
+// };
+
+
+// 第四頁//
+.duelboxer2{
+    border:1px solid black;
+
+    margin-top:180px;
+
+    // width:936px;
+    // height: 530px;
+
+    // width: 290px;
+    // height:500px;
+    // 測試title是否會掉下來
+
+    display: inline-flex;
+
+    align-items:center;
+    justify-content: center;
+
+    background-image: url(../images/moondrawl/step_1/two_line.png);
+
+    .title_sec{
+        width: 870px;
+        border: 1px solid orange;
+        display: inline-flex;
+        flex-wrap: wrap;
+
+        .title_left{
+            width:380px;
+            border: 1px solid green;
+            text-align: left;
+            justify-self: center;
+
+            h3{
+                font-size: map-get($font_size, 'h3');
+                color:#FA8674;
+
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+            
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+    // 中間1200區域結尾
+    }
+
+
+//.large_line最大範圍結尾
+}
+
+
+
+
+
+
+// =================== 求籤end ======================================
