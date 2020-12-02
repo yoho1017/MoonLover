@@ -1,0 +1,11 @@
+// 1920px-1366px
+
+
+// 1366
+@include rwd(large) {
+    .know_wrapper{
+        .box {
+            width: 300px;
+        }
+    }
+}

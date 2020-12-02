@@ -1,0 +1,45 @@
+// 991px-768px
+
+//768
+// @include rwd(small) {
+// }
+
+
+//660
+@include rwd(660px) {
+
+    .large_line{
+
+        // 1200區間線
+        .middle_line{
+
+            //燈籠消失剩一個
+            .lantern_group1{
+    
+
+                .lantern_simple1{
+                    display: none;
+                }
+
+                .lantern_simple2{
+                    margin-left: 20px;
+
+                }
+            }
+
+            .lantern_group2{
+            
+
+                .lantern_simple3{
+                    width: 102px;
+                    margin-left: 100px;
+                }
+
+                .lantern_simple4{
+                    display: none;
+                }
+
+            }
+        }
+    }
+}

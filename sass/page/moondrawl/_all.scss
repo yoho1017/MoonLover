@@ -10,7 +10,8 @@
     justify-items: center;
 
     .front_clord_left{
-        width:35% ;
+        // width:35% ;
+        width:628px;
         position: absolute;
         left:0px;
         bottom:-150px;
@@ -22,7 +23,8 @@
     }
 
     .front_clord_right{
-        width:35% ;
+        // width:35% ;
+        width:628px;
         position: absolute;
         right: 0px;
         bottom:-150px;
@@ -106,9 +108,9 @@
 
                     //中間區域雲朵
                     .cloud{
-                        display:none;
+                        // display:none;
                         width: 583px;
-                        transform: translateY(450px);
+                        transform: translateY(300px);
                         border: 1px solid black;
 
                         img{
@@ -119,10 +121,10 @@
 
                     //中間籤筒
                     .duel_case{
-                        display:none;
+                        // display:none;
                         margin:0 auto;
                         width: 206px;
-                        transform: translateY(-80px);
+                        transform: translateY(-230px);
                         border: 1px solid red;
 
                         img{
@@ -134,8 +136,8 @@
 
                     //中間按鈕
                     .btn_go{
-                        display:none;
-                        transform: translateY(-50px);
+                        // display:none;
+                        transform: translateY(-200px);
                         font-size: 30px;
                         padding: 10px 30px;
                         border-radius:48px;
@@ -184,6 +186,9 @@
     justify-content: center;
 
     // background-image: url(../images/moondrawl/step_1/two_line.png);
+
+
+    display:none;
 
     .title{
         width:290px;
@@ -245,6 +250,7 @@
 
 // 第四頁//
 .duelboxer2{
+
     border:1px solid red;
 
     margin-top:180px;
@@ -269,6 +275,8 @@
 
     // background-image: url(../images/moondrawl/step_1/two_line.png);
 
+
+    display:none;
 
        //被面籤詩重要資訊
         .title_sec{
@@ -349,17 +357,22 @@
 
 //月老第一/二頁對話框
 .god_talk{
+
     width:500px;
     border: 1px solid green;
     position: absolute;
     right:0px;
-    bottom:0px;
+    bottom:-30px;
     display: inline-flex;
+
+    // display:none;
 
 
         .talk{
-            width: 290px;
+            width: 260px;
             height: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
 
             display: inline-flex;
             justify-content: center;
@@ -370,6 +383,9 @@
 
             h3{
                 font-size: map-get($font_size, 'h3');
+
+                padding-right: 10px;
+                padding-bottom: 20px;
                
             }
 
@@ -401,6 +417,7 @@
     bottom:0px;
     display: inline-flex;
 
+    display:none;
 
         .talk{
             width: 290px;
@@ -465,7 +482,61 @@
 }
 
 
+// RWD開始
 
+@include rwd(1510px) {
+
+    // 最大區間線
+    .large_line{
+
+       //前方雲朵縮小跟透明度調整
+        .front_clord_left{
+            opacity: .6;
+        }
+
+        .front_clord_right{
+            opacity: .6;
+        }
+
+        // 1200區間線
+        .middle_line{
+        
+            //燈籠縮小
+            .lantern_group1{
+                width:220px;
+            }
+
+            .lantern_group2{
+                width:220px;
+            }
+
+        }
+
+    }
+
+}
+
+@include rwd(1065px) {
+
+    
+    .large_line{
+
+        //前方雲朵縮小跟透明度調整
+        .front_clord_left{
+
+            width: 510px;
+            opacity: .6;
+
+        }
+
+        .front_clord_right{
+
+            width: 510px;
+            opacity: .6;
+        }
+    }
+
+}
 
 
 

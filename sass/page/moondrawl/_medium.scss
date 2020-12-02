@@ -1,0 +1,34 @@
+// 1365px-992px
+
+//992
+// @include rwd(medium) {
+//     .moonMatch-wrapper{
+//         .box {
+//             width: 300px;
+//         }
+//     }
+// }
+
+
+
+
+//875
+@include rwd(875px) {
+
+    .large_line{
+
+           //前方雲朵縮小跟透明度
+           .front_clord_left{
+
+            width: 450px;
+            opacity: .5;
+
+        }
+
+        .front_clord_right{
+
+            width: 450px;
+            opacity: .5;
+        }
+    }
+}
