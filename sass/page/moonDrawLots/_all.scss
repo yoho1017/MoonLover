@@ -283,22 +283,33 @@ $cwd:698px;
                     background-image: url(../images/moonDrawLots/step_1/two_line.png);
                     .area3{
                         
-                        // border:3px solid black;
+                        border:3px solid black;
                         display: inline-flex;
                         justify-content: flex-start;
                         width:100%; 
                         
                         .aside{
-                            // border:1px solid blue;
+                            border:4px solid blue;
                             width: 385px;
                             display: inline-flex;
                             vertical-align: top;
                             box-sizing: border-box;
+                            justify-content: flex-start;
                             height: 337px;
+                            
+                            .block{
+                                border:1px solid red;
+                                display: inline-flex;
+                                vertical-align: top;
+                                box-sizing: border-box;
+                                justify-content: flex-start;
+                            }
+                           
+                            
                         
                         }
                         .result{
-                            // border:1px solid orchid;
+                            border:1px solid orchid;
                             width:calc(100% - 385px);
                             // margin-top:132px;
                             height: 100%;
@@ -323,7 +334,7 @@ $cwd:698px;
                                     font-size: map-get($font_size, 'h1');
                                     color: white;
                                     writing-mode: vertical-lr;
-                                    // background-color: #FF7A7A;
+                                    background-color: #FF7A7A;
                                     
                                     
                                     height: 168px;
@@ -332,7 +343,7 @@ $cwd:698px;
                                 
                             }   
                             .result_text{
-                                // border:1px solid purple;
+                                border:1px solid purple;
                                 width:calc(100% - 175px);
                                 
                                 h1{
@@ -365,20 +376,43 @@ $cwd:698px;
                             justify-content: center;
 
                         .result_full_text{
-                            // border: 3px solid pink;
+                            border: 3px solid pink;
                             width: 679px;
-                            height:190px;
                             
+                            height:190px;
+                            display: inline-flex;
+                        justify-content: flex-start;
+                        display: flex;
+                        margin-left: 56px;
+
+                        .title{
+                        //     display: inline-flex;
+                        // justify-content: flex-start;
+                        // display: flex;
+                        width:672px;
+                        border:1px solid green;
+                        color: #FF7A7A;
                         }
+                            
+                        .text_word{
+                            // display: inline-flex;
+                            // justify-content: flex-start;
+                            // display: flex;
+                            // width:672px;
+                            border:1px solid green;
+                        }
+                        
+                        
                         .block_aside{
-                            // border:1px solid purple;
-                            width: 190px;
-                            // display: inline-block;
+                            border:1px solid purple;
+                            width: 282px;
+                            display: inline-block;
                             margin-right:54px;
                             margin-left: 30px;
-                            // box-sizing: border-box;
+                            box-sizing: border-box;
+                            display: inline-flex;
                             height:174px;
-                            margin-top:354px;
+                            // margin-top:354px;
                             background-repeat: no-repeat;
                             
                             background-image: url(../images/moonDrawLots/step_1/block_none.png);
