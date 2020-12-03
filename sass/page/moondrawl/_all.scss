@@ -65,12 +65,20 @@
                     .lantern_simple1{
                         border:1px solid red;
                         width: 118px;
+
+                        img{
+                            width:100%;
+                        }
                         
                     }
                     .lantern_simple2{
                         border:1px solid red;
                         width: 102px;
                         margin-left:40px;
+
+                        img{
+                            width:100%;
+                        }
                         
                     }
 
@@ -90,6 +98,10 @@
                     .lantern_simple3{
                         border:1px solid red;
                         width: 102px;
+
+                        img{
+                            width:100%;
+                        }
                         
                     }
 
@@ -97,6 +109,10 @@
                         border:1px solid red;
                         width: 118px;
                         margin-left:40px;
+
+                        img{
+                            width:100%;
+                        }
     
                         
                     }
@@ -193,6 +209,9 @@
 
     // background-image: url(../images/moondrawl/step_1/two_line.png);
 
+    img{
+        width:100%;
+    }
 
     display:none;
 
@@ -283,6 +302,10 @@
 
 
     display:none;
+
+        img{
+            width:100%;
+        }
 
        //被面籤詩重要資訊
         .title_sec{

@@ -45,6 +45,10 @@
                     .lantern_simple2{
                         margin-left: 20px;
 
+                        img{
+                            width:100%;
+                        }
+
                     }
                 }
 
@@ -54,6 +58,10 @@
                     .lantern_simple3{
                         width: 102px;
                         margin-left: 100px;
+
+                        img{
+                            width:100%;
+                        }
                     }
 
                     .lantern_simple4{
@@ -112,6 +120,10 @@
                     width: 80px;
                     margin-left: 20px;
 
+                    img{
+                        width:100%;
+                    }
+
                 }
             }
 
@@ -122,6 +134,10 @@
                     width: 80px;
                     margin:0px;
                     margin-left: 100px;
+
+                    img{
+                        width:100%;
+                    }
                 }
 
                 .lantern_simple4{
@@ -308,6 +324,46 @@
         // 1200區間線
         .middle_line{
 
+                  //燈籠剩一個變小
+                  .lantern_group1{
+                    width: 120px;
+    
+                    .lantern_simple1{
+                        display: none;
+                    }
+    
+                    .lantern_simple2{
+                        width: 80px;
+                        margin-left: 20px;
+    
+                        img{
+                            width:100%;
+                        }
+    
+                    }
+                }
+    
+                .lantern_group2{
+                    width: 220px;
+                
+                    .lantern_simple3{
+                        width: 80px;
+                        margin:0px;
+                        margin-left: 100px;
+    
+                        img{
+                            width:100%;
+                        }
+                    }
+    
+                    .lantern_simple4{
+                        display: none;
+                    }
+    
+                }
+
+
+
             //月老跟對話框調整大小
             .god_talk{
                 width:360px;
@@ -332,85 +388,7 @@
 }
 
 
-//340
-@include rwd(340px) {
 
-    .large_line{
-
-        // 1200區間線
-        .middle_line{
-
-            //燈籠剩一個變小
-            .lantern_group1{
-                width: 120px;
-
-                .lantern_simple2{
-                    width: 75px;
-                    margin-left: 20px;
-
-                }
-            }
-
-            .lantern_group2{
-                width: 220px;
-            
-                .lantern_simple3{
-                    width: 75px;
-                    margin:0px;
-                    margin-left: 100px;
-                }
-
-
-            }
-
-            //籤筒/雲朵/按鈕變小
-            .duelbox{
-
-                .cloud{
-                    width:300px;
-                    transform: translateY(200px);
-
-                }
-
-                .duel_case{
-                    width: 125px;
-                    transform: translateY(-143px);
-
-
-                }
-
-                .btn_go{
-
-                    transform: translateY(-130px);
-
-
-                }
-            }
-
-            //月老跟對話框調整大小
-            .god_talk{
-                width:395px;
-
-                .talk{
-                    width:165px;
-                    transform: translateY(-109px) translateX(79px);
-
-                        h3{
-                            padding-right: 10px;
-                            padding-bottom: 30px;
-                        }
-                }
-
-                .MoonOfGod{
-                    width:210px;
-                }
-            }
-
-
-        }
-    }
-
-}
 
 
 
