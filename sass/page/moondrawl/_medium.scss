@@ -1,13 +1,58 @@
 // 1365px-992px
 
 //992
-// @include rwd(medium) {
-//     .moonMatch-wrapper{
-//         .box {
-//             width: 300px;
-//         }
-//     }
-// }
+@include rwd(medium) {
+  .large_line{
+
+      // 1200區間線
+      .middle_line{
+
+            //籤筒/雲朵/按鈕變小
+            .duelbox{
+
+                .cloud{
+                    width:400px;
+                    transform: translateY(255px);
+
+                }
+
+                .duel_case{
+                    width: 180px;
+                    transform: translateY(-192px);
+
+
+                }
+
+                .btn_go{
+
+                    transform: translateY(-183px);
+
+
+                }
+                
+            }
+
+             //月老跟對話框調整大小
+             .god_talk{
+                width:420px;
+
+                .talk{
+                    width:200px;
+                    transform: translateY(-85px) translateX(85px);
+
+                        h3{
+                            padding-right: 10px;
+                            padding-bottom: 60px;
+                        }
+                }
+
+                .MoonOfGod{
+                    width:280px;
+                }
+            }
+      }
+  }
+}
 
 
 

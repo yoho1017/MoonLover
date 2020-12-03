@@ -13,5 +13,8 @@ $(document).ready(function(){
     // 第三四屏切換
     $('.dBoxSwitch').on('click', function(){
         $('.dBoxSwitch').toggleClass('-on');
+        $('.god_talk').css({
+            display: 'none',
+        });      
     });
 });
