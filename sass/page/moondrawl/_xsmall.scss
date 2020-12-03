@@ -1,32 +1,208 @@
 // 767-480px
 
-// 480
-@include rwd(xsmall) {
+
+//480
+@include rwd(480px) {
+
     .large_line{
 
-                // 1200區間線
-            .middle_line{
+        //前方雲朵調位置跟大小
+        .front_clord_left{
+            width:410px;
+            left:-95px;
+        }
 
-                
+        .front_clord_right{
+            width:410px;
+            right:-95px;
 
-                    //月老跟對話框調整大小
-                .god_talk{
-                    width:420px;
+        }
 
-                    .talk{
-                        width:150px;
-                        transform: translateY(5px) translateX(45px);
+        .middle_line{
 
-                            h3{
-                                padding-right: 2px;
-                                padding-bottom: 40px;
-                            }
-                    }
+              //籤筒/雲朵/按鈕變小
+              .duelbox{
+
+                .cloud{
+                    width:400px;
+                    transform: translateY(220px);
 
                 }
 
-                
-                    
+                .duel_case{
+                    width: 140px;
+                    transform: translateY(-150px);
+
+
+                }
+
+                .btn_go{
+
+                    transform: translateY(-130px);
+
+
+                }
             }
+
+            //月老跟對話框調整大小
+            .god_talk{
+                width:395px;
+
+                .talk{
+                    width:180px;
+    
+                        h3{
+                            padding-right: 10px;
+                            padding-bottom: 20px;
+                        }
+                }
+
+                .MoonOfGod{
+                    width:245px;
+                }
+            }
+
+        }
     }
 }
+
+
+
+//410
+@include rwd(410px) {
+    .large_line{
+
+        //前方雲朵調位置跟大小
+        .front_clord_left{
+            width:410px;
+            left:-95px;
+        }
+
+        .front_clord_right{
+            width:410px;
+            right:-95px;
+
+        }
+
+        .middle_line{
+
+            //籤筒/雲朵/按鈕變小
+            .duelbox{
+
+                .cloud{
+                    width:322px;
+                    transform: translateY(204px);
+
+                }
+
+                .duel_case{
+                    width: 130px;
+                    transform: translateY(-143px);
+
+
+                }
+
+                .btn_go{
+
+                    transform: translateY(-130px);
+
+
+                }
+            }
+
+            //月老跟對話框調整大小
+            .god_talk{
+                width:395px;
+
+                .talk{
+                    width:165px;
+
+                        h3{
+                            padding-right: 10px;
+                            padding-bottom: 30px;
+                        }
+                }
+
+                .MoonOfGod{
+                    width:210px;
+                }
+            }
+
+        }
+    }
+}
+
+
+//375
+@include rwd(375px) {
+    .large_line{
+
+        // 1200區間線
+        .middle_line{
+
+                  //燈籠剩一個變小
+                  .lantern_group1{
+                    width: 120px;
+    
+                    .lantern_simple1{
+                        display: none;
+                    }
+    
+                    .lantern_simple2{
+                        width: 80px;
+                        margin-left: 20px;
+    
+                        img{
+                            width:100%;
+                        }
+    
+                    }
+                }
+    
+                .lantern_group2{
+                    width: 220px;
+                
+                    .lantern_simple3{
+                        width: 80px;
+                        margin:0px;
+                        margin-left: 100px;
+    
+                        img{
+                            width:100%;
+                        }
+                    }
+    
+                    .lantern_simple4{
+                        display: none;
+                    }
+    
+                }
+
+
+
+            //月老跟對話框調整大小
+            .god_talk{
+                width:360px;
+
+                .talk{
+                    width:165px;
+                    // transform: translateY(-109px) translateX(79px);
+
+                        h3{
+                            padding-right: 10px;
+                            padding-bottom: 30px;
+                        }
+                }
+
+                .MoonOfGod{
+                    width:210px;
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
