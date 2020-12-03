@@ -1,6 +1,30 @@
 // 767-480px
 
-//480
-// @include rwd(xsmall) {
+// 480
+@include rwd(xsmall) {
+    .large_line{
 
-// };
+                // 1200區間線
+            .middle_line{
+
+                    //月老跟對話框調整大小
+                .god_talk{
+                    width:420px;
+
+                    .talk{
+                        width:150px;
+                        transform: translateY(5px) translateX(45px);
+
+                            h3{
+                                padding-right: 2px;
+                                padding-bottom: 40px;
+                            }
+                    }
+
+                }
+
+                
+                    
+            }
+    }
+};
