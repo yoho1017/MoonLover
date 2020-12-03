@@ -4,7 +4,7 @@
 .large_line{
     width:100%;
     height: 100%;
-    border: 1px solid red;
+    // border: 1px solid red;
     position: fixed;
     display: flex;
     justify-items: center;
@@ -15,7 +15,7 @@
         position: absolute;
         left:0px;
         bottom:-150px;
-        border: 1px solid black;
+        // border: 1px solid black;
 
         img{
             width:100%;
@@ -28,7 +28,7 @@
         position: absolute;
         right: 0px;
         bottom:-150px;
-        border: 1px solid black;
+        // border: 1px solid black;
        
         img{
             width:100%;
@@ -45,7 +45,7 @@
         justify-items: center;
         align-items: center;
         display: flex;
-        border: 1px solid blue;
+        // border: 1px solid blue;
         text-align: center;
     
     
@@ -55,7 +55,7 @@
 
                 //左燈籠
                 .lantern_group1{
-                border:1px solid green;
+                // border:1px solid green;
                 width: 275px;
                 display: inline-flex;
                 position: absolute;
@@ -63,7 +63,7 @@
                 top:0px;
 
                     .lantern_simple1{
-                        border:1px solid red;
+                        // border:1px solid red;
                         width: 118px;
 
                         img{
@@ -72,7 +72,7 @@
                         
                     }
                     .lantern_simple2{
-                        border:1px solid red;
+                        // border:1px solid red;
                         width: 102px;
                         margin-left:40px;
 
@@ -88,7 +88,7 @@
 
                 //右燈籠
                 .lantern_group2{
-                    border:1px solid green;
+                    // border:1px solid green;
                     width: 275px;
                     display: inline-flex;
                     position: absolute;
@@ -96,7 +96,7 @@
                     top:0px;
 
                     .lantern_simple3{
-                        border:1px solid red;
+                        // border:1px solid red;
                         width: 102px;
 
                         img{
@@ -106,7 +106,7 @@
                     }
 
                     .lantern_simple4{
-                        border:1px solid red;
+                        // border:1px solid red;
                         width: 118px;
                         margin-left:40px;
 
@@ -127,7 +127,7 @@
                     .cloud{
                         width: 583px;
                         transform: translateY(300px);
-                        border: 1px solid black;
+                        // border: 1px solid black;
 
                         img{
                             width:100%;
@@ -140,7 +140,7 @@
                         margin:0 auto;
                         width: 206px;
                         transform: translateY(-230px);
-                        border: 1px solid red;
+                        // border: 1px solid red;
 
                         img{
                             width:100%;
@@ -183,7 +183,7 @@
 // 第三頁
 .duelboxer{
 
-    border:1px solid red;
+    // border:1px solid red;
 
     margin-top:-50px;
 
@@ -217,7 +217,7 @@
 
     .title{
         width:290px;
-        border: 1px solid red;
+        // border: 1px solid red;
         display: flex;
         flex-wrap:wrap;
         align-items:center;
@@ -227,7 +227,7 @@
 
 
         .decoration{
-            border: 1px solid blue;
+            // border: 1px solid blue;
             width: 175px;
             height:257px;
 
@@ -238,7 +238,7 @@
             justify-content: center;
 
             h1.ins_title{
-                border: 1px solid green;
+                // border: 1px solid green;
                 font-size: map-get($font_size, 'h1');
                 color: white;
                 background-color: #FF7A7A;
@@ -249,7 +249,7 @@
 
             h2.ins{
                 font-size: map-get($font_size, 'h2');
-                border: 1px solid purple;
+                // border: 1px solid purple;
                 text-align: left;
                 align-self: center;
                 
@@ -275,7 +275,7 @@
 // 第四頁//
 .duelboxer2{
 
-    border:1px solid red;
+    // border:1px solid red;
 
     margin-top:-50px;
 
@@ -310,7 +310,7 @@
        //被面籤詩重要資訊
         .title_sec{
             width:433px;
-            border: 1px solid black;
+            // border: 1px solid black;
             display: flex;
             flex-wrap:wrap;
             align-items:center;
@@ -319,7 +319,7 @@
 
                 .title{ 
                 width:400px;
-                border: 1px solid red;
+                // border: 1px solid red;
                 display: inline-flex;
                 flex-wrap:nowrap;
                 align-items:center;
@@ -329,7 +329,7 @@
 
 
                     .decoration{
-                        border: 1px solid blue;
+                        // border: 1px solid blue;
                         width: 175px;
                         height:257px;
 
@@ -340,7 +340,7 @@
                         justify-content: center;
 
                         h1.ins_title{
-                            border: 1px solid green;
+                            // border: 1px solid green;
                             font-size: map-get($font_size, 'h1');
                             color: white;
                             background-color: #FF7A7A;
@@ -351,7 +351,7 @@
 
                     h2.ins{
                         font-size: map-get($font_size, 'h2');
-                        border: 1px solid purple;
+                        // border: 1px solid purple;
                         text-align: left;
                         align-self: center;
                         margin-left:20px;
@@ -364,7 +364,7 @@
                 //背面籤詩解釋內容
                 .title_left{
                     width:380px;
-                    border: 1px solid green;
+                    // border: 1px solid green;
                     text-align: left;
                     justify-self: center;
                     margin-top:20px;
@@ -394,7 +394,7 @@
 .god_talk{
 
     width:500px;
-    border: 1px solid green;
+    // border: 1px solid green;
     position: absolute;
     right:0px;
     bottom:-30px;
@@ -430,7 +430,7 @@
 
         .MoonOfGod{
             width:320px;
-            border: 1px solid red;
+            // border: 1px solid red;
 
             img{
                 width:100%;
