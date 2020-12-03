@@ -17,7 +17,7 @@
     <!-- vue -->
     <script src="./js/vue.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
-    <title>周邊景點美食管理</title>
+    <title>周邊景點管理</title>
 
 </head>
 <body class="backstage_mapList-body">
@@ -51,10 +51,10 @@
             </div>
 
             <ul class="option">
-                <li class="list" v-for="list in lists">
-                    <a href="#" >
-                        <h3 class="listName" @click="backmenu(list)">
-                            {{list}}
+                <li class="list" v-for="(list,key) in lists" :key="key">
+                    <a :href="list.href">
+                        <h3 class="listName">
+                            {{list.list}}
                         </h3>
                     </a>
                 </li>
