@@ -1,0 +1,54 @@
+// 請在_all.scss套用這個格式
+.backstage_mapList-body{
+    background-color: #F0DED1;
+    height: 100vh;
+}
+.backstage-mapList-wrapper {
+    display: flex;
+    background-color: #F0DED1;
+    height: 100%;
+
+    @include backstage; //引入後台版型
+
+    @include backstageBtn (15%); //後台用btn
+
+    @include td (30,30%); //td的寬度，class名稱要td_後面自己設名稱
+
+    @include td (55,55%); //td的寬度，class名稱要td_後面自己設名稱
+
+    @include pagination; //引入pagination
+
+    @include td (75,75%);
+
+    @include td (80,80%);
+
+    @include td (md,80%);
+
+    @include td (125,125%);
+
+    @include textarea (20px);
+
+    .td_md {
+        justify-content: flex-start !important;
+        @include backstageBtn (15%);
+        .bkbtn_Red{
+            text-align: center;
+        }
+    }
+
+    .input_status {
+        font-size: 16px;
+    }
+
+    .fas {
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 25px;
+    }
+
+}

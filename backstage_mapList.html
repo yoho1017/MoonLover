@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <meta charset="UTF-8">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- jq -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- popper js -->
+    <script src="./node_modules/@popperjs/core/lib/popper.js"></script>
+    <!-- bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- vue -->
+    <script src="./js/vue.js"></script>
+    <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
+    <title>周邊景點美食管理</title>
+
+</head>
+<body class="backstage_mapList-body">
+
+    <!------------------------------header---------------------------------->
+    <header class="header">
+        <nav class="nav navback" id="nav">
+            <div class="title"><h1>月老地圖　|</h1>
+                <h2 class="smallTitle">　周邊景點美食管理</h2>
+            </div>
+            <div class="logout">
+                <h3>
+                    登出
+                </h3>
+            </div>
+        </nav>
+    </header>    
+    <!-- wrapper請取自己的名稱，套用範例的格式 -->
+    <div id="backend" class="backstage-mapList-wrapper"> 
+
+            <!------------------------------內容---------------------------------->
+            
+                <!------------------------------側邊選單---------------------------------->
+        <aside>
+
+            <div class="Logo"><a href="./landingpage.html"><img src="./images/logo.png"></a></div>
+
+
+            <div class="username">
+                <h2 class="text">登入者 : {{username}}</h2>
+            </div>
+
+            <ul class="option">
+                <li class="list" v-for="list in lists">
+                    <a href="#" >
+                        <h3 class="listName" @click="backmenu(list)">
+                            {{list}}
+                        </h3>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <!------------------------------主要內容---------------------------------->
+
+        <main>
+            <div class="Bcontainer">
+
+                <div class="editbar" v-if="menu">
+                    <div class="bkbtn_Blue" @click="add('n')"><h3>新增籤詩</h3></div>
+                </div>
+
+                <table v-if="menu">
+                    <!-- 標題在thead class要按照下面方式寫才能吃到顏色-->
+                    <thead>
+                        <tr>
+                            <!-- td_***是設定寬度 -->
+                            <td class="thtd td_55"><h3>編號</h3></td>
+                            <td class="thtd td_125"><h3>景點名稱</h3></td>
+                            <td class="thtd td_75"><h3>廟宇名稱</h3></td>
+                            <td class="thtd td_75"><h3>分類</h3></td>
+                            <td class="thtd td_75"><h3>編輯</h3></td>
+                        </tr>
+                    </thead>
+                    <!-- 內容在tbody，如果要新增行數就加一組tr -->
+                    <tbody>
+
+                        <tr is="row" v-for="data in sql" :id="data[0]" :num="data[1]" :lucky="data[2]" :content="data[3]" :detail="data[4]" :answer="data[5]"></tr>
+                        
+                    </tbody>
+
+                </table>
+
+                <table v-else="menu">
+
+                        <tr>
+                            <td class="td_30"><h4>景點名稱</h4></td>
+                            <td class="td_md">
+                                <textarea name="content" id="" cols="30" rows="1" class="editText" v-model="modify_data[1]">
+                                </textarea>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <!-- td_***是設定寬度 -->
+                            <td class="td_30"><h4>廟宇名稱</h4></td>
+                            <td class="td_md">                    
+                                <select class="input_status" v-model="modify_data[2]">
+                                    <option value="台北霞海城隍廟">台北霞海城隍廟</option>
+                                    <option value="台北艋舺龍山寺">台北艋舺龍山寺</option>
+                                    <option value="台中樂成宮">台中樂成宮</option>
+                                    <option value="台中慈德慈惠堂">台中慈德慈惠堂</option>
+                                    <option value="雲林北港朝天宮">雲林北港朝天宮</option>
+                                    <option value="台南大天后宮">台南大天后宮</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td_30"><h4>景點分類</h4></td>
+                            <td class="td_md">
+                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[3]"></textarea> -->
+                                <select class="input_status" v-model="modify_data[3]">
+                                    <option value="景點">景點</option>
+                                    <option value="美食">美食</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td_30"><h4>景點介紹</h4></td>
+                            <td class="td_md">
+                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[4]">
+                                </textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td_30"><h4>營業時間</h4></td>
+                            <td class="td_md">
+                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[5]"></textarea> -->
+                                <input type="text" class="editText" v-model="modify_data[5]">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_30"><h4>地址</h4></td>
+                            <td class="td_md">
+                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[6]"></textarea> -->
+                                <input type="text" class="editText" v-model="modify_data[6]">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_30"><h4>上傳圖片</h4></td>
+                            <td class="td_md">
+                                <div class="bkbtn_Red"><h3>上傳圖片</h3></div>
+                            </td>
+                        </tr>
+                                    
+                </table>
+
+                <nav aria-label="Page navigation example" v-if="menu">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+
+                <div class="btn" v-else="menu">
+                    <div class="bkbtn_Blue" @click="menu = true"><h3>取消</h3></div>
+                    <div class="bkbtn_Red" @click="change(modify_data[0])"><h3>送出</h3></div>
+                </div>
+
+            </div>
+
+        </main>
+
+
+    </div>
+
+    <!-- 後台js -->
+    <script src="./js/backstage-mapList.js"></script>
+</body>
+</html>
