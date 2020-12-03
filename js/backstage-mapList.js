@@ -11,7 +11,14 @@ var backend = new Vue({
         // ---------------留言清單---------------
         username: '碩哥',
         // 後台頁籤
-        lists: ['公版留言管理', '訂單管理', '周邊景點管理', '籤詩管理', '商品管理', '會員資料管理'],
+        lists : [
+            {list: '公版留言管理', href : "./backstage_publicMsg.html"},
+            {list: '訂單管理', href : "./backstage_publicMsg.html"},
+            {list : '周邊景點管理', href : "./backstage_mapList.html"},
+            {list : '籤詩管理', href : "./backstage_draw.html"},
+            {list : '商品管理', href : "./backstage_products.html"},
+            {list : '會員資料管理', href : "./backstage_member.html"},
+        ],
         sql: [
             [1, '迪化街', '台北霞海城隍廟', '美食','好吃好吃','11:00 - 15:00','台北市迪化街'],
             [2, '顏記杏仁露', '台北霞海城隍廟', '美食','好吃好吃好吃好吃','11:00 - 15:00','台北市迪化街'],
