@@ -53,10 +53,10 @@
             </div>
 
             <ul class="option">
-                <li class="list" v-for="list in lists">
-                    <a href="#" >
-                        <h3 class="listName" @click="backmenu(list)">
-                            {{list}}
+                <li class="list" v-for="(list,key) in lists" :key="key">
+                    <a :href="list.href">
+                        <h3 class="listName">
+                            {{list.list}}
                         </h3>
                     </a>
                 </li>

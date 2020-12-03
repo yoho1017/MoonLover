@@ -10,7 +10,14 @@ var backend = new Vue ({
         // ---------------留言清單---------------
         username : '碩哥',
         // 後台頁籤
-        lists : ['公版留言管理','訂單管理','周邊景點管理','籤詩管理','商品管理','會員資料管理'],
+        lists : [
+            {list: '公版留言管理', href : "./backstage_publicMsg.html"},
+            {list: '訂單管理', href : "./backstage_publicMsg.html"},
+            {list : '周邊景點管理', href : "./backstage_mapList.html"},
+            {list : '籤詩管理', href : "./backstage_draw.html"},
+            {list : '商品管理', href : "./backstage_products.html"},
+            {list : '會員資料管理', href : "./backstage_member.html"},
+        ],
         sql:[
             [1,'aabbc111','abc111','aaabbc111@gamil.com','小碩碩','鋼筆碩哥','30歲','旅遊|烹飪','新竹縣','工商服務/工程師','碩士/雲林科技大學','男性','女性','否','否'],
             [2,'aabbc222','abc222','aaabbc222@gamil.com','酪梨姊姊','來買科酪梨吧','30歲','聽音樂|繪畫','高雄市','自由業/設計師','大學/嘉義大學','女姓','男性','否','是'],

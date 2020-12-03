@@ -11,7 +11,14 @@ var backend = new Vue ({
         // ---------------留言清單---------------
         username : '碩哥',
         // 後台頁籤
-        lists : ['公版留言管理','訂單管理','周邊景點管理','籤詩管理','商品管理','會員資料管理'],
+        lists : [
+            {list: '公版留言管理', href : "./backstage_publicMsg.html"},
+            {list: '訂單管理', href : "./backstage_publicMsg.html"},
+            {list : '周邊景點管理', href : "./backstage_mapList.html"},
+            {list : '籤詩管理', href : "./backstage_draw.html"},
+            {list : '商品管理', href : "./backstage_products.html"},
+            {list : '會員資料管理', href : "./backstage_member.html"},
+        ],
         sql : [
             [1,'F001','BiBiOTA','2020-06-06','不雅文字','這網站真的好爛啊！','顯示'],
             [2,'M001','Yoho','2020-11-03','不雅文字','這網站好爛！','顯示'],
