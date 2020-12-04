@@ -13,9 +13,13 @@ var nav = new Vue ({
             account.$data.log_flex = true    
         },
 
-        logout () {
+        logout () { //登出
             axios.post('./php/logoutR.php').then(function () {
-                window.location.reload()
+                if (document.title == '個人資料' || document.title == '我的吉祥物' || document.title == '留言板' || document.title == '我的訂單' || document.title == '會員中心') {
+                    window.location.href="./index.html";
+                }else{
+                    window.location.reload()
+                }
             })        
         }
 
