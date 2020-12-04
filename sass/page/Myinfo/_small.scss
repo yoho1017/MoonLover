@@ -26,14 +26,6 @@
                         overflow-y: visible;
                         overflow-x: hidden;
                         justify-content: center;
-                        order : 1;
-
-                        & > div:nth-child(1){ order: 2; }
-                        & > div:nth-child(2){ order: 1; }
-                        & > div:nth-child(3){ order: 3; }
-                        & > div:nth-child(4){ order: 4; }
-                        & > div:nth-child(5){ order: 5; }
-                        & > div:nth-child(6){ order: 6; }
 
                         h4 {
                             white-space: nowrap;
@@ -41,6 +33,9 @@
 
                         .mainInfo {
                             width : 75%;
+                            .mainH4 {
+                                width : 40%;
+                            }
                             i {
                                 font-size: 30px;
                                 margin-left: 2%;

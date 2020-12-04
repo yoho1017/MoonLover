@@ -1,6 +1,5 @@
 var member = new Vue ({
     el : '#member',
-
     data : {
         // 信箱檢查
         email_check: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
@@ -13,24 +12,38 @@ var member = new Vue ({
             {list : '留言板', href : "./MyMsg.html"},
             {list : '我的訂單', href : "./MyOrder.html"}
         ],
+        // 會員頭像
+        profile : "./images/MyInfo/profile.png",
         // 會員名稱
-        username : 'AsoJi',
+        username : '',
         // 會員信箱
-        email : 'MoonLover@gmail.com',
+        email : '',
         // 送出信箱
         checked_mail : '',
         // 驗證碼
         check_ver : '',
         // 驗證結果(true是信箱已驗證)
         result : true,
+        // 密碼placeholder
+        mcusp : '8個字元，包含大小寫',
         // 密碼
-        pwd : 'sexfat',
+        pwd : '',
+        // 重新輸入密碼
+        repwd : '',
+        // 密碼修改狀態(true為正常)
+        oldpwd : true,
+        // 密碼檢查
+        pwd_check : /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/,
+        // 密碼錯誤
+        pwd_error : false,
+        // 會員等級
+        memberType : '',
         // 暱稱
-        nickname : '小碩碩',
+        nickname : '',
         // 關於我
-        about : '鋼筆碩哥',
+        about : '',
         // 我的興趣
-        interest : ' 玩桌遊 | 旅遊 | 看電影 ',
+        interest : '',
         // 興趣清單
         interests : [
             {interest: '運動', checked : false},
@@ -41,7 +54,9 @@ var member = new Vue ({
             {interest: '玩桌遊', checked : false},
             ],
         // 我的年齡
-        myage: '30歲',
+        myage: '',
+        // 年齡區間
+        ageRange: '',
         // 年齡清單
         ages : [],
         // 我的居住地
@@ -51,44 +66,44 @@ var member = new Vue ({
             '臺北市','新北市','桃園市','臺中市','臺南市','高雄市','新竹縣','苗栗縣','彰化縣','南投縣','雲林縣','嘉義縣','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣','基隆市','新竹市','嘉義市'
         ],
         // 職業
-        job : '工商服務',
+        job : '',
         // 職業清單
         jobs : ['軍警','公務人員','教育人員','工商服務','農業','其他'],
         // 職稱
-        work : '爆肝工程師',
+        work : '',
         // 學歷
-        education : '碩士',
+        education : '',
         // 學歷清單
         educations : ['博士','碩士','大學','高中職','國中以下'],
         // 學校
-        school : '虎尾科技大學',
+        school : '',
         // 性別
-        sex : '男性',
+        sex : '',
         // 性別清單
         sexs : [
-            {sex : '男性', checked : true},
+            {sex : '男性', checked : false},
             {sex : '女性', checked : false}
         ],
         // 性向
-        seo : '女性',
+        seo : '',
         // 性向清單
         seos : [
             {seo : '男性', checked : false},
-            {seo : '女性', checked : true}
+            {seo : '女性', checked : false}
         ],
         // 接受月老配對
-        match : '否',
+        match : '',
         // 月老配對清單
         matchs : [
             {title : '是', checked : false},
-            {title : '否', checked : true},
+            {title : '否', checked : false},
         ],
         // 公開資訊
-        pri : '否',
+        pri : '',
         // 公開資訊清單
         pris : [
             {title : '是', checked : false},
-            {title : '否', checked : true},
+            {title : '否', checked : false},
         ],
         // 修改資料(true為修改中狀態)
         modify : false,
@@ -103,9 +118,25 @@ var member = new Vue ({
     methods: {
  
         changeInfo () { //修改資料
-            this.modify = true,
-            this.IntToCheckbox()
-            this.DataToCheckbox()
+            this.modify = true;
+            this.checkinputnull();
+            this.IntToCheckbox();
+            this.DataToCheckbox();
+        },
+
+        checkinputnull () { //如果資料為未填寫
+            if (this.nickname == '還沒填寫哦') {
+                this.nickname = '';
+            }
+            if (this.about == '還沒填寫哦') {
+                this.about = '';
+            }
+            if (this.work == '還沒填寫哦') {
+                this.work = '';
+            }
+            if (this.school == '還沒填寫哦') {
+                this.school = '';
+            }
         },
 
         IntToCheckbox () { //我的興趣到checkbox
@@ -137,20 +168,154 @@ var member = new Vue ({
         },
 
         submitInfo () { //修改完成
-            this.modify = false,
-            this.changeEmail = false;
-            this.CheckboxToInt()
+            if (this.result == false) {
+                alert("信箱驗證作業還沒完成哦 !")
+            }else if (this.pwd_checking()) {
+                this.getMemberType (); //取得會員等級
+                this.modifyR (); //提交axios個人資料表單
+                this.modifyInt (); //提交興趣表單
+                this.modify = false; //關閉修改頁面
+                this.changeEmail = false; //關閉email修改介面
+                this.getdata ();
+                this.getIntdata ();
+            }else{
+                alert("密碼錯誤 !")
+            }
         },
 
-        CheckboxToInt () { //勾選的興趣checkbox篩選到介面
-            interest = []
-            for (i = 0; i <= this.interests.length -1; i++) {
-                if (this.interests[i].checked == true) {
-                    choose = this.interests[i].interest
-                    interest.push(` ${choose} `)
+        pwd_checking () {
+            if (this.oldpwd == true) {
+                return true
+            }else if (this.pwd == this.pwd.match(this.pwd_check) && this.pwd == this.repwd){
+                this.encrypt(this.pwd);
+                return true
+            }else{
+                if (this.pwd != this.pwd.match(this.pwd_check)){
+                    this.pwd_error = true;
+                    this.pwd = '';
+                    this.repwd = '';
+                }
+                if (this.pwd != this.repwd) {
+                    this.pwd_error = true;
+                    this.mcusp = '請填寫相同密碼 !';
+                    this.pwd = '';
+                    this.repwd = '';
                 }
             }
-            this.interest = interest.join("|")
+        },
+
+        encrypt (pwd) {  //密碼加密
+            // alert("進入");
+            this.oldpwd = pwd;
+            hash = CryptoJS.MD5(pwd);
+            this.pwd = hash;
+            // alert(this.pwd); //測試加密
+        },
+
+        modifyR () {
+            let data = new FormData(); //建立資料表單
+            data.append('password', this.password);
+            data.append('email', this.email);
+            data.append('password', this.pwd);
+            data.append('memberType', this.memberType);
+            data.append('nickname', this.nickname);
+            data.append('about', this.about);
+            data.append('newage', this.ageToInt ());
+            data.append('ageRange', this.getAgeRange ());
+            data.append('area', this.city);
+            data.append('job', this.job);
+            data.append('work', this.work);
+            data.append('education', this.education);
+            data.append('school', this.school);
+            data.append('sex', this.sex);
+            data.append('seo', this.seo);
+            data.append('match', this.truefalse(this.match));
+            data.append('pri', this.truefalse(this.pri));
+
+
+            let config = {
+                header : {
+                 'Content-Type' : 'multipart/form-data'
+               }
+            }
+            
+            
+
+            axios.post('./php/modifyR.php', data, config).then(function (response) {
+                data = response.data;
+                // console.log(response);
+                // console.log(data);
+            });
+        },
+
+        modifyInt () {
+            let data = new FormData(); //建立資料表單
+            data.append('sport', this.interests[0].checked);
+            data.append('book', this.interests[1].checked);
+            data.append('movie', this.interests[2].checked);
+            data.append('travel', this.interests[3].checked);
+            data.append('codeing', this.interests[4].checked);
+            data.append('boardgame', this.interests[5].checked);
+
+
+
+
+            let config = {
+                header : {
+                 'Content-Type' : 'multipart/form-data'
+               }
+            }
+            
+            
+
+            axios.post('./php/createInterstR.php', data, config).then(function (response) {
+                data = response.data;
+                // console.log(response);
+                // console.log(data);
+            });
+        },
+
+        truefalse (data) {
+            if (data == "是") {
+                return 1
+            }else{
+                return 0
+            }
+        },
+
+        ageToInt () { //將年齡轉換成數字
+            newage = this.myage.replace(/\D/g, "");
+            return parseInt(newage)
+        },
+
+        getAgeRange () { //設定年齡區間
+            age = this.myage.replace(/\D/g, "");
+            age = parseInt(age);
+            if (age < 20) {
+                return 0
+            }else if (age <= 25) {
+                return 1
+            }else if (age <= 30) {
+                return 2;
+            }else if (age <= 35) {
+                return 3;
+            }else if (age <= 40) {
+                return 4;
+            }else if (age <= 55) {
+                return 5;
+            }else if (age < 59) {
+                return 6;
+            }else if (age >= 60) {
+                return 7;
+            }
+        },
+
+        getMemberType () {
+            if (this.nickname != '' && this.about != '' && this.interest != '' && this.myage != '' && this.city != '' && this.job != '' && this.work != '' && this.education != '' && this.sex != '' && this.seo != '') {
+                this.memberType = 1;
+            }else{
+                this.memberType = 0;
+            }
         },
 
         checkInt(name) { //勾選興趣checkbox
@@ -183,6 +348,14 @@ var member = new Vue ({
                     document.account.pri[i].checked = false;
                 }
             } 
+        },
+
+        changepwd () { //修改密碼
+            this.oldpwd = false;
+        },
+
+        modifyPwd () {
+            this.oldpwd = false;
         },
 
         modifyEmail () { //修改email
@@ -260,6 +433,81 @@ var member = new Vue ({
     
         },
 
+        getdata () { //取得會員資料
+            axios.post('./php/membercenterR.php').then(function (response) {
+                data = response.data;
+                // console.log(data[0].SCHOOL);
+                member.$data.username = data[0].USERNAME;
+                member.$data.email = data[0].EMAIL;
+                member.$data.pwd = data[0].PASSWORD;
+                member.$data.nickname = checknull (data[0].NICKNAME);
+                member.$data.about = checknull (data[0].ABOUT);
+                member.$data.myage = checkage (data[0].AGE);
+                member.$data.city = checknull (data[0].AREA);
+                member.$data.job = checknull (data[0].JOB);
+                member.$data.work = checknull (data[0].JOB_DETAIL);
+                member.$data.education = checknull (data[0].EDUCATION);
+                member.$data.school = checknull (data[0].SCHOOL);
+                member.$data.sex = checknull (data[0].SEX);
+                member.$data.seo = checknull (data[0].SO);
+                member.$data.match = checkpriv (data[0].PAIR_PRIV);
+                member.$data.pri = checkpriv (data[0].PUBLIC_PRIV);
+
+                function checknull (data) { //如果資料為空
+                    if (data == null || data == '') {
+                        return '還沒填寫哦'
+                    }else{
+                        return data
+                    }
+                }
+
+                function checkage (data) {
+                    if (data == null || data == '') {
+                        return '還沒填寫哦'
+                    }else{
+                        return data + '歲'
+                    }
+                }
+                
+                function checkpriv (data) { //判斷是或否
+                    if (data == 0) {
+                        return '否'
+                    }else{
+                        return '是'
+                    }
+                }
+
+            })                
+        },
+
+        getIntdata () { //取得會員興趣
+            axios.post('./php/selectInterestR.php').then(function (response) {
+                interests = response.data;
+                // console.log(interests);
+                interest = [];
+                for (i = 0; i <= interests.length -1; i++) {
+                    choose = interests[i].name
+                    interest.push(` ${choose} `)
+                }
+                member.$data.interest = interest.join("|")
+                if (member.$data.interest == '') {
+                    member.$data.interest = '還沒填寫哦'
+                }
+            })                
+        },
+
+        getImage (){ //取得會員頭像
+            axios.post('./php/selectImageR.php').then(function (response) {
+                data = response.data;
+                console.log(response);
+                console.log(data);
+                if (data != '') {
+                    member.$data.profile = data;
+                }
+            });
+        },
+
+
     },
     
     computed: {
@@ -273,7 +521,7 @@ var member = new Vue ({
             `
             <span class="check_list">
                 <label class="checkbox">
-                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked">
+                    <input type="checkbox" class="checkbox" :id="theText" :value="theText" :checked="checked">
                         <span class="checkbox__control">
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                             <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -290,7 +538,7 @@ var member = new Vue ({
             `
             <span class="check_list">                                
                 <label class="checkbox">
-                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked" name="sex">
+                    <input type="checkbox" class="checkbox" :id="theText" :value="theText" :checked="checked" name="sex">
                     <span class="checkbox__control">
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                         <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -307,7 +555,7 @@ var member = new Vue ({
             `
             <span class="check_list">                              
                 <label class="checkbox">
-                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked" name="seo">
+                    <input type="checkbox" class="checkbox" :id="theText" :value="theText" :checked="checked" name="seo">
                     <span class="checkbox__control">
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                         <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -324,7 +572,7 @@ var member = new Vue ({
             `
             <span class="check_list">                
                 <label class="checkbox">
-                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked" name="match">
+                    <input type="checkbox" class="checkbox" :id="theText" :value="theText" :checked="checked" name="match">
                     <span class="checkbox__control">
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                         <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -341,7 +589,7 @@ var member = new Vue ({
             `
             <span class="check_list">    
                 <label class="checkbox">
-                    <input type="checkbox" class="checkbox" :id="theText" :checked="checked" name="pri">
+                    <input type="checkbox" class="checkbox" :id="theText" :value="theText" :checked="checked" name="pri">
                     <span class="checkbox__control">
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
                         <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
@@ -355,14 +603,14 @@ var member = new Vue ({
     
     mounted() {
 
-        for (j = 18 ; j <= 60; j++) { //製造年齡option
-            if (j == 18) {
-                this.ages.push(j + "歲以下");
-            }else if (j == 60){
-                this.ages.push(j + "歲以上");
-            }else{
-                this.ages.push(j + "歲");
-            }
+        this.getdata();
+
+        this.getIntdata ();
+
+        this.getImage ();
+
+        for (j = 0 ; j <= 100; j++) { //製造年齡option
+            this.ages.push(j + "歲");
         }
 
         for (i = 0 ; i <= this.lists.length -1; i++) {
@@ -459,7 +707,27 @@ var member = new Vue ({
                 }).then(function(src) {
                 displayCropImg(src);
                 displayNewImgInfo(src);
+                axiosImg (src);
             });
+
+            function axiosImg (src) { //axios上傳圖片
+                console.log(src);
+                let data = new FormData(); //建立資料表單
+                data.append('img', src);
+
+                let config = {
+                    header : {
+                     'Content-Type' : 'multipart/form-data'
+                   }
+                }
+
+                axios.post('./php/createImageR.php', data, config).then(function (response) {
+                    data = response.data;
+                    console.log(response);
+                    console.log(data);
+                });
+
+            };
         
             $('.img').removeClass('crop'); //移除crop畫面
             $('#crop_img').css("display", "none"); //裁減圖片按鈕消失

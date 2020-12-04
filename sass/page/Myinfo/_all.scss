@@ -76,6 +76,15 @@ div.MyInfo-wrapper {
                 align-items: center;
                 margin: 15px auto;
                 margin-left: 25px;
+
+                .gray {
+                    color : #cacaca;
+                }
+                @include errorRed;
+
+                .str_error {
+                    font-size: 14px;
+                }
             }
 
             .verify {
