@@ -405,7 +405,7 @@ h5 {
 
 @mixin errorRed { 
   .inp_error { //邊框紅色
-    border: 2px solid red;
+    outline: 2px solid red;
   }
   
   .str_error { //顏色紅色
