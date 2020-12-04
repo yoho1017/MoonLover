@@ -1,0 +1,184 @@
+// 991px-768px
+
+//768
+// @include rwd(small) {
+// }
+
+//740
+@include rwd(740px) {
+
+    .large_line{
+
+        //前方雲朵縮小跟透明度
+        .front_clord_left{
+
+         width: 420px;
+         opacity: .4;
+
+     }
+
+     .front_clord_right{
+
+         width: 420px;
+         opacity: .4;
+     }
+ }
+
+}
+
+//660
+@include rwd(660px) {
+
+    .large_line{
+
+        // 1200區間線
+        .middle_line{
+
+                //燈籠消失剩一個
+                .lantern_group1{
+        
+
+                    .lantern_simple1{
+                        display: none;
+                    }
+
+                    .lantern_simple2{
+                        margin-left: 20px;
+
+                            img{
+                                width:100%;
+                            }
+
+                    }
+                }
+
+                .lantern_group2{
+                
+                    .lantern_simple3{
+                        width: 102px;
+                        margin-left: 100px;
+
+                            img{
+                                width:100%;
+                            }
+                    }
+
+                    .lantern_simple4{
+                        display: none;
+                    }
+
+                }
+            
+
+
+                 //籤筒/雲朵/按鈕變小
+                .duelbox{
+
+                    .cloud{
+                        width:450px;
+                        transform: translateY(250px);
+                    }
+
+                    .duel_case{
+                        width: 170px;
+                        transform: translateY(-200px);
+                    }
+
+                    .btn_go{
+                        transform: translateY(-170px);
+                    }
+                }
+            
+        
+        }
+    }
+}
+
+
+
+//615
+@include rwd(615px) {
+
+    .large_line{
+
+        // 1200區間線
+        .middle_line{
+
+            //燈籠剩一個變小
+            .lantern_group1{
+                width: 120px;
+
+                .lantern_simple1{
+                    display: none;
+                }
+
+                .lantern_simple2{
+                    width: 80px;
+                    margin-left: 20px;
+
+                    img{
+                        width:100%;
+                    }
+
+                }
+            }
+
+            .lantern_group2{
+                width: 220px;
+            
+                .lantern_simple3{
+                    width: 80px;
+                    margin:0px;
+                    margin-left: 100px;
+
+                    img{
+                        width:100%;
+                    }
+                }
+
+                .lantern_simple4{
+                    display: none;
+                }
+
+            }
+        }
+    }
+}
+
+
+
+
+//500
+@include rwd(500px) {
+    .large_line{
+
+        .middle_line{
+
+            //月老跟對話框調整大小
+            .god_talk{
+
+                width:470px;
+
+                .talk{
+                    width:220px;
+                    height: 160px;
+
+                        h3{
+                            padding-right: 10px;
+                            padding-bottom: 20px;
+                        }
+                }
+
+                .MoonOfGod{
+                    width:280px;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+
+

@@ -59,23 +59,24 @@
             // border:1px solid green;
 
             .proTitle1 {
-                margin-top: 50px;
+                margin: 50px 0 50px 20px;
                 font-size: 30px;
                 font-weight: bold;
             }
             .proContent1 {
-                margin: 20px 0;
+                margin: 20px 0 20px 20px;
                 font-size: 20px;
                 padding: 0 50px 0 0;
                 font-weight: bold;
             }
             .proPrice1 {
-                margin: 20px 0 20px 0;
+                margin: 20px 0 20px 20px;
                 font-size: 20px;
                 font-weight: bold;
             }
             .proAmount {
                 bottom: 35px;
+                margin-left:20px;
 
                 label {
                     font-size: 20px;
@@ -95,8 +96,8 @@
                 }
             }
             p{
-                text-align: right;
-                margin: 20px 65px 20px 0;
+                text-align: left;
+                margin: 20px 0px 20px 20px;
                 font-size: 20px;
                 font-weight: bold;
               
@@ -107,7 +108,7 @@
                 text-align: left;
                 // position: absolute;
                 left: 0px;
-                margin-bottom:10px;
+                margin:0 0 10px 20px;
                 // bottom: -20px;
     
                 .btnBlue {

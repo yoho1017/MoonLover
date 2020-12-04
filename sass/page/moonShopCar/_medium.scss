@@ -1,10 +1,166 @@
-  
-    @include rwd(772px){
+@include rwd(991px){
+    .shoppingCar-wrapper{
+        .container{
+            .moontotal{
+                box-shadow:0px 0px 0px 10px  #ff7a7a; 
+                border:5px solid #ac5454;
+                width:100%;
+                border-radius: 15px;
+                .mtitle{
+                    display:none;
+                    // border:1px solid blue;
+                    width:100%;
+                    padding:5px 0 5px 0;
+                    background-color: #ac5454;
+                    .mImage{
+                        width:16%;
+                        // border:1px solid green;
+                        text-align:center;
+                        color:#FFFFFF;
+                    }
+                    .mwords{
+                        display:flex;
+                        width:84%;
+                        // border:1px solid orange;
+                        div{
+                            width:20%;
+                            text-align:center;
+                            color:#FFFFFF;
+                        }
+                    }
+                } 
+                .mcontent{
+                    position: relative;
+                    display:flex;
+                    flex-wrap: wrap;
+                    // border:1px solid purple;
+                    width:100%;
+                    .pImage{
+                        display:flex;
+                        justify-content: center;
+                        align-items:center;
+                        width:50%;
+                        border:1px solid pink;
+                        background-color:#FFFFFF;
+                        .ppicture{                  
+                            width:80%;
+                            height:80%;
+                            background-image:url(/images/moonShopCar/悠遊卡.png);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            margin: 10px auto 10px auto;
+                            
+                        }
+                    }
+                    .pwords{               
+                        width:50%;
+                        // border:1px solid yellow;
+                        background-color:#FFFFFF;
+                        .pwords_inner{
+                            display:block;
+                            width:100%;
+                            border:1px solid blue;
+                            div{
+                                margin:auto;
+                                border:1px solid orange;
+                                width:50%;
+                                text-align:center;
+                                line-height:110px;
+                            }
+                        }
+                    }
+                    .pwords2{              
+                        width:100%;
+                        background-color:#FFFFFF;
+                        .pwords2_inner{
+                            display:flex;
+                            width:100%;
+                            border:1px solid red;
+                            div{
+                                width:50%;
+                                text-align:center;
+                                line-height: 110px;
+                            }
+                        }
+                    }
+                    .m_del{
+                      display:none;
+                    }
+                    i{
+                      display:block;
+                      position: absolute;
+                      top:5px;
+                      right:5px;
+                      color: #ff7a7a;
+                    }
+                }
+                // .mcontent2{
+                //     margin:5px 0;
+                //     display:flex;
+                //     // border:1px solid purple;
+                //     width:100%;
+                //     .pImage2{
+                //         width:16%;
+                //         border:1px solid pink;
+                //         background-color:#FFFFFF;
+                //         .ppicture2{
+                //             width:80%;
+                //             height:90px;
+                //             background-image:url(/images/moonShopCar/悠遊卡.png);
+                //             background-position: center;
+                //             background-repeat: no-repeat;
+                //             background-size: cover;
+                //             margin: 10px auto 10px auto;
+                            
+                //         }
+                //     }
+                //     .pwords2{
+                //         display:flex;
+                //         width:84%;
+                //         // border:1px solid yellow;
+                //         background-color:#FFFFFF;
+                //         div{
+                //             width:20%;
+                //             text-align:center;
+                //             line-height:110px;
+                //         }
+                //     }
+                // }
+            }
+        }
+    }
+}
+
+@include rwd(972px){
+    .shoppingCar-wrapper{
+        .swiper-container{
+            .swiper-slide{
+                display:none;
+                }
+            }
+        }
+    }
+@include rwd(836px){
         .shoppingCar-wrapper{
             .container{
                 .orderImg{
                     display:none;
                     }
+                .item_groups{
+                    .CusImage5{
+                       margin:40px;
+                    }
+                    .CusImage6{
+                        margin:40px;
+                    }
+                     .CusImage7{
+                        margin:40px;
+                    }
+                     .CusImage8{
+                        margin:40px;
+                    }
+                  }
                 }
             }
         }

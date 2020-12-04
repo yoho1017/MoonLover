@@ -297,9 +297,18 @@
               .aboutImg {
                 width: 90%;
               }
-              #addImg {
-                color: #ff7a7a;
-               
+              .imgBut{
+
+                #addImg {
+                  color: #ff7a7a;
+                  transform: scale(1);
+                }
+                &:hover{
+                  #addImg{
+                    cursor: pointer;
+                    transform: scale(1.1);
+                  }
+                }
               }
 
              
@@ -331,6 +340,10 @@
               border: 0;
               outline: none;
               transform: scale(1);
+              cursor: pointer;
+              &:hover{
+                transform: scale(1.1);
+              }
             }
           }
         }

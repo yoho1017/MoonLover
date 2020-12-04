@@ -1,0 +1,49 @@
+// 請在_all.scss套用這個格式
+.backstage-member-wrapper {
+  display: flex;
+  background-color: #f0ded1;
+  height: 100%;
+
+  @include backstage; //引入後台版型
+  @include backstageBtn(auto); //後台用btn
+
+  @include td(10, 10%);
+  @include td(25, 25%); //td的寬度，class名稱要td_後面自己設名稱 
+  @include td(50, 50%);
+  @include td(75, 75%);   
+  @include pagination; //引入pagination
+  main{
+    width: 99%;
+    .more{
+      border: 2px solid black;
+      border-radius: 40px;
+      padding: 5px 25px;
+      cursor: pointer;
+      &:hover{
+          border: 2px solid #aaa;
+          background-color: #aaa;
+          color: white;
+      }
+    }
+    .Bcontainer{
+      .editbar{
+          position: relative; 
+        input{          
+          padding: 10px 10px 10px 45px;
+          width: 300px;
+          border: 1px solid #7ED5EA;
+          border-radius: 48px;
+          &:focus{
+            outline: none;
+          }
+        }
+        .fa-search{
+          position: absolute;
+          top:6px;
+          left: 8px;
+          color: #7ED5EA;
+        }
+      }
+    }
+  }
+}

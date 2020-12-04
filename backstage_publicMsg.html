@@ -17,18 +17,16 @@
     <!-- vue -->
     <script src="./js/vue.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
-    <title>籤詩管理</title>
+    <title>公版留言管理</title>
 
 </head>
-<body>
+<body class="backstage_publicMsg-body">
 
     <!------------------------------header---------------------------------->
     <header class="header">
         <nav class="nav navback" id="nav">
-            <div class="title"><h1>月老求籤　|</h1>
-                <h2 class="smallTitle" v-if="title === 'menu'">　籤詩管理</h2>
-                <h2 class="smallTitle" v-else-if="title === 'add'">　籤詩新增</h2>
-                <h2 class="smallTitle" v-else="title === 'modify'">　籤詩修改</h2>
+            <div class="title"><h1>公版留言管理　|</h1>
+                <h2 class="smallTitle">　留言檢舉管理</h2>
             </div>
             <div class="logout">
                 <h3>
@@ -38,7 +36,7 @@
         </nav>
     </header>    
     <!-- wrapper請取自己的名稱，套用範例的格式 -->
-    <div id="backend" class="backstage-draw-wrapper"> 
+    <div id="backend" class="backstage-publicMsg-wrapper"> 
 
             <!------------------------------內容---------------------------------->
             
@@ -67,29 +65,22 @@
         <main>
             <div class="Bcontainer">
 
-                <div class="editbar" v-if="menu">
-                    <div class="bkbtn_Blue" @click="add('n')"><h3>新增籤詩</h3></div>
-                </div>
-
                 <table v-if="menu">
                     <!-- 標題在thead class要按照下面方式寫才能吃到顏色-->
                     <thead>
                         <tr>
                             <!-- td_***是設定寬度 -->
-                            <td class="thtd td_55"><h3>編號</h3></td>
-                            <td class="thtd td_80"><h3>籤號</h3></td>
-                            <td class="thtd td_75"><h3>籤運</h3></td>
-                            <td class="thtd td_125"><h3>籤詩</h3></td>
-                            <td class="thtd td_125"><h3>聖意</h3></td>
-                            <td class="thtd td_125"><h3>求得此籤</h3></td>
-                            <td class="thtd td_75"><h3>狀態</h3></td>
-                            <td class="thtd td_75"><h3>編輯</h3></td>
+                            <td class="thtd td_55"><h3>檢舉編號</h3></td>
+                            <td class="thtd td_80"><h3>留言/回應編號</h3></td>
+                            <td class="thtd td_75"><h3>檢舉人</h3></td>
+                            <td class="thtd td_125"><h3>檢舉時間</h3></td>
+                            <td class="thtd td_75"><h3>檢舉詳情</h3></td>
                         </tr>
                     </thead>
                     <!-- 內容在tbody，如果要新增行數就加一組tr -->
                     <tbody>
 
-                        <tr is="row" v-for="data in sql" :id="data[0]" :num="data[1]" :lucky="data[2]" :content="data[3]" :detail="data[4]" :answer="data[5]"></tr>
+                        <tr is="row" v-for="data in sql" :id="data[0]" :num="data[1]" :lucky="data[2]" :answer="data[3]"></tr>
                         
                     </tbody>
 
@@ -98,53 +89,41 @@
                 <table v-else="menu">
 
                         <tr>
-                            <td class="td_30"><h4>籤號</h4></td>
+                            <td class="td_30"><h4>檢舉編號</h4></td>
                             <td class="td_md">
-                                <textarea name="content" id="" cols="30" rows="1" class="editText" v-model="modify_data[1]">
-                                </textarea>
+                                <h4>{{modify_data[0]}}</h4>
                             </td>
                         </tr>
-                    
                         <tr>
-                            <!-- td_***是設定寬度 -->
-                            <td class="td_30"><h4>籤種</h4></td>
-                            <td class="td_md">                    <select class="input_status" v-model="modify_data[2]">
-                                    <option value="籤王">籤王</option>
-                                    <option value="上上大吉">上上大吉</option>
-                                    <option value="上">上</option>
-                                    <option value="中上">中上</option>
-                                    <option value="中">中
-                                    </option>
-                                    <option value="下">下
-                                    </option>
+
+                        </tr>
+                            <td class="td_30"><h4>檢舉人</h4></td>
+                            <td class="td_md">
+                                <h4>{{modify_data[2]}}</h4>
+                            </td>
+                        <tr>
+
+                        </tr>
+                            <td class="td_30"><h4>檢舉事由</h4></td>
+                            <td class="td_md">
+                                <h4>{{modify_data[4]}}</h4>
+                            </td>
+                        <tr>
+
+                        </tr>
+                            <td class="td_30"><h4>留言內容</h4></td>
+                            <td class="td_md">
+                                <h4>{{modify_data[5]}}</h4>
+                            </td>
+                        <tr>
+                            <td class="td_30"><h4>5</h4></td>
+                            <td class="td_md">                    
+                                <select class="input_status" v-model="modify_data[6]">
+                                    <option value="顯示">顯示</option>
+                                    <option value="下架">下架</option>
                                 </select>
                             </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td_30"><h4>籤句</h4></td>
-                            <td class="td_md">
-                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[3]">
-                                </textarea>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td_30"><h4>聖意</h4></td>
-                            <td class="td_md">
-                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[4]">
-                                </textarea>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td_30"><h4>求得此籤</h4></td>
-                            <td class="td_md">
-                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[5]">
-                                </textarea>
-                            </td>
-                        </tr>
-                                    
+                        </tr>            
                 </table>
 
                 <nav aria-label="Page navigation example" v-if="menu">
@@ -179,6 +158,6 @@
     </div>
 
     <!-- 後台js -->
-    <script src="./js/backstage-draw.js"></script>
+    <script src="./js/backstage-publicMsg.js"></script>
 </body>
 </html>

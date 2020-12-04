@@ -17,18 +17,16 @@
     <!-- vue -->
     <script src="./js/vue.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
-    <title>籤詩管理</title>
+    <title>周邊景點管理</title>
 
 </head>
-<body>
+<body class="backstage_mapList-body">
 
     <!------------------------------header---------------------------------->
     <header class="header">
         <nav class="nav navback" id="nav">
-            <div class="title"><h1>月老求籤　|</h1>
-                <h2 class="smallTitle" v-if="title === 'menu'">　籤詩管理</h2>
-                <h2 class="smallTitle" v-else-if="title === 'add'">　籤詩新增</h2>
-                <h2 class="smallTitle" v-else="title === 'modify'">　籤詩修改</h2>
+            <div class="title"><h1>月老地圖　|</h1>
+                <h2 class="smallTitle">　周邊景點美食管理</h2>
             </div>
             <div class="logout">
                 <h3>
@@ -38,7 +36,7 @@
         </nav>
     </header>    
     <!-- wrapper請取自己的名稱，套用範例的格式 -->
-    <div id="backend" class="backstage-draw-wrapper"> 
+    <div id="backend" class="backstage-mapList-wrapper"> 
 
             <!------------------------------內容---------------------------------->
             
@@ -77,12 +75,9 @@
                         <tr>
                             <!-- td_***是設定寬度 -->
                             <td class="thtd td_55"><h3>編號</h3></td>
-                            <td class="thtd td_80"><h3>籤號</h3></td>
-                            <td class="thtd td_75"><h3>籤運</h3></td>
-                            <td class="thtd td_125"><h3>籤詩</h3></td>
-                            <td class="thtd td_125"><h3>聖意</h3></td>
-                            <td class="thtd td_125"><h3>求得此籤</h3></td>
-                            <td class="thtd td_75"><h3>狀態</h3></td>
+                            <td class="thtd td_125"><h3>景點名稱</h3></td>
+                            <td class="thtd td_75"><h3>廟宇名稱</h3></td>
+                            <td class="thtd td_75"><h3>分類</h3></td>
                             <td class="thtd td_75"><h3>編輯</h3></td>
                         </tr>
                     </thead>
@@ -98,7 +93,7 @@
                 <table v-else="menu">
 
                         <tr>
-                            <td class="td_30"><h4>籤號</h4></td>
+                            <td class="td_30"><h4>景點名稱</h4></td>
                             <td class="td_md">
                                 <textarea name="content" id="" cols="30" rows="1" class="editText" v-model="modify_data[1]">
                                 </textarea>
@@ -107,30 +102,32 @@
                     
                         <tr>
                             <!-- td_***是設定寬度 -->
-                            <td class="td_30"><h4>籤種</h4></td>
-                            <td class="td_md">                    <select class="input_status" v-model="modify_data[2]">
-                                    <option value="籤王">籤王</option>
-                                    <option value="上上大吉">上上大吉</option>
-                                    <option value="上">上</option>
-                                    <option value="中上">中上</option>
-                                    <option value="中">中
-                                    </option>
-                                    <option value="下">下
-                                    </option>
+                            <td class="td_30"><h4>廟宇名稱</h4></td>
+                            <td class="td_md">                    
+                                <select class="input_status" v-model="modify_data[2]">
+                                    <option value="台北霞海城隍廟">台北霞海城隍廟</option>
+                                    <option value="台北艋舺龍山寺">台北艋舺龍山寺</option>
+                                    <option value="台中樂成宮">台中樂成宮</option>
+                                    <option value="台中慈德慈惠堂">台中慈德慈惠堂</option>
+                                    <option value="雲林北港朝天宮">雲林北港朝天宮</option>
+                                    <option value="台南大天后宮">台南大天后宮</option>
                                 </select>
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="td_30"><h4>籤句</h4></td>
+                            <td class="td_30"><h4>景點分類</h4></td>
                             <td class="td_md">
-                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[3]">
-                                </textarea>
+                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[3]"></textarea> -->
+                                <select class="input_status" v-model="modify_data[3]">
+                                    <option value="景點">景點</option>
+                                    <option value="美食">美食</option>
+                                </select>
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="td_30"><h4>聖意</h4></td>
+                            <td class="td_30"><h4>景點介紹</h4></td>
                             <td class="td_md">
                                 <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[4]">
                                 </textarea>
@@ -138,10 +135,23 @@
                         </tr>
 
                         <tr>
-                            <td class="td_30"><h4>求得此籤</h4></td>
+                            <td class="td_30"><h4>營業時間</h4></td>
                             <td class="td_md">
-                                <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[5]">
-                                </textarea>
+                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[5]"></textarea> -->
+                                <input type="text" class="editText" v-model="modify_data[5]">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_30"><h4>地址</h4></td>
+                            <td class="td_md">
+                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[6]"></textarea> -->
+                                <input type="text" class="editText" v-model="modify_data[6]">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_30"><h4>上傳圖片</h4></td>
+                            <td class="td_md">
+                                <div class="bkbtn_Red"><h3>上傳圖片</h3></div>
                             </td>
                         </tr>
                                     
@@ -179,6 +189,6 @@
     </div>
 
     <!-- 後台js -->
-    <script src="./js/backstage-draw.js"></script>
+    <script src="./js/backstage-mapList.js"></script>
 </body>
 </html>

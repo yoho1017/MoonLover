@@ -5,45 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>moonShop</title>
-     <!-- TweenMax -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
-     integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
-     crossorigin="anonymous"></script>
+    <!-- TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+        integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+        crossorigin="anonymous"></script>
     <!-- JQ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-   <!-- vue -->
-   <script src="./js/Vue.js"></script>
+    <!-- vue -->
+    <script src="./js/Vue.js"></script>
     <!-- hamburgers_css -->
-   <link rel="stylesheet" href="./css/hamburgers.css">
-   <!-- 加密 js -->
-   <script src="node_modules/crypto-js/crypto-js.js"></script>
-   <!-- 發信 js -->
-   <script src="./js/smtp.js"></script>
-   <!-- axios js -->
-   <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/hamburgers.css">
+    <!-- 加密 js -->
+    <script src="node_modules/crypto-js/crypto-js.js"></script>
+    <!-- 發信 js -->
+    <script src="./js/smtp.js"></script>
+    <!-- axios js -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 
-   <!-- icon -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-   <!-- total css -->
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- total css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
 </head>
-    <!-- ------------------------------------- -->
+<!-- ------------------------------------- -->
+
 <body class="bgColorDefault bgImgCloud">
-     <!------------------------------header---------------------------------->
-     <header class="header">
+    <!------------------------------header---------------------------------->
+    <header class="header">
         <nav class="nav" id="nav">
-           <div class="Logo"><img src="./images/logo.png"></div>
-           <ul class="navlist">
-               <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="./moonShopCar.html"><i class="far fa-shopping-cart fa-2x"></a></i></li>              
-               <li class="bars">
-                <button class="hamburger hamburger--collapse" type="button">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                   <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+            <div class="Logo"><img src="./images/logo.png"></div>
+            <ul class="navlist">
+                <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
+                <li class="car"><a href="./moonShopCar.html"><i class="far fa-shopping-cart fa-2x"></a></i></li>
+                <li class="bars">
+                    <button class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
                     <ul class="barList">
                         <li><a href="./moonMapList.html">月老地圖</a></li>
                         <li><a href="./moonDrawLots.html">月老求籤</a></li>
@@ -51,10 +53,10 @@
                         <li><a href="./know.html">月老小知識</a></li>
                         <li><a href="./moonShop.html">月老商城</a></li>
                     </ul>
-                  
+
                 </li>
-              
-           </ul>
+
+            </ul>
         </nav>
     </header>
 
@@ -73,17 +75,22 @@
 
                         <div class="inputbox">
                             <h3 class="input_text">帳號</h3>
-                            <input class="input_login" type="text" name="username"  :placeholder = "lgUsp" id="input_log_username" :change="clearChinese('login_username')" v-model="login_username" :class="{inp_error : lgUser == 1}" @click="input_log_user">
+                            <input class="input_login" type="text" name="username" :placeholder="lgUsp"
+                                id="input_log_username" :change="clearChinese('login_username')"
+                                v-model="login_username" :class="{inp_error : lgUser == 1}" @click="input_log_user">
                         </div>
 
                         <div class="inputbox">
                             <h3 class="input_text">密碼</h3>
-                            <input class="input_login" type="password" name="password"  :placeholder="lgPsp" id="input_log_pwd" v-model="login_pwd" :class="{inp_error : lgPwd == 1}" @click="input_log_pwd">
+                            <input class="input_login" type="password" name="password" :placeholder="lgPsp"
+                                id="input_log_pwd" v-model="login_pwd" :class="{inp_error : lgPwd == 1}"
+                                @click="input_log_pwd">
                         </div>
-                        
+
                         <div class="inputbox">
                             <span class="input_text"></span>
-                            <p class="str_error h0" v-if="login_error">帳號或密碼錯誤<p>
+                            <p class="str_error h0" v-if="login_error">帳號或密碼錯誤
+                            <p>
                         </div>
 
                         <div class="submit_login">
@@ -94,17 +101,21 @@
                     </form>
                 </div>
             </div>
-                    <!-- 註冊 -->
+            <!-- 註冊 -->
             <div class="account_signup" id="signup" v-bind:class="{flex:sign_flex}">
                 <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
                 <div class="account_inbox">
                     <h1 class="account_text_signup">註冊</h1>
 
-                    <form method="post" action="signupR.php" @submit="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
+                    <form method="post" action="signupR.php"
+                        @submit="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">帳號</h3>
-                            <input class="input_signup" type="text" name="username"  :placeholder="siUsp" id="input_sign_username" :change="clearChinese('signup_username')" v-model="signup_username" :class="{inp_error : siUser == 1}" @click="input_sign_user" @keyup="checkUser(signup_username)">
+                            <input class="input_signup" type="text" name="username" :placeholder="siUsp"
+                                id="input_sign_username" :change="clearChinese('signup_username')"
+                                v-model="signup_username" :class="{inp_error : siUser == 1}" @click="input_sign_user"
+                                @keyup="checkUser(signup_username)">
                             <p class="right_space str_error" v-if="user_error == 2">此帳號有人使用</p>
                             <p class="right_space str_clear" v-else-if="user_error == '1'">此帳號可以使用</p>
                             <span class="right_space" v-else="user_error"></span>
@@ -112,257 +123,279 @@
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">密碼</h3>
-                            <input class="input_signup" type="password" name="password"  :placeholder="siPsp" id="input_sign_pwd" v-model="signup_pwd" :class="{inp_error : siPwd == 1}" @click="input_sign_pwd">
+                            <input class="input_signup" type="password" name="password" :placeholder="siPsp"
+                                id="input_sign_pwd" v-model="signup_pwd" :class="{inp_error : siPwd == 1}"
+                                @click="input_sign_pwd">
                             <input type="hidden" name="hide" id="hide" />
                             <span class="right_space"></span>
                         </div>
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">確認密碼</h3>
-                            <input class="input_signup" type="password" id="input_repwd" :placeholder="siRePsp" v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd">
+                            <input class="input_signup" type="password" id="input_repwd" :placeholder="siRePsp"
+                                v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd">
                             <span class="right_space"></span>
                         </div>
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">信箱</h3>
-                            <input class="input_signup" type="email" name="email"  id="email" v-model="signup_email" :placeholder="email" :class="{inp_error : siEmail == 1}" @click="input_sign_email">
-                            <button class="btnBlue_Ver" @click.prevent="submit_ver(signup_email)">{{send_email}}</button>
+                            <input class="input_signup" type="email" name="email" id="email" v-model="signup_email"
+                                :placeholder="email" :class="{inp_error : siEmail == 1}" @click="input_sign_email">
+                            <button class="btnBlue_Ver"
+                                @click.prevent="submit_ver(signup_email)">{{send_email}}</button>
                         </div>
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">驗證碼</h3>
-                            <input class="input_signup" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
+                            <input class="input_signup" type="number" name="number" :placeholder="ver"
+                                v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
                             <button class="btnBlue_Ver" @click.prevent="ver_check">確認驗證碼</button>
                         </div>
 
                         <div class="submit_signup">
                             <button type='submit' class="btn_signup btnRed_signup">送出</button>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- 燈箱結束 -->
-<div class="shop-wrapper">
-    <!-- 廣告 -->
-    <div id="ad">
-        <div class="container1">
-            <div class="signBox_1">
-                <div class="signBox_2">
-                    請選擇您想印製的圖案
+    <div class="shop-wrapper">
+        <!-- 廣告 -->
+        <div id="ad">
+            <div class="container1">
+                <div class="signBox_1">
+                    <div class="signBox_2">
+                        請選擇您想印製的圖案
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- 吉祥物列 -->
-    <div id="CusPictures">
-        <div class="container1">
-            <div class="item_groups">
-                <div class="CusPicture1">
-                    <div class="PicContent1">
+        <!-- 吉祥物列 -->
+        <div id="CusPictures">
+            <div class="container1">
+                <div class="item_groups">
+                    <div class="CusPicture1">
+                        <div class="PicContent1">
 
+                        </div>
+                        <p>您的吉祥物</p>
+                        <div class="tran">
+
+                        </div>
+                        <div class="tran1"></div>
                     </div>
-                    <p>您的吉祥物</p>
-                    <div class="tran">
-
-                    </div>
-                    <div class="tran1"></div>
-                </div>
-                <div class="CusPicture2">
-                    <div class="PicContent2">
-                        <a href=""><img src="./images/moonShop/狐仙-01.png" alt="狐仙" width="200px" height="200px">
+                    <div class="CusPicture2">
+                        <div class="PicContent2">
+                            <a href=""><img src="./images/moonShop/狐仙-01.png" alt="狐仙" width="200px" height="200px">
                         </div></a>
-                    <p>狐仙女</p>
-                </div>
-                <div class="CusPicture3">
-                    <div class="PicContent2">
-                        <a href=""><img src="./images/moonShop/兔兔-01.png" alt="兔兔" width="200px" height="200px"></a>
+                        <p>狐仙女</p>
                     </div>
-                    <p>彩虹兔兔</p>
-                </div>
-                <div class="CusPicture4">
-                    <div class="PicContent2">
-                        <a href=""><img src="./images/moonShop/猴子-01.png" alt="猴子" width="200px" height="200px"></a>
+                    <div class="CusPicture3">
+                        <div class="PicContent2">
+                            <a href=""><img src="./images/moonShop/兔兔-01.png" alt="兔兔" width="200px" height="200px"></a>
+                        </div>
+                        <p>彩虹兔兔</p>
                     </div>
-                    <p>好人猿</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-     <!-- 客製化圖片列 -->
-     <div id="CusImages">
-        <div class="container">
-            <div class="item_groups">
-                <div class="CusImage1">
-                    <div class="easyCard">悠遊卡</div>
-                    <div class="ImageContent1">
-                        <a href="./moonShopDev.html"><div class="eCard"></div></a>
-                        <a href="./moonShopDev.html"><img src="./images/moonShop/悠遊卡.png" alt="悠遊卡"  height="90px" width="140px"></a>
+                    <div class="CusPicture4">
+                        <div class="PicContent2">
+                            <a href=""><img src="./images/moonShop/猴子-01.png" alt="猴子" width="200px" height="200px"></a>
+                        </div>
+                        <p>好人猿</p>
                     </div>
-                    <div class="ImagePrice1">300</div>
-                    <div class="proAmount">
-                        <span id='my_form' method='POST' action='#'>
-                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-                        </span>
-                    </div>
-                    <div class="shopCars">加入購物車</div>
-                </div>
-                <div class="CusImage2">
-                    <div class="easyCard">大抱枕</div>
-                    <div class="ImageContent1">
-                        <a href="./moonShopDev.html"><div class="bigpillow"></div></a>
-                        <a href="./moonShopDev.html"><img src="./images/moonShop/pillow.jpg" alt="大抱枕"  height="90px" width="140px"></a>
-                    </div>
-                    <div class="ImagePrice1">300</div>
-                    <div class="proAmount">
-                        <span id='my_form' method='POST' action='#'>
-                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-                        </span>
-                    </div>
-                    <div class="shopCars">加入購物車</div>
-                </div>
-                <div class="CusImage3">
-                    <div class="easyCard">口罩</div>
-                    <div class="ImageContent1">
-                        <a href="./moonShopDev.html"><div class="bigmask"></div></a>
-                        <a href="./moonShopDev.html"><img src="./images/moonShop/mask.jpg" alt="口罩" height="90px" width="140px"></a>
-                    </div>
-                    <div class="ImagePrice1">300</div>
-                    <div class="proAmount">
-                        <span id='my_form' method='POST' action='#'>
-                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-                        </span>
-                    </div>
-                    <div class="shopCars">加入購物車</div>
-                </div>
-                <div class="CusImage4">
-                    <div class="easyCard">筆記本</div>
-                    <div class="ImageContent1">
-                        <a href="./moonShopDev.html"><div class="bignotebook"></div></a>
-                        <a href="./moonShopDev.html"><img src="./images/moonShop/notebook.jpg" alt="筆記本"  height="90px" width="140px"></a>
-                    </div>
-                    <div class="ImagePrice1">300</div>
-                    <div class="proAmount">
-                        <span id='my_form' method='POST' action='#'>
-                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-                        </span>
-                    </div>
-                    <div class="shopCars">加入購物車</div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 非客製化圖片列 -->
-    <div id="NonCusImages">
-        <div class="container">
-            <div class="item_groups">
-                <div class="CusImage5">
-                    <div class="easyCard">姻緣線</div>
-                    <div class="ImageContent1">
-                        <a href="./moonShopDev.html"><img src="./images/moonShop/love_line.jpg" alt="姻緣線"  height="90px" width="140px"></a>
-                    </div>
-                    <div class="ImagePrice1">300</div>
-                    <div class="proAmount">
-                        <span id='my_form' method='POST' action='#'>
-                        <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-                         <input type='text' name='quantity' value='0' class='qty' id='number'/>
-                        <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-                        </span>
-                    </div>
-                    <div class="shopCars">加入購物車</div>
-                </div>
-                <div class="CusImage6">
-                    <div class="easyCard">面紙盒</div>
-                    <div class="ImageContent1">
-                        <a href="./moonShopDev.html"><img src="./images/moonShop/paperBox.jpg" alt="面紙盒" height="90px" width="140px"></a>
-                    </div>
-                    <div class="ImagePrice1">300</div>
-                    <div class="proAmount">
+
+        <!-- 客製化圖片列 -->
+        <div id="CusImages">
+            <div class="container">
+                <div class="item_groups">
+                    <div class="CusImage1">
+                        <div class="easyCard">悠遊卡</div>
+                        <div class="ImageContent1">
+                            <a href="./moonShopDev.html">
+                                <div class="eCard"></div>
+                            </a>
+                            <a href="./moonShopDev.html"><img src="./images/moonShop/悠遊卡.png" alt="悠遊卡" height="90px"
+                                    width="140px"></a>
+                        </div>
+                        <div class="ImagePrice1">300</div>
+                        <!-- <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
                             <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
                             <input type='text' name='quantity' value='0' class='qty' id='number'/>
                            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
+                    </div> -->
+                        <div class="shopCars">加入購物車</div>
                     </div>
-                    <div class="shopCars">加入購物車</div>
-                </div>
-                <div class="CusImage7">
-                    <div class="easyCard">紅包</div>
-                    <div class="ImageContent1">
-                        <a href="./moonShopDev.html"><img src="./images/moonShop/red_envelope.jpg" alt="紅包"  height="90px" width="140px"></a>
-                    </div>
-                    <div class="ImagePrice1">300</div>
-                    <div class="proAmount">
+                    <div class="CusImage2">
+                        <div class="easyCard">大抱枕</div>
+                        <div class="ImageContent1">
+                            <a href="./moonShopDev.html">
+                                <div class="bigpillow"></div>
+                            </a>
+                            <a href="./moonShopDev.html"><img src="./images/moonShop/pillow.jpg" alt="大抱枕" height="90px"
+                                    width="140px"></a>
+                        </div>
+                        <div class="ImagePrice1">400</div>
+                        <!-- <div class="proAmount">
                         <span id='my_form' method='POST' action='#'>
                             <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
                             <input type='text' name='quantity' value='0' class='qty' id='number'/>
                            <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
                         </span>
+                    </div> -->
+                        <div class="shopCars">加入購物車</div>
                     </div>
-                    <div class="shopCars">加入購物車</div>
-                </div>
-                <div class="CusImage8">
-                    <div class="easyCard">杯墊</div>
-                    <div class="ImageContent1">
-                        <a href="./moonShopDev.html"><img src="./images/moonShop/Coaster.jpg" alt="杯墊"  height="90px" width="140px"></a>
+                    <div class="CusImage3">
+                        <div class="easyCard">口罩</div>
+                        <div class="ImageContent1">
+                            <a href="./moonShopDev.html">
+                                <div class="bigmask"></div>
+                            </a>
+                            <a href="./moonShopDev.html"><img src="./images/moonShop/mask.jpg" alt="口罩" height="90px"
+                                    width="140px"></a>
+                        </div>
+                        <div class="ImagePrice1">500</div>
+                        <!-- <div class="proAmount">
+                            <span id='my_form' method='POST' action='#'>
+                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
+                                <input type='text' name='quantity' value='0' class='qty' id='number' />
+                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
+                            </span>
+                        </div> -->
+                        <div class="shopCars">加入購物車</div>
                     </div>
-                    <div class="ImagePrice1">300</div>
-                    <div class="proAmount">
-                        <span id='my_form' method='POST' action='#'>
-                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-                        </span>
+                    <div class="CusImage4">
+                        <div class="easyCard">筆記本</div>
+                        <div class="ImageContent1">
+                            <a href="./moonShopDev.html">
+                                <div class="bignotebook"></div>
+                            </a>
+                            <a href="./moonShopDev.html"><img src="./images/moonShop/notebook.jpg" alt="筆記本"
+                                    height="90px" width="140px"></a>
+                        </div>
+                        <div class="ImagePrice1">600</div>
+                        <!-- <div class="proAmount">
+                            <span id='my_form' method='POST' action='#'>
+                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
+                                <input type='text' name='quantity' value='0' class='qty' id='number' />
+                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
+                            </span>
+                        </div> -->
+                        <div class="shopCars">加入購物車</div>
                     </div>
-                  <div class="shopCars">加入購物車</div>
                 </div>
             </div>
-           
         </div>
-    </div>
+        <!-- 非客製化圖片列 -->
+        <div id="NonCusImages">
+            <div class="container">
+                <div class="item_groups">
+                    <div class="CusImage5">
+                        <div class="easyCard">姻緣線</div>
+                        <div class="ImageContent1">
+                            <a href="./moonShopDev.html"><img src="./images/moonShop/love_line.jpg" alt="姻緣線"
+                                    height="90px" width="140px"></a>
+                        </div>
+                        <div class="ImagePrice1">700</div>
+                        <!-- <div class="proAmount">
+                            <span id='my_form' method='POST' action='#'>
+                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
+                                <input type='text' name='quantity' value='0' class='qty' id='number' />
+                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
+                            </span>
+                        </div> -->
+                        <div class="shopCars">加入購物車</div>
+                    </div>
+                    <div class="CusImage6">
+                        <div class="easyCard">面紙盒</div>
+                        <div class="ImageContent1">
+                            <a href="./moonShopDev.html"><img src="./images/moonShop/paperBox.jpg" alt="面紙盒"
+                                    height="90px" width="140px"></a>
+                        </div>
+                        <div class="ImagePrice1">800</div>
+                        <!-- <div class="proAmount">
+                            <span id='my_form' method='POST' action='#'>
+                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
+                                <input type='text' name='quantity' value='0' class='qty' id='number' />
+                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
+                            </span>
+                        </div> -->
+                        <div class="shopCars">加入購物車</div>
+                    </div>
+                    <div class="CusImage7">
+                        <div class="easyCard">紅包</div>
+                        <div class="ImageContent1">
+                            <a href="./moonShopDev.html"><img src="./images/moonShop/red_envelope.jpg" alt="紅包"
+                                    height="90px" width="140px"></a>
+                        </div>
+                        <div class="ImagePrice1">900</div>
+                        <!-- <div class="proAmount">
+                            <span id='my_form' method='POST' action='#'>
+                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
+                                <input type='text' name='quantity' value='0' class='qty' id='number' />
+                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
+                            </span>
+                        </div> -->
+                        <div class="shopCars">加入購物車</div>
+                    </div>
+                    <div class="CusImage8">
+                        <div class="easyCard">杯墊</div>
+                        <div class="ImageContent1">
+                            <a href="./moonShopDev.html"><img src="./images/moonShop/Coaster.jpg" alt="杯墊" height="90px"
+                                    width="140px"></a>
+                        </div>
+                        <div class="ImagePrice1">1000</div>
+                        <!-- <div class="proAmount">
+                            <span id='my_form' method='POST' action='#'>
+                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
+                                <input type='text' name='quantity' value='0' class='qty' id='number' />
+                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
+                            </span>
+                        </div> -->
+                        <div class="shopCars">加入購物車</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 
 
-    <!-- pagination -->
-<div id="pagination1">
-    <div class="container">
-        <table>
-          <ul class="pagination">
-            <li class="other1">
-               
-                <!-- <i class=" fas fa-caret-square-left fa-1x" class='qty_minus'  id='minus'></i></li>
+        <!-- pagination -->
+        <div id="pagination1">
+            <div class="container">
+                <table>
+                    <ul class="pagination">
+                        <li class="other1">
+
+                            <!-- <i class=" fas fa-caret-square-left fa-1x" class='qty_minus'  id='minus'></i></li>
                     <li class="other">1</li>
                     <li class="other">2</li>
                     <li class="other">3</li>
                     <li class="other">4</li>
                     <li class="other1"><i class="fas fa-caret-square-right fa-1x" class='qty_plus'  id='add' ></i></li> -->
-           
-         </ul>
-         </table>
-         <div class="orderImg">
-            <img class="order" src="images/moonShop/月老-01.png" alt="月老" width="240px" height:="250px">
-            <img class="cloud2" src="images/moonShop/shop_cloud22.png" alt="cloud2" width="260px" height="80px">
+
+                    </ul>
+                </table>
+                <div class="orderImg">
+                    <img class="order" src="images/moonShop/月老-01.png" alt="月老" width="240px" height:="250px">
+                    <img class="cloud2" src="images/moonShop/shop_cloud22.png" alt="cloud2" width="260px" height="80px">
+                </div>
+            </div>
+
         </div>
     </div>
-    
-</div>
-</div>
     <script src="./js/1_new.js"></script>
     <script src="./js/login.js"></script>
-      <!-- shop js -->
-  <script src="./js/shop.js"></script>
-    </body>
+    <!-- shop js -->
+    <script src="./js/shop.js"></script>
+</body>
 
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- TweenMax -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+     integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+     crossorigin="anonymous"></script>
+     <!-- ScrollMagic -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+     
+    <!-- vue -->
+    <script src="./js/Vue.js"></script>
+     <!-- JQ -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+     <!-- Swiper css -->
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+     <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- 加密 js -->
+    <script src="node_modules/crypto-js/crypto-js.js"></script>
+    <!-- 發信 js -->
+    <script src="./js/smtp.js"></script>
+    <!-- axios js -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
+
+     <!--css -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- hamburgers_css -->
+     <link rel="stylesheet" href="./css/hamburgers.css">
+     
+     <!-- icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>緣弧</title>
+</head>
+<body class="bgColorDefault bgImgHeart overflow">
+
+   <!------------------------------header---------------------------------->
+    <header class="header">
+        <nav class="nav" id="nav">
+            <a href="#" class="Logo"><img src="./images/logo.png"></a>
+        </nav>
+    </header>
+    <!------------------------廟宇------------------------------->
+        <div class="landingpage-wrapper">
+            <div class="main">
+                <div class="temple01">
+                    <div class="roof"><img src="./images/index/屋頂.png">
+                        <div class="lantern left"><img src="./images/index/燈籠.svg"></div>
+                        <div class="lantern right"><img src="./images/index/燈籠.svg"></div>                                  
+                    </div>
+                    <div class="pillar left"></div>
+                    <div class="pillar right"></div>                       
+                    <div class="iconBlock swiper-container">
+                        <div class="icon1 swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="icon-list2">
+                                    <a href="./index.html">
+                                        <h2>前台</h2>
+                                    </a>
+                                </div>
+                                <div class="icon-list2">
+                                    <a href="#">
+                                        <h2>後台</h2>
+                                    </a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- 欄杆 -->                
+                         <div class="railing"><img src="./images/index/欄杆.svg">
+                            <div class="YueLao"><img src="./images/know/one_page/moon_god_apart_god_jump.png"></div>
+                            <div class="cloud left" id="cloudLeft"><img src="./images/index/左前雲.svg"></div>                      
+                            <div class="cloud right"id="cloudRight"><img src="./images/index/右前雲.svg"></div>
+                            <div class="cloud aheadL"id="cloudaheadL"><img src="./images/index/左前多雲.svg"></div>
+                            <div class="cloud aheadR"id="cloudaheadR"><img src="./images/index/右前多雲.svg"></div>
+                        </div>               
+                </div>
+            </div>
+            <div class="backCloud"><img src="./images/index/背景雲.svg"></div>
+       </div>
+   
+    <script src="./js/nav.js"></script>
+    <script src="./js/srcoll.js"></script>
+</body>
+</html>

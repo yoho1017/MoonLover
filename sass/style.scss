@@ -30,6 +30,9 @@ nav > .Logo > img {
 @import "layout/bgSetting";
 
 // ---------- page ---------- //
+// page_landingpage
+@import "page/landingpage/all";
+
 // page_index
 @import "page/index/all";
 @import "page/index/large";
@@ -58,10 +61,15 @@ nav > .Logo > img {
 @import "page/know/xsmall";
 
 
+//page_moondrael
+@import "page/moondrawl/all";
+@import "page/moondrawl/large";
+@import "page/moondrawl/medium";
+@import "page/moondrawl/small";
+@import "page/moondrawl/xsmall";
 
 
-
-@import "page/moonDrawLots/all";
+// @import "page/moonDrawLots/all";
 
 //page_moonMatch
 @import "page/moonMatch/all";
@@ -134,6 +142,11 @@ nav > .Logo > img {
 // ----------backstage-------- //
 @import "page/backstage-example/all";
 @import "page/backstage-draw/all";
+@import "page/backstage-products/all";
+@import "page/backstage-publicMsg/all";
+@import "page/backstage-member/all";
+@import "page/backstage-mapList/all";
+
 
 // ---------- plugins ---------- //
 @import "plugins/allplugin";

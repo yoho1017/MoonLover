@@ -1,0 +1,152 @@
+// 1920px-1366px
+
+
+// 1366
+@include rwd(large) {
+
+    .large_line{
+
+        // 1200區間線
+        .middle_line{
+
+            //籤詩第四頁調整大小
+            .duelboxer2{
+                max-width:490px;
+                margin-top:-5px;
+            }
+
+             //月老跟對話框調整大小
+             .god_talk{
+                width:420px;
+
+                .talk{
+                    width:200px;
+                    transform: translateY(-85px) translateX(85px);
+
+                        h3{
+                            padding-right: 10px;
+                            padding-bottom: 60px;
+                        }
+                }
+
+                .MoonOfGod{
+                    width:280px;
+                }
+            }
+
+        
+        
+
+        }
+    }
+}
+
+
+
+//1210
+@include rwd(1210px) {
+
+    .large_line{
+
+        // 1200區間線
+      .middle_line{
+
+            //籤筒/雲朵/按鈕變小
+            .duelbox{
+
+                .cloud{
+                    width:400px;
+                    transform: translateY(280px);
+
+                }
+
+                .duel_case{
+                    width: 180px;
+                    transform: translateY(-140px);
+
+
+                }
+
+                .btn_go{
+
+                    transform: translateY(-125px);
+
+
+                }
+                
+            }
+
+            .duelboxer2{
+
+                max-width:388px;
+                margin-top:-5px;
+
+                .title_sec{
+
+                    width:321px;
+
+                    .title {
+
+                        width: 320px;
+
+                        .decoration {
+
+                            width:145px;
+                            height:210px;
+
+                            background-image: url(../images/moondrawl/step_1/text1_1210.png);
+
+                            h1.ins_title {
+                                
+                                font-size: 32px;
+                            }
+
+                        }
+
+                        h2.ins{
+                            font-size: 25px;
+                        }
+
+                        
+
+                    }
+
+                    .title_left{
+
+                        margin-top: 13px;
+
+                        h3{
+                            font-size:18px;
+                        }
+
+                        h4{
+                            font-size:14px;
+                        }
+                    }
+
+                } 
+
+            }
+
+                 //月老跟對話框調整大小
+                 .god_talk{
+                    width:420px;
+    
+                    .talk{
+                        width:200px;
+                        transform: translateY(-85px) translateX(85px);
+    
+                            h3{
+                                padding-right: 10px;
+                                padding-bottom: 60px;
+                            }
+                    }
+    
+                    .MoonOfGod{
+                        width:280px;
+                    }
+                }
+      }
+
+    }
+}

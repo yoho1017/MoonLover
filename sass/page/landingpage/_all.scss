@@ -1,0 +1,297 @@
+.landingpage-wrapper {
+  // width: 100vw;
+  // height: 100vh;
+
+  img {
+    width: 100%;
+  }
+  .backCloud {
+    position: fixed;
+    bottom: 0;
+    opacity: 0.7;
+    background-image: url("../images/index/背景雲.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: -1;
+  }
+  .main{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // border: 3px solid rosybrown;
+  }
+  //============= 廟宇======================
+  .temple01 {
+    max-width: 1200px;
+    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 2px solid blue;
+    width: 100%;
+    height: 700px;
+   
+// ==== 屋頂 ===========
+    .roof {
+      width:100%;
+      position: absolute;
+      top:-260px;
+     
+      z-index: 3;
+      // ========= 燈籠 ==============
+      .lantern.left {
+        position: absolute;
+        width: 10%;
+        z-index: -1;
+        bottom: -100px;
+        left: 0px;
+      }
+      .lantern.right {
+        position: absolute;
+        width: 10%;
+        z-index: -1;
+        bottom: -100px;
+        right: 0px;
+      }
+    }
+
+    // ==========燈籠光暈=============
+    .light {
+      border-radius: 50%;
+      box-shadow: 0px 0px 80px 30px #ffef61;
+    }
+
+    // 柱子
+    .pillar.left {
+      position: absolute;
+      top:-50px;
+      left: 50px;
+      width: 75px;
+      height: 1080px;
+      background-color: #a22a18;
+      background-image: url("../images/index/左柱.svg");
+
+     
+    }
+
+    .pillar.right {
+      position: absolute;
+      top:-50px;
+      right: 50px;
+      width: 75px;
+      height: 1080px;
+      background-color: #a22a18;
+      background-image: url("../images/index/右柱.svg");
+   
+    }
+
+    
+    // =======中間icon=============
+    .iconBlock {
+
+      display: flex;    
+      align-items: center;
+      width: 70%;
+      height: 70%;
+      overflow: hidden;
+      margin: 0 auto;
+      // border: 1px solid black;
+
+      // --- swiper css setting
+      .swiper-container {
+        border: 1px solid #ccc;
+        width: 70%;
+        // height: 400px;
+        margin: 50px auto;
+        overflow: hidden;
+      }
+      h2.iconbut {
+        margin-top: 10px;
+        width: 200px;
+        background-color: #ff7a7a;
+        color: white;
+        border-radius: 48px;
+        padding: 10px 10px;
+        &:hover {
+          background-color: #ac5454;
+        }
+      }
+      .swiper-slide {
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+        }
+
+        h2.footer {
+          color: #805e3e;
+        }
+
+        .icon-list2 {
+          width: 30%;
+          margin-top: 50px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          a {
+            text-decoration: none;
+            background-image: url(../images/moonMatch/人物卡.png);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 220px;
+            height: 400px;
+            transform: scale(0.9);
+            @include flexCenter;
+            align-items: flex-start;
+            h2{
+              color: white;
+              writing-mode: vertical-lr;
+              padding-top: 100px;
+            }
+            &:hover{
+              transform: scale(1);
+            }
+          }
+        }
+
+        .footer-link{
+          align-self:center;
+        }
+      }
+      // --- swiper css setting end
+
+      .icon1 {
+        margin: 0 auto;
+      }
+    }
+
+    // ========== 欄杆 =============
+    .railing {
+      // border: 3px solid red;
+      width: 100%;
+      // width: 1200px;
+      position: absolute;
+      bottom: -150px;
+    }
+
+    // 月老
+    .YueLao {
+      position: absolute;
+      width: 25%;
+      right: 50px;
+      bottom: 50px;
+    }
+
+
+    //============左前雲==========
+   
+    .cloud.left {
+      position: absolute;
+      width:400px;
+      z-index: 1;
+      top: -130px;
+      left: -110px;
+      // border: 1px solid red;
+    }
+
+    // ===========右前雲============
+    .cloud.right {
+      position: absolute;
+      width: 400px;
+      z-index: 1;
+      top: -130px;
+      right: -110px;
+      // border: 1px solid red;
+    }
+
+    // ===========右前多雲============
+    .cloud.aheadR {
+      position: absolute;
+      width: 400px;
+      z-index: 2;
+      top: -90px;
+      right: 90px;
+      // border: 1px solid red;
+    }
+    // ===========左前多雲============
+    .cloud.aheadL {
+      position: absolute;
+      width: 400px;
+      z-index: 2;
+      top: -90px;
+      left: 90px;
+      // border: 1px solid red;
+    }
+  }
+}
+// body.overflow {
+//   overflow: hidden;
+// }
+
+// @media all and (max-height: 1300px) {
+//   body.overflow {
+//     overflow-y: auto;
+//   }
+// }
+
+
+
+@mixin iconBlock($width1, $width2) {
+  .iconBlock {
+    .swiper-slide {
+      .icon-list1 {
+        width: $width1; // 50%
+      }
+      .icon-list2 {
+        width: $width2; // 30%
+      }
+      .icon-list3 {
+        width: $width1; //50%
+      }
+    }
+  }
+}
+
+
+
+@mixin iconblock-font($font,$h2width) {
+  
+  .iconBlock{ 
+      h2.iconbut{
+        font-size: $font;
+        width: $h2width;
+      }
+    .swiper-slide{
+      h2.footer{
+        font-size: $font;
+      }
+    }
+  }
+}
+
+@include rwd(1500px){
+  .index-wrapper{
+    .main {
+      .temple01 {
+        width: 90%;
+        height: 700px;   
+      
+      }
+    }
+  }
+}
