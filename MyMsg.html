@@ -19,42 +19,42 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- vue -->
     <script src="./js/vue.js"></script>
-    <!-- croppie -->
-    <script src="./node_modules/croppie/croppie.js"></script>
-    <!-- 發信 js -->
-    <script src="./js/smtp.js"></script>
+    <!-- axios js -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 
     <title>留言板</title>
 
 </head>
 <body class="mList">
 
-       <!------------------------------header---------------------------------->
-       <header class="header">
+    <!------------------------------header---------------------------------->
+    <header class="header">
         <nav class="nav" id="nav">
             <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
             <ul class="navlist">
-                <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-                <li class="car"><a href="#"><i class="fas fa-shopping-cart fa-2x"></a></i></li>              
-                <li class="bars">
-                 <button class="hamburger hamburger--collapse" type="button">
-                     <span class="hamburger-box">
-                       <span class="hamburger-inner"></span>
-                     </span>
-                   </button>
-                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
-                     <ul class="barList">
-                         <li><a href="./moonMapList.html">月老地圖</a></li>
-                         <li><a href="./moonDrawLots.html">月老求籤</a></li>
-                         <li><a href="./moonMatch.html">月老牽線</a></li>
-                         <li><a href="./know.html">月老小知識</a></li>
-                         <li><a href="./moonShop.html">月老商城</a></li>
-                     </ul>
-                   
-                 </li>
-               
+            <li class="username" v-if="userid != null" @click="logout">登出</li>
+            <li class="user" v-if="userid != null"><a :href="member"><i class="fas fa-user fa-2x"></a></i></li>
+            <li class="user" v-else="userid == null"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
+            <li class="car"><a href="#"><i class="fas fa-shopping-cart fa-2x"></a></i></li>              
+            <li class="bars">
+                <button class="hamburger hamburger--collapse" type="button">
+                    <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+                <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+                    <ul class="barList">
+                        <li><a href="./moonMapList.html">月老地圖</a></li>
+                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                        <li><a href="./moonMatch.html">月老牽線</a></li>
+                        <li><a href="./know.html">月老小知識</a></li>
+                        <li><a href="./moonShop.html">月老商城</a></li>
+                    </ul>
+                
+                </li>
+            
             </ul>
-         </nav>
+        </nav>
     </header>
 
         <!-- 登入登出 -->
