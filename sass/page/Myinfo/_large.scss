@@ -13,6 +13,13 @@
 
           .profile {
               width : 100%;
+              flex-direction: column;
+              align-items: center;
+
+              .btnBlue_crop { 
+                width: 30%;
+                padding: 2%;
+              }
           }
 
           .mainInfo  {
