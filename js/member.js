@@ -499,8 +499,8 @@ var member = new Vue ({
         getImage (){ //取得會員頭像
             axios.post('./php/selectImageR.php').then(function (response) {
                 data = response.data;
-                console.log(response);
-                console.log(data);
+                // console.log(response);
+                // console.log(data);
                 if (data != '') {
                     member.$data.profile = data;
                 }
@@ -622,11 +622,11 @@ var member = new Vue ({
 
         // 以下是裁減圖片
         (function($) {
-            var width_crop = 100, // 圖片裁切寬度 px 值
-            height_crop = 100, // 圖片裁切高度 px 值
+            var width_crop = 150, // 圖片裁切寬度 px 值
+            height_crop = 150, // 圖片裁切高度 px 值
             type_crop = "circle", // 裁切形狀: square 為方形, circle 為圓形
-            width_preview = 100, // 預覽區塊寬度 px 值
-            height_preview = 100, // 預覽區塊高度 px 值
+            width_preview = 150, // 預覽區塊寬度 px 值
+            height_preview = 150, // 預覽區塊高度 px 值
             compress_ratio = 0.85, // 圖片壓縮比例 0~1
             type_img = "png", // 圖檔格式 jpeg png webp
             oldImg = new Image(),
@@ -689,8 +689,8 @@ var member = new Vue ({
             });
             
             oldImg.onload = function() {
-            var width = this.width,
-            height = this.height,
+            var width = 300,
+            height = 300,
             fileSize = Math.round(file.size / 1000)
             };
             
@@ -711,7 +711,7 @@ var member = new Vue ({
             });
 
             function axiosImg (src) { //axios上傳圖片
-                console.log(src);
+                // console.log(src);
                 let data = new FormData(); //建立資料表單
                 data.append('img', src);
 
@@ -723,8 +723,8 @@ var member = new Vue ({
 
                 axios.post('./php/createImageR.php', data, config).then(function (response) {
                     data = response.data;
-                    console.log(response);
-                    console.log(data);
+                    // console.log(response);
+                    // console.log(data);
                 });
 
             };

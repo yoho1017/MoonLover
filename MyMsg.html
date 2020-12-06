@@ -45,7 +45,7 @@
                 <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
                     <ul class="barList">
                         <li><a href="./moonMapList.html">月老地圖</a></li>
-                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                        <li><a href="./moondrawl.html">月老求籤</a></li>
                         <li><a href="./moonMatch.html">月老牽線</a></li>
                         <li><a href="./know.html">月老小知識</a></li>
                         <li><a href="./moonShop.html">月老商城</a></li>
@@ -197,7 +197,7 @@
                 <div class="pinkBox_MyMsg" v-if="MsgMenu">
                     <div class="inBox_MyMsg">
 
-                        <message v-for="message in messages" :id="message.id" :name="message.name" :msg="message.msg" :image="message.image" :newnum="message.newnum"></message>
+                        <message v-for="(message, index) in messages" :id="message.id" :name="message.name" :msg="message.msg" :image="message.image" :index="index" :newnum="message.newnum"></message>
 
                     </div>
 
@@ -213,7 +213,7 @@
                                         請填寫封鎖的理由
                                     </h3>
                                     <form action="">
-                                        <i class="fas fa-times-circle fa-2x" @click="close_block"><i class="in_btn"></i></i>
+                                        <i class="fas fa-times-circle fa-2x" @click="block_block = false"><i class="in_btn"></i></i>
                                         <textarea class="text" name="" id="" cols="30" rows="5"></textarea>
                                         <button class="btnRed_submit"><h3>送出</h3></button>
                                     </form>
@@ -229,16 +229,18 @@
 
                         <div class="msgbox">
 
-                            <receive v-for="Msg in frMsg" :name="Msg.name" :msg="Msg.msg" :image="Msg.image" :time="Msg.time" ref="msg"></receive>
+                            <!-- <receive v-for="Msg in frMsg" :name="Msg.name" :msg="Msg.msg" :image="Msg.image" :time="Msg.time" ref="msg"></receive>
 
-                            <send v-for="Msg in myMsg" :msg="Msg.msg" :image="Msg.image" :time="Msg.time"></send>
+                            <send v-for="Msg in myMsg" :msg="Msg.msg" :image="Msg.image" :time="Msg.time"></send> -->
+
+                            <msg v-for="msg in msgs" :from="msg.from" :name="msg.nickname" :msg="msg.msg" :time="msg.time" :image="msg.image"></msg>
 
                         </div>
 
                         <div class="input_send">
-                            <form action="#" class="send_form">
+                            <form class="send_form" @submit.prevent="">
                                 <input type="text" class="msg_input" v-model="newText">
-                                <button class="sending_btn" @click="submit(newText)" @keyup="">
+                                <button class="sending_btn" @click="submit(newText)">
                                     <i class="fas fa-location-arrow"></i>
                                 </button>
                             </form>
