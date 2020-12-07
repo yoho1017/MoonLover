@@ -322,9 +322,13 @@ var account =  new Vue ({
             if (this.login_check (username,pwd,type)) { //檢查登入資料
                 // alert("沒錯") //測試用
                 cryptpwd = this.encrypt(pwd); //密碼加密
-                
+                let stage = 'frontend';
+
                 // 傳遞資料
-                var params = new URLSearchParams();params.append('username', username);params.append('password', cryptpwd);
+                var params = new URLSearchParams();
+                params.append('username', username);
+                params.append('password', cryptpwd);
+                params.append('stage', stage);
                 
                 axios.post('./php/LoginR.php', params).then(function (response) {
                     message = response.data;
