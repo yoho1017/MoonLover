@@ -170,7 +170,7 @@
             </div>
 
             <!-- 網頁版 -->
-            <div class="twMap"><embed src="./images/moonMapList/map.svg" type="image/svg+xml" />          
+            <div class="twMap"><embed src="./images/moonMapList/map.svg" type="image/svg+xml" id="myObj"/>          
                 <!-- 月老 -->
                 <div class="YueLao_block">             
                         <div class="dialog">
@@ -193,5 +193,12 @@
     <script src="./js/nav.js"></script>   
     <script src="./js/srcoll.js"></script>
     <script src="./js/login.js"></script>
+    <script>
+        var myObj = document.getElementById('myObj'); 
+         myObj.addEventListener('load', function(){
+        var paths = myObj.contentDocument.getElementsByTagName('path'); 
+        console.log(paths); // (N) [path#A, path#B , ...]
+    });
+    </script>
 </body>
 </html>
