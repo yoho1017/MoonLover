@@ -176,8 +176,6 @@ var member = new Vue ({
                 this.modifyInt (); //提交興趣表單
                 this.modify = false; //關閉修改頁面
                 this.changeEmail = false; //關閉email修改介面
-                this.getdata ();
-                this.getIntdata ();
             }else{
                 alert("密碼錯誤 !")
             }
@@ -245,7 +243,9 @@ var member = new Vue ({
                 data = response.data;
                 // console.log(response);
                 // console.log(data);
-            });
+            }).finally(() => {  
+                member.$options.methods.getdata (); //重新讀取資料
+             });
         },
 
         modifyInt () {
@@ -272,7 +272,9 @@ var member = new Vue ({
                 data = response.data;
                 // console.log(response);
                 // console.log(data);
-            });
+            }).finally(() => {  
+                member.$options.methods.getIntdata (); //重新讀取資料
+             });
         },
 
         truefalse (data) {
