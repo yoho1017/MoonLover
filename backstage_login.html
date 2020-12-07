@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- vue -->
+    <script src="./js/Vue.js"></script>
+     <!-- JQ -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <!-- 加密 js -->
+    <script src="node_modules/crypto-js/crypto-js.js"></script>
+    <!-- axios js -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
+    <!--css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>後台登入</title>
+</head>
+<body class="bgColorDefault bgImgCloud overflow">
+
+   <!------------------------------header---------------------------------->
+    <header class="header">
+        <nav class="nav" id="nav">
+            <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
+        </nav>
+    </header>
+
+    <!-- 登入登出 -->
+    <div class="login_pop" v-bind:class="{block:pop_block}" id="pop">
+
+        <div class="login_pop_in">
+
+            <!-- 登入 -->
+            <div class="account_login" v-bind:class="{flex:log_flex}">
+                <div class="account_inbox">
+
+                    <h1 class="account_text_login">後台登入</h1>
+                    <form method="post" action="./php/loginR.php" @submit="login($event,login_username,login_pwd,'login')">
+
+                        <div class="inputbox">
+                            <h3 class="input_text">帳號</h3>
+                            <input class="input_login" type="text" name="username"  :placeholder = "lgUsp" id="input_log_username" :change="clearChineseLogin('login_username')" v-model="login_username" :class="{inp_error : lgUser == 1}" @click="input_log_user">
+                        </div>
+
+                        <div class="inputbox">
+                            <h3 class="input_text">密碼</h3>
+                            <input class="input_login" type="password" name="password"  :placeholder="lgPsp" id="input_log_pwd" v-model="login_pwd" :class="{inp_error : lgPwd == 1}" @click="input_log_pwd">
+                        </div>
+                        
+                        <div class="inputbox">
+                            <span class="input_text"></span>
+                            <p class="str_error h0" v-if="login_error">帳號或密碼錯誤<p>
+                        </div>
+
+                        <div class="submit_login" style="display: flex; justify-content: center;">
+                            <button class="btn_signup btnRed_signup">登入</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 燈箱結束 -->
+
+    <!------------------------廟宇------------------------------->
+   
+
+       <div class="index-wrapper">
+                               
+             
+             <div class="main">
+
+                 <!-- 屋頂區 -->
+                  <div class="temple01">
+                    
+                        <div class="roof"><img src="./images/index/屋頂.png">
+                            <div class="lantern left"><img src="./images/index/燈籠.svg"></div>
+                            <div class="lantern right"><img src="./images/index/燈籠.svg"></div>                                  
+                        </div>
+                     
+                        <div class="pillar left"></div>
+                        <div class="pillar right"></div>
+                       
+                     <!-- 欄杆 -->                
+                         <div class="railing"><img src="./images/index/欄杆.svg">
+                            <div class="YueLao"><img src="./images/index/月老.svg"></div>
+                            <div class="cloud left" id="cloudLeft"><img src="./images/index/左前雲.svg"></div>                      
+                            <div class="cloud right"id="cloudRight"><img src="./images/index/右前雲.svg"></div>
+                            <div class="cloud aheadL"id="cloudaheadL"><img src="./images/index/左前多雲.svg"></div>
+                            <div class="cloud aheadR"id="cloudaheadR"><img src="./images/index/右前多雲.svg"></div>
+                        </div>               
+    
+                     
+                  </div>
+             </div>
+              
+                  
+              <div class="backCloud"><img src="./images/index/背景雲.svg"></div>
+           
+         
+       </div>
+   
+    <script src="./js/backstage_login.js"></script>
+</body>
+</html>

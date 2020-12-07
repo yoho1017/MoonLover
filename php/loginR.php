@@ -1,9 +1,15 @@
 <?php
     include("./Lib/UtilClass.php");
-	$Util = new UtilClass();	
+    $Util = new UtilClass();
 
-    //建立SQL
-    $sql = "SELECT * FROM member WHERE (USERNAME = ? or EMAIL = ?) and PASSWORD = ? and MEMBER_TYPE != 3 and MEMBER_TYPE != 4";
+    if($_POST["stage"] == 'backend'){
+        //後台登入用
+        $sql = "SELECT * FROM member WHERE (USERNAME = ? or EMAIL = ?) and PASSWORD = ? and MEMBER_TYPE = 3";
+    }else{
+        //建立SQL
+        $sql = "SELECT * FROM member WHERE (USERNAME = ? or EMAIL = ?) and PASSWORD = ? and MEMBER_TYPE != 2 and MEMBER_TYPE != 3";
+    }
+    
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);
