@@ -58,8 +58,9 @@ var bAccount =  new Vue ({
                     message = response.data;
                     console.log(message);
                     if (message == false) {
-                        account.$data.login_error = true;
+                        bAccount.$data.login_error = true;
                     }else{
+                        alert(`管理員${message}登入`);
                         let pageName = window.location.pathname.split('/');
                         pageName.splice(-1,1,'backstage_publicMsg.html');
                         pageName = pageName.join("/"); 
@@ -111,7 +112,7 @@ var bAccount =  new Vue ({
 
         input_log_user () {
             this.lgUser = 0;
-            this.lgUsp = "請輸入帳號或註冊信箱";
+            this.lgUsp = "請輸入帳號";
         },
 
         input_log_pwd () {
