@@ -1,7 +1,18 @@
-let moonMatchVue = new Vue({
+let matchCond = new Vue({
     el: '#qBox',
     data: {
-        ageRange: ['20歲以下', '21 - 30歲', '31 - 40歲', '41 - 50歲', '51 - 60歲', '61歲以上'],
+        ages: [
+            {range: '20歲以下', value: 0},
+            {range: '21 - 25歲', value: 1},
+            {range: '26 - 30歲', value: 2},
+            {range: '31 - 35歲', value: 3},
+            {range: '36 - 40歲', value: 4},
+            {range: '41 - 45歲', value: 5},
+            {range: '46 - 50歲', value: 6},
+            {range: '51 - 55歲', value: 7},
+            {range: '56 - 60歲', value: 8},
+            {range: '61歲以上', value: 9},
+        ],
         interests : [
             {interest: '運動', checked : false},
             {interest: '看書', checked : false},
@@ -10,12 +21,24 @@ let moonMatchVue = new Vue({
             {interest: '寫程式', checked : false},
             {interest: '玩桌遊', checked : false},
         ],
+        // 我的年齡
+        myage: '',
+        // 我的年齡區間
+        ageRange: '',
+        // 區間值
+        ageRangeVal: 0,
+        // 我的居住地
+        city : '',
         // 居住地清單
         area : [
             '臺北市','新北市','桃園市','臺中市','臺南市','高雄市','新竹縣','苗栗縣','彰化縣','南投縣','雲林縣','嘉義縣','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣','基隆市','新竹市','嘉義市'
         ],
+        // 職業
+        job : '',
         // 職業清單
         jobs : ['軍警','公務人員','教育人員','工商服務','農業','其他'],
+        // 學歷
+        education : '',
         // 學歷清單
         educations : ['博士','碩士','大學','高中職','國中以下'],
     },
@@ -38,12 +61,35 @@ let moonMatchVue = new Vue({
             $('.msgBoxContent').toggleClass('-on');
             $('.msgBox').addClass('-on');
             $('.queryBox').removeClass('-on');
+        },
 
+        getdata () { //取得會員資料
+            axios.post('./php/membercenterR.php').then(function (response) {
+                data = response.data;
+                console.log(data);
+                matchCond.$data.city = data[0].AREA;
+                matchCond.$data.job = data[0].JOB;
+                matchCond.$data.education = data[0].EDUCATION;
+                matchCond.$data.myage = data[0].AGE;
+                matchCond.$data.ageRange = data[0].AGE_RANGE;
+                // matchCond.$data.sex = checknull (data[0].SEX);
+                // matchCond.$data.seo = checknull (data[0].SO);
+                // matchCond.$data.match = checkpriv (data[0].PAIR_PRIV);
+                // matchCond.$data.pri = checkpriv (data[0].PUBLIC_PRIV);
+                
+                // function checkpriv (data) { //判斷是或否
+                //     if (data == 0) {
+                //         return '否'
+                //     }else{
+                //         return '是'
+                //     }
+                // }
+
+            })                
         },
-        // 預設篩選
-        defaultQuery(){
-            $('select option:first-child').removeAttr('selected').attr('selected', 'selected');
-        },
+    },
+    mounted() {
+        this.getdata();
     },
 });
 

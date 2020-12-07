@@ -31,18 +31,20 @@
         <nav class="nav" id="nav">
             <a href="./index.html" class="Logo"><img src="./images/logo.png"></a>
             <ul class="navlist">
-               <li class="user"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
+               <li class="username" v-if="userid != null" @click="logout">登出</li>
+               <li class="user" v-if="userid != null"><a :href="member"><i class="fas fa-user fa-2x"></a></i></li>
+               <li class="user" v-else="userid == null"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
                <li class="car"><a href="#"><i class="fas fa-shopping-cart fa-2x"></a></i></li>              
                <li class="bars">
                 <button class="hamburger hamburger--collapse" type="button">
                     <span class="hamburger-box">
                       <span class="hamburger-inner"></span>
                     </span>
-                </button>
+                  </button>
                    <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
                     <ul class="barList">
                         <li><a href="./moonMapList.html">月老地圖</a></li>
-                        <li><a href="./moonDrawLots.html">月老求籤</a></li>
+                        <li><a href="./moondrawl.html">月老求籤</a></li>
                         <li><a href="./moonMatch.html">月老牽線</a></li>
                         <li><a href="./know.html">月老小知識</a></li>
                         <li><a href="./moonShop.html">月老商城</a></li>
@@ -225,8 +227,8 @@
                     <div class="qRow">
                         <h3>年齡：</h3>
                         <select name="ages">
-                            <option v-for="age in ageRange">
-                                {{age}}
+                            <option v-for="age in ages" :value="age.value" :selected="age.value == ageRange">
+                                {{age.range}}
                             </option>
                         </select>
                     </div>
@@ -242,8 +244,8 @@
                         <h3 class="name more">
                             地區：
                         </h3>
-                        <select name="area">
-                        　  <option v-for="city in area">
+                        <select name="area" v-model="city">
+                            <option v-for="city in area" :selected="city == area">
                                 {{city}}
                             </option>
                         </select>
@@ -252,8 +254,8 @@
                         <h3 class="name more">
                             職業：
                         </h3>
-                        <select name="area">
-                        　  <option v-for="job in jobs">
+                        <select name="job"  v-model="job">
+                            <option v-for="job in jobs" :selected="job == jobs">
                                 {{job}}
                             </option>
                         </select>
@@ -262,8 +264,8 @@
                         <h3 class="name more">
                             學歷：
                         </h3>
-                        <select name="area">
-                            <option v-for="education in educations">
+                        <select name="education" v-model="education">
+                            <option v-for="education in educations" :seleceted="education == educations">
                                     {{education}}
                             </option>
                         </select>
