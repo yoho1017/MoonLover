@@ -195,9 +195,18 @@
            <main>
 
                 <div class="pinkBox_MyMsg" v-if="MsgMenu">
-                    <div class="inBox_MyMsg">
+
+                    <div class="inBox_MyMsg" v-if="relationship">
 
                         <message v-for="(message, index) in messages" :id="message.id" :name="message.name" :msg="message.msg" :image="message.image" :index="index" :newnum="message.newnum"></message>
+
+                    </div>
+
+                    <div class="inBox_MyMsg noRelationShip" v-else="relationship">
+
+                        <h2>還沒有跟任何人建立關係哦 ! <br> 快使用月老牽線尋找對象吧 !</h2>
+
+                        <button class="btnBlue_Link"><a :href="link.href" >{{link.name}}</a></button>
 
                     </div>
 

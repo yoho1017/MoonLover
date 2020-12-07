@@ -103,6 +103,23 @@ div.MyMsg-wrapper {
             }
         }
 
+        .noRelationShip {
+            @include flexCenter;
+            @include btn (Link, 30%, 2%);
+            flex-direction: column;
+
+            h2 {
+                margin: 2%;
+                color : #981A1A;
+            }
+
+            a {
+                text-decoration: none;
+                color : white;
+                font-size: 30px;
+            }
+        }
+
     }
 
     @include pop(block);

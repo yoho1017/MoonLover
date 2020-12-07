@@ -44,10 +44,14 @@ var member = new Vue ({
             {list : '留言板', href : "./MyMsg.html"},
             {list : '我的訂單', href : "./MyOrder.html"}
         ],
+        // 如果未註冊時的連結
+        link : {name : "先填寫會員資料" , href : "./MyInfo.html"},
         // 個人頭像
         profile : "./images/MyInfo/profile.png",
         // 收到留言
         messages : [],
+        // 好友關係
+        relationship : true,
         // 新留言顯示
         newStr : '傳送一則新留言給你',
         // -----------------留言頁-----------------        
@@ -119,14 +123,28 @@ var member = new Vue ({
             axios.post('./php/selectRelationshipR.php').then(function (response) {
                 data = response.data;
                 // console.log(data);
-                for (i = 0 ; i <= data.length -1; i++) {
-                    msg = {id: data[i].ID, targetid: data[i].memberID, name : data [i].NICKNAME, msg : data[i].NEWMSG ,newnum : data[i].NOTREAD , image : data[i].IMAGE};
-                    if (msg.image == null) {
-                        msg.image = "./images/MyInfo/profile.png"
-                    }else{
-                        msg.image =atob(msg.image)
-                    }
-                    member.$data.messages.push(msg)
+                if (data[0] == undefined) {
+                    member.$data.relationship = false;
+
+                    axios.post('./php/checkMemberType.php').then(function (response) {
+                        data = response.data;
+                        if (data == 0) {
+                            member.$data.link = {name : "先填寫會員資料" , href : "./MyInfo.html"};
+                        }else if (data == 1) {
+                            member.$data.link = {name : "前往月老牽線" , href : "./moonMatch.html"};
+                        }
+                    });
+
+                }else{
+                    for (i = 0 ; i <= data.length -1; i++) {
+                        msg = {id: data[i].ID, targetid: data[i].memberID, name : data [i].NICKNAME, msg : data[i].NEWMSG ,newnum : data[i].NOTREAD , image : data[i].IMAGE};
+                        if (msg.image == null) {
+                            msg.image = "./images/MyInfo/profile.png"
+                        }else{
+                            msg.image =atob(msg.image)
+                        }
+                        member.$data.messages.push(msg)
+                    }    
                 }
             })
         },
