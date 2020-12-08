@@ -61,12 +61,13 @@ var bAccount =  new Vue ({
                         bAccount.$data.login_error = true;
                     }else{
                         alert(`管理員${message}登入`);
-                        let pageName = window.location.pathname.split('/');
-                        pageName.splice(-1,1,'backstage_publicMsg.html');
-                        pageName = pageName.join("/"); 
+                        // let pageName = window.location.pathname.split('/');
+                        // pageName.splice(-1,1,'backstage_publicMsg.html');
+                        // pageName = pageName.join("/"); 
+                        // // 導向後台頁面                       
+                        // window.location.pathname = pageName;
 
-                        // 導向後台頁面                       
-                        window.location.pathname = pageName;
+                        window.location.href="./backstage_publicMsg.html";
                     }
                 })                
             }
