@@ -1,8 +1,6 @@
 // 請在_all.scss套用這個格式
 .backstage-draw-wrapper {
     display: flex;
-    background-color: #F0DED1;
-    height: 100%;
 
     @include backstage; //引入後台版型
 

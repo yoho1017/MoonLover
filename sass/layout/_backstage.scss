@@ -1,3 +1,7 @@
+.backStageBody {
+    background-color: #F0DED1;
+}
+
 @mixin backstage{
     
     .list {
@@ -72,6 +76,7 @@
 
         .listName {
             font-weight: 400;
+            line-height: 50px;
         }
 
         .bold {
@@ -184,11 +189,25 @@
             font-size: 30px;
             background-color : #ff7a7a;
             color : white;
+            border-color: none;
+            outline: none !important;
+            box-shadow: none;             
 
             &:hover {
                 background-color:  #ac5454;
             }
         }
+
+
+        .active {
+            outline: none !important;
+            box-shadow: none;         
+            .page-link {
+                border-color: white;
+                background-color :  #ac5454;
+            }
+        }
+
     }
 
 }

@@ -11,7 +11,8 @@
     "crypto-js": "^4.0.0",
     "jquery": "^3.5.1",
     "normalize-scss": "^7.0.1",
-    "sass": "^1.29.0"
+    "sass": "^1.29.0",
+    "vuejs-paginate": "^2.1.0"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
