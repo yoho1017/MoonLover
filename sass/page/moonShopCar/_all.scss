@@ -527,15 +527,17 @@
                 .pwords2{              
                     width:34%;
                     background-color:#FFFFFF;
-                    .pwords2_inner{
+                    .pwords2_inner{                     
                         display:flex;
                         width:100%;
-                        .proAmount {
+                        margin:auto;
+                        .proAmount {                         
                             text-align:center;
                             bottom: 35px;
                             }
                         .proAmount i{
                             color:#7ed5ea;
+                            font-size:30px;
                             }
                         .qty {
                             height: 35px;
@@ -573,9 +575,9 @@
                         cursor: pointer;
                     }
                 }
-                i{
+                .garbageCan{
                     display:none;
-                 }
+                }
             }
             // .mcontent2{
             //     margin:5px 0;

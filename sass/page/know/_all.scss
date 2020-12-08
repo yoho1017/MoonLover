@@ -64,6 +64,7 @@
 
             }
         }
+
     }
 };
 
@@ -406,6 +407,30 @@
             bottom:-50px;
             
         }
+    }
+
+    .backCloud {
+        position: fixed;
+        width:100%;
+        bottom: -2%;
+        left: -0.5%;
+        opacity: 0.7;
+        background-image: url("../images/know/one_page/bk_cloud.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-size: 20%;
+        z-index: -1;
+      }
+
+    .bk_cloud_move{
+        position: fixed;
+        width:60%;
+        top:5%;
+        left: -20%;
+        opacity: 0.7;
+        z-index: -2;
+
     }
         
 };
