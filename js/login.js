@@ -426,7 +426,6 @@ var account =  new Vue ({
             // alert(pwd); //測試加密
             return pwd
         },
-
     },
 })
 

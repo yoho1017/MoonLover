@@ -499,12 +499,13 @@ var member = new Vue ({
         },
 
         getImage (){ //取得會員頭像
-            axios.post('./php/selectImageR.php').then(function (response) {
+            axios.post('./php/selectImageR.php').then( response => {
                 data = response.data;
                 // console.log(response);
                 // console.log(data);
                 if (data != '') {
-                    member.$data.profile = data;
+                    this.profile = data;
+                    // console.log(this.profile);
                 }
             });
         },
