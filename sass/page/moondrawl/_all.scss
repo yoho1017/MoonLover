@@ -228,21 +228,23 @@
 
         .decoration{
             // border: 1px solid blue;
-            width: 175px;
-            height:257px;
+            width: 170px;
+            height:250px;
 
             background-image: url(../images/moondrawl/step_1/text1.png);
 
             display:flex;
             align-items:center;
             justify-content: center;
+            background-size: contain;
+            background-repeat: no-repeat;
 
             h1.ins_title{
                 // border: 1px solid green;
                 font-size: map-get($font_size, 'h1');
                 color: white;
                 background-color: #FF7A7A;
-                padding: 23px 8px;
+                padding: 10px 8px;
             }
         }
 
@@ -318,8 +320,9 @@
             position: absolute;
 
                 .title{ 
-                    width:405px;
+                    width:435px;
                     //原本400px
+                    //原本405px
                     
                     // border: 1px solid red;
                     display: inline-flex;
@@ -332,21 +335,24 @@
 
                     .decoration{
                         // border: 1px solid blue;
-                        width: 175px;
-                        height:257px;
+                        
+                        width:170px;
+                        height:250px;
 
                         background-image: url(../images/moondrawl/step_1/text1.png);
 
                         display:flex;
                         align-items:center;
                         justify-content: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
 
                         h1.ins_title{
                             // border: 1px solid green;
                             font-size: map-get($font_size, 'h1');
                             color: white;
                             background-color: #FF7A7A;
-                            padding: 23px 8px;
+                            padding: 10px 8px;
                         }
                     }
 
