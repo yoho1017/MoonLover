@@ -397,7 +397,7 @@
             border: 1px solid #ff7a7a;
           }
           // 輸入鍵icon
-          #arrow-but {
+          .arrow-but {
             position: absolute;
             right: 30px;
             color: white;
@@ -419,7 +419,7 @@
           // border: 1px solid red;
           // overflow-y: scroll;
           .visitors-messagelist {
-            margin-top: 15px;
+            margin: 15px 0;
             width: 95%;
             display: flex;
             justify-content: space-around;
