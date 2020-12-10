@@ -145,7 +145,15 @@
     <!-- 燈箱結束 -->
 
     <div class="moonMatch-wrapper">
-        <section class="memberCards">
+
+        <section class="memberCards" id="memCard">
+            <card :nickname="nickname" :city="city" :job="job" :profile="profile" :about="about" :age="age"></card>
+            <card :nickname="nickname" :city="city" :job="job" :profile="profile" :about="about" :age="age"></card>
+            <card :nickname="nickname" :city="city" :job="job" :profile="profile" :about="about" :age="age"></card>
+        </section>
+        
+
+        <!-- <section class="memberCards">
             <div class="scene">
                 <div class="card card1">
                     <div class="card_front"><img src="./images/moonMatch/人物卡.png"></div>
@@ -186,7 +194,6 @@
                             <div class="btnGroup">
                                 <button class="btnBlue_choose"><h3>重選</h3></button>
                                 <a href="./MyMsg.html" class="btnRed_choose"><h3>私訊</h3></a>
-                                <!-- <button class="btnRed_choose"><h3>私訊a</h3></button> -->
                             </div>
 
                         </div>
@@ -200,8 +207,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="godSection">
+        </section> -->
+        <section class="godSection" id="qBox">
             <div class="loveGod" id="loveGod">
                 <div class="exclamation">
                     <i class="fas fa-exclamation fa-3x"></i>
@@ -214,19 +221,22 @@
             <div class="msgBox-container -on">
                     <div class="msgBoxContent -on">
                         <h3>告訴我你的理想條件喔！</h2>
-                        <button class="btnRed_query">稟報月老</button>
+                        <!-- <button class="btnRed_query" @click="interestCheckbox">稟報月老</button> -->
+                        <button class="btnRed_query" >稟報月老</button>
                     </div>
                     <div class="msgBoxContent">
                         <h3>選條紅線賜姻緣喔！</h3>
-                        <button class="btnRed_query">稟報月老</button>
+                        <!-- <button class="btnRed_query" @click="interestCheckbox">稟報月老</button> -->
+                        <button class="btnRed_query" >稟報月老</button>
                     </div>
             </div>
             
-            <div class="queryBox" id="qBox">
+            <!-- <div class="queryBox" id="qBox"> -->
+            <div class="queryBox">
                 <form action="">
                     <div class="qRow">
                         <h3>年齡：</h3>
-                        <select name="ages">
+                        <select name="ages" v-model="ageRange">
                             <option v-for="age in ages" :value="age.value" :selected="age.value == ageRange">
                                 {{age.range}}
                             </option>
@@ -237,7 +247,7 @@
                             興趣：
                         </h3>
                         <div class="check_box">
-                            <interests v-for="interest in interests" :the-text="interest.interest" :checked="interest.checked" @click.native="checkInt(interest.interest)"></interests>
+                            <interests v-for="interest in interests" :the-text="interest.interest" :checked="interest.checked" @click.native="checkInterest(interest.interest)"></interests>
                         </div>
                     </div>
                     <div class="qRow">

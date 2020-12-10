@@ -170,6 +170,7 @@ $cardHeight: 600px;
     
         .msgBox-container{
             // border: 1px solid yellow;
+            visibility: hidden;
             opacity: 0;
             transition: opacity $msgBoxShow;
             @include flexCenter;
@@ -217,6 +218,7 @@ $cardHeight: 600px;
         }
         .msgBox-container.-on{
             opacity: 1;
+            visibility: visible;
         }
 
         .queryBox{
