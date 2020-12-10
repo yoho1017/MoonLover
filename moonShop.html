@@ -27,6 +27,8 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- total css -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <!-- lightbox -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 <!-- ------------------------------------- -->
@@ -190,19 +192,22 @@
                     </div>
                     <div class="CusPicture2">
                         <div class="PicContent2 shopPic">
-                            <img src="./images/moonShop/狐仙-01.png" alt="狐仙" width="200px" height="200px">
+                            <img src="./images/moonShop/fox-01.png" alt="狐仙" data-category="red" width="200px"
+                                height="200px">
                         </div>
                         <p>狐仙女</p>
                     </div>
                     <div class="CusPicture3">
                         <div class="PicContent2 shopPic">
-                            <img src="./images/moonShop/兔兔-01.png" alt="兔兔" width="200px" height="200px">
+                            <img src="./images/moonShop/rab-01.png" alt="兔兔" data-category="blue" width="200px"
+                                height="200px">
                         </div>
                         <p>彩虹兔兔</p>
                     </div>
                     <div class="CusPicture4">
                         <div class="PicContent2 shopPic">
-                            <img src="./images/moonShop/猴子-01.png" alt="猴子" width="200px" height="200px">
+                            <img src="./images/moonShop/mok-01.png" alt="猴子" data-category="orange" width="200px"
+                                height="200px">
                         </div>
                         <p>好人猿</p>
                     </div>
@@ -215,25 +220,23 @@
             <div class="container">
                 <div class="item_groups">
                     <div class="CusImage1">
-                        <div class="easyCard">悠遊卡</div>
+                        <div class="easyCard" id="easyCard">悠遊卡</div>
                         <div class="ImageContent1">
                             <a href="./moonShopDev.html">
                                 <div class="eCard">
                                     <img class="acceptPic">
                                 </div>
                             </a>
-                            <a href="./moonShopDev.html"><img src="./images/moonShop/悠遊卡.png" alt="悠遊卡" height="90px"
-                                    width="140px"></a>
+                            <a href="./moonShopDev.html"><img src="" alt="悠遊卡" height="90px" width="140px"
+                                    id='easyCardImg'></a>
                         </div>
                         <div class="ImagePrice1">300</div>
-                        <!-- <div class="proAmount">
-                        <span id='my_form' method='POST' action='#'>
-                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-                        </span>
-                    </div> -->
-                        <div class="shopCars">加入購物車</div>
+
+                        <div class="shopCars shoppingCars" id="A001">
+                            加入購物車
+                            <!-- 存放資料區 -->
+                            <input type="hidden" value="悠遊卡|tpe.jpg|300">
+                        </div>
                     </div>
                     <div class="CusImage2">
                         <div class="easyCard">大抱枕</div>
@@ -247,14 +250,12 @@
                                     width="140px"></a>
                         </div>
                         <div class="ImagePrice1">400</div>
-                        <!-- <div class="proAmount">
-                        <span id='my_form' method='POST' action='#'>
-                            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-                            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-                           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-                        </span>
-                    </div> -->
-                        <div class="shopCars">加入購物車</div>
+
+                        <div class="shopCars shoppingCars" id="A002">
+                            加入購物車
+                            <!-- 存放資料區 -->
+                            <input type="hidden" value="大抱枕|pillow.jpg|400">
+                        </div>
                     </div>
                     <div class="CusImage3">
                         <div class="easyCard">口罩</div>
@@ -268,14 +269,11 @@
                                     width="140px"></a>
                         </div>
                         <div class="ImagePrice1">500</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
-                        <div class="shopCars">加入購物車</div>
+
+                        <div class="shopCars shoppingCars" id="A003">
+                            加入購物車
+                            <input type="hidden" value="口罩|mask.jpg|500">
+                        </div>
                     </div>
                     <div class="CusImage4">
                         <div class="easyCard">筆記本</div>
@@ -289,14 +287,11 @@
                                     height="90px" width="140px"></a>
                         </div>
                         <div class="ImagePrice1">600</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
-                        <div class="shopCars">加入購物車</div>
+
+                        <div class="shopCars shoppingCars" id="A004">
+                            加入購物車
+                            <input type="hidden" value="筆記本|notebook.jpg|600">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -312,14 +307,11 @@
                                     height="90px" width="140px"></a>
                         </div>
                         <div class="ImagePrice1">700</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
-                        <div class="shopCars">加入購物車</div>
+
+                        <div class="shopCars" id="A005">
+                            加入購物車
+                            <input type="hidden" value="姻緣線|love_line.jpg|700">
+                        </div>
                     </div>
                     <div class="CusImage6">
                         <div class="easyCard">面紙盒</div>
@@ -328,14 +320,11 @@
                                     height="90px" width="140px"></a>
                         </div>
                         <div class="ImagePrice1">800</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
-                        <div class="shopCars">加入購物車</div>
+
+                        <div class="shopCars" id="A006">
+                            加入購物車
+                            <input type="hidden" value="面紙盒|paperBox.jpg|800">
+                        </div>
                     </div>
                     <div class="CusImage7">
                         <div class="easyCard">紅包</div>
@@ -344,14 +333,11 @@
                                     height="90px" width="140px"></a>
                         </div>
                         <div class="ImagePrice1">900</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
-                        <div class="shopCars">加入購物車</div>
+
+                        <div class="shopCars" id="A007">
+                            加入購物車
+                            <input type="hidden" value="紅包|red_envelope.jpg|900">
+                        </div>
                     </div>
                     <div class="CusImage8">
                         <div class="easyCard">杯墊</div>
@@ -360,14 +346,11 @@
                                     width="140px"></a>
                         </div>
                         <div class="ImagePrice1">1000</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
-                        <div class="shopCars">加入購物車</div>
+
+                        <div class="shopCars" id="A008">
+                            加入購物車
+                            <input type="hidden" value="杯墊|Coaster.jpg|1000">
+                        </div>
                     </div>
                 </div>
 
@@ -381,24 +364,19 @@
             <div class="container">
                 <table>
                     <ul class="pagination">
-                        <li class="other1">
-
-                            <!-- <i class=" fas fa-caret-square-left fa-1x" class='qty_minus'  id='minus'></i></li>
-                    <li class="other">1</li>
-                    <li class="other">2</li>
-                    <li class="other">3</li>
-                    <li class="other">4</li>
-                    <li class="other1"><i class="fas fa-caret-square-right fa-1x" class='qty_plus'  id='add' ></i></li> -->
 
                     </ul>
                 </table>
                 <div class="orderImg">
-                    <img class="order" src="images/moonShop/月老-01.png" alt="月老" width="240px" height:="250px">
+                    <img class="order" src="images/moonShop/old-01.png" alt="月老" width="240px" height:="250px">
                     <img class="cloud2" src="images/moonShop/shop_cloud22.png" alt="cloud2" width="260px" height="80px">
                 </div>
             </div>
 
         </div>
+        <nav>
+            Item : <span id="itemCount">0</span> item(s)
+        </nav>
     </div>
     <script src="./js/1_new.js"></script>
     <script src="./js/login.js"></script>

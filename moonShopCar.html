@@ -36,7 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
     <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="../package/swiper-bundle.min.css">
+    <!-- <link rel="stylesheet" href="../package/swiper-bundle.min.css"> -->
 
     <!-- Demo styles -->
     <style>
@@ -224,7 +224,7 @@
     </div>
     <!-- 燈箱結束 -->
 
-    <div class="shoppingCar-wrapper">
+    <div class="shoppingCar-wrapper" id="carPage">
         <!-- 廣告 -->
         <div id="ad">
             <div class="container">
@@ -237,66 +237,14 @@
                         </div>
                     </div>
                     <div class="orderImg">
-                        <img src="images/moonShopCar/月老-01.png" alt="月老" width=280px height=280px>
+                        <img src="images/moonShop/old-01.png" alt="月老" width=280px height=280px>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!--商品列 ---------------------------------------- -->
 
-        <!-- 商品內容(重新做) ------------------------------------------->
-        <!-- <div id="things">
-    <div class="container">
-        <div class="thins_total">
-            <div class="thingsContent">
-                <table class="cars_titles">
-                 <thead>
-                     <tr>
-                         <td>商品圖片</td>
-                        <td>商品名稱</td>
-                        <td>單價</td>
-                        <td>數量</td>
-                        <td>小計</td> -->
-        <!--<th>可買量</th>-->
-        <!-- <td>刪除</td>
-                    </tr>
-                </thead>
-            </table>
-                <table class="cars_contents">
-                    <thead>
-                        <tr>
-                            <td> -->
-        <!-- <img src="/images/moonShop/悠遊卡.png" alt="悠遊卡" width="150px" height:="150px"> -->
-        <!-- </td>
-                            <td>客製化悠遊卡</td>
-                            <td>NT.1000</td>
-                            <td>8</td>
-                            <td>NT.8000</td> -->
-        <!--<th>可買量</th>-->
-        <!-- <td class="contents_delete"><p>刪除</p></td>
-                        </tr>
-                    </thead>
-                </table>
-                <div class="cars_items">
-                    <p>總價NT.<span id="sumTotal">0</span></p>
-                </div>
-                <div id="cars_button">
-                    <div class="container">
-                       <div class="carsbtn_groups">
-                            <a href="./moonShop.html"><div class="cars_btnBlue">繼續購物</div></a>
-                            <a href="#"><div class="cars_btnRed">前往結帳</div></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-        <!-- 商品內容(結束) -------------------------------------------->
-
-        <!-- ---------------------------------------- -->
         <div id="moonthings">
             <div class="container">
                 <div class="moontotal">
@@ -305,42 +253,49 @@
                             商品圖片
                         </div>
                         <div class="mwords">
-                            <div>商品名稱</div>
+                            <div>商品名稱 </div>
                             <div>單價</div>
                             <div>數量</div>
                             <div>小計</div>
                             <div>刪除</div>
                         </div>
                     </div>
-                    <div class="mcontent">
+                    <!-- <div class="mcontent">
                         <div class="pImage">
-                            <div class="ppicture"></div>
+                            <div class="ppicture">
+                                <div class="eCard">
+                                    <img class="acceptPic">
+                                </div>
+                                <img src="./images/moonShop/tpe-01.jpg" alt="" width="140px" height="90px">
+                            </div>
                         </div>
                         <div class="pwords">
                             <div class="pwords_inner">
-                                <div>悠遊卡</div>
-                                <div>NT.300</div>
+                                <div class="pwords_easyCard">悠遊卡</div>
+                                <div class="pwords_price">300</div>
                             </div>
                         </div>
                         <div class="pwords2">
                             <div class="pwords2_inner">
-                                <!-- <div> -->
+
                                 <div class="proAmount">
-                                    <span id='my_form' method='POST' action='#'>
+                                    <span id='my_form' method='POST' action='#' class="proForm">
                                         <i class="fas fa-minus-square" class='qty_minus' id='minus'></i>
-                                        <input type='text' name='quantity' value='0' class='qty' />
+                                        <input type='number' name='quantity' min="1" class='qty' />
                                         <i class="fas fa-plus-square" class='qty_plus' id='add'></i>
                                     </span>
                                 </div>
-                                <!-- </div> -->
-                                <div>NT.2400</div>
+
+                                <div class="proTotalprice">2400</div>
                             </div>
                         </div>
                         <div class="m_del">
                             <p>刪除</p>
                         </div>
                         <i class="fas fa-trash-alt fa-2x garbageCan"></i>
-                    </div>
+                    </div> -->
+
+                    <!-- 第二個商品------------------------------------------------------------------------------------ -->
 
                     <!-- <div class="mcontent2">
                         <div class="pImage2">
@@ -355,7 +310,7 @@
                     </div>
                 </div> -->
                     <div class="thingsPay">
-                        <p>總價NT.<span id="payTotal">4800</span></p>
+                        <p>總價NT.<span id="payTotal">0</span></p>
                     </div>
                     <div id="C_button">
                         <div class="container">
@@ -532,6 +487,7 @@
 
         <!-- --------------------recommendation  -->
         <div id="NonCusImages">
+
             <div class="container">
                 <div class="item_groups">
                     <div class="CusImage5">
@@ -541,13 +497,6 @@
                                     height="90px" width="140px"></a>
                         </div>
                         <div class="ImagePrice1">300</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
                         <div class="shopCars">加入購物車</div>
                     </div>
                     <div class="CusImage6">
@@ -557,13 +506,6 @@
                                     height="90px" width="140px"></a>
                         </div>
                         <div class="ImagePrice1">300</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
                         <div class="shopCars">加入購物車</div>
                     </div>
                     <div class="CusImage7">
@@ -573,13 +515,6 @@
                                     height="90px" width="140px"></a>
                         </div>
                         <div class="ImagePrice1">300</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
                         <div class="shopCars">加入購物車</div>
                     </div>
                     <div class="CusImage8">
@@ -589,13 +524,6 @@
                                     width="140px"></a>
                         </div>
                         <div class="ImagePrice1">300</div>
-                        <!-- <div class="proAmount">
-                            <span id='my_form' method='POST' action='#'>
-                                <i class="fas fa-minus-square fa-2x" class='qty_minus' id='minus'></i>
-                                <input type='text' name='quantity' value='0' class='qty' id='number' />
-                                <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
-                            </span>
-                        </div> -->
                         <div class="shopCars">加入購物車</div>
                     </div>
                 </div>
@@ -603,12 +531,13 @@
             </div>
         </div>
 
+
         <!-- Add Pagination -->
         <!-- <div class="swiper-pagination"></div> -->
         <!-- </div> -->
 
         <!-- Swiper JS -->
-        <script src="../package/swiper-bundle.min.js"></script>
+        <!-- <script src="../package/swiper-bundle.min.js"></script> -->
 
         <!-- Initialize Swiper -->
         <script>
@@ -626,6 +555,7 @@
         <script src="./js/1_new.js"></script>
         <script src="./js/login.js"></script>
     </div>
+    <script src="./js/shopCar.js"></script>
 </body>
 
 </html>
