@@ -452,14 +452,64 @@
 }
 
 
-//結果頁月老
+    //結果頁月老同上
 
 
     // 中間1200區域結尾
     }
 
-
 //.large_line最大範圍結尾
+}
+
+//js背景動畫雲
+.moonDrawLots_bk_color{
+    .backCloud {
+        position: fixed;
+        bottom: 0;
+        opacity: 0.7;
+        background-image: url("../images/moondrawl/step_1/bk_cloud.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        z-index: -1;
+      }
+
+      
+      //整體雲移動
+      .cloud_one{
+        background-image: url(../images/moondrawl/step_1/cloud_one.png);
+        position: absolute;
+        top:0px;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -5;
+        opacity: .5;
+
+        @keyframes move{
+            100%{background-position: 500% 0;}
+        }
+
+      }
+
+      .cloud_second{
+        background-image:url(../images/moondrawl/step_1/cloud_second.png);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -4;
+        opacity: .4;
+
+
+        @keyframes move{
+            100%{background-position: 500% 0;}
+        }
+
+      }
+
 }
 
 
