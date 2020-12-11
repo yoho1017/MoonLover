@@ -280,10 +280,13 @@
                                 <textarea id="user-message" v-model="newText" placeholder="留言貼文吧" @keyup.enter=""></textarea>                                       
                                 <div class="imgBlock">
                                     <ul class="imgList">
-                                        <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
-                                        <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
-                                        <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>                                
-                                        <span class="imgBut"><i class="fas fa-plus-square fa-5x" id="addImg"></i></span>  
+                                        <li v-for="image in images" class="aboutImg"><img :src="image.src" @click="deletebut"></li>
+                                        <!-- <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li> -->
+                                       
+                                        <span class="imgBut">             
+                                            <input type="file"  id="addImg" @change="fileChange" multiple>
+                                        </span>                                  
+                                        <!-- <span class="imgBut"><i class="fas fa-plus-square fa-5x" id="addImg"></i></span>   -->
                                     </ul>
                                     <button type="submit" id="sumBut" @click.prevent="submit(newText)"><h3>新增貼文</h3></button>
                                 </div>                                
@@ -293,7 +296,7 @@
 
                     <!-- 貼文區 -->
                     <div class="message_block" id="style-1">
-                       <send v-for="(userMsg, index) in myMsg" :myimg="userMsg.myImg" :name="userMsg.name" :msg="userMsg.msg" :time="userMsg.time" :id="index" ></send>
+                       <send v-for="(userMsg, index) in myMsg" :myimg="userMsg.myImg" :name="userMsg.name" :msg="userMsg.msg" :time="userMsg.time" :id="index" :srcimg="srcimg"></send>
 
                     </div>
                               
