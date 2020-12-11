@@ -158,7 +158,7 @@ function dataToTemple(data){
           );
           setTimeout(this.scrollTo,1000);
           this.newText='';
-
+          this.images=[];//清除圖片
         }
       },
       getTime () {
@@ -193,8 +193,8 @@ function dataToTemple(data){
 
       createImage(e){
         
-        const files =  this.images;  //陣列長度    
-        
+        const files =  this.images;  //陣列長度
+
         if(files.length >= 3){  //如果判斷大於等於三張就進alert
 
           alert('最多只能上傳三張'); 
@@ -204,9 +204,11 @@ function dataToTemple(data){
           const image = {src:file.result};
           this.images.push(image); //暫存圖
           this.srcimg.push(image.src);
+          
                    
             }
        
+        
         
       },
 
