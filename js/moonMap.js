@@ -153,12 +153,14 @@ function dataToTemple(data){
     methods : {
       submit(newText){
         if(newText !=''){
+          var ss=this.srcimg;
           this.myMsg.push(
-            {myImg:'./images/moonMap/user01.jpg',name:'Diana', msg:newText,time:this.getTime()}
+            {myImg:'./images/moonMap/user01.jpg',name:'Diana', msg:newText,time:this.getTime(),srcimg:ss}
           );
           setTimeout(this.scrollTo,1000);
           this.newText='';
           this.images=[];//清除圖片
+          this.srcimg=[];
         }
       },
       getTime () {
@@ -203,7 +205,11 @@ function dataToTemple(data){
           const file = e.target;
           const image = {src:file.result};
           this.images.push(image); //暫存圖
-          this.srcimg.push(image.src);
+          if(this.srcimg.length<3){
+            console.log(this.srcimg.length);
+            this.srcimg.push(image.src);
+          }
+          
           
                    
             }
