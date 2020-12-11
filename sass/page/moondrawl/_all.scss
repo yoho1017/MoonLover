@@ -452,14 +452,28 @@
 }
 
 
-//結果頁月老
+    //結果頁月老同上
 
 
     // 中間1200區域結尾
     }
 
-
 //.large_line最大範圍結尾
+}
+
+//js背景動畫雲
+.moonDrawLots_bk_color{
+    .backCloud {
+        position: fixed;
+        bottom: 0;
+        opacity: 0.7;
+        background-image: url("../images/moondrawl/step_1/bk_cloud.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        z-index: -1;
+      }
+
 }
 
 

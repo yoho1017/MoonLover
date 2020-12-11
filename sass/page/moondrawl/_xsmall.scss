@@ -45,22 +45,22 @@
             }
 
             //月老跟對話框調整大小
-            .god_talk{
-                width:395px;
+            // .god_talk{
+            //     width:395px;
 
-                .talk{
-                    width:180px;
+            //     .talk{
+            //         width:180px;
     
-                        h3{
-                            padding-right: 10px;
-                            padding-bottom: 20px;
-                        }
-                }
+            //             h3{
+            //                 padding-right: 10px;
+            //                 padding-bottom: 20px;
+            //             }
+            //     }
 
-                .MoonOfGod{
-                    width:245px;
-                }
-            }
+            //     .MoonOfGod{
+            //         width:245px;
+            //     }
+            // }
 
         }
     }
@@ -115,16 +115,37 @@
                 width:395px;
 
                 .talk{
-                    width:165px;
+                    width:135px;
+                    transform:translateX(40px);
 
                         h3{
-                            padding-right: 10px;
-                            padding-bottom: 30px;
+                            padding-right: 6px;
+                            padding-bottom: 87px;
                         }
                 }
 
                 .MoonOfGod{
                     width:210px;
+                    transform:translateY(-10px);
+                }
+            }
+
+        }
+    }
+}
+
+//380
+@include rwd(380px) {
+    .large_line{
+        .middle_line{
+
+               //月老跟對話框調整大小
+               .god_talk{
+                // width:360px;
+
+                .MoonOfGod{
+                    // width:210px;
+                    transform:translateX(60px) translateY(-10px);
                 }
             }
 
@@ -185,17 +206,18 @@
                 width:360px;
 
                 .talk{
-                    width:165px;
-                    // transform: translateY(-109px) translateX(79px);
+                    transform: translateY(-99px) translateX(199px);
+                   
 
                         h3{
                             padding-right: 10px;
-                            padding-bottom: 30px;
+                            padding-bottom: 90px;
                         }
                 }
 
                 .MoonOfGod{
                     width:210px;
+                    transform:translateX(22px);
                 }
             }
         }
