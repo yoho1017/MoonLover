@@ -2,7 +2,40 @@
 
 //768
 // @include rwd(small) {
+
 // }
+
+//730
+@include rwd(730px) {
+
+    .large_line{
+
+        
+        .middle_line{
+
+            //月老對話框改小
+            .god_talk{
+                .talk{
+                    width:146px;
+                    transform: translateY(-12px) translateX(119px);
+
+                    h3{
+                        padding-right: 9px;
+                        padding-bottom: 87px;
+                    }
+                }
+                //月老變小隻
+                .MoonOfGod{
+                    width:200px;
+                    transform: translateX(52px);
+                }
+            }
+        }
+    }
+
+
+}
+
 
 //740
 @include rwd(740px) {
@@ -149,36 +182,36 @@
 
 
 //500
-@include rwd(500px) {
-    .large_line{
+// @include rwd(500px) {
+//     .large_line{
 
-        .middle_line{
+//         .middle_line{
 
             //月老跟對話框調整大小
-            .god_talk{
+//             .god_talk{
 
-                width:470px;
+//                 width:470px;
 
-                .talk{
-                    width:220px;
-                    height: 160px;
+//                 .talk{
+//                     width:220px;
+//                     height: 160px;
 
-                        h3{
-                            padding-right: 10px;
-                            padding-bottom: 20px;
-                        }
-                }
+//                         h3{
+//                             padding-right: 10px;
+//                             padding-bottom: 20px;
+//                         }
+//                 }
 
-                .MoonOfGod{
-                    width:280px;
-                }
-            }
+//                 .MoonOfGod{
+//                     width:280px;
+//                 }
+//             }
 
-        }
+//         }
 
-    }
+//     }
 
-}
+// }
 
 
 
