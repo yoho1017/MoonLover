@@ -3,6 +3,7 @@ div.MyMascot-wrapper {
     height: 100vh;
     padding-top: 130px;
     padding-bottom : 50px;
+    overflow-x: hidden;
 
     @include member;
 
@@ -54,8 +55,9 @@ div.MyMascot-wrapper {
                 overflow: hidden;
 
                 img {
-                    max-width: 100%;
+                    max-width: 100%;                    
                 }
+
             }
         }
         
@@ -140,67 +142,21 @@ div.MyMascot-wrapper {
             @include flexCenter;
             margin: 0 auto;
 
-            .mascotimg {
-                @include flexCenter;
-                // border: 1px solid #000;
-                position: relative;
+            @include mascot;
 
-                .chat {
-                    width: 50%;
-                    display: flex;
-                    align-items: flex-start;
-                    flex-direction: column;
-                    background-color: white;
-                    padding: 5% 3%;
-                    border-radius: 20px;
-                    border: 10px solid #FF8484;
-                    position: absolute;
-                    bottom: 80%;
-                    left : 70%;
-
-                    h3 {
-                        color: #FF8484;
-                    }
-
-                    h4 {
-                        font-weight: 600;
-                    }
-                    
-                    .triangle {
-                        position: absolute;
-                        top: 100%;
-                        border-style: solid;
-                        border-width: 30px 35px 0 5px;
-                        border-color: #FF8484 transparent transparent transparent;
-                        left: 5%;
-                    }
-
-                    .trianglein {
-                        position: absolute;
-                        top: 99%;
-                        border-style: solid;
-                        border-width: 24px 25px 0 5px;
-                        border-color: white transparent transparent transparent;
-                        left: 7%;
-                    }
-
-
-                }
-
-                img {
-                    width : 80%;
-                }
-            }
         }
+
 
         .Mrightspace {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             width: 100%;
             // border: 1px solid #000;
             
+            @include btn (reset,25%,2%);
             @include btn (submit,25%,2%);
         }
 
-    }  
+    }
+
 }

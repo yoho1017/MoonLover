@@ -14,6 +14,8 @@ var member = new Vue ({
         ],
         // 會員頭像
         profile : "./images/MyInfo/profile.png",
+        // 吉祥物
+        mascot : '',
         // 會員名稱
         username : '',
         // 會員信箱
@@ -510,6 +512,19 @@ var member = new Vue ({
             });
         },
 
+        getMascot () { //取得吉祥物
+            axios.post('./php/selectMascotR.php').then( response => {
+                data = response.data;
+                console.log(response);
+                console.log(data);
+                if (data != '') {
+                    this.mascot = data;
+                    document.querySelector('.mascot').innerHTML = this.mascot;
+                    console.log(this.mascot);
+                }
+            });
+        }
+
 
     },
     
@@ -611,6 +626,8 @@ var member = new Vue ({
         this.getIntdata ();
 
         this.getImage ();
+
+        this.getMascot ();
 
         for (j = 0 ; j <= 100; j++) { //製造年齡option
             this.ages.push(j + "歲");

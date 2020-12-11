@@ -35,9 +35,12 @@ div.MyInfo-wrapper {
         align-items: center;
         width: 30% !important;
         border: 6px solid #ac5454 !important;
+        overflow: hidden;
 
         .mascot {
-            max-width: 70%;
+            margin: auto;
+
+            @include mascot;
         }
     }
 
