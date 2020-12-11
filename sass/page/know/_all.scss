@@ -423,17 +423,51 @@
         z-index: -1;
       }
 
-    .bk_cloud_move{
-        position: fixed;
-        width:60%;
-        top:5%;
-        left: -20%;
-        opacity: 0.7;
-        z-index: -2;
-
-    }
         
 };
+
+
+//  背景雲的動畫-整體移動 
+    .know_wrapper_bk_color{
+        position: relative;
+
+        //整體雲移動
+      .cloud_one{
+        background-image: url(../images/know/one_page/cloud_one.png);
+        position: absolute;
+        top:15%;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -5;
+        opacity: .5;
+
+        @keyframes move{
+            100%{background-position: 500% 0;}
+        }
+
+      }
+
+      .cloud_second{
+        background-image:url(../images/know/one_page/cloud_second.png);
+        position: absolute;
+        top:15%;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -4;
+        opacity: .4;
+
+
+        @keyframes move{
+            100%{background-position: 500% 0;}
+        }
+
+      }
+        
+    }
 
 
 // rwd 1830斷點
