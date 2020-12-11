@@ -48,7 +48,8 @@ function dataToTemple(data){
  //貼文組件
  const bus = new Vue();
  Vue.component('send',{
-    props:['myimg','name','msg','time','id'],
+    props:['myimg','name','msg','time','id','srcimg'],
+ 
     template:`   
     <form  class="userForm" action="#" :id=id>
        <i class="fas fa-exclamation-circle fa-1x end" id="edit" ></i>
@@ -67,9 +68,7 @@ function dataToTemple(data){
                <div class="imgBlock">
                    <!-- 貼文區圖片 -->
                    <ul class="imgList2">
-                       <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
-                       <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>
-                       <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li>                                                     
+                       <li v-for='value in srcimg'><div class="aboutImg"><img :src=value></div></li>                                                                         
                    </ul>                  
                </div>                                
            </div>
@@ -148,6 +147,8 @@ function dataToTemple(data){
       myMsg:[],
       newText : '', 
       visitorstext:'',
+      srcimg:[],
+      images:[],//暫存圖
     },
     methods : {
       submit(newText){
@@ -157,6 +158,7 @@ function dataToTemple(data){
           );
           setTimeout(this.scrollTo,1000);
           this.newText='';
+
         }
       },
       getTime () {
@@ -172,6 +174,50 @@ function dataToTemple(data){
       addvisitors(visitorstext){
        
       },
+
+      // 傳照片
+      fileChange(e){
+        this.images;
+        const files = e.target.files;  //取得File物件
+        // console.log(files);//秀出物件陣列
+        this.images.forEach.call(files,this.fileReader); //快速呼叫了 forEeah的方法
+
+      },
+
+      fileReader(file){
+        const reader = new FileReader(); //建立FileReader 監聽 Load 事件
+        reader.addEventListener("load", this.createImage);
+        reader.readAsDataURL(file);
+        
+      },
+
+      createImage(e){
+        
+        const files =  this.images;  //陣列長度    
+        
+        if(files.length >= 3){  //如果判斷大於等於三張就進alert
+
+          alert('最多只能上傳三張'); 
+
+        }else{
+          const file = e.target;
+          const image = {src:file.result};
+          this.images.push(image); //暫存圖
+          this.srcimg.push(image.src);
+                   
+            }
+       
+        
+      },
+
+
+      deletebut(e){ //刪除陣列照片
+        const arry=this.images;
+        const files = e.target.files;
+        arry.splice(files,1);
+
+      }
+      
     },
     
 
