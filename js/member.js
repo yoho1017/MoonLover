@@ -16,6 +16,8 @@ var member = new Vue ({
         profile : "./images/MyInfo/profile.png",
         // 吉祥物
         mascot : '',
+        // 有無吉祥物(預設關閉)
+        hasMascot : false,
         // 會員名稱
         username : '',
         // 會員信箱
@@ -518,9 +520,9 @@ var member = new Vue ({
                 console.log(response);
                 console.log(data);
                 if (data != '') {
-                    this.mascot = data;
-                    document.querySelector('.mascot').innerHTML = this.mascot;
-                    console.log(this.mascot);
+                    this.mascot = `./images/member/macot/${data}`;
+                    this.hasMascot = true;
+                    // console.log(this.mascot);
                 }
             });
         }

@@ -445,6 +445,10 @@ h5 {
     background-color: rgba(255, 255, 255, .5);
     backdrop-filter: blur(2px);
   }
+
+  .on {
+    display: block;
+  }
 }
 
 @mixin profileImg ($name,$wd) { //會員中心circle頭像

@@ -1,5 +1,5 @@
 @include rwd(large) {
-  .MyInfo-wrapper {
+  div.MyInfo-wrapper {
     main {
       .ARight {
         .MyInfoform {
@@ -50,5 +50,14 @@
         }
       }
     }
+
+    .ALeft {
+      .mascotimg {
+        .btnBlue_NewMascot {
+          width : 100%;
+        }
+      }
+    }
+
   }
 }

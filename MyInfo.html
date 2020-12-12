@@ -204,8 +204,18 @@
                     <!---------------- 吉祥物---------------- -->
 
                     <div class="inBox_account ALeft">
-                        <!-- <img src="./images/MyInfo/mascot.svg" class="mascot"> -->
-                        <div class="mascot"></div>
+                        <div class="mascotimg">
+                            <img v-if="hasMascot" :src="mascot" class="mascot">
+                            <div class="nomascot"  v-else="hasMascot">
+                                <img src="./images/MyInfo/mascot.png" class="mascot">
+                                <h3>還沒有吉祥物哦 !</h3>
+                                <button class="btnBlue_NewMascot">
+                                    <a href="./MyMascot.html">
+                                        創建吉祥物
+                                    </a>
+                                </button>    
+                            </div>
+                        </div>
                     </div>
             <!---------------------------- 會員資料------------------------------------>
                     <div class="inBox_account ARight">

@@ -37,11 +37,34 @@ div.MyInfo-wrapper {
         border: 6px solid #ac5454 !important;
         overflow: hidden;
 
-        .mascot {
-            margin: auto;
+        .mascotimg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
 
-            @include mascot;
+            @include btn (NewMascot, 75%, 2%);
+
+            .nomascot {
+                @include flexCenter;
+                flex-direction: column;
+            }
+
+            h3 {
+                margin : 2% auto;
+            }
+
+            a {
+                font-size: 30px;
+                text-decoration: none;
+                color : white;
+            }
+
+            img {
+                width : 100%;
+            }
         }
+
     }
 
     .ARight {
