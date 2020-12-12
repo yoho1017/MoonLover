@@ -42,15 +42,20 @@
                         width:50%;
                         border:1px solid pink;
                         background-color:#FFFFFF;
+                        padding:20px;
+                        // border:2px solid green;
+                        // position: relative;
+                        
+
                         .ppicture{                  
-                            width:80%;
-                            height:80%;
-                            background-image:url(/images/moonShopCar/悠遊卡.png);
+                            width:200px;
+                            height:150px;
+                            // background-image:url(/images/moonShopCar/悠遊卡.png);
                             background-position: center;
                             background-repeat: no-repeat;
                             background-size: cover;
-                            margin: 10px auto 10px auto;
-                            
+                            margin:auto;
+                            // border:3px solid orange;
                         }
                     }
                     .pwords{               
@@ -60,10 +65,10 @@
                         .pwords_inner{
                             display:block;
                             width:100%;
-                            border:1px solid blue;
+                            // border:1px solid blue;
                             div{
                                 margin:auto;
-                                border:1px solid orange;
+                                // border:1px solid orange;
                                 width:50%;
                                 text-align:center;
                                 line-height:110px;

@@ -28,10 +28,6 @@ function doFirst() {
         // console.log(itemValue, '123');
         let itemPrice = parseInt(itemValue.split('|')[2]);
         //get animals imgs
-        let itemPicture = "";
-        if (itemValue.split('|').length > 3) {
-            itemPicture = itemValue.split('|')[3];
-        }
 
         //要先選到最外圍綁定起來
         let newMoonTotal = document.querySelector('.moontotal');
@@ -66,11 +62,13 @@ function doFirst() {
         animalsDiv.appendChild(itemAnimals);
         itemppicture.appendChild(animalsDiv);
         itemimg.setAttribute('src', `./images/moonShop/${itemImage}`);
-        itemAnimals.setAttribute('src', `./images/moonShop/${itemPicture}`);
-        console.log(itemAnimals, "0234");
+        itemimg.style.width = "100%";
+        itemimg.style.height = "100%";
 
-
-
+        // 判斷 是否有 animal 圖片
+        if (itemValue.split('|').length > 3) {
+            itemAnimals.setAttribute('src', "./images/moonShop/" + itemValue.split('|')[3])
+        }
 
         // console.log(itemppicture);
         //商品名稱和價格,把悠遊卡和單價放在外層
@@ -123,14 +121,16 @@ function doFirst() {
         //刪除按鈕------------------------------------------------
 
         let delitems = document.createElement("div");
+        delitems.innerText = '刪除';
         delitems.className = "m_del";
-        delitems.setAttribute('dataimg', itemValue);
-        delitems.setAttribute('datalist', getItemList);
+        delitems.setAttribute('data-img', itemValue);
+        delitems.setAttribute('data-list', getItemList);
 
-        let delword = document.createElement('p');
-        delword.textContent = '刪除';
+        // let delword = document.createElement('p');
+        // delword.textContent = '刪除';
 
-        delitems.appendChild(delword);
+
+        // delitems.appendChild(delword);
         newMcontent.appendChild(delitems);
         // delButton.addEventListener('click', deleteItem);
 
@@ -139,6 +139,8 @@ function doFirst() {
         let rwdDelitems = document.createElement('i');
         rwdDelitems.classList.add('fas', 'fa-trash-alt', 'fa-2x', 'garbageCan');
         newMcontent.appendChild(rwdDelitems);
+        rwdDelitems.setAttribute('data-img', itemValue);
+        rwdDelitems.setAttribute('data-list', getItemList);
 
         // function deleteItem() {
 
@@ -167,28 +169,9 @@ function numberCount() {
     let itemPrice = document.querySelectorAll('.pwds_price');
     let itemTotal = document.querySelectorAll('.proTotalprice');
     let delitems = document.querySelectorAll('.m_del');
-    let getAllImg = JSON.parse(storage.getItem("addItemImg"));
-    let getAllItem = JSON.parse(storage.getItem('addItemList'));
+
 
     // 小計金額計算--------------------------------------------------------------
-    // for (let i = 0; i < mcontentAll.length; i++) {
-    //     itemTotal[i].textContent = parseInt(numberInput[i].value) * parseInt(itemPrice[i].textContent);
-    //     numberPlus[i].addEventListener('click', function (e) {
-
-    //         numberInput[i].value++;
-    //         itemTotal[i].textContent = parseInt(numberInput[i].value) * parseInt(itemPrice[i].textContent);
-    //     })
-    //     numberMinus[i].addEventListener('click', function (e) {
-
-    //         if (numberInput[i].value > 1) {
-    //             numberInput[i].value--;
-    //         }
-    //         itemTotal[i].textContent = parseInt(numberInput[i].value) * parseInt(itemPrice[i].textContent);
-    //     })
-    // }
-
-
-
     mcontentAll.forEach((element, i, array) => element.addEventListener('click', function (e) {
         // e.stopPropagation();
         total = 0;
@@ -205,22 +188,22 @@ function numberCount() {
         }
         itemTotal[i].textContent = parseInt(numberInput[i].value) * parseInt(itemPrice[i].textContent);
         //刪除商品
-        if (arrayFromList.includes('m_del')) {
-            console.log(i, 'index');
-            getAllImg.splice(i, 1);
-            getAllItem.splice(i, 1);
+        function deleteItems() {
+            if (arrayFromList.includes('m_del') || arrayFromList.includes('fa-trash-alt')) {
 
-            // console.log(getAllImg, "123");
-            // console.log(getAllItem, "123");
-
-            // let newDataimg = getAllImg.filter(item => item !== e.target.attributes.dataimg.value);
-            // let newDataList = getAllItem.filter(item => item !== e.target.attributes.datalist.value);
-            localStorage.setItem('addItemImg', JSON.stringify(getAllImg));
-            localStorage.setItem('addItemList', JSON.stringify(getAllItem));
-            // }
-            element.remove();
+                let getAllImg = JSON.parse(storage.getItem("addItemImg"));
+                let getAllItem = JSON.parse(storage.getItem('addItemList'));
+                console.log(e.target.dataset, "delete")
+                let newDataimg = getAllImg.filter(item => item !== e.target.dataset.img);
+                let newDataList = getAllItem.filter(item => item !== e.target.dataset.list);
+                localStorage.setItem('addItemImg', JSON.stringify(newDataimg));
+                localStorage.setItem('addItemList', JSON.stringify(newDataList));
+                // }
+                element.remove();
+            }
         }
 
+        deleteItems();
 
         accountTotal();
     }
@@ -228,36 +211,6 @@ function numberCount() {
     )
 
 
-
-    // for (let i = 0; i < getAllItem.length; i++) {
-    //     delitems[i].addEventListener('click', function (e) {
-    //         e.preventDefault()
-    //         let li = e.target.parentElement;
-    //         console.log(li);
-    //         let index = Array.prototype.indexOf.call(itemList.children, li);
-    //         removeLocalStorage(index);
-    //         itemList.removeChild(li);
-
-
-    //         function removeLocalStorage(index) {
-    //             let afterAllImg = getAllImg.splice(index, 1);
-    //             let afterAllItem = getAllItem.splice(index, 1);
-
-    //         }
-    // console.log(i, 'asdsad');
-    // console.log(getAllImg.length, 'num');
-    // let afterAllImg = getAllImg.splice(i, 1);
-    // console.log(afterAllImg.length);
-    // let afterAllItem = getAllItem.splice(i, 1);
-    // console.log(afterAllItem.length);
-    // localStorage['addItemList'] = JSON.stringify(afterAllItem);
-    // localStorage['addItemImg'] = JSON.stringify(afterAllImg);
-    // location.reload();
-    //     })
-    // }
-    // localStorage['addItemList'] = JSON.stringify(afterAllItem);
-    // localStorage['addItemImg'] = JSON.stringify(afterAllImg);
-    // location.reload();
 
 }
 
@@ -276,11 +229,6 @@ function accountTotal() {
 
     let totalPPrice = document.getElementById('payTotal');
     totalPPrice.textContent = total;
-    // let currentDom = [...e.target.classList];
-    // console.log(e.target.classList, '5858585');
-    // if (currentDom.some(items => items === "m_del")) {
-    //     localStorage.removeItem()
-    // }
 }
 window.addEventListener('load', function () {
     doFirst()
