@@ -27,9 +27,7 @@
         $img = $row["MASCOT"];
     }
 
-    $svg = $img;
-
-    echo $svg;
+    echo $img;
 
 
 ?>

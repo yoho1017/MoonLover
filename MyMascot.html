@@ -198,7 +198,7 @@
                 <div class="pinkBox_mascot" @dragover="dragover">
                     <!---------------- 吉祥物客製化選單---------------- -->
                     <div class="inBox_mascot ALeft">
-                        <div class="access"
+                        <div class="access"  
                         @dragend="dragend">
                             <div class="cus" @click = "select(1,deco)">
                                 <img :src="'./images/MyMascot/' + currentMascot + '/' + 'preview/' + deco + '/1.png'" class="listimg">
@@ -215,16 +215,16 @@
                         </div>
                         <div class="list">
                             <div class="page" :class="{choice : deco == 0}" @click ="decoClick(0)">
-                                <h3>面飾</h3>
+                                <h3 id="list_face">面飾</h3>
                             </div>
                             <div class="page" :class="{choice : deco == 1}" @click ="decoClick(1)">
-                                <h3>頭飾</h3>
+                                <h3 id="list_head">頭飾</h3>
                             </div>
                             <div class="page" :class="{choice : deco == 2}" @click ="decoClick(2)">
-                                <h3>飾品</h3>
+                                <h3 id="list_dress">飾品</h3>
                             </div>
                             <div class="page" :class="{choice : deco == 3}" @click ="decoClick(3)">
-                                <h3>尾巴</h3>
+                                <h3 id="list_tail">尾巴</h3>
                             </div>
                         </div>
                     </div>
@@ -255,20 +255,54 @@
                                     <div class="triangle"></div>
                                     <div class="trianglein"></div>    
                                 </div>
-                                <div v-show="itemshow[3]" class="tail" :class="getTail"><img :src="'./images/MyMascot/' + currentMascot + '/' + 'dressing/' + 3 + '/' + selectItem.tail + '.png'" id="tail"></div>
-                                <div v-show="itemshow[2]" class="dress" :class="getDress"><img :src="'./images/MyMascot/' + currentMascot + '/' + 'dressing/' + 2 + '/' + selectItem.dress + '.png'" id="dress"></div>
-                                <div v-show="itemshow[1]" class="head" :class="getHead"><img :src="'./images/MyMascot/' + currentMascot + '/' + 'dressing/' + 1 + '/' + selectItem.head + '.png'" id="head"></div>
-                                <div v-show="itemshow[0]" class="face" :class="getFace"  id="faceDiv"><img :src="'./images/MyMascot/' + currentMascot + '/' + 'dressing/' + 0 + '/' + selectItem.face + '.png'" id="face"></div>
+                                <div class="chat" v-show="obj">
+                                    <h4>
+                                        可以點擊或拖曳物件。
+                                        <br>
+                                        幫我做造型哦 !
+                                    </h4>
+                                    <div class="triangle"></div>
+                                    <div class="trianglein"></div>    
+                                </div>
+                                <div v-show="showobj[3]" class="tail" :class="getTail"><img  :src="'./images/MyMascot/' + currentMascot + '/' + 'dressing/' + 3 + '/' + selectItem.tail + '.png'" id="tail"></div>
+                                <div v-show="showobj[2]" class="dress" :class="getDress"><img :src="'./images/MyMascot/' + currentMascot + '/' + 'dressing/' + 2 + '/' + selectItem.dress + '.png'" id="dress"></div>
+                                <div v-show="showobj[1]" class="head" :class="getHead"><img  :src="'./images/MyMascot/' + currentMascot + '/' + 'dressing/' + 1 + '/' + selectItem.head + '.png'" id="head"></div>
+                                <div v-show="showobj[0]" class="face" :class="getFace"  id="faceDiv"><img :src="'./images/MyMascot/' + currentMascot + '/' + 'dressing/' + 0 + '/' + selectItem.face + '.png'" id="face"></div>
                                 <img :src="'./images/MyMascot/' + mascot.image" class="mascots" id="mascot">
                             </div>
                         </div>
                         <div class="Mrightspace">
                             <button class="btnBlue_reset" @click="reset"><h3>重設</h3></button>
-                            <button class="btnRed_submit" @click="submit"><h3>確認</h3></button>
+                            <button class="btnRed_submit" @click="submit"><h3>完成</h3></button>
                         </div>
                     </div>
                 </div>
             </main>       
+
+            <!-- 完成燈箱 -->
+
+            <div class="mascot_pop" :class="{on : success}" v-show="success">
+                <div class="mascot_pop_in">
+                    <div class="pinkBox_maspop">
+                        <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
+                        <div class="inBox_maspop">
+                            <div class="customimg">
+                                <img :src="custom">
+                            </div>
+                            <h2>
+                                完成客製化 !
+                                <br>
+                                前往月老商城購買屬於你的客製化商品吧 !
+                            <h2>
+                            <button class="btnBlue_shop">
+                                <a href="./moonShop.html">
+                                    前往月老商城
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

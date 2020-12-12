@@ -1,6 +1,11 @@
 @include rwd(medium) {
 
     div.MyMascot-wrapper {
+
+        .pinkBox_maspop {
+            width : 85%;
+        }
+
         main {
           .pinkBox_mascot {
             flex-direction: column-reverse;
@@ -41,6 +46,12 @@
                     }
                     .Mascot {
                         margin: 10% auto;
+
+                        .mascotimg {
+                            .chat {
+                                bottom : 90%;
+                            }
+                        }
                     }
                 }
           }

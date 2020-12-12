@@ -1,6 +1,21 @@
 @include rwd(small) {
 
     div.MyMascot-wrapper {
+
+        .pinkBox_maspop {
+            .btnBlue_shop {
+              width : 60%;
+              padding : 5%;
+            }
+
+            .customimg {
+                img {
+                   width: 70%;
+                }
+             }    
+
+        }
+
         padding-top: 150px;
 
         main {

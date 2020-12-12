@@ -1,6 +1,14 @@
 @include rwd(large) {
 
-  .MyMascot-wrapper {
+  div.MyMascot-wrapper {
+
+    .pinkBox_maspop {
+      width : 65%;
+
+    }
+
+
+
     main {
       .pinkBox_mascot {
           .inBox_mascot {
@@ -75,6 +83,7 @@
               }
 
                 .chat {
+                  width : 65%;
                   padding: 3% 3%;
                 }
                 .mascots {

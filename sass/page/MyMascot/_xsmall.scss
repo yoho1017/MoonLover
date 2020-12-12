@@ -1,6 +1,31 @@
 @include rwd(xsmall) {
 
-   .MyMascot-wrapper {
+   div.MyMascot-wrapper {
+
+      .pinkBox_maspop {
+ 
+         h2 {
+            font-size: 20px;
+         }
+ 
+         a {
+            font-size: 20px;
+         }
+
+         .customimg {
+            img {
+               width: 100%;
+            }
+         }
+         
+         .btnBlue_shop {
+            width: 70%;
+            padding: 8%;
+        }
+
+     }
+ 
+
       .pinkBox_mascot {
 
             .ARight {
