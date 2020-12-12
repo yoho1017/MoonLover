@@ -409,6 +409,7 @@
         }
     }
 
+    //背景放大縮小雲
     .backCloud {
         position: fixed;
         width:100%;
@@ -431,7 +432,7 @@
     .know_wrapper_bk_color{
         position: relative;
 
-        //整體雲移動
+      //整體雲移動
       .cloud_one{
         background-image: url(../images/know/one_page/cloud_one.png);
         position: absolute;

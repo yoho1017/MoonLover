@@ -74,7 +74,7 @@
          //  padding: 0 40px;
           color: #fff8ce;
           font-size: 16px;
-          border:1px solid blue;
+        //   border:1px solid blue;
           }
 
           //購買商品內容
@@ -104,7 +104,7 @@
             .product-title tr:nth-child(1){
             width:100px;
             height:100px;
-            background-image: url("images/moonShopCar/悠遊卡.png");
+            // background-image: url("images/moonShopCar/悠遊卡.png");
             border:5px solid red;
             background-position: center;
             background-size: cover;
@@ -461,6 +461,7 @@
     }
 
       //----------------最後一次
+
         .moontotal{
             box-shadow:0px 0px 0px 10px  #ff7a7a; 
             border:5px solid #ac5454;
@@ -493,10 +494,11 @@
             .mcontent{
                 display:flex;
                 // border:1px solid purple;
+                border:1px solid #ff7a7a;
                 width:100%;
                 .pImage{
                     width:16%;
-                    border:1px solid #ff7a7a;
+                    // border:1px solid #ff7a7a;
                     background-color:#FFFFFF;
                     .ppicture{
                         width:80%;
@@ -515,7 +517,7 @@
                             top:0;
                             bottom:0;
                             margin:auto;
-                            border:1px solid red;
+                            // border:1px solid red;
                             .acceptPic{
                                 width:100%;
                                 height:100%;
@@ -573,22 +575,29 @@
                 }
                 .m_del{
                     background-color:#FFFFFF;
-                    width:16%;
+                    width:12%;
                     text-align:center;
-                    // line-height: 110px;
-                    p{
-                        background-color:#ff7a7a;
-                        border-radius: 30px;
-                        margin:30px;
-                        height:50px;
-                        color:#FFFFFF;
-                        line-height:50px;
-                        font-size:20px;
-                    }
-                    p:hover{
-                        background-color:#ac5454;
-                        cursor: pointer;
-                    }
+                    background-color:#ff7a7a;
+                    border-radius: 30px;
+                    margin:30px;
+                    height:50px;
+                    color:#FFFFFF;
+                    line-height:50px;
+                    font-size:20px;
+                    cursor: pointer;
+                    // p{
+                    //     background-color:#ff7a7a;
+                    //     border-radius: 30px;
+                    //     margin:30px;
+                    //     height:50px;
+                    //     color:#FFFFFF;
+                    //     line-height:50px;
+                    //     font-size:20px;
+                    // }
+                    // p:hover{
+                    //     background-color:#ac5454;
+                    //     cursor: pointer;
+                    // }
                 }
                 .garbageCan{
                     display:none;

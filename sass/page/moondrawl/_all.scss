@@ -1,6 +1,5 @@
 // =================== 宗耘求籤.scss ======================================
 
-
 .large_line{
     width:100%;
     height: 100%;
@@ -118,10 +117,21 @@
                     }
                 }
 
-                //R的時候燈籠要縮小(510px)
 
                 .duelbox{
+
                     display: none;
+                    // border :1px solid red;
+                    position: relative;
+
+                    //上下浮動
+                    @keyframes moveupdown_duelbox{
+                        from { top: 0.07%; }
+                        to { top: 1.5%; }
+                    }
+
+                    animation: moveupdown_duelbox 1s infinite linear alternate;
+
 
                     //中間區域雲朵
                     .cloud{
@@ -401,6 +411,7 @@
 //月老第一/二頁對話框
 .god_talk{
 
+
     width:500px;
     // border: 1px solid green;
     position: absolute;
@@ -409,8 +420,14 @@
     display: inline-flex;
     display: none;
 
-    // display:none;
 
+    //月老上下浮動動畫
+    // animation: moveupdown 1s infinite linear alternate;
+
+    // @keyframes moveupdown{
+    //     from { bottom: 0.5%; }
+    //     to { bottom: 0; }
+    // }
 
         .talk{
             width: 260px;
@@ -427,7 +444,6 @@
 
             h3{
                 font-size: map-get($font_size, 'h3');
-
                 padding-right: 10px;
                 padding-bottom: 20px;
                
@@ -450,9 +466,8 @@
 .god_talk.-on{
     display: inline-flex;
 }
+//結果頁月老同上
 
-
-    //結果頁月老同上
 
 
     // 中間1200區域結尾
@@ -461,8 +476,11 @@
 //.large_line最大範圍結尾
 }
 
-//js背景動畫雲
+
+//背景動畫雲
 .moonDrawLots_bk_color{
+
+    //酪梨姊姊雲
     .backCloud {
         position: fixed;
         bottom: 0;
@@ -475,7 +493,7 @@
       }
 
       
-      //整體雲移動
+      //整體雲keyframe移動
       .cloud_one{
         background-image: url(../images/moondrawl/step_1/cloud_one.png);
         position: absolute;
@@ -484,8 +502,8 @@
         width: 100%;
         background-size:cover;
         animation: move 100s infinite linear alternate;
-        z-index: -5;
-        opacity: .5;
+        z-index: -3;
+        opacity: .6;
 
         @keyframes move{
             100%{background-position: 500% 0;}
@@ -500,7 +518,7 @@
         width: 100%;
         background-size:cover;
         animation: move 100s infinite linear alternate;
-        z-index: -4;
+        z-index: -2;
         opacity: .4;
 
 
