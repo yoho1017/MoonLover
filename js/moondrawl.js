@@ -5,7 +5,9 @@ $(document).ready(function(){
     });
     // 第二步按鈕 擲筊
     $('.btn_go2').on('click', function(){
-
+ 
+        //按下去觸發動畫
+        $(".duelboxe").addClass("animate__animated animate__backInDown");
 
         axios.post('./php/moondraw.php').then( response => {
             var data = response.data;

@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>緣弧-月老求籤</title>
+    
+    <!-- animate -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <!-- TweenMax -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
      integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
@@ -254,41 +261,39 @@
                 </div>
                      
 
+                        <!-- 第三頁（求籤結果） -->
+                 <div class="duelboxer dBoxSwitch animate__animated animate__backInDown">
+                            
+                        <img src="./images/moondrawl/step_1/paper_bk.png" alt="paper_bk"> 
 
-                <!-- 第三頁（求籤結果） -->
-                <div class="duelboxer dBoxSwitch">
-                    <img src="./images/moondrawl/step_1/paper_bk.png" alt=""> 
-                   
+                                <!-- 求籤重要文字 -->
+                            <div class="title">
 
+                                <div class="decoration">
+                                    <h1 class="ins_title" id="Lucky">
+                                    大吉
+                                    </h1>
+                                </div>
 
-                     <!-- 求籤重要文字 -->
-                    <div class="title">
+                                <h2 class="ins" id="Lucky_ins">
+                                    佳偶耶？ <br>
+                                    神仙美眷也。
+                                </h2> 
 
-                        <div class="decoration">
-                            <h1 class="ins_title" id="Lucky">
-                             大吉
-                            </h1>
-                        </div>
-
-                        <h2 class="ins" id="Lucky_ins">
-                            佳偶耶？ <br>
-                            神仙美眷也。
-                        </h2> 
-
-                    </div>
+                                </div>
 
 
-                    <!-- 籤花紋 先不要 -->
-                    <!-- <div class="deco_img">
-                        <img src="./images/moondrawl/step_1/block_none.png" alt="block_img">
-                    </div> -->
+                                <!-- 籤花紋 先不要 -->
+                                <!-- <div class="deco_img">
+                                    <img src="./images/moondrawl/step_1/block_none.png" alt="block_img">
+                                </div> -->
 
                 </div>
 
 
 
                 <!-- 第四頁（求籤結果說明） --> 
-                <div class="duelboxer2 dBoxSwitch">
+                <div class="duelboxer2 dBoxSwitch animate__animated animate__bounceIn">
 
                     <img src="./images/moondrawl/step_1/paper_bk-back.png" alt=""> 
 
@@ -365,7 +370,8 @@
               <div class="god_talk">
 
                 <div class="talk">
-                    <h3>籤來啦！</br>
+                    <h3>點擊</br>
+                        看詳解
                     </h3>
                 </div>
 
@@ -393,7 +399,6 @@
 
 <!-- 背景div包起來結束 -->
     </div>
-
 
     <script src="./js/nav.js"></script>
     <script src="./js/login.js"></script>  
