@@ -55,7 +55,15 @@ function doFirst() {
 
         // 判斷 是否有 animal 圖片
         if (cartItem["animalImg"]) {
-            itemAnimals.setAttribute('src', "./images/moonShop/" + cartItem["animalImg"])
+            if (cartItem["animalImg"] === 'fox-01.png' || cartItem["animalImg"] === 'rab-01.png' || cartItem["animalImg"] === 'mok-01.png') {
+                console.log('有三個');
+                itemAnimals.setAttribute('src', "./images/moonShop/" + cartItem["animalImg"])
+            }
+            else {
+                itemAnimals.setAttribute('src', "./images/member/macot/" + cartItem["animalImg"])
+                console.log('爛隊長');
+            }
+
         };
 
         // console.log(itemppicture);
@@ -177,11 +185,20 @@ function numberCount() {
         itemTotal[i].textContent = parseInt(numberInput[i].value) * parseInt(itemPrice[i].textContent);
         //刪除商品
         function deleteItems() {
-            console.log(e.target.dataset);
+            console.log(e.target.dataset, '.target.dataset');
+            console.log(arrayFromList, 'arrayFromList');
             if (arrayFromList.includes('m_del') || arrayFromList.includes('fa-trash-alt')) {
                 let cartItems = JSON.parse(localStorage.getItem("cartItems"))
-                let afterCartItems = cartItems.filter(item => item["ID"] !== e.target.dataset.pdid && item["animalImg"] !== e.target.dataset.animal)
-                console.log(afterCartItems);
+                console.log(cartItems, 'cartItems');
+                let afterCartItems = cartItems.filter(function ({ ID, animalImg }) {
+                    if (animalImg) {
+                        return (ID !== e.target.dataset.pdid || animalImg !== e.target.dataset.animal);
+                    }
+                    else {
+                        return (ID !== e.target.dataset.pdid);
+                    }
+                });
+                console.log(afterCartItems, 'afterCartItems');
                 localStorage.setItem('cartItems', JSON.stringify(afterCartItems))
                 element.remove();
             }

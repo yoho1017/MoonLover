@@ -29,10 +29,13 @@ var lists;
 function loading(data) {
 
     lists = data;
+    console.log(data, 'data');
     //悠遊卡
     document.getElementById('easyCard').innerHTML = lists[0].NAME;
     document.getElementById('easyCardImg').src = thing(lists[0].IMAGE);
     document.getElementById('easyCardPrice').innerHTML = lists[0].PRICE;
+
+
     //大抱枕
     document.getElementById('easyPillow').innerHTML = lists[1].NAME;
     document.getElementById('easyPillowImg').src = thing(lists[1].IMAGE);
@@ -86,6 +89,13 @@ function loading(data) {
     for (let i = 0; i < lists.length; i++) {
         document.querySelectorAll('.shopCars')[i].id += `${lists[i]["ID"]}`;
         document.querySelectorAll(".ImageContent1")[i].dataset.pdid = `${lists[i]["ID"]}`
+        /// // go to detail page
+        document.querySelectorAll('.ImageContent1')[i].dataset.pdtitle = lists[i].NAME;
+        document.querySelectorAll('.ImageContent1')[i].dataset.pdprice = lists[i].PRICE;
+        document.querySelectorAll('.ImageContent1')[i].dataset.pdintroduction = lists[i].INTRODUCTION;
+        document.querySelectorAll('.ImageContent1')[i].dataset.pdImg = lists[i].IMAGE;
+
+
     }
 
 
@@ -129,10 +139,13 @@ for (let i = 0; i < ImgList.length; i++) {
         for (let j = 0; j < ImgList.length; j++) {
             document.getElementsByClassName('acceptPic')[j].src = e.target.src;
             // 抓取圖片名稱
-            let imgSrc = e.target.src.slice(-10);
+
+
+            // let imgSrc = e.target.src.slice(-10);
+            let imgSrc = e.target.src.split('/')[e.target.src.split('/').length - 1];
             let shoppingInput = document.querySelectorAll('.shoppingCars');
             shoppingInput[j].dataset.product = imgSrc;
-
+            document.querySelectorAll('.ImageContent1')[j].dataset.pdLuckyImg = imgSrc;
             //上面這裡要再詢問?
             //這裡為何要用-1(迴圈要在更懂)只要裡面有01就要放
             // if (shoppingInput[j].value.indexOf("01") !== -1) {
@@ -167,10 +180,9 @@ function doFirst() {
             let currentProd = lists.find(item => item["ID"] === e.target.id)
             let cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
             if (cartItems.length >= 0) {
-                if (cartItems.some(element => element["ID"] === currentProd["ID"]) === false) {
+                if (!cartItems.some(element => element["ID"] === currentProd["ID"])) {
                     if (e.target.dataset) {
                         currentProd.animalImg = e.target.dataset.product
-                        console.log(currentProd.animalImg, 'currentProd');
                     }
                     cartItems.push(currentProd)
                     localStorage.setItem("cartItems", JSON.stringify(cartItems))
@@ -179,7 +191,9 @@ function doFirst() {
 
                 } else {
                     // 兔 !== 兔
-                    if (cartItems.some(item => item.animalImg === e.target.dataset.product) === false) {
+                    let idItems = cartItems.filter(element => element["ID"] === currentProd["ID"]) || []
+                    console.log(idItems, 'ID');
+                    if (!idItems.some(item => item.animalImg === e.target.dataset.product)) {
                         currentProd.animalImg = e.target.dataset.product
                         cartItems.push(currentProd)
                         localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -187,12 +201,7 @@ function doFirst() {
                         return addSuceess()
                     }
                     else {
-                        if (cartItems.some(element => element["ID"] === currentProd["ID"]) === false) {
-                            console.log('跑到這邊');
-                        }
-                        else {
-                            return notSuceess();
-                        }
+                        return notSuceess();
                     }
                 }
             }
@@ -231,13 +240,33 @@ function addSuceess() {
 }
 
 // 內頁綁定ID----------------------------------------------
-$(".ImageContent1").click(function (e) {
-    console.log($(e.currentTarget));
-    console.log($(e.currentTarget).children());
-    if (!$(e.currentTarget).children(".acceptPic").attr("src")) {
-        console.log("hello");
-    }
-})
+
+
+$(".ImageContent1").each(function (index) {
+    let detailItem = {};
+    $(this).on("click", function () {
+        // For the boolean value
+        detailItem['title'] = $(this).attr('data-pdtitle');
+        detailItem['price'] = $(this).attr('data-pdprice');
+        detailItem['introduction'] = $(this).attr('data-pdintroduction');
+        detailItem['img'] = $(this).attr('data-pd-img');
+        if ($(this).attr('data-pd-lucky-img')) {
+            detailItem['luckyImg'] = $(this).attr('data-pd-lucky-img');
+        }
+        console.log(detailItem, 'object');
+        localStorage.setItem('detailPageItem', JSON.stringify(detailItem));
+    });
+});
+
+
+// .click(function (e) {
+
+//     console.log($(e.currentTarget));
+//     console.log($(e.currentTarget).children());
+//     if (!$(e.currentTarget).children(".acceptPic").attr("src")) {
+//         console.log("hello");
+//     }
+// })
 // 判斷是否已經加入購物車以及燈箱提醒------------------------
 
 
