@@ -411,6 +411,17 @@ let matchCard = new Vue({
                 }
             });
         },
+        toMsg(){
+            let params = new URLSearchParams();
+            params.append('mId', this.mId);
+            axios.post('./php/createRelationship.php', params).then((res) => {
+                let data = res.data;
+                console.log(data);
+
+                // 配對完畢，重新導向留言板頁面
+                window.location.href='./MyMsg.html';
+            });
+        },
     },
     components:{
         card: {
@@ -448,8 +459,8 @@ let matchCard = new Vue({
                                 <h4>{{job}}</h4>
                             </div>
                             <div class="btnGroup">
-                                <button class="btnBlue_choose"><h3>重選</h3></button>
-                                <a href="./MyMsg.html" class="btnRed_choose"><h3>私訊</h3></a>
+                                <button class="btnBlue_choose" id="reselect"><h3>重選</h3></button>
+                                <a href="#" class="btnRed_choose" id="toMsg"><h3>私訊</h3></a>
                             </div>
 
                         </div>
@@ -567,8 +578,15 @@ $(document).ready(function(){
         // $('.msgBoxContent').toggleClass('-on');
     });
 
+    // 私訊
+    $('#toMsg').on('click', (e) => {
+        e.stopPropagation();
+
+        matchCard.toMsg();
+    });
+
     // 重選
-    $('.btnBlue_choose').on('click', function(e){
+    $('#reselect').on('click', function(e){
         // console.log(e);
         e.stopPropagation();
 
