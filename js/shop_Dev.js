@@ -1,13 +1,27 @@
+function doFirst() {
 
-// let $ = window.$;
-// let a = 1;
-// $.ajax({
-//     type: 'POST',
-//     url: './php/MoonShopDev.php',
-//     data: { a },
-//     success: function (res) {
-//         console.log(res);
-//     }
-// });
+    let cartItems = JSON.parse(storage.getItem("cartItems")) || [];
 
-// console.log('123');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+window.addEventListener('load', doFirst);

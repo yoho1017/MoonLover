@@ -2,32 +2,20 @@ var storage = localStorage;
 
 function doFirst() {
     //從localStorage拿出資料
-    //getAllImg>>>>有多少數值
-    let getAllImg = JSON.parse(storage.getItem("addItemImg"));
-    //getAllImg>>>>有多少項目
-    let getAllItem = JSON.parse(storage.getItem('addItemList'));
-    // let items = itemString.substr(0, itemString.length - 2).split(', ');
+    let cartItems = JSON.parse(storage.getItem("cartItems")) || [];
     //計算總金額------------------------------------------------------------------------------------
+    //item是cartItems裡面的數值
     total = 0;
-    for (let key in getAllImg) {
-        // let itemInfo = JSON.parse(storage.getItem(itemString[key]));
-        //                  itemId, itemValue
-        createCarList(getAllItem[key], getAllImg[key]);
-        // let itemPrice = parseInt(getAllImg[key].split("|")[2]);
-        // total += itemPrice;
-    }
+    cartItems.forEach(item => {
+        createCarList(item)
+        console.log(item, '11111111');
+    })
 
     // 組裝動態新增-----------------------------------------------------------------------------------
     // let newMoonTotal = document.createElement('div');
     // newMoonTotal.className = "moontotal";
 
-    function createCarList(getItemList, itemValue) {
-        // console.log(itemValue, 'itemValue');
-        let itemTitle = itemValue.split('|')[0];
-        let itemImage = itemValue.split('|')[1];
-        // console.log(itemValue, '123');
-        let itemPrice = parseInt(itemValue.split('|')[2]);
-        //get animals imgs
+    function createCarList(cartItem) {
 
         //要先選到最外圍綁定起來
         let newMoonTotal = document.querySelector('.moontotal');
@@ -61,14 +49,14 @@ function doFirst() {
         newPimage.appendChild(itemppicture);
         animalsDiv.appendChild(itemAnimals);
         itemppicture.appendChild(animalsDiv);
-        itemimg.setAttribute('src', `./images/moonShop/${itemImage}`);
+        itemimg.setAttribute('src', `./images/moonShop/${cartItem["IMAGE"]}`);
         itemimg.style.width = "100%";
         itemimg.style.height = "100%";
 
         // 判斷 是否有 animal 圖片
-        if (itemValue.split('|').length > 3) {
-            itemAnimals.setAttribute('src', "./images/moonShop/" + itemValue.split('|')[3])
-        }
+        if (cartItem["animalImg"]) {
+            itemAnimals.setAttribute('src', "./images/moonShop/" + cartItem["animalImg"])
+        };
 
         // console.log(itemppicture);
         //商品名稱和價格,把悠遊卡和單價放在外層
@@ -77,10 +65,10 @@ function doFirst() {
 
         let item_pwordsEasyCard = document.createElement('div');
         item_pwordsEasyCard.className = 'pwords_easyCard';
-        item_pwordsEasyCard.textContent = itemTitle;
+        item_pwordsEasyCard.textContent = cartItem["NAME"];
         let item_pwordsPrice = document.createElement('div');
         item_pwordsPrice.className = 'pwds_price';
-        item_pwordsPrice.textContent = itemPrice;
+        item_pwordsPrice.textContent = cartItem["PRICE"];
         itempwords_inner.appendChild(item_pwordsEasyCard);
         itempwords_inner.appendChild(item_pwordsPrice);
         newpwords.appendChild(itempwords_inner);
@@ -123,8 +111,8 @@ function doFirst() {
         let delitems = document.createElement("div");
         delitems.innerText = '刪除';
         delitems.className = "m_del";
-        delitems.setAttribute('data-img', itemValue);
-        delitems.setAttribute('data-list', getItemList);
+        delitems.setAttribute('data-animal', cartItem["animalImg"] || "");
+        delitems.setAttribute('data-pdid', cartItem["ID"]);
 
         // let delword = document.createElement('p');
         // delword.textContent = '刪除';
@@ -139,8 +127,8 @@ function doFirst() {
         let rwdDelitems = document.createElement('i');
         rwdDelitems.classList.add('fas', 'fa-trash-alt', 'fa-2x', 'garbageCan');
         newMcontent.appendChild(rwdDelitems);
-        rwdDelitems.setAttribute('data-img', itemValue);
-        rwdDelitems.setAttribute('data-list', getItemList);
+        // rwdDelitems.setAttribute('data-img', itemValue);
+        // rwdDelitems.setAttribute('data-list', getItemList);
 
         // function deleteItem() {
 
@@ -189,16 +177,12 @@ function numberCount() {
         itemTotal[i].textContent = parseInt(numberInput[i].value) * parseInt(itemPrice[i].textContent);
         //刪除商品
         function deleteItems() {
+            console.log(e.target.dataset);
             if (arrayFromList.includes('m_del') || arrayFromList.includes('fa-trash-alt')) {
-
-                let getAllImg = JSON.parse(storage.getItem("addItemImg"));
-                let getAllItem = JSON.parse(storage.getItem('addItemList'));
-                console.log(e.target.dataset, "delete")
-                let newDataimg = getAllImg.filter(item => item !== e.target.dataset.img);
-                let newDataList = getAllItem.filter(item => item !== e.target.dataset.list);
-                localStorage.setItem('addItemImg', JSON.stringify(newDataimg));
-                localStorage.setItem('addItemList', JSON.stringify(newDataList));
-                // }
+                let cartItems = JSON.parse(localStorage.getItem("cartItems"))
+                let afterCartItems = cartItems.filter(item => item["ID"] !== e.target.dataset.pdid && item["animalImg"] !== e.target.dataset.animal)
+                console.log(afterCartItems);
+                localStorage.setItem('cartItems', JSON.stringify(afterCartItems))
                 element.remove();
             }
         }
