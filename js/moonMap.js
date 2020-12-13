@@ -5,7 +5,7 @@ params.append('tid', 1);
 
 axios.post('./php/moonMap.php', params).then( response => {
   var data = response.data;
-
+  console.log(data);
   dataToTemple (data);
  
   array = []; 
