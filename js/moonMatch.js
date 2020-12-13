@@ -74,6 +74,14 @@ let matchCond = new Vue({
                     this.interests[i].checked = false
                 }
             }
+
+            for (i = 0 ; i <= this.qInterests.length -1; i++) {
+                if (this.qInterests[i].interest == name && document.getElementById(name).checked == true) {
+                    this.qInterests[i].checked = true
+                }else if (this.qInterests[i].interest == name && document.getElementById(name).checked == false) {
+                    this.qInterests[i].checked = false
+                }
+            }
         },
         conditionQuery(){
             memberCardMove('down');
@@ -82,11 +90,14 @@ let matchCond = new Vue({
             $('.msgBox').addClass('-on');
             $('.queryBox').removeClass('-on');
 
-            // matchCard.$data.city = this.city;
-            // matchCard.$data.job = this.job;
-            // matchCard.$data.ageRange = this.ageRange;
-            // matchCard.$data.education = this.education;
-            // matchCard.$data.interests = this.interests;
+
+            // 從html綁定到的值寫到篩選器
+            this.qCity = this.city;
+            this.qJob = this.job;
+            this.qAgeRange = this.ageRange;
+            this.qEducation = this.education;
+            this.qInterests = this.interests;
+
             
             matchCard.$data.city = this.qCity;
             matchCard.$data.job = this.qJob;
@@ -97,16 +108,12 @@ let matchCond = new Vue({
             matchCard.$data.sex = this.sex;
             matchCard.$data.seo = this.seo;
 
+            this.setMatchMemberCondition(); // 更新篩選條件進資料庫
+            this.setMatchMemberInterestCondition(); // 更新篩選條件進資料庫
+            
             matchCard.getMatchMemberData(); // 呼叫後端篩選配對會員函數
-            
-            
-            // this.createMatchMemberCondition(); // 將篩選條件寫入資料庫
-            // this.createMatchMemberInterestCondition(); // 將篩選條件寫入資料庫
-            // this.setMatchMemberCondition(); // 更新篩選條件進資料庫
-            // this.setMatchMemberInterestCondition(); // 更新篩選條件進資料庫
         },
         getMatchMemberIntCondition(){
-            alert('getMatchMemberIntCondition');
             let params = new URLSearchParams();
             params.append('qmmcMEMBER_ID', this.qmmcID);
             axios.post('./php/selectMatchIntCondition.php', params).then((res) => {
@@ -136,7 +143,7 @@ let matchCond = new Vue({
                 let data = res.data;
                 console.log(data);
                 if(data == ''){
-                    alert('沒資料');
+                    alert('沒資料! 開始創建會員配對條件資料');
                     // 將自身條件寫入篩選條件與興趣資料庫
                     this.createMatchMemberCondition(); 
                     this.createMatchMemberInterestCondition();
@@ -148,18 +155,25 @@ let matchCond = new Vue({
                     this.qEducation = this.education;
                     this.qInterests = this.interests;
                 }else{
-                    alert('有資料');
+                    // alert('有資料');
                     // 將資料帶入篩選條件參數
-                    
                     this.qCity = data[0].AREA_CONDITION;
                     this.qJob = data[0].JOB_CONDITION;
                     this.qAgeRange = data[0].AGE_RANGE;
                     this.qEducation = data[0].EDUCATION_CONDITION;
                     this.qmmcID = data[0].ID;
-
                     this.getMatchMemberIntCondition();
+
+                    // 將資料寫進篩選器(頁面)的data
+                    this.city = this.qCity;
+                    this.job = this.qJob;
+                    this.ageRange = this.qAgeRange;
+                    this.education = this.qEducation;
+                    this.interests = this.qInterests;
                 }
                 // alert('檢查完畢');
+                // 將篩選條件參數帶入下一個matchCard，作爲php的select條件參數
+                matchCard.$data.interest = this.qInterest;
                 matchCard.$data.interests = this.qInterests;
                 matchCard.$data.city = this.qCity;
                 matchCard.$data.job = this.qJob;
@@ -168,10 +182,7 @@ let matchCond = new Vue({
 
                 matchCard.$data.sex = this.sex;
                 matchCard.$data.seo = this.seo;
-
                 
-                
-
             }).finally(() => {
                 matchCard.getMatchMemberData(); // 呼叫後端篩選配對會員函數
             });
@@ -243,15 +254,14 @@ let matchCond = new Vue({
             axios.post('./php/membercenterR.php').then((res) => {
                 let data = res.data;
                 // console.log(data);
-                this.nickname = data[0].NICKNAME;
                 this.memType = data[0].MEMBER_TYPE;
-
                 // 判斷會員等級是否為進階會員，
                 // 若非進階會員則直接跳轉到會員中心的個人資料頁面
                 if(this.memType != 1){
-                    alert(`親愛的${this.nickname}，請填寫完整的會員資料，月老才能幫您牽線喔！`);
+                    alert(`親愛的會員，請填寫完整的會員資料，月老才能幫您牽線喔！`);
                     window.location.href="./MyInfo.html";
                 }
+                this.nickname = data[0].NICKNAME;
                 this.username = data[0].USERNAME;
                 this.city = data[0].AREA;
                 this.job = data[0].JOB;
@@ -331,11 +341,6 @@ let matchCard = new Vue({
     },
     methods: {
         getMatchMemberData () { //取得配對會員資料
-            // 興趣處理
-
-
-
-            // 傳遞資料
             let params = new URLSearchParams();
             params.append('ageRange', this.ageRange);
             params.append('city', this.city);
@@ -344,50 +349,53 @@ let matchCard = new Vue({
             params.append('sex', this.sex);
             params.append('seo', this.seo);
 
-            let intCond = [];
-            for (let i = 0 ; i <= this.interests.length -1; i++) {
-                if(this.interests[i].checked == true){
-                    intCond.push(`(myInt.mINTEREST_ID = ${i+1} and myInt.mINTEREST_STATUS = 1)`);
+            setTimeout(() => {
+                // 興趣處理
+                // 待修改，會有SQL injection的疑慮
+                let intCond = [];
+                for (let i = 0 ; i <= this.interests.length -1; i++) {
+                    if(this.interests[i].checked == true){
+                        intCond.push(`(myInt.mINTEREST_ID = ${i+1} and myInt.mINTEREST_STATUS = 1)`);
+                    }
+                    console.log(this.interests[i].checked);
                 }
-                console.log(this.interests[i].checked);
+                console.log(intCond);
+                let intCondToSql = intCond.join(' or ');
+                params.append('intCondToSql', intCondToSql);
+                
+                // debug用，印出params
+                // for (let p of params) {
+                //     console.log(p);
+                // }       
+                axios.post('./php/matchMemberR.php', params).then((res) => {
+                    let data = res.data;
+                    // console.log(data);
+                    if(data != ''){
+                        // alert('有篩到');
+                        this.mId = data[0].mMEMBER_ID;
+                        this.profile = atob(data[0].IMAGE); // 圖檔要用atob解壓縮
+                        this.nickname = data[0].NICKNAME;
+                        this.about = data[0].ABOUT;
+                        this.city = data[0].AREA;
+                        this.job = data[0].JOB;
+                        this.age = data[0].AGE;
 
-            }
-            console.log(intCond);
-            let intCondToSql = intCond.join(' or ');
-            console.log(intCondToSql);
+                        // 呼叫處理興趣的函數
+                        this.getMatchMemberInterest();
+                    }else{
+                        console.log('沒篩到');
+                        this.profile = './images/MyMsg/person_special.jpg';
+                        this.nickname = '賓哥';
+                        this.about = '沒篩到！再觀察看看！';
+                        this.city = '提拔市';
+                        this.job = '前端講師';
+                        this.age = '不要問';
+                        this.interest ='觀察HTML';
+                    }
+                });                
+            }, 100);
+
             
-            params.append('intCondToSql', intCondToSql);
-            
-            // debug用，印出params
-            for (let p of params) {
-                console.log(p);
-            }
-
-            console.log(this.interests);
-            
-            axios.post('./php/matchMemberR.php', params).then((res) => {
-                let data = res.data;
-                console.log(res);
-                console.log(data);
-                if(data != ''){
-                    this.mId = data[0].mMEMBER_ID;
-                    this.profile = atob(data[0].IMAGE); // 圖檔要用atob解壓縮
-                    this.nickname = data[0].NICKNAME;
-                    this.about = data[0].ABOUT;
-                    this.city = data[0].AREA;
-                    this.job = data[0].JOB;
-                    this.age = data[0].AGE;
-                    
-                    
-
-                    // 呼叫處理興趣的函數
-                    this.getMatchMemberInterest();
-                }else{
-                    alert('沒篩到');
-                    console.log(this.interests);
-                }
-
-            });                
         },
         getMatchMemberInterest(){
             // 清空興趣
