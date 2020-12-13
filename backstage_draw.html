@@ -11,11 +11,13 @@
     <!-- jq -->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <!-- popper js -->
-    <script src="./node_modules/@popperjs/core/lib/popper.js"></script>
+    <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <!-- bootstrap -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- vue -->
     <script src="./js/vue.js"></script>
+    <!-- axios js -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
     <title>籤詩管理</title>
 
@@ -89,7 +91,7 @@
                     <!-- 內容在tbody，如果要新增行數就加一組tr -->
                     <tbody>
 
-                        <tr is="row" v-for="data in pagedListdata" :id="data[0]" :num="data[1]" :lucky="data[2]" :content="data[3]" :detail="data[4]" :answer="data[5]"></tr>
+                        <tr is="row" v-for="(data,index) in pagedListdata" :id="data[0]" :num="data[1]" :lucky="data[2]" :content="data[3]" :detail="data[4]" :answer="data[5]" :status="data[6]" :index="index" @update="updateStatus"></tr>
                         
                     </tbody>
 
@@ -108,11 +110,16 @@
                         <tr>
                             <!-- td_***是設定寬度 -->
                             <td class="td_30"><h4>籤種</h4></td>
-                            <td class="td_md">                    <select class="input_status" v-model="modify_data[2]">
+                            <td class="td_md">                    
+                                <select class="input_status" v-model="modify_data[2]">
                                     <option value="籤王">籤王</option>
                                     <option value="上上大吉">上上大吉</option>
+                                    <option value="上吉">上吉</option>
+                                    <option value="上上">上上</option>
+                                    <option value="上平">上平</option>
                                     <option value="上">上</option>
                                     <option value="中上">中上</option>
+                                    <option value="中平">中平</option>
                                     <option value="中">中
                                     </option>
                                     <option value="下">下
@@ -161,11 +168,11 @@
                 page-class ="page-item"
                 page-link-class ="page-link"
 
-                container-class="pagination" v-if="menu">
+                container-class="pagination" v-show="menu">
                 </paginate>
               
-                <div class="btn" v-else="menu">
-                    <div class="bkbtn_Blue" @click="menu = true"><h3>取消</h3></div>
+                <div class="btn" v-show="menu == false">
+                    <div class="bkbtn_Blue" @click="cancel"><h3>取消</h3></div>
                     <div class="bkbtn_Red" @click="change(modify_data[0])"><h3>送出</h3></div>
                 </div>
 
