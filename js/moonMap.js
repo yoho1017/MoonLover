@@ -5,7 +5,7 @@ params.append('tid', 1);
 
 axios.post('./php/moonMap.php', params).then( response => {
   var data = response.data;
-  console.log(data);
+  // console.log(data);
   dataToTemple (data);
  
   array = []; 
@@ -45,11 +45,77 @@ function dataToTemple(data){
 
 };
  
+ 
  //貼文組件
  const bus = new Vue();
+
+  Vue.component('visitors-item',{ //子留言
+    props:['vistext'],
+  
+    methods:{    //刪除測試中 
+      removeTask(){     
+      console.log(this.vistext);
+    }
+  },
+    template:
+    `<!-- 訪客留言區 -->   
+       <li class="visitors-messagelist">
+           <div class="visitors-img"><img src="./images/moonMap/user02.jpg" alt="留言訪客照"></div>
+           <div class="visitors-message">{{vistext}}</div>
+           <i class="fas fa-exclamation-circle fa-1x edit" @click="removeTask">delete</i>
+       </li>   
+    `,
+   
+  });
+
+
+  
+ Vue.component('visitor-input',{  //訪客輸入訊息
+  data(){
+    return{
+      inputtask:'',
+    };
+  },
+  methods:{
+    submiData(){
+      if( this.inputtask !==''){ //不輸入字就alert
+        this.$emit('inputsub',this.inputtask);
+        this.inputtask='';     
+      }else{
+        alert('輸入訊息');
+      }
+    },
+
+  },
+  template:`
+  <form class="input-block" @submit.prevent="submiData">
+    <input type="text" class="visitors-input" placeholder="留各訊息吧?" v-model="inputtask">
+    <i class="fas fa-location-arrow fa-1x arrow-but" @click.prevent="submiData"></i>
+  </form>
+  `,
+});
+
+
+
  Vue.component('send',{
     props:['myimg','name','msg','time','id','srcimg'],
- 
+
+    data(){
+      return{
+      //訪客留言
+       visitorstext:[],
+      };
+    }, 
+
+   // 函式
+   methods:{
+    addText(item){
+      // alert()
+     this.visitorstext.push(item);
+    },
+
+  },
+
     template:`   
     <form  class="userForm" action="#" :id=id>
        <i class="fas fa-exclamation-circle fa-1x end" id="edit" ></i>
@@ -75,61 +141,18 @@ function dataToTemple(data){
        </div>
 
        <!-- 訪客留言輸入框 -->
-       <div class="input-block">
-           <input type="text" class="visitors-input" placeholder="留各訊息吧?" v-model="visitorstext">
-           <i class="fas fa-location-arrow fa-1x arrow-but" @click="addtexts"></i>
+       <div>
+          <visitor-input v-on:inputsub="addText"></visitor-input>
        </div>
-       <!--
-        <visitors-block></visitors-block>
-       -->
+       <!--子留言-->
+       <ul class="visitors-block">
+          <visitors-item v-for="values in visitorstext" v-bind:vistext="values"></visitors-item>
+        </ul>        
    </form>
    `, 
-    data(){
-      return{
-      //訪客留言
-      visitorstext:'',
-      };
-    }, 
-
-   // 函式
-   methods:{
-    addtexts(){
-      // alert()
-      bus.$emit('my-emit',this.visitorstext);
-    },
-  },
+ 
 });
 
-
-  Vue.component('visitors-block',{
-    props:['abc'],
-    template:
-    `<!-- 訪客留言區 -->
-    <ul class="visitors-block">
-       <li class="visitors-messagelist">
-           <div class="visitors-img"><img src="./images/moonMap/user02.jpg" alt="留言訪客照"></div>
-           <div class="visitors-message">{{visitorstext}}</div>
-           <i class="fas fa-exclamation-circle fa-1x" id="edit"></i>
-       </li>
-                              
-    </ul>
-    `,
-    data(){
-      return{
-        // visitorstext:"",
-      }
-    },
-    mounted(){
-      alert(item)       
-      bus.$on('my-emit',function(item){
-        // if(item !== ""){
-        // }else{
-
-        // }
-      });
-    },
-
-  });
   
   //moonMap 公版留言區 
   var moonmap = new Vue({
@@ -172,10 +195,7 @@ function dataToTemple(data){
         document.querySelectorAll(".message_block")[0].scrollTo(0,document.querySelectorAll(".message_block")[0].scrollHeight);
       },
 
-      //text
-      addvisitors(visitorstext){
-       
-      },
+
 
       // 傳照片
       fileChange(e){
@@ -204,6 +224,7 @@ function dataToTemple(data){
         }else{
           const file = e.target;
           const image = {src:file.result};
+          // console.log(image);
           this.images.push(image); //暫存圖
           if(this.srcimg.length<3){
             console.log(this.srcimg.length);
@@ -212,18 +233,18 @@ function dataToTemple(data){
           
           
                    
-            }
+        }
        
         
         
       },
 
 
-      deletebut(e){ //刪除陣列照片
-        const arry=this.images;
-        const files = e.target.files;
-        arry.splice(files,1);
-
+      deletebut(item){ //刪除陣列照片
+        
+        const array=this.images; 
+        array.splice(array.indexOf(item),1); //刪除不掉,待解決
+        
       }
       
     },

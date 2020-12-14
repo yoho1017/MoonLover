@@ -452,6 +452,7 @@
           // 輸入鍵icon
           .arrow-but {
             position: absolute;
+            top:5px;
             right: 30px;
             color: white;
             transform: rotate(-90deg);
@@ -505,7 +506,7 @@
       bottom: -6%;
       right: -10%;
       width: 35%;
-      
+      z-index: -1;
       .YueLao {
         position: relative;
         width: 70%;
