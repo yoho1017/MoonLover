@@ -240,13 +240,11 @@ function dataToTemple(data){
       },
 
 
-      deletebut(item){ //刪除陣列照片
-        
+      deletebut(item){ //刪除陣列照片 (刪除的照片順序待解)
         const array=this.images; 
         array.splice(array.indexOf(item),1); 
         const array2=this.srcimg; 
-        array2.splice(array2.indexOf(item),1);
-        
+        array2.splice(array2.indexOf(item),1);       
       }
       
     },
