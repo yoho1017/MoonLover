@@ -101,9 +101,8 @@ function dataToTemple(data){
     props:['myimg','name','msg','time','id','srcimg'],
 
     data(){
-      return{
-      //訪客留言
-       visitorstext:[],
+      return{    
+       visitorstext:[], //訪客留言
       };
     }, 
 
@@ -176,7 +175,7 @@ function dataToTemple(data){
     methods : {
       submit(newText){
         if(newText !=''){
-          var ss=this.srcimg;
+          let ss=this.srcimg;
           this.myMsg.push(
             {myImg:'./images/moonMap/user01.jpg',name:'Diana', msg:newText,time:this.getTime(),srcimg:ss}
           );
@@ -200,14 +199,13 @@ function dataToTemple(data){
       // 傳照片
       fileChange(e){
         this.images;
-        const files = e.target.files;  //取得File物件
+        let files = e.target.files;  //取得File物件
         // console.log(files);//秀出物件陣列
         this.images.forEach.call(files,this.fileReader); //快速呼叫了 forEeah的方法
-
       },
 
       fileReader(file){
-        const reader = new FileReader(); //建立FileReader 監聽 Load 事件
+        let reader = new FileReader(); //建立FileReader 監聽 Load 事件
         reader.addEventListener("load", this.createImage);
         reader.readAsDataURL(file);
         
@@ -215,15 +213,15 @@ function dataToTemple(data){
 
       createImage(e){
         
-        const files =  this.images;  //陣列長度
+        let files =  this.images;  //陣列長度
 
         if(files.length >= 3){  //如果判斷大於等於三張就進alert
 
           alert('最多只能上傳三張'); 
 
         }else{
-          const file = e.target;
-          const image = {src:file.result};
+          let file = e.target;
+          let image = {src:file.result};
           // console.log(image);
           this.images.push(image); //暫存圖
           if(this.srcimg.length<3){
@@ -240,11 +238,15 @@ function dataToTemple(data){
       },
 
 
-      deletebut(item){ //刪除陣列照片 (刪除的照片順序待解)
-        const array=this.images; 
-        array.splice(array.indexOf(item),1); 
-        const array2=this.srcimg; 
-        array2.splice(array2.indexOf(item),1);       
+      deletebut(item){ //刪除陣列照片,因img為物件陣列,src為陣列,直接抓index
+        
+        console.log(item);
+        let array=this.images; 
+        array.splice(item,1); 
+        let array2=this.srcimg;      
+        array2.splice(item,1); 
+
+
       }
       
     },
