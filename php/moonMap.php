@@ -9,9 +9,9 @@
         $Util = new UtilClass();
 
         // $sql = "SELECT * FROM temple WHERE ID = ?";
-        // $sql = "SELECT t.*, l.IMAGE,l.NAME as LOC_NAME,l.GUIDE,l.OPEN_TIME,l.ADDRESS as LOC_ADDRESS FROM temple t left join temple_location l on l.lTEMPLE_ID  where t.ID=1 and l.lTEMPLE_ID = 1";
+        $sql = "SELECT t.*, l.IMAGE,l.NAME as LOC_NAME,l.GUIDE,l.OPEN_TIME,l.ADDRESS as LOC_ADDRESS FROM temple t left join temple_location l on l.lTEMPLE_ID  where t.ID=1 and l.lTEMPLE_ID = 1";
         // $sql = "SELECT t.*, l.IMAGE,l.NAME as LOC_NAME,l.GUIDE,l.OPEN_TIME,l.ADDRESS as LOC_ADDRESS FROM temple t left join temple_location l on l.lTEMPLE_ID";
-        $sql="SELECT * FROM temple WHERE ID =5";
+        // $sql="SELECT * FROM temple WHERE ID =6";
         
        
         //執行
