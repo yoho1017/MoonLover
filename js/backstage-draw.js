@@ -149,6 +149,7 @@ var backend = new Vue({
 
             let data = new FormData(); //建立資料表單
             data.append('table', `draw`); //table
+            data.append('CNANE', `STATUS`); //columnName
             data.append('id', id); //資料id
             data.append('status', val); //更新狀態
 
