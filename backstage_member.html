@@ -11,14 +11,16 @@
     <!-- jq -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- popper js -->
-    <script src="./node_modules/@popperjs/core/lib/popper.js"></script>
+    <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <!-- vue -->
     <script src="./js/vue.js"></script>
+    <!-- axios js -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
     <title>會員資料管理</title>
 
 </head>
-<body>
+<body class="backStageBody">
 
     <!------------------------------header---------------------------------->
     <header class="header">
@@ -64,7 +66,7 @@
             <div class="Bcontainer">
 
                 <div class="editbar" v-if="menu">
-                    <input type="text" placeholder="搜尋會員帳號">
+                    <input type="text" v-model="Sdata" placeholder="搜尋會員帳號" @keyup="search(Sdata)">
                     <i class="fas fa-search fa-2x" type="submit"></i>
                     <!-- <div class="bkbtn_Blue"><h3>新增籤詩</h3></div> -->
                 </div>
@@ -76,7 +78,6 @@
                             <!-- td_***是設定寬度 -->
                             <td class="thtd td_10"><h3>ID</h3></td>
                             <td class="thtd td_25"><h3>帳號</h3></td>
-                            <td class="thtd td_25"><h3>密碼</h3></td>
                             <td class="thtd td_50"><h3>E-mail</h3></td>
                             <td class="thtd td_25"><h3>等級</h3></td>
                             <td class="thtd td_25"><h3>其他資訊</h3></td>
@@ -85,96 +86,90 @@
                     </thead>
                     <!-- 內容在tbody，如果要新增行數就加一組tr -->
                     <tbody>
-                        <tr is="row" v-for="data in sql" :id="data[0]" :acct="data[1]" :pwd="data[2]" :email="data[3]"></tr>
+                        <tr is="row" v-for="(data,index) in pagedListdata" :id="data[0]" :index="index" :acct="data[1]" :email="data[2]" :status="data[3]" @update="updateStatus"></tr>
                       
                     </tbody>
                 </table>
 
-                <table v-else="menu" style="overflow-y: scroll; height: 73vh;">
+                <table v-else="menu" style="overflow-y: scroll; height: 73vh;" class="MDetail">
                    
 
                     <tr>
                         <td class="thtd td_25"><h4>ID</h4></td>
-                        <td class="td_75"><h4>{{modify_data[0]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].ID}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>帳號</h4></td>
-                        <td class="td_75"><h4>{{modify_data[1]}}</h4></td>
-                    </tr>
-                    <tr>
-                        <td class="thtd td_25"><h4>密碼</h4></td>
-                        <td class="td_75"><h4>{{modify_data[2]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].USERNAME}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>信箱</h4></td>
-                        <td class="td_75"><h4>{{modify_data[3]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].EMAIL}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>暱稱</h4></td>
-                        <td class="td_75"><h4>{{modify_data[4]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].NICKNAME}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>關於</h4></td>
-                        <td class="td_75"><h4>{{modify_data[5]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].ABOUT}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>年齡</h4></td>
-                        <td class="td_75"><h4>{{modify_data[6]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].AGE}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>興趣</h4></td>
-                        <td class="td_75"><h4>{{modify_data[7]}}</h4></td>
+                        <td class="td_75"><h4>{{interest_data}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>居住地</h4></td>
-                        <td class="td_75"><h4>{{modify_data[8]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].AREA}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>職業</h4></td>
-                        <td class="td_75"><h4>{{modify_data[9]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].JOB}} / {{modify_data[0].JOB_DETAIL}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>學歷</h4></td>
-                        <td class="td_75"><h4>{{modify_data[10]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].EDUCATION}} / {{modify_data[0].SCHOOL}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>性別</h4></td>
-                        <td class="td_75"><h4>{{modify_data[11]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].SEX}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>性取向</h4></td>
-                        <td class="td_75"><h4>{{modify_data[12]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].SO}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>接受月老配對</h4></td>
-                        <td class="td_75"><h4>{{modify_data[13]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].PAIR_PRIV}}</h4></td>
                     </tr>
                     <tr>
                         <td class="thtd td_25"><h4>對外公開個人資訊</h4></td>
-                        <td class="td_75"><h4>{{modify_data[14]}}</h4></td>
+                        <td class="td_75"><h4>{{modify_data[0].PUBLIC_PRIV}}</h4></td>
                     </tr>
                    
                 </table>
                     
 
-                <nav aria-label="Page navigation example" v-if="menu">
-                    <ul class="pagination">
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
+                <paginate
+                for="sql"
+                :page-count="pageCount" 
+                :margin-pages = "pageCount"
+                :prev-text="'«'"
+                :next-text="'»'"
+                :click-handler="pageCallback"
+                prev-class ="page-item"
+                prev-link-class	="page-link"
+                next-class ="page-item"   
+                next-link-class	="page-link"         
+                page-class ="page-item"
+                page-link-class ="page-link"
+
+                container-class="pagination" v-show="menu">
+                </paginate>
 
             </div>
 
@@ -183,6 +178,8 @@
 
     </div>
 
+    <!-- vue paginate -->
+    <script src="https://unpkg.com/vuejs-paginate@2.1.0"></script>
     <!-- 後台js -->
     <script src="./js/backstage-member.js"></script>
 </body>

@@ -1,9 +1,7 @@
 // 請在_all.scss套用這個格式
 .backstage-member-wrapper {
   display: flex;
-  background-color: #f0ded1;
-  height: 100%;
-
+  
   @include backstage; //引入後台版型
   @include backstageBtn(auto); //後台用btn
 
@@ -14,6 +12,7 @@
   @include pagination; //引入pagination
   main{
     width: 99%;
+    @include insideScroll;
     .more{
       border: 2px solid black;
       border-radius: 40px;
