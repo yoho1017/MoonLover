@@ -1,7 +1,5 @@
 .backstage-products-wrapper {
     display: flex;
-    background-color: #F0DED1;
-    height: 100%;
 
     @include backstage; //引入後台版型
 
@@ -27,6 +25,23 @@
 
     .td_md {
         justify-content: flex-start !important;
+
+    }
+
+    .btnBox {
+        display: flex;
+        width : 70%;
+        height: 100%;
+        align-items: center;
+
+        @include backstageBtn (50%); //後台用btn
+    }
+
+    .imgbox {
+        justify-content: space-between !important;
+        img {
+            max-width : 300px;
+        }
     }
 
     .input_status {

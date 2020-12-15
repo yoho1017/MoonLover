@@ -20,8 +20,13 @@ var backend = new Vue({
         currentPage: 1,
         // 預設頁數
         pageCount: 1,
+        // 取得資料
         sql: [],
+        // 修改的資料
         modify_data: '',
+        // 上傳圖片預覽(預設為false)
+        imgPreview : false,
+        // 清單顯示(預設為true)
         menu: true,
     },
     computed: {
@@ -80,19 +85,100 @@ var backend = new Vue({
             // // 換分頁時卷軸到最上方
             window.scrollTo(0,0);
         },
-        change(id) {
-            if (id == 'n') {
-                this.modify_data[0] = this.sql.length + 1;
-                this.sql.push(this.modify_data);
-            } else {
-                data = id - 1;
-                this.sql[data] = this.modify_data;
+        // 更新狀態
+        updateStatus (val,id,index) {
+            var vm = this;
+            vm.sql[index][6] = val;
+
+            let data = new FormData(); //建立資料表單
+            data.append('table', `merchandise`); //table
+            data.append('CNANE', `STATUS`); //columnName
+            data.append('id', id); //資料id
+            data.append('status', val); //更新狀態
+
+            let config = {
+                header : {
+                    'Content-Type' : 'multipart/form-data'
+                }
             }
-            this.menu = true;
+
+            axios.post('./php/updateStatus.php',  data, config
+            ).then( response=> {
+                data = response.data;
+                // console.log(response);
+                })
+        },        
+        change() {
+            var vm = this;
+
+            if (vm.imgPreview == true) {
+
+
+            // 建立canvas
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+
+            // 測試用
+            // document.body.appendChild(canvas);
+
+            var imgWidth = document.getElementById('imgPreview').offsetWidth;
+            var imgHeight = document.getElementById('imgPreview').offsetHeight;
+
+            canvas.width = imgWidth;
+            canvas.height = imgHeight;
+
+            let img = document.getElementById('imgPreview');
+
+            var il = (canvas.width / 2) - (imgWidth / 2);
+            var it = (canvas.height / 2) - (imgHeight / 2);
+
+
+            ctx.drawImage(img,il,it,imgWidth,imgHeight);
+            var dataURL = canvas.toDataURL();
+            
+
+
+
+
+              vm.modify_data.push('newImg');
+              vm.modify_data.push(dataURL);
+            }else{
+              vm.modify_data.push('oldImg');
+            }
+
+            let data = new FormData(); //建立資料表單
+            data.append('data', JSON.stringify(vm.modify_data)); 
+
+            let config = {
+                header : {
+                    'Content-Type' : 'multipart/form-data'
+                }
+            }        
+
+
+            axios.post('./php/updateMerchandise.php',  data, config).then( response => {
+                // console.log(response.data);
+
+                vm.modify_data = [];
+                vm.sql = [];
+                vm.getMerchandise ();
+                vm.imgPreview = false
+                vm.menu = true;    
+            })
         },
-        add(id) {
-            this.menu = false;
-            this.modify_data = [id, '', '', '', '', '', ''];
+        upload () {
+            document.getElementById('upload').click();
+        },
+        uploadImg () {
+            var vm = this;
+            let file = document.getElementById('upload').files[0];
+            let readFile = new FileReader();
+            readFile.readAsDataURL(file);
+            // console.log(readFile);
+            readFile.addEventListener('load',function(){        
+            document.getElementById('imgPreview').src = this.result;
+            });
+            vm.imgPreview = true;
         },
         getMerchandise () {
             var vm = this;
@@ -117,7 +203,7 @@ var backend = new Vue({
     },
     components: {
         row: {
-            props: ['id', 'name', 'price'],
+            props: ['id', 'index' ,'name', 'price' , 'status'],
             template:
                 `
             <tr :id=id>
@@ -125,21 +211,25 @@ var backend = new Vue({
                 <td class="td_80"><h4>{{name}}</h4></td>
                 <td class="td_75"><h4>{{price}}</h4></td>
                 <td class="td_75">
-                    <select class="input_status">
-                        <option value="1">顯示</option>
-                        <option value="0">隱藏</option>
+                    <select class="input_status" :id="index" @change="updateStatus($event,id,index)">
+                        <option value="1" :selected="status == '1'">上架</option>
+                        <option value="0" :selected="status == '0'">下架</option>
                     </select>
                 </td>
-                <td class="td_75"><i class="fas fa-edit" @click="modify(id)"></i></td>
+                <td class="td_75"><i class="fas fa-edit" @click="modify(index)"></i></td>
             </tr>
             `,
             methods: {
-                modify(id) {
+                modify(index) {
                     window.scrollTo(0, 0);
-                    data = id - 1;
-                    backend.$data.menu = false;
-                    backend.$data.modify_data = backend.$data.sql[data];
+                    backend.menu = false;
+                    backend.modify_data = backend.sql[index];
                 },
+                // 回傳給複層狀態
+                updateStatus (e,id,index) {
+                    var vm = this;
+                    vm.$emit('update', e.target.value,id,index);
+                }                                
             }
         },
     },
