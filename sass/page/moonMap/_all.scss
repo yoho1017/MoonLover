@@ -319,11 +319,13 @@
               padding: 0;
               display: flex;
               justify-content: space-between;
-              align-items: center;
+              align-items: flex-end;
               .aboutImg {
                 margin-left:5px;
                 width: 90%;
-                height: 90%;
+                
+                border-radius: 5px;
+                overflow: hidden;
               }
               .imgBut{
                 position: relative;
@@ -372,9 +374,11 @@
               padding: 0;
               display: flex;
               justify-content: space-between;
-              align-items: center;
+              align-items: flex-end;
               .aboutImg {
                 width: 90%;
+                border-radius: 5px;
+                overflow: hidden;
               }
             }
 
@@ -448,6 +452,7 @@
           // 輸入鍵icon
           .arrow-but {
             position: absolute;
+            top:5px;
             right: 30px;
             color: white;
             transform: rotate(-90deg);
@@ -501,7 +506,7 @@
       bottom: -6%;
       right: -10%;
       width: 35%;
-      
+      z-index: -1;
       .YueLao {
         position: relative;
         width: 70%;

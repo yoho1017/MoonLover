@@ -223,7 +223,7 @@
                 <!-- 交通資訊區塊 -->
                 <div class="empletraffic_block">
                     <!-- 廟宇交通地圖 -->
-                    <div class="goMap"><img  alt="交通地圖"></div>
+                    <div class="goMap"><iframe  width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
                 <!-- 交通資訊 -->
                     <div class="empleContent_block">                           
                         <div class="title">
@@ -280,7 +280,7 @@
                                 <textarea id="user-message" v-model="newText" placeholder="留言貼文吧" @keyup.enter=""></textarea>                                       
                                 <div class="imgBlock">
                                     <ul class="imgList">
-                                        <li v-for="image in images" class="aboutImg"><img :src="image.src" @click="deletebut"></li>
+                                        <li v-for="image in images" class="aboutImg"><img :src="image.src" @click="deletebut(image)"></li>
                                         <!-- <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li> -->
                                        
                                         <span class="imgBut">             
