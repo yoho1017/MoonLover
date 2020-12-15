@@ -562,6 +562,7 @@
     border-radius: 10px;
   }
 
+  //背景熱氣球飄移動畫
   .ball{
     background-image: url(../images/moonMap/cloud_moonmap_inside_ball.png);
     position: absolute;
@@ -579,6 +580,7 @@
         100% { transform: rotate(-1deg);}
     }
   }
+  //背景熱氣球飄移動畫結束
 
   //背景雲飄移動畫
   .cloud_one{
