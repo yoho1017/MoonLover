@@ -277,7 +277,7 @@
                             
                             <!-- 使用者新增貼文 -->
                             <div class="user-messBlock">
-                                <textarea id="user-message" v-model="newText" placeholder="留言貼文吧" @keyup.enter=""></textarea>                                       
+                                <textarea id="user-message" v-model="newText" placeholder="留言貼文吧" @keyup.enter="submit(newText)"></textarea>                                       
                                 <div class="imgBlock">
                                     <ul class="imgList">
                                         <li v-for="(image,index) in images" class="aboutImg"><img :src="image.src" @click="deletebut(index)"></li>
@@ -288,7 +288,7 @@
                                         </span>                                  
                                         <!-- <span class="imgBut"><i class="fas fa-plus-square fa-5x" id="addImg"></i></span>   -->
                                     </ul>
-                                    <button type="submit" id="sumBut" @click.prevent="submit(newText)"><h3>新增貼文</h3></button>
+                                    <button type="submit" id="sumBut" @click.prevent="submit(newText)" ><h3>新增貼文</h3></button>
                                 </div>                                
                             </div>
                         </div>
@@ -296,7 +296,7 @@
 
                     <!-- 貼文區 -->
                     <div class="message_block" id="style-1">
-                       <send v-for="(userMsg, index) in myMsg" :myimg="userMsg.myImg" :name="userMsg.name" :msg="userMsg.msg" :time="userMsg.time" :id="index" :srcimg="userMsg.srcimg"></send>
+                       <send v-for="(userMsg, index) in myMsg" :myimg="userMsg.myImg" :name="userMsg.name" :msg="userMsg.msg" :time="userMsg.time"  :srcimg="userMsg.srcimg"></send>
 
                     </div>
                               
