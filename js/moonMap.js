@@ -101,9 +101,8 @@ function dataToTemple(data){
     props:['myimg','name','msg','time','id','srcimg'],
 
     data(){
-      return{
-    
-       visitorstext:[],  //訪客留言
+      return{    
+       visitorstext:[], //訪客留言
       };
     }, 
 
@@ -176,7 +175,7 @@ function dataToTemple(data){
     methods : {
       submit(newText){
         if(newText !=''){
-          var ss=this.srcimg;
+          let ss=this.srcimg;
           this.myMsg.push(
             {myImg:'./images/moonMap/user01.jpg',name:'Diana', msg:newText,time:this.getTime(),srcimg:ss}
           );
