@@ -238,7 +238,6 @@ var account =  new Vue ({
         },
         
         ver_check () { // 驗證碼比對
-
             if (this.checked_mail == '') {
                 alert("信箱還沒驗證哦 !")
             }else{
