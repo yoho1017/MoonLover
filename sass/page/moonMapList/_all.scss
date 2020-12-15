@@ -73,6 +73,16 @@
                 right: 0;
                 // border: 1px solid black;
                 width: 30%;
+                
+                // 月老上下浮動動畫
+                animation: moveupdown 1s infinite linear alternate;
+
+                @keyframes moveupdown{
+                    from { bottom: 0.5%; }
+                    to { bottom: 0; }
+                }
+                // 月老上下浮動動畫結束
+
                 // 對話框
                 .dialog{
                     position: absolute;
@@ -129,6 +139,62 @@
         }
 
     }
+
+    //背景熱氣球飄移
+    .ball{
+        background-image: url(../images/moonMapList/cloud_moonmap_ball.png);
+        position: absolute;
+        top:10%;
+        height: 98%;
+        width: 98%;
+        background-size:contain;
+        animation: swing ease-in-out 2s infinite alternate;
+        z-index: -2;
+        opacity: 1.2;
+
+        @keyframes swing {
+            0% { transform: rotate(1deg);}
+
+            100% { transform: rotate(-1deg);}
+        }
+
+    }
+    //背景熱氣球飄移結束
+
+    //背景雲飄移動畫
+    .cloud_one{
+        background-image: url(../images/moonMapList/cloud_moonmap_one.png);
+        position: absolute;
+        top:0px;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -3;
+        opacity: .7;
+
+        @keyframes move{
+            100%{bckground-position: 500% 0;}
+        }
+    }
+
+    .cloud_second{
+        background-image:url(../images/moonMapList/cloud_moonmap_second.png);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -2;
+        opacity: .5;
+
+
+        @keyframes move{
+            100%{background-position: 500% 0;}
+        }
+
+      }
+      //背景雲飄移動畫結束
 }
 
 

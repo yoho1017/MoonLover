@@ -50,19 +50,20 @@ function dataToTemple(data){
  const bus = new Vue();
 
   Vue.component('visitors-item',{ //子留言
-    props:['vistext'],
-  
-    methods:{    //刪除測試中 
-      removeTask(){     
-      console.log(this.vistext);
-    }
+    props:['vistext','index'], //設定要傳出去的值 訊息,訊息index
+ 
+    methods:{    //刪除
+      removeTask(index){ //設定要傳出去的值
+        console.log(index);
+        this.$emit('deletvistext',index); //自訂事件與要傳給父層的值                              
+    },
   },
     template:
     `<!-- 訪客留言區 -->   
        <li class="visitors-messagelist">
            <div class="visitors-img"><img src="./images/moonMap/user02.jpg" alt="留言訪客照"></div>
            <div class="visitors-message">{{vistext}}</div>
-           <i class="fas fa-exclamation-circle fa-1x edit" @click="removeTask">delete</i>
+           <i class="fas fa-exclamation-circle fa-1x edit" @click="removeTask(vistext,index)" :id=index >delete</i> <!--設定屬性id值，要判定刪除的inedex-->
        </li>   
     `,
    
@@ -70,7 +71,7 @@ function dataToTemple(data){
 
 
   
- Vue.component('visitor-input',{  //訪客輸入訊息
+ Vue.component('visitor-input',{ //訪客輸入訊息
   data(){
     return{
       inputtask:'',
@@ -101,8 +102,8 @@ function dataToTemple(data){
     props:['myimg','name','msg','time','id','srcimg'],
 
     data(){
-      return{    
-       visitorstext:[], //訪客留言
+      return{      
+       visitorstext:[],//訪客留言
       };
     }, 
 
@@ -112,7 +113,18 @@ function dataToTemple(data){
       // alert()
      this.visitorstext.push(item);
     },
-
+    
+      //刪除訪客留言
+      removeTask(index){ //接收子層傳來的index值給父層
+  
+        this.visitorstext.splice(index,1); //刪除父層的index值
+       
+      },
+      closeul(e){  //訪客留言收合
+        let me = e.target;   
+        $(me).find('li').slideToggle();  //vue中不能寫this,會指到data
+       
+      },
   },
 
     template:`   
@@ -144,8 +156,10 @@ function dataToTemple(data){
           <visitor-input v-on:inputsub="addText"></visitor-input>
        </div>
        <!--子留言-->
-       <ul class="visitors-block">
-          <visitors-item v-for="values in visitorstext" v-bind:vistext="values"></visitors-item>
+       <ul class="visitors-block" @click="closeul">...
+          
+            <visitors-item v-for="(values,index) in visitorstext" v-bind:vistext="values" v-bind:index="index" @deletvistext="removeTask(index)"></visitors-item>
+           
         </ul>        
    </form>
    `, 
@@ -193,8 +207,6 @@ function dataToTemple(data){
       scrollTo () {
         document.querySelectorAll(".message_block")[0].scrollTo(0,document.querySelectorAll(".message_block")[0].scrollHeight);
       },
-
-
 
       // 傳照片
       fileChange(e){

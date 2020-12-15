@@ -506,7 +506,7 @@
       bottom: -6%;
       right: -10%;
       width: 35%;
-      z-index: -1;
+     
       .YueLao {
         position: relative;
         width: 70%;
@@ -522,25 +522,31 @@
 
     div.YueLao_block {
       display: none;
+      z-index: 1;
+      
     }
 
     div.YueLao_block.tab2 {
+      z-index: -1;
       .YueLao {
         width: 60%;
         z-index: -1;
         top: -25px;
         right: -20%;
         transform: rotate(25deg);
+        
       }
     }
 
     div.YueLao_block.tab3 {
+      z-index: -1;
       .YueLao {
         width: 60%;
         z-index: -1;
         top: -30px;
         right: -20%;
         transform: rotate(30deg);
+        
       }
     }
   }
@@ -561,6 +567,63 @@
     background-color: #ff8181;
     border-radius: 10px;
   }
+
+  //背景熱氣球飄移動畫
+  .ball{
+    background-image: url(../images/moonMap/cloud_moonmap_inside_ball.png);
+    position: absolute;
+    top:10%;
+    height: 98%;
+    width: 98%;
+    background-size:contain;
+    animation: swing ease-in-out 2s infinite alternate;
+    z-index: -2;
+    opacity: .8;
+
+    @keyframes swing {
+        0% { transform: rotate(1deg);}
+
+        100% { transform: rotate(-1deg);}
+    }
+  }
+  //背景熱氣球飄移動畫結束
+
+  //背景雲飄移動畫
+  .cloud_one{
+    background-image: url(../images/moonMap/cloud_moonmap_inside_one.png);
+    position: absolute;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    background-size:cover;
+    animation: move 100s infinite linear alternate;
+    z-index: -3;
+    opacity: .6;
+
+    @keyframes move{
+        100%{bckground-position: 500% 0;}
+    }
+  }
+
+  .cloud_second{
+    background-image:url(../images/moonMap/cloud_moonmap_inside_second.png);
+    position: absolute;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    background-size:cover;
+    animation: move 100s infinite linear alternate;
+    z-index: -2;
+    opacity: .5;
+
+
+    @keyframes move{
+        100%{background-position: 500% 0;}
+    }
+
+  }
+  //背景雲飄移動畫結束
+  
 }
 
 // ----------RWD----------------
