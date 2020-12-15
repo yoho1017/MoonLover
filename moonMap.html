@@ -280,7 +280,7 @@
                                 <textarea id="user-message" v-model="newText" placeholder="留言貼文吧" @keyup.enter=""></textarea>                                       
                                 <div class="imgBlock">
                                     <ul class="imgList">
-                                        <li v-for="image in images" class="aboutImg"><img :src="image.src" @click="deletebut(image)"></li>
+                                        <li v-for="(image,index) in images" class="aboutImg"><img :src="image.src" @click="deletebut(index)"></li>
                                         <!-- <li><div class="aboutImg"><img src="./images/moonMap/咖啡照片.jpg"></div></li> -->
                                        
                                         <span class="imgBut">             
