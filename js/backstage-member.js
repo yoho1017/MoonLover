@@ -26,10 +26,15 @@ var backend = new Vue ({
         currentPage: 1,
         // 預設頁數
         pageCount: 1,
+        // 取得資料
         sql:[],
+        // 修改的資料
         modify_data : '', //給空字串或空陣列都可以
+        // 興趣資料
         interest_data : '',
+        // 搜尋
         Sdata : '',
+        // 清單顯示(預設true)
         menu : true,
     },
     computed: {
