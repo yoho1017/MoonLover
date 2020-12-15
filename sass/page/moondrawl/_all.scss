@@ -132,12 +132,27 @@
 
                     animation: moveupdown_duelbox 1s infinite linear alternate;
 
+                    // animation-duration: 5s;
+
 
                     //中間區域雲朵
                     .cloud{
                         width: 583px;
                         transform: translateY(300px);
+
+                        // 要用absolute才可定位
+                        // position: absolute;
+                        // top:300px;
                         // border: 1px solid black;
+
+                        
+                         //上下浮動-先不要
+                        // @keyframes moveupdown_duelbox{
+                        //     from { top: 0.07%; }
+                        //     to { top: 1.5%; }
+                        // }
+
+                        // animation: moveupdown_duelbox 1s infinite linear alternate;
 
                         img{
                             width:100%;
@@ -152,6 +167,16 @@
                         transform: translateY(-230px);
                         // border: 1px solid red;
 
+                        position:relative;
+
+                        //上下浮動-先不要
+                        //  @keyframes moveupdown_duelbox{
+                        //     from { top: 0.07%; }
+                        //     to { top: 1.5%; }
+                        // }
+    
+                        // animation: moveupdown_duelbox 1s infinite linear alternate;
+
                         img{
                             width:100%;
                         }
@@ -161,6 +186,21 @@
 
                     //中間按鈕
                     .btn_go{
+
+                        // 上下浮動-取消
+                        // @keyframes moveupdown_duelbox_none{
+                        //     from { top: 0%; 
+                        //           display: none;
+                        //           }
+                        //     to { top:0%; 
+                        //          display: none;
+                        //         }
+                        // }
+
+                        // animation: moveupdown_duelbox_none 1s infinite linear alternate;
+
+                        // position:absolute;
+
                         transform: translateY(-200px);
                         font-size: 30px;
                         padding: 10px 30px;
@@ -460,13 +500,15 @@
     display: none;
 
 
-    //月老上下浮動動畫
-    // animation: moveupdown 1s infinite linear alternate;
+    // 月老上下浮動動畫
+    animation: moveupdown 2.5s infinite linear alternate;
 
-    // @keyframes moveupdown{
-    //     from { bottom: 0.5%; }
-    //     to { bottom: 0; }
-    // }
+    @keyframes moveupdown{
+        from { bottom: 0.5%; }
+        to { bottom: 0; }
+    }
+
+    
 
         .talk{
             width: 260px;
@@ -540,7 +582,7 @@
         height: 100%;
         width: 100%;
         background-size:cover;
-        animation: move 100s infinite linear alternate;
+        animation: move 200s infinite linear alternate;
         z-index: -3;
         opacity: .5;
 
@@ -556,7 +598,7 @@
         height: 100%;
         width: 100%;
         background-size:cover;
-        animation: move 100s infinite linear alternate;
+        animation: move 200s infinite linear alternate;
         z-index: -2;
         opacity: .5;
 

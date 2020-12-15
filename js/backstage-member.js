@@ -250,9 +250,10 @@ var backend = new Vue ({
     },
     mounted() {
 
-        for (i = 0 ; i <= this.lists.length; i++) { //取得頁面title名字來綁定頁籤class
-            if (this.lists[i] == document.title) {
-                $('.listName').eq(i).addClass( "bold" );
+        var vm = this;
+        for (i = 0; i <= vm.lists.length -1; i++) { //取得頁面title名字來綁定頁籤class
+            if (vm.lists[i].list == document.title) {
+                $('.listName').eq(i).addClass("bold");
             }
         }
     },
