@@ -506,7 +506,7 @@
       bottom: -6%;
       right: -10%;
       width: 35%;
-      z-index: -1;
+     
       .YueLao {
         position: relative;
         width: 70%;
@@ -522,25 +522,31 @@
 
     div.YueLao_block {
       display: none;
+      z-index: 1;
+      
     }
 
     div.YueLao_block.tab2 {
+      z-index: -1;
       .YueLao {
         width: 60%;
         z-index: -1;
         top: -25px;
         right: -20%;
         transform: rotate(25deg);
+        
       }
     }
 
     div.YueLao_block.tab3 {
+      z-index: -1;
       .YueLao {
         width: 60%;
         z-index: -1;
         top: -30px;
         right: -20%;
         transform: rotate(30deg);
+        
       }
     }
   }
