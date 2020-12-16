@@ -111,7 +111,9 @@ function dataToTemple(data){
    methods:{
     addText(item){
       // alert()
+     $('.visitors-messagelist').show(); //留言時強制打開訪客ul
      this.visitorstext.push(item);
+
     },
     
       //刪除訪客留言
@@ -121,10 +123,12 @@ function dataToTemple(data){
        
       },
       closeul(e){  //訪客留言收合
-        let me = e.target;   
-        $(me).find('li').slideToggle();  //vue中不能寫this,會指到data
+        let me = e.target; 
+             
+        $(me).find('li').slideToggle();  //vue中不能寫this,會指到data  
        
       },
+     
   },
 
     template:`   
@@ -189,11 +193,11 @@ function dataToTemple(data){
     methods : {
       submit(newText){
         if(newText !=''){
-          let ss=this.srcimg;
+          let src=this.srcimg;
           this.myMsg.push(
-            {myImg:'./images/moonMap/user01.jpg',name:'Diana', msg:newText,time:this.getTime(),srcimg:ss}
+            {myImg:'./images/moonMap/user01.jpg',name:'Diana', msg:newText,time:this.getTime(),srcimg:src}
           );
-          setTimeout(this.scrollTo,1000);
+          setTimeout(this.scrollTo,100);
           this.newText='';
           this.images=[];//清除圖片
           this.srcimg=[];
@@ -207,6 +211,7 @@ function dataToTemple(data){
       scrollTo () {
         document.querySelectorAll(".message_block")[0].scrollTo(0,document.querySelectorAll(".message_block")[0].scrollHeight);
       },
+    
 
       // 傳照片
       fileChange(e){

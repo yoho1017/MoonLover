@@ -313,17 +313,19 @@
             justify-content: space-between;
             align-items: center;
             .imgList {
-              width: 50%;
+              max-width: 300px;
+              margin-top: 10px;
               // border: 1px solid green;
               list-style: none;
               padding: 0;
               display: flex;
-              justify-content: space-between;
+              justify-content: center;
               align-items: flex-end;
               .aboutImg {
+                font-size: 0;
                 margin-left:5px;
-                width: 90%;
-                
+                max-width: 100px;
+                // border: 1px solid blue;
                 border-radius: 5px;
                 overflow: hidden;
               }
@@ -366,17 +368,22 @@
 
             // 貼文區圖片
             .imgList2 {
-              margin-top: 20px;
-              width: 100%;
+              margin-top: 10px;
+              max-width: 1000px;
+              
               // border: 1px solid green;
               list-style: none;
               font-size: 0;
               padding: 0;
               display: flex;
-              justify-content: space-between;
+              justify-content: center;
               align-items: flex-end;
               .aboutImg {
-                width: 90%;
+               
+                // border: 1px solid blue;
+                margin-left: 10px;
+                max-width: 250px; 
+                font-size: 0;         
                 border-radius: 5px;
                 overflow: hidden;
               }
