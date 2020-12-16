@@ -11,9 +11,36 @@
         // $intCondToSql = $_POST["intCondToSql"];
 
         //建立SQL        
-        $sql = "SELECT m.*, myInt.* FROM `member` m JOIN `my_interest` myInt on m.ID = myInt.mMEMBER_ID WHERE m.ID != $myId and m.PAIR_PRIV = 1 and m.SO = ? and m.SEX = ? and m.AGE_RANGE = ? and m.AREA = ? and m.JOB = ? and m.EDUCATION = ? and $intCondToSql GROUP BY m.ID ORDER BY RAND() LIMIT 1";
+        // $sql = "SELECT m.*, myInt.* FROM `member` m JOIN `my_interest` myInt on m.ID = myInt.mMEMBER_ID WHERE m.ID != $myId and m.PAIR_PRIV = 1 and m.SO = ? and m.SEX = ? and m.AGE_RANGE = ? and m.AREA = ? and m.JOB = ? and m.EDUCATION = ? and $intCondToSql GROUP BY m.ID ORDER BY RAND() LIMIT 1";
+        // $sql = "SELECT m.*, myInt.*, re.* FROM `member` m 
+        //         JOIN `my_interest` myInt on m.ID = myInt.mMEMBER_ID 
+        //         JOIN `relationship` re on re.MYMEMBER_ID = $myId
+        //             WHERE m.ID != $myId 
+        //                 and m.PAIR_PRIV = 1 
+        //                 and m.SO = ? 
+        //                 and m.SEX = ? 
+        //                 and m.AGE_RANGE = ? 
+        //                 and m.AREA = ? 
+        //                 and m.JOB = ? 
+        //                 and m.EDUCATION = ? 
+        //                 and $intCondToSql 
+        //                 and re.TARGET_ID != m.ID
+        //         GROUP BY m.ID";
+
+        $sql = "SELECT * FROM `member` m 
+        JOIN `my_interest` myInt on m.ID = myInt.mMEMBER_ID 
+        LEFT JOIN `relationship` re on re.TARGET_ID = m.ID
+            WHERE m.ID != $myId 
+                and m.PAIR_PRIV = 1 
+                and m.SO = ? 
+                and m.SEX = ?
+                and m.AGE_RANGE = ?
+                and m.AREA = ? 
+                and m.JOB = ? 
+                and m.EDUCATION = ?  
+                and re.TARGET_ID is null
+        GROUP BY m.ID ORDER BY RAND() LIMIT 1";
         
-        // $sql = "SELECT m.*, myInt.* FROM `member` m JOIN `my_interest` myInt on m.ID = myInt.mMEMBER_ID WHERE m.ID != $myId and m.PAIR_PRIV = 1 and m.SO = ? and m.SEX = ? and m.AGE_RANGE = ? and m.AREA = ? and m.JOB = ? and m.EDUCATION = ? and $intCondToSql";
         // $sql = "SELECT m.*, myInt.* FROM `member` m JOIN `my_interest` myInt on m.ID = myInt.mMEMBER_ID WHERE m.ID != $myId and m.PAIR_PRIV = `1` and m.SO = ? and m.SEX = ? and m.AGE_RANGE = ? and m.AREA = ? and m.JOB = ? and m.EDUCATION = ? and ?";
         // echo $sql;
         // //執行

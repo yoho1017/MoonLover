@@ -38,6 +38,7 @@ let matchCond = new Vue({
         educations : ['博士','碩士','大學','高中職','國中以下'],
         sex : '',
         seo : '',
+        pair: '',
         qmmcID: '',
         qCity: '',
         qJob: '',
@@ -254,22 +255,37 @@ let matchCond = new Vue({
             axios.post('./php/membercenterR.php').then((res) => {
                 let data = res.data;
                 // console.log(data);
-                this.memType = data[0].MEMBER_TYPE;
-                // 判斷會員等級是否為進階會員，
-                // 若非進階會員則直接跳轉到會員中心的個人資料頁面
-                if(this.memType != 1){
-                    alert(`親愛的會員，請填寫完整的會員資料，月老才能幫您牽線喔！`);
-                    window.location.href="./MyInfo.html";
+
+                if(data == ''){
+                    alert('未登入');
+                    window.location.href = './main.html';
+                    
+
+                }else{
+                    this.memType = data[0].MEMBER_TYPE;
+                    this.pair = data[0].PAIR_PRIV;
+                    // 判斷會員等級是否為進階會員，
+                    // 若非進階會員則直接跳轉到會員中心的個人資料頁面
+                    if(this.memType != 1){
+                        alert(`親愛的會員，請填寫完整的會員資料，月老才能幫您牽線喔！`);
+                        window.location.href="./MyInfo.html";
+                    }else if(this.pair != 1){
+                        alert(`親愛的會員，請同意接受月老配對，月老才能幫您牽線喔！`);
+                        window.location.href="./MyInfo.html";
+                    }
+                    this.nickname = data[0].NICKNAME;
+                    this.username = data[0].USERNAME;
+                    this.city = data[0].AREA;
+                    this.job = data[0].JOB;
+                    this.education = data[0].EDUCATION;
+                    this.myage = data[0].AGE;
+                    this.ageRange = data[0].AGE_RANGE;
+                    this.sex = data[0].SEX;
+                    this.seo = data[0].SO;
+
+                    this.getIntdata();
                 }
-                this.nickname = data[0].NICKNAME;
-                this.username = data[0].USERNAME;
-                this.city = data[0].AREA;
-                this.job = data[0].JOB;
-                this.education = data[0].EDUCATION;
-                this.myage = data[0].AGE;
-                this.ageRange = data[0].AGE_RANGE;
-                this.sex = data[0].SEX;
-                this.seo = data[0].SO;
+                
             })                
         },
         getIntdata () { //取得會員興趣
@@ -310,7 +326,7 @@ let matchCond = new Vue({
     mounted() {
         // 1. 先取得該會員資料與興趣
         this.getdata();
-        this.getIntdata();
+        // this.getIntdata();
          
     },
 });
@@ -338,6 +354,8 @@ let matchCard = new Vue({
         education : '',
         sex : '',
         seo: '',
+        mCounter: 0,
+
     },
     methods: {
         getMatchMemberData () { //取得配對會員資料
@@ -357,7 +375,7 @@ let matchCard = new Vue({
                     if(this.interests[i].checked == true){
                         intCond.push(`(myInt.mINTEREST_ID = ${i+1} and myInt.mINTEREST_STATUS = 1)`);
                     }
-                    console.log(this.interests[i].checked);
+                    // console.log(this.interests[i].checked);
                 }
                 console.log(intCond);
                 let intCondToSql = intCond.join(' or ');
@@ -369,11 +387,15 @@ let matchCard = new Vue({
                 // }       
                 axios.post('./php/matchMemberR.php', params).then((res) => {
                     let data = res.data;
-                    // console.log(data);
+                    console.log(data);
                     if(data != ''){
                         // alert('有篩到');
                         this.mId = data[0].mMEMBER_ID;
-                        this.profile = atob(data[0].IMAGE); // 圖檔要用atob解壓縮
+                        if(data[0].IMAGE != null){
+                            this.profile = atob(data[0].IMAGE); // 圖檔要用atob解壓縮
+                        }else{
+                            this.profile = './images/MyInfo/profile.png'; // 會員沒有頭像
+                        }
                         this.nickname = data[0].NICKNAME;
                         this.about = data[0].ABOUT;
                         this.city = data[0].AREA;
@@ -382,6 +404,7 @@ let matchCard = new Vue({
 
                         // 呼叫處理興趣的函數
                         this.getMatchMemberInterest();
+
                     }else{
                         console.log('沒篩到');
                         this.profile = './images/MyMsg/person_special.jpg';
@@ -418,9 +441,26 @@ let matchCard = new Vue({
                 let data = res.data;
                 console.log(data);
 
-                // 配對完畢，重新導向留言板頁面
-                window.location.href='./MyMsg.html';
+                if(data == 'success' && this.nickname != '賓哥'){
+                    // 配對完畢，重新導向留言板頁面
+                    window.location.href='./MyMsg.html';
+                }else{
+                    console.log('重複配對');
+                }
+
+                
             });
+        },
+        matchCounter(counter){
+            // alert();
+            let params = new URLSearchParams();
+            params.append('counter', counter);
+
+            axios.post('./php/matchCounter.php', params).then((res) => {
+                this.mCounter = res.data;
+                console.log(this.mCounter);
+            });
+            this.$forceUpdate();
         },
     },
     components:{
@@ -459,8 +499,8 @@ let matchCard = new Vue({
                                 <h4>{{job}}</h4>
                             </div>
                             <div class="btnGroup">
-                                <button class="btnBlue_choose" id="reselect"><h3>重選</h3></button>
-                                <a href="#" class="btnRed_choose" id="toMsg"><h3>私訊</h3></a>
+                                <button class="btnBlue_choose reselect"><h3>重選</h3></button>
+                                <a href="#" class="btnRed_choose toMsg" ><h3>私訊</h3></a>
                             </div>
 
                         </div>
@@ -471,7 +511,75 @@ let matchCard = new Vue({
         },
     },
     mounted() {
-        
+        this.mCounter = this.matchCounter('get');
+        if(this.mCounter >= 3){
+            alert('已經三次囉！明天再試試吧！');
+            window.location.href = './main.html';
+        }
+
+        // 翻牌
+        $('.card_front').on('click', function(){
+
+            if(matchCard.$data.mCounter >= 3){
+                alert('已經三次囉！明天再試試吧！');
+                $('.card_front').css({pointerEvents: 'none',});
+                window.location.href = './main.html';
+                return;
+            }else if (matchCard.$data.nickname != '賓哥'){ 
+                // 有選到人才增加counter次數
+                matchCard.matchCounter('add');
+            }
+
+
+
+            $(this).parent('.card').toggleClass('flipped');
+    
+            $('.moonMatch-body').css({
+                backgroundColor: '#EEBBB4',
+            });
+            $(this).parents('.scene').css({
+                zIndex: `${zIdx++}`,
+            });
+    
+            $('.msgBox-container').toggleClass('-on');
+    
+            $('.card_front').css({pointerEvents: 'none',});
+    
+        });
+
+        // 展開篩選條件
+        $('.btnRed_query').on('click', function(){
+            $('.queryBox').toggleClass('-on').css({
+
+            });
+        });
+
+        // 重選
+        $('.reselect').on('click', function(e){
+            e.stopPropagation();
+    
+            $('.moonMatch-body').css({
+                backgroundColor: '#F0DED1',
+            });
+            $(this).parents('.card').toggleClass('flipped');
+    
+            $('.card_front').css({
+                pointerEvents: 'auto',
+            });
+    
+            $('.msgBox-container').toggleClass('-on');
+    
+            //重新到後端資料
+            setTimeout(() => {
+                matchCard.getMatchMemberData();
+            }, 500);
+        });
+
+        // 私訊
+        $('.toMsg').on('click', function(e){
+            e.stopPropagation();
+            matchCard.toMsg();
+        });
     },
 });
 
@@ -551,70 +659,6 @@ $(document).ready(function(){
     setTimeout(() => {
         // $('.queryBox').toggleClass('-on');
     }, 2500);
-
-
-    // 翻牌
-    $('.card_front').on('click', function(){
-        $(this).parent('.card').toggleClass('flipped');
-
-        $('.moonMatch-body').css({
-            backgroundColor: '#EEBBB4',
-        });
-        $(this).parents('.scene').css({
-            zIndex: `${zIdx++}`,
-        });
-
-        $('.msgBox-container').toggleClass('-on');
-
-        $('.card_front').css({pointerEvents: 'none',});
-
-    });
-
-    // 展開篩選條件
-    $('.btnRed_query').on('click', function(){
-        $('.queryBox').toggleClass('-on').css({
-
-        });
-        // $('.msgBoxContent').toggleClass('-on');
-    });
-
-    // 私訊
-    $('#toMsg').on('click', (e) => {
-        e.stopPropagation();
-
-        matchCard.toMsg();
-    });
-
-    // 重選
-    $('#reselect').on('click', function(e){
-        // console.log(e);
-        e.stopPropagation();
-
-        $('.moonMatch-body').css({
-            backgroundColor: '#F0DED1',
-        });
-
-        // console.log($(this));
-        // $(this).parent('.card').css({
-        //     transform: 'scale(1) rotateY(0) translateY(0)',
-        // });
-        $(this).parents('.card').toggleClass('flipped');
-
-        $('.card_front').css({
-            pointerEvents: 'auto',
-        });
-
-        $('.msgBox-container').toggleClass('-on');
-
-        
-
-        //重新到後端資料
-        setTimeout(() => {
-            matchCard.getMatchMemberData();
-        }, 500);
-    });
-
-
 });
 
 function msgBoxOpen(){
@@ -624,16 +668,12 @@ function msgBoxOpen(){
 
 function memberCardMove(direction){
     if(direction == 'up'){
-        // console.log($(window).width());
-        // if($(window).width() >= 1366)
-        // console.log('up');
         TweenMax.to('.memberCards', 1, {
             // y: '-30%',
             y: -130,
             scale: .7
         });
     }else if (direction == 'down'){
-        // console.log('down');
         TweenMax.to('.memberCards', 1, {
             y: '0',
             scale: 1

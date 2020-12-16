@@ -282,6 +282,8 @@ $btnmg: 0 10px;
   }
 }
 //------------- header RWD ----------------------
+
+//768px
 @include rwd(small) {
   .header {
     .nav {
@@ -305,3 +307,42 @@ $btnmg: 0 10px;
     }
   }
 }
+
+//450px,調整for 320px會擋到logo不能按
+@include rwd(450px) {
+  .header{
+    .nav{
+      //會員中心icon
+      .fas.fa-user.fa-2x{
+        width: 45px;
+        height: 45px;
+        padding-top: 8px;
+   
+      }
+      //購物車icon
+      .fas.fa-shopping-cart.fa-2x{
+        width: 45px;
+        height: 45px;
+        padding-top: 8px;
+      }
+      .navlist{
+          //登入登出鈕
+          .username{
+            font-size: 16px;
+            width: 45px;
+            height: 45px;
+          }
+          li{
+            margin-left: 10px;
+          }
+      }
+      //漢堡
+      .hamburger{
+        width:45px;
+        height:45px;
+        padding-left:2px;
+      }
+    }
+  }
+}
+//450px,調整for 320px會擋到logo不能按結束
