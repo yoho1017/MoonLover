@@ -1,7 +1,12 @@
  //廟宇資料庫
+ let pageId = window.location.hash.substr(1); //找到字串中數字位置
+ console.log(pageId);
+ 
+ var params = new URLSearchParams();
+ params.append('tid', pageId); //將值放入tid
 
-var params = new URLSearchParams();
-params.append('tid', 1);
+// var params = new URLSearchParams();
+// params.append('tid', 1);
 
 axios.post('./php/moonMap.php', params).then( response => {
   var data = response.data;
@@ -104,6 +109,7 @@ function dataToTemple(data){
     data(){
       return{      
        visitorstext:[],//訪客留言
+       block_block:false
       };
     }, 
 
@@ -128,12 +134,17 @@ function dataToTemple(data){
         $(me).find('li').slideToggle();  //vue中不能寫this,會指到data  
        
       },
+
+      open_block () { //打開封鎖燈箱(測試中)
+        console.log('get');
+        this.$emit('abc',this.block_block);
+     },
      
   },
 
     template:`   
     <form  class="userForm" action="#" :id=id>
-       <i class="fas fa-exclamation-circle fa-1x end" id="edit" ></i>
+       <i class="fas fa-exclamation-circle fa-1x end" id="edit" @click="open_block"></i>
        <div class="user_block">
            <div class="userImg_block">
                <div class="userImg"><img :src=myimg alt="user01"></div>
@@ -174,6 +185,7 @@ function dataToTemple(data){
   //moonMap 公版留言區 
   var moonmap = new Vue({
     el:'#moonMap',
+    props:['block_block'],
     data:{ 
       mesg:[],   
       // mesg:
@@ -189,6 +201,7 @@ function dataToTemple(data){
       visitorstext:'',
       srcimg:[],
       images:[],//暫存圖
+      // block_block : false
     },
     methods : {
       submit(newText){
@@ -267,6 +280,8 @@ function dataToTemple(data){
       }
       
     },
+
+
     
 
     // 組件
