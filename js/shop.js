@@ -1,23 +1,52 @@
+// const { createPopper } = require("@popperjs/core");
+
 let $ = window.$
 
 // axios
 axios.post('./php/MoonShop.php').then((res) => {
     console.log(res);
-    console.log(res.data, 'QQ');
+    console.log(res.data);
     data = res.data;
 
     loading(data);
 })
+
+axios.post('./php/selectMascotR.php').then((res) => {
+    console.log(res);
+    console.log(res.data);
+    picData = res.data;
+    showing(picData);
+    if (picData != "") {
+        showing(picData);
+    } else {
+        document.getElementById('cusPic').src = `./images/moonShop/old-01.png`;
+
+        $('#customPic').css({
+            pointerEvents: 'none',
+        });
+        document.getElementById('replaceWords').innerHTML = '未建立圖片';
+    }
+})
+
+
+function showing(picData) {
+    document.getElementById('cusPic').src = `./images/member/macot/${picData}`;
+    console.log(picData);
+}
 
 var lists;
 
 function loading(data) {
 
     lists = data;
+    localStorage.setItem('Allitems', JSON.stringify(lists));
+    console.log(data, 'data');
     //悠遊卡
     document.getElementById('easyCard').innerHTML = lists[0].NAME;
     document.getElementById('easyCardImg').src = thing(lists[0].IMAGE);
     document.getElementById('easyCardPrice').innerHTML = lists[0].PRICE;
+
+
     //大抱枕
     document.getElementById('easyPillow').innerHTML = lists[1].NAME;
     document.getElementById('easyPillowImg').src = thing(lists[1].IMAGE);
@@ -64,6 +93,26 @@ function loading(data) {
     document.getElementById('easyPad').innerHTML = lists[7].NAME;
     document.getElementById('easyPadImg').src = thing(lists[7].IMAGE);
     document.getElementById('easyPadPrice').innerHTML = lists[7].PRICE;
+    // console.log(lists[0].NAME);
+
+
+    // console.log(document.getElementById('p1').value);
+    //綁id在按鈕上,超連結部分綁上ID,NAME,PRICE,INTRODUCTION,IMAGE
+    for (let i = 0; i < lists.length; i++) {
+        document.querySelectorAll('.shopCars')[i].id += `${lists[i]["ID"]}`;
+        document.querySelectorAll(".ImageContent1")[i].dataset.pdid = `${lists[i]["ID"]}`
+        /// // go to detail page
+        document.querySelectorAll('.ImageContent1')[i].dataset.pdtitle = lists[i].NAME;
+        document.querySelectorAll('.ImageContent1')[i].dataset.pdprice = lists[i].PRICE;
+        document.querySelectorAll('.ImageContent1')[i].dataset.pdintroduction = lists[i].INTRODUCTION;
+        document.querySelectorAll('.ImageContent1')[i].dataset.pdImg = lists[i].IMAGE;
+    }
+
+
+
+
+
+    // console.log(document.getElementById('p1').value, '1213');
 }
 
 
@@ -73,6 +122,8 @@ function thing(img) {
     // console.log(src);
     return src;
 }
+
+
 
 document.addEventListener("click", function (e) {
     let merchandise = document.querySelectorAll('.easyCard').length;
@@ -90,10 +141,6 @@ document.addEventListener("click", function (e) {
 
 
 
-function getStorageItem() {
-    let storedArray = JSON.parse(storage.getItem("addItemList"))
-    document.getElementById("itemCount").innerText = storedArray.length;
-}
 //吉祥物換圖片-----------------------------------------------
 //shopPic是那四張動物圖片
 let ImgList = document.querySelectorAll('.shopPic');
@@ -102,19 +149,25 @@ for (let i = 0; i < ImgList.length; i++) {
         for (let j = 0; j < ImgList.length; j++) {
             document.getElementsByClassName('acceptPic')[j].src = e.target.src;
             // 抓取圖片名稱
-            let imgSrc = e.target.src.slice(-10);
-            let shoppingInput = document.querySelectorAll('.shoppingCars input');
+
+
+            // let imgSrc = e.target.src.slice(-10);
+            let imgSrc = e.target.src.split('/')[e.target.src.split('/').length - 1];
+            console.log(imgSrc, '123');
+            let shoppingInput = document.querySelectorAll('.shoppingCars');
+            shoppingInput[j].dataset.product = imgSrc;
+            document.querySelectorAll('.ImageContent1')[j].dataset.pdLuckyImg = imgSrc;
             //上面這裡要再詢問?
             //這裡為何要用-1(迴圈要在更懂)只要裡面有01就要放
-            if (shoppingInput[j].value.indexOf("01") !== -1) {
-                let repeatItem = shoppingInput[j].value.slice(0, -11);
-                shoppingInput[j].value = repeatItem + '|' + imgSrc;
-                console.log('123');
-                //點小狐狸123不會出現
-            }
-            else {
-                shoppingInput[j].value = shoppingInput[j].value + '|' + imgSrc
-            }
+            // if (shoppingInput[j].value.indexOf("01") !== -1) {
+            //     let repeatItem = shoppingInput[j].value.slice(0, -11);
+            // shoppingInput[j].value = repeatItem + '|' + imgSrc;
+            // console.log('123');
+            //點小狐狸123不會出現
+            // }
+            // else {
+            //     shoppingInput[j].value = shoppingInput[j].value + '|' + imgSrc
+            // }
 
         }
 
@@ -132,67 +185,114 @@ for (let i = 0; i < ImgList.length; i++) {
 var storage = localStorage;
 function doFirst() {
     let list = document.querySelectorAll('.shopCars');
-    for (let a = 0; a < list.length; a++) {
-        list[a].addEventListener('click', function () {
-            let lightB = document.querySelectorAll('.easyCard');
-            let productInfo = document.querySelector(`#${this.id} input`).value;
-            if (this.getAttribute('type') === null) {
-                addItem(this.id, productInfo, lightB[a].textContent);
-            }
-            else {
-                addItem(`${this.getAttribute('type')}${this.id}`, productInfo, lightB[a].textContent);
+
+    list.forEach((item, index) => {
+        item.addEventListener("click", function (e) {
+            let currentProd = lists.find(item => item["ID"] === e.target.id);
+            currentProd.itemCount = '1';
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+            //id判斷
+            if (cartItems.length >= 0) {
+                if (!cartItems.some(element => element["ID"] === currentProd["ID"])) {
+                    if (e.target.dataset) {
+                        currentProd.animalImg = e.target.dataset.product
+                    }
+                    cartItems.push(currentProd)
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+                    getStorageItem();
+                    return addSuceess()
+
+                } else {
+                    //動物判斷
+                    // 兔 !== 兔
+                    let idItems = cartItems.filter(element => element["ID"] === currentProd["ID"]) || []
+                    console.log(idItems, 'ID');
+                    if (!idItems.some(item => item.animalImg === e.target.dataset.product)) {
+                        currentProd.animalImg = e.target.dataset.product
+                        cartItems.push(currentProd)
+                        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                        getStorageItem();
+                        return addSuceess()
+                    }
+                    else {
+                        return notSuceess();
+                    }
+                }
             }
         })
-    }
+    })
+
 
     //判斷addItemList裡面是否有東西1.有東西,2沒有東西
     //購物車商品數量
-    if (storage['addItemList']) {
+
+    function getStorageItem() {
+        let storedArray = JSON.parse(storage.getItem("cartItems"));
+
+        document.getElementById("itemCount").innerText = storedArray.length;
+    }
+    if (storage['cartItems']) {
         getStorageItem();
     }
     else {
         document.getElementById("itemCount").innerText = 0;
     }
-}
 
+    // 刪除rwd框框---------------------------------------------
+    // document.querySelectorAll('img').forEach(function (img) {
+    //     img.onerror = function () { this.style.display = 'none'; };
+    //     if (img.src == '') {
+    //         img.style.display = 'none'
+    //     }
+    // })
+}
+// let swal = document.querySelector('.swal2-modal');
+// swal.style.background = "#FFE4CA";
+// swal.style.border = '5px solid #FF7575';
+function notSuceess() {
+    Swal.fire({
+        icon: 'error',
+        text: `購買過了喔`,
+    })
+}
+function addSuceess() {
+    Swal.fire({
+        imageUrl: 'images/moonShop/old-01.png',
+        text: ` 加入購物車囉`,
+    })
+}
 
 // 內頁綁定ID----------------------------------------------
-$("#easyCardImg").click(function (e) {
-
-    console.log('123');
-})
 
 
+$(".ImageContent1").each(function (index) {
+    let detailItem = {};
+    $(this).on("click", function () {
+        // For the boolean value
+        detailItem['title'] = $(this).attr('data-pdtitle');
+        detailItem['price'] = $(this).attr('data-pdprice');
+        detailItem['introduction'] = $(this).attr('data-pdintroduction');
+        detailItem['img'] = $(this).attr('data-pd-img');
+        detailItem['number'] = $(this).attr('data-pdid');
+        if ($(this).attr('data-pd-lucky-img')) {
+            detailItem['luckyImg'] = $(this).attr('data-pd-lucky-img');
+        }
+        console.log(detailItem, 'object');
+        localStorage.setItem('detailPageItem', JSON.stringify(detailItem));
+    });
+});
+
+
+// .click(function (e) {
+
+//     console.log($(e.currentTarget));
+//     console.log($(e.currentTarget).children());
+//     if (!$(e.currentTarget).children(".acceptPic").attr("src")) {
+//         console.log("hello");
+//     }
+// })
 // 判斷是否已經加入購物車以及燈箱提醒------------------------
 
-function addItem(itemId, itemValue, item) {
-    let idArray = JSON.parse(localStorage.getItem('addItemList')) || [];
-    let imgArray = JSON.parse(localStorage.getItem('addItemImg')) || [];
-    console.log((itemId), "0426");
-    //element就是ListItems
-    if (idArray.some(element => element === itemId)) {
-        Swal.fire({
-            icon: 'error',
-            text: `${item}購買過了喔`,
-        })
-    } else {
-        Swal.fire({
-            imageUrl: 'images/moonShop/old-01.png',
-            text: `${item}加入購物車囉`,
-        })
-        //放進去localStorage
-        idArray.push(itemId);
-        imgArray.push(itemValue);
-        storage['addItemList'] = JSON.stringify(idArray);
-        storage['addItemImg'] = JSON.stringify(imgArray);
-    }
-    let swal = document.querySelector('.swal2-modal');
-    swal.style.background = "#FFE4CA";
-    swal.style.border = '5px solid #FF7575';
-    // 有多少商品項目在購物車----------------
-    getStorageItem()
-
-}
 
 
 

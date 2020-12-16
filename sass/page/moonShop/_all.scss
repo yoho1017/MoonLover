@@ -50,6 +50,11 @@ img{
             @include customerPic();
             .PicContent1 {
                 @include PicContent1();
+                #cusPic{
+                    width:240px;
+                    height:240px;
+                    margin:auto;
+                }
             }
             p {
                 position: absolute;

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="./js/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- jq -->
@@ -16,12 +16,14 @@
     <script src="./js/@popperjs/core/dist/umd/popper.min.js"></script>
     <!-- vue -->
     <script src="./js/vue.js"></script>
+    <!-- axios js -->
+    <script src="./js/axios/dist/axios.min.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
-    <title>Products_Management</title>
+    <title>商品管理</title>
 
 </head>
 
-<body>
+<body class="backStageBody">
     <!------------------------------header---------------------------------->
     <header class="header">
         <nav class="nav navback" id="nav">
@@ -64,11 +66,11 @@
         <main>
             <div class="Bcontainer">
 
-                <div class="editbar" v-if="menu">
+                <!-- <div class="editbar" v-if="menu">
                     <div class="bkbtn_Blue" @click="add('n')">
                         <h3>新增商品</h3>
                     </div>
-                </div>
+                </div> -->
 
                 <table v-if="menu">
                     <!-- 標題在thead class要按照下面方式寫才能吃到顏色-->
@@ -95,7 +97,7 @@
                     <!-- 內容在tbody，如果要新增行數就加一組tr -->
                     <tbody>
 
-                        <tr is="row" v-for="data in sql" :id="data[0]" :nam_e="data[1]" :pric_e="data[2]"></tr>
+                        <tr is="row" v-for="(data,index) in pagedListdata" :id="data[0]" :index="index" :name="data[1]" :price="data[2]" :status="data[6]"  @update="updateStatus"></tr>
 
                     </tbody>
 
@@ -129,9 +131,9 @@
                             <h4>商品狀態</h4>
                         </td>
                         <td class="td_md">
-                            <select class="input_status" v-model="modify_data[3]">
-                                <option value="show">上架</option>
-                                <option value="hide">隱藏</option>
+                            <select class="input_status" v-model="modify_data[6]">
+                                <option value="1" :selected="1 == modify_data[6]">上架</option>
+                                <option value="0" :selected="0 == modify_data[6]">下架</option>
                             </select>
                         </td>
                     </tr>
@@ -141,9 +143,9 @@
                             <h4>商品類型</h4>
                         </td>
                         <td class="td_md">
-                            <select class="input_status" v-model="modify_data[4]">
-                                <option value="normal">一般</option>
-                                <option value="custermise">客製化</option>
+                            <select class="input_status" v-model="modify_data[5]">
+                                <option value="0" :selected="0 == modify_data[5]">一般</option>
+                                <option value="1" :selected="1 == modify_data[5]">客製化</option>
                             </select>
                         </td>
                     </tr>
@@ -154,7 +156,7 @@
                         </td>
                         <td class="td_md">
                             <textarea name="content" id="" cols="30" rows="10" class="editText"
-                                v-model="modify_data[5]">
+                                v-model="modify_data[4]">
                                             </textarea>
                         </td>
                     </tr>
@@ -162,10 +164,14 @@
                         <td class="td_30">
                             <h4>上傳圖片</h4>
                         </td>
-                        <td class="td_md">
-                            <!-- <button type="up_load">按此上傳圖片</button> -->
-                            <div class="bkbtn_Red" @click="change(modify_data[0])">
-                                <h3>按此上傳圖片</h3>
+                        <td class="td_md imgbox">
+                            <img v-if="imgPreview" id="imgPreview">
+                            <img :src="'./images/moonShop/' + modify_data[3]" v-else="imgPreview" >
+                            <input type="file" id="upload" style="display : none" accept="image/jpeg, image/png" @change="uploadImg" >
+                            <div class="btnBox">
+                                <div class="bkbtn_Red" @click="upload">
+                                    <h3>按此上傳圖片</h3>
+                                </div>    
                             </div>
                         </td>
                     </tr>
@@ -173,6 +179,9 @@
                     <tr>
                         <td class="td_100">
                             <div class="btn">
+                                <div class="bkbtn_Blue" @click="menu = true">
+                                    <h3>取消</h3>
+                                </div>
                                 <div class="bkbtn_Red" @click="change(modify_data[0])">
                                     <h3>完成</h3>
                                 </div>
@@ -183,53 +192,22 @@
                 </table>
 
 
-                <nav aria-label="Page navigation example" v-if="menu">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <paginate
+                for="sql"
+                :page-count="pageCount" 
+                :margin-pages = "pageCount"
+                :prev-text="'«'"
+                :next-text="'»'"
+                :click-handler="pageCallback"
+                prev-class ="page-item"
+                prev-link-class	="page-link"
+                next-class ="page-item"   
+                next-link-class	="page-link"         
+                page-class ="page-item"
+                page-link-class ="page-link"
 
-
-
-
-                <nav aria-label="Page navigation example" v-else="menu">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- <div class="btn" v-else="menu">
-                                <div class="bkbtn_Blue" @click="menu = true"><h3>取消</h3></div>
-                                <div class="bkbtn_Red" @click="change(modify_data[0])"><h3>完成</h3></div>
-                            </div> -->
-
-
+                container-class="pagination" v-show="menu">
+                </paginate>
 
             </div>
 
@@ -238,6 +216,8 @@
 
     </div>
 
+    <!-- vue paginate -->
+    <script src="https://unpkg.com/vuejs-paginate@2.1.0"></script>
     <!-- 後台js -->
     <script src="./js/backstage-products.js"></script>
 </body>

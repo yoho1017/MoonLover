@@ -39,6 +39,8 @@
 
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- lightbox -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body class="bgColorDefault bgImgCloud">
@@ -199,29 +201,32 @@
                                     <li><a href="">商品詳細</a></li>
                                     <!-- <li><a href="">悠遊卡</a></li> -->
                                 </ul>
-                                <img src="https://picsum.photos/200/300?random=1" alt="商品圖" width="300px"
-                                    height="200px">
+                                <div class="detailProImg">
+                                    <img alt="商品圖" class="proImg" width="300px" height="200px">
+                                    <img class="proLuckyImg">
+                                </div>
                                 <!-- <div>
                                 
                             </div> -->
+
                             </div>
                             <div class="proWords">
-                                <div class="proTitle1">客製化悠遊卡 </div>
-                                <div class="proContent1">來創建角色屬於自己的角色與製作悠遊卡,既實用又美麗。 </div>
-                                <div class="proPrice1" value="1000">單價 NT.1000</div>
+                                <div class="proTitle1"> </div>
+                                <div class="proContent1"></div>
+                                <div class="proPrice1" value="1000"></div>
                                 <div class="proPrice">
                                     <div class="proAmount">
 
                                         <span id='my_form' method='POST' action='#'>
                                             <label for="">數量 </label> <i class="fas fa-minus-square fa-2x"
                                                 class='qty_minus' id='minus'></i>
-                                            <input type='text' name='quantity' value='0' class='qty' />
+                                            <input type='number' name='quantity' value='1' class='qty' />
                                             <i class="fas fa-plus-square fa-2x" class='qty_plus' id='add'></i>
                                         </span>
                                     </div>
 
                                 </div>
-                                <p>總價NT.<span class="totalPri">1000</span></p>
+                                <p>總價NT.<span class="totalPri"></span></p>
                                 <!-- 按鈕 -->
                                 <div id="button">
                                     <div class="container">
@@ -237,12 +242,12 @@
                     </div>
                 </div>
                 <div class="orderImg">
-                    <img class="order" src="images/moonShopDet/月老-01.png" alt="月老" width="300px" height="300px">
+                    <img class="order" src="./images/moonShop/old-01.png" alt="月老" width="280px" height="280px">
                     <img class="cloud2" src="images/moonShopDet/shop_cloud.png" alt="cloud2" width=250px height=80px>
                 </div>
             </div>
         </div>
-
+        Item : <span id="itemCount">0</span> item(s)
     </div>
 
 
