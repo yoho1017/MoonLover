@@ -47,10 +47,10 @@
         $Member->setMemberInfo($memberID,$memberUSER);
 
         //導回首頁        
-        echo "<script>alert('歡迎來到全台第一間線上月老廟。'); location.href = '../index.html';</script>"; 
+        echo "<script>alert('歡迎來到全台第一間線上月老廟。'); location.href = '../main.html';</script>"; 
     }else{
         //跳出提示停留在登入頁
-        echo "<script>alert('帳號或密碼錯誤!'); location.href = '../index.html';</script>"; 
+        echo "<script>alert('帳號或密碼錯誤!'); location.href = '../main.html';</script>"; 
     }
 
 ?>

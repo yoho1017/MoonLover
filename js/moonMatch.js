@@ -258,7 +258,7 @@ let matchCond = new Vue({
 
                 if(data == ''){
                     alert('未登入');
-                    window.location.href = './index.html';
+                    window.location.href = './main.html';
                     
 
                 }else{
@@ -514,7 +514,7 @@ let matchCard = new Vue({
         this.mCounter = this.matchCounter('get');
         if(this.mCounter >= 3){
             alert('已經三次囉！明天再試試吧！');
-            window.location.href = './index.html';
+            window.location.href = './main.html';
         }
 
         // 翻牌
@@ -523,7 +523,7 @@ let matchCard = new Vue({
             if(matchCard.$data.mCounter >= 3){
                 alert('已經三次囉！明天再試試吧！');
                 $('.card_front').css({pointerEvents: 'none',});
-                window.location.href = './index.html';
+                window.location.href = './main.html';
                 return;
             }else if (matchCard.$data.nickname != '賓哥'){ 
                 // 有選到人才增加counter次數
