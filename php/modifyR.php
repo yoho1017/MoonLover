@@ -16,6 +16,42 @@
     //執行
     $statement = $Util->getPDO()->prepare($sql);
 
+    if ($_POST["nickname"] == '') {
+        $_POST["nickname"] = null;
+    }
+
+    if ($_POST["about"] == '') {
+        $_POST["about"] = null;
+    }
+
+    if ($_POST["newage"] == 0) {
+        $_POST["newage"] = null;
+    }
+
+    if ($_POST["ageRange"] == 0) {
+        $_POST["ageRange"] = null;
+    }
+
+    if ($_POST["area"] == '還沒填寫哦') {
+        $_POST["area"] = null;
+    }
+
+    if ($_POST["job"] == '還沒填寫哦') {
+        $_POST["job"] = null;
+    }
+
+    if ($_POST["work"] == '還沒填寫哦') {
+        $_POST["work"] = null;
+    }
+
+    if ($_POST["education"] == '還沒填寫哦') {
+        $_POST["education"] = null;
+    }
+
+    if ($_POST["school"] == '還沒填寫哦') {
+        $_POST["school"] = null;
+    }
+
     // echo $_POST["password"];
     // echo '<br>';
 
