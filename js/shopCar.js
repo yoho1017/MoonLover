@@ -3,6 +3,7 @@ var storage = localStorage;
 function doFirst() {
     //從localStorage拿出資料
     let cartItems = JSON.parse(storage.getItem("cartItems")) || [];
+    console.log(cartItems);
     //計算總金額------------------------------------------------------------------------------------
     //item是cartItems裡面的數值
     total = 0;
@@ -53,7 +54,7 @@ function doFirst() {
         itemimg.style.width = "100%";
         itemimg.style.height = "100%";
 
-        // 判斷 是否有 animal 圖片
+        // 判斷 是否有 animal或是客製化 圖片
         if (cartItem["animalImg"]) {
             if (cartItem["animalImg"] === 'fox-01.png' || cartItem["animalImg"] === 'rab-01.png' || cartItem["animalImg"] === 'mok-01.png') {
                 console.log('有三個');
@@ -61,7 +62,7 @@ function doFirst() {
             }
             else {
                 itemAnimals.setAttribute('src', "./images/member/macot/" + cartItem["animalImg"])
-                console.log('爛隊長');
+                console.log('YA');
             }
 
         };
@@ -92,7 +93,7 @@ function doFirst() {
         itemMinus.classList.add("fas", "fa-minus-square", "qty_minus");
         let itemQuant = document.createElement('input');
         itemQuant.className = 'qty';
-        itemQuant.value = 1;
+        itemQuant.value = parseInt(cartItem["itemCount"]);
         let itemQuantValue = document.querySelector('.qty');
         let itemPlus = document.createElement('i');
         itemPlus.classList.add("fas", "fa-plus-square", "qty_plus");
@@ -145,6 +146,19 @@ function doFirst() {
     }
 
 
+    // for (i = 0; i <= $('.acceptPic').length - 1; i++) {
+    //     if ($('.acceptPic')[i].src == '') {
+    //         $('.acceptPic').eq(i).hide();
+    //     }
+    // }
+
+    document.querySelectorAll('img').forEach(function (img) {
+        img.onerror = function () { this.style.display = 'none'; };
+        if (img.src == '') {
+            img.style.display = 'none'
+        }
+    })
+
     // 物件依序放進去購物車-----------------------
 
 
@@ -173,7 +187,7 @@ function numberCount() {
         total = 0;
         // console.log(e.target.className, numberPlus[i].className, '0500');
         let arrayFromList = Array.from(e.target.classList);
-        console.log(arrayFromList);
+        console.log(arrayFromList, '0600');
         //加號連擊
         if (arrayFromList.includes('fa-plus-square')) {
             numberInput[i].value++;
@@ -201,12 +215,16 @@ function numberCount() {
                 console.log(afterCartItems, 'afterCartItems');
                 localStorage.setItem('cartItems', JSON.stringify(afterCartItems))
                 element.remove();
+
+                getStorageItem();
+
             }
         }
 
         deleteItems();
 
         accountTotal();
+        // location.reload();
     }
     )
     )
@@ -214,6 +232,20 @@ function numberCount() {
 
 
 }
+// 購物車數量顯示----------------------------------------
+function getStorageItem() {
+    let storedArray = JSON.parse(storage.getItem("cartItems"));
+
+    document.getElementById("itemCount").innerText = storedArray.length;
+}
+if (storage['cartItems']) {
+    getStorageItem();
+}
+else {
+    document.getElementById("itemCount").innerText = 0;
+}
+
+// 購物車數量顯示----------------------------------------end
 
 function accountTotal() {
     let total = 0;

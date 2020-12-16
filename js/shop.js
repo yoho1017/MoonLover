@@ -16,6 +16,16 @@ axios.post('./php/selectMascotR.php').then((res) => {
     console.log(res.data);
     picData = res.data;
     showing(picData);
+    if (picData != "") {
+        showing(picData);
+    } else {
+        document.getElementById('cusPic').src = `./images/moonShop/old-01.png`;
+
+        $('#customPic').css({
+            pointerEvents: 'none',
+        });
+        document.getElementById('replaceWords').innerHTML = '未建立圖片';
+    }
 })
 
 
@@ -29,6 +39,7 @@ var lists;
 function loading(data) {
 
     lists = data;
+    localStorage.setItem('Allitems', JSON.stringify(lists));
     console.log(data, 'data');
     //悠遊卡
     document.getElementById('easyCard').innerHTML = lists[0].NAME;
@@ -86,6 +97,7 @@ function loading(data) {
 
 
     // console.log(document.getElementById('p1').value);
+    //綁id在按鈕上,超連結部分綁上ID,NAME,PRICE,INTRODUCTION,IMAGE
     for (let i = 0; i < lists.length; i++) {
         document.querySelectorAll('.shopCars')[i].id += `${lists[i]["ID"]}`;
         document.querySelectorAll(".ImageContent1")[i].dataset.pdid = `${lists[i]["ID"]}`
@@ -94,8 +106,6 @@ function loading(data) {
         document.querySelectorAll('.ImageContent1')[i].dataset.pdprice = lists[i].PRICE;
         document.querySelectorAll('.ImageContent1')[i].dataset.pdintroduction = lists[i].INTRODUCTION;
         document.querySelectorAll('.ImageContent1')[i].dataset.pdImg = lists[i].IMAGE;
-
-
     }
 
 
@@ -143,6 +153,7 @@ for (let i = 0; i < ImgList.length; i++) {
 
             // let imgSrc = e.target.src.slice(-10);
             let imgSrc = e.target.src.split('/')[e.target.src.split('/').length - 1];
+            console.log(imgSrc, '123');
             let shoppingInput = document.querySelectorAll('.shoppingCars');
             shoppingInput[j].dataset.product = imgSrc;
             document.querySelectorAll('.ImageContent1')[j].dataset.pdLuckyImg = imgSrc;
@@ -177,8 +188,10 @@ function doFirst() {
 
     list.forEach((item, index) => {
         item.addEventListener("click", function (e) {
-            let currentProd = lists.find(item => item["ID"] === e.target.id)
+            let currentProd = lists.find(item => item["ID"] === e.target.id);
+            currentProd.itemCount = '1';
             let cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+            //id判斷
             if (cartItems.length >= 0) {
                 if (!cartItems.some(element => element["ID"] === currentProd["ID"])) {
                     if (e.target.dataset) {
@@ -190,6 +203,7 @@ function doFirst() {
                     return addSuceess()
 
                 } else {
+                    //動物判斷
                     // 兔 !== 兔
                     let idItems = cartItems.filter(element => element["ID"] === currentProd["ID"]) || []
                     console.log(idItems, 'ID');
@@ -208,6 +222,7 @@ function doFirst() {
         })
     })
 
+
     //判斷addItemList裡面是否有東西1.有東西,2沒有東西
     //購物車商品數量
 
@@ -222,6 +237,14 @@ function doFirst() {
     else {
         document.getElementById("itemCount").innerText = 0;
     }
+
+    // 刪除rwd框框---------------------------------------------
+    // document.querySelectorAll('img').forEach(function (img) {
+    //     img.onerror = function () { this.style.display = 'none'; };
+    //     if (img.src == '') {
+    //         img.style.display = 'none'
+    //     }
+    // })
 }
 // let swal = document.querySelector('.swal2-modal');
 // swal.style.background = "#FFE4CA";
@@ -250,6 +273,7 @@ $(".ImageContent1").each(function (index) {
         detailItem['price'] = $(this).attr('data-pdprice');
         detailItem['introduction'] = $(this).attr('data-pdintroduction');
         detailItem['img'] = $(this).attr('data-pd-img');
+        detailItem['number'] = $(this).attr('data-pdid');
         if ($(this).attr('data-pd-lucky-img')) {
             detailItem['luckyImg'] = $(this).attr('data-pd-lucky-img');
         }
@@ -268,7 +292,6 @@ $(".ImageContent1").each(function (index) {
 //     }
 // })
 // 判斷是否已經加入購物車以及燈箱提醒------------------------
-
 
 
 

@@ -39,6 +39,8 @@
 
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- lightbox -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body class="bgColorDefault bgImgCloud">
@@ -199,11 +201,14 @@
                                     <li><a href="">商品詳細</a></li>
                                     <!-- <li><a href="">悠遊卡</a></li> -->
                                 </ul>
-                                <img alt="商品圖" class="proImg" width="300px" height="200px">
+                                <div class="detailProImg">
+                                    <img alt="商品圖" class="proImg" width="300px" height="200px">
+                                    <img class="proLuckyImg">
+                                </div>
                                 <!-- <div>
                                 
                             </div> -->
-                                <img class="proLuckyImg">
+
                             </div>
                             <div class="proWords">
                                 <div class="proTitle1"> </div>
@@ -237,12 +242,12 @@
                     </div>
                 </div>
                 <div class="orderImg">
-                    <img class="order" src="images/moonShopDet/月老-01.png" alt="月老" width="300px" height="300px">
+                    <img class="order" src="./images/moonShop/old-01.png" alt="月老" width="280px" height="280px">
                     <img class="cloud2" src="images/moonShopDet/shop_cloud.png" alt="cloud2" width=250px height=80px>
                 </div>
             </div>
         </div>
-
+        Item : <span id="itemCount">0</span> item(s)
     </div>
 
 
