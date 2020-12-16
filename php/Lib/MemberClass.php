@@ -36,6 +36,27 @@
             $_SESSION["MemberID"] = $MemberID; //Table 'member'裡的ID欄位值
             $_SESSION["MemberUser"] = $memberUSER; //Table 'member'裡的USERNAME欄位值
         }
+
+        function setMemberMatchCounterDefault(){
+            if(!isset($_SESSION)){
+                session_start(); 
+            }
+            $_SESSION["matchCounter"] = 0; 
+        }
+
+        function setMemberMatchCounter(){
+            if(!isset($_SESSION)){
+                session_start(); 
+            }
+            $_SESSION["matchCounter"]++;
+        }
+
+        function getMemberMatchCounter(){
+            if(!isset($_SESSION)){
+                session_start(); 
+            }
+            return isset($_SESSION["matchCounter"]) ? $_SESSION["matchCounter"] : "";
+        }
         
     }
 ?>

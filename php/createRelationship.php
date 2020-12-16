@@ -19,22 +19,22 @@
         // 判斷是否存在配對關係
         if(count($data) == 0){ 
             $sql = "INSERT INTO `relationship` (MYMEMBER_ID, TARGET_ID, rSTATUS) VALUES ($id, $mId, 1)";
-            echo $sql;
 
             $statement = $Util->getPDO()->prepare($sql);
             $statement->execute();
             $data = $statement->fetchAll();
 
             $sql = "INSERT INTO `relationship` (MYMEMBER_ID, TARGET_ID, rSTATUS) VALUES ($mId, $id, 1)";
-            echo $sql;
 
             $statement = $Util->getPDO()->prepare($sql);
             $statement->execute();
             $data = $statement->fetchAll();
 
+            echo 'success';
+
         }else{
-            echo '已存在配對關係';
+            echo 'exist';
         }
-        print_r(json_encode($data));
+        // print_r(json_encode($data));
         
 ?>

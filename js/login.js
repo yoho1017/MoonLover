@@ -315,7 +315,6 @@ var account =  new Vue ({
                 // 填寫資訊錯誤
             }    
         },
-
         login (event,username,pwd,type) { //提交登入表單
             event.preventDefault()
             if (this.login_check (username,pwd,type)) { //檢查登入資料
@@ -329,12 +328,16 @@ var account =  new Vue ({
                 params.append('password', cryptpwd);
                 params.append('stage', stage);
                 
-                axios.post('./php/LoginR.php', params).then(function (response) {
+                // axios.post('./php/LoginR.php', params).then(function (response) {
+                axios.post('./php/LoginR.php', params).then( (response) => {
                     message = response.data;
                     if (message == false) {
                         account.$data.login_error = true;
                     }else{
                         alert(`歡迎回來 ! ${message}`);
+                        // account.$data.matchCounter('new'); // 登入後將配對牽線次數清為零
+                        this.matchCounter('new'); // 登入後將配對牽線次數清為零
+
                         window.location.reload()
                     }
                 })                
@@ -424,6 +427,15 @@ var account =  new Vue ({
             pwd = hash;
             // alert(pwd); //測試加密
             return pwd
+        },
+        matchCounter(counter){ // 將配對次數寫入session
+            let params = new URLSearchParams();
+            params.append('counter', counter);
+
+            axios.post('./php/matchCounter.php', params).then((res) => {
+                matchCount = res.data;
+                console.log(matchCount);
+            });
         },
     },
 })
