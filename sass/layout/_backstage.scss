@@ -221,3 +221,22 @@
 
     }
 }
+
+@mixin imgbox { //上傳圖片樣式
+
+    .btnBox {
+        display: flex;
+        width : 70%;
+        height: 100%;
+        align-items: center;
+
+        @include backstageBtn (50%); //後台用btn
+    }
+
+    .imgbox {
+        justify-content: space-between !important;
+        img {
+            max-width : 300px;
+        }
+    }
+}

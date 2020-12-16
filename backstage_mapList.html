@@ -16,6 +16,8 @@
     <script src="./js/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- vue -->
     <script src="./js/vue.js"></script>
+    <!-- axios js -->
+    <script src="./js/axios/dist/axios.min.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
     <title>周邊景點管理</title>
 
@@ -66,7 +68,7 @@
             <div class="Bcontainer">
 
                 <div class="editbar" v-if="menu">
-                    <div class="bkbtn_Blue" @click="add('n')"><h3>新增籤詩</h3></div>
+                    <div class="bkbtn_Blue" @click="add('n')"><h3>新增周邊地點</h3></div>
                 </div>
 
                 <table v-if="menu">
@@ -84,7 +86,7 @@
                     <!-- 內容在tbody，如果要新增行數就加一組tr -->
                     <tbody>
 
-                        <tr is="row" v-for="data in sql" :id="data[0]" :num="data[1]" :lucky="data[2]" :content="data[3]" :detail="data[4]" :answer="data[5]"></tr>
+                        <tr is="row" v-for="(data,index) in pagedListdata" :id="data[0]" :num="data[1]" :lucky="data[2]" :content="data[3]" :detail="data[4]" :answer="data[5]"></tr>
                         
                     </tbody>
 
@@ -149,37 +151,51 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="td_30"><h4>上傳圖片</h4></td>
-                            <td class="td_md">
-                                <div class="bkbtn_Red"><h3>上傳圖片</h3></div>
+                            <td class="td_30">
+                                <h4>上傳圖片</h4>
+                            </td>
+                            <td class="td_md imgbox">
+                                <img v-if="imgPreview" id="imgPreview">
+                                <img :src="'./images/moonShop/' + modify_data[3]" v-else="imgPreview" >
+                                <input type="file" id="upload" style="display : none" accept="image/jpeg, image/png" @change="uploadImg" >
+                                <div class="btnBox">
+                                    <div class="bkbtn_Red" @click="upload">
+                                        <h3>按此上傳圖片</h3>
+                                    </div>    
+                                </div>
                             </td>
                         </tr>
-                                    
+                        <tr>
+                            <td class="td_100">
+                                <div class="btn">
+                                    <div class="bkbtn_Blue" @click="menu = true">
+                                        <h3>取消</h3>
+                                    </div>
+                                    <div class="bkbtn_Red" @click="change(modify_data[0])">
+                                        <h3>完成</h3>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>    
+                                        
                 </table>
 
-                <nav aria-label="Page navigation example" v-if="menu">
-                    <ul class="pagination">
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
+                <paginate
+                for="sql"
+                :page-count="pageCount" 
+                :margin-pages = "pageCount"
+                :prev-text="'«'"
+                :next-text="'»'"
+                :click-handler="pageCallback"
+                prev-class ="page-item"
+                prev-link-class	="page-link"
+                next-class ="page-item"   
+                next-link-class	="page-link"         
+                page-class ="page-item"
+                page-link-class ="page-link"
 
-                <div class="btn" v-else="menu">
-                    <div class="bkbtn_Blue" @click="menu = true"><h3>取消</h3></div>
-                    <div class="bkbtn_Red" @click="change(modify_data[0])"><h3>送出</h3></div>
-                </div>
+                container-class="pagination" v-show="menu">
+                </paginate>
 
             </div>
 
@@ -188,6 +204,8 @@
 
     </div>
 
+    <!-- vue paginate -->
+    <script src="https://unpkg.com/vuejs-paginate@2.1.0"></script>
     <!-- 後台js -->
     <script src="./js/backstage-mapList.js"></script>
 </body>
