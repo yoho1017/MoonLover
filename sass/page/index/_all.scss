@@ -1,6 +1,47 @@
 .index-wrapper {
+  overflow: hidden;
   // width: 100vw;
   // height: 100vh;
+
+    // ========背景放大雲==========
+    .cloud_scale_top{
+      background-image: url(../images/index/cloud_index_scale_top.png);
+      // overflow: hidden;
+      position: fixed;
+      top:0;
+      height: 100%;
+      width: 100%;
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: -1;
+      animation: scale ease-in-out 3.5s infinite alternate;
+      
+
+      @keyframes scale {
+          0% { transform: scale(1);
+              opacity: .35;
+            }
+
+          100% { transform: scale(1.1);
+                opacity: .4;
+              }
+      }
+    }
+
+    .cloud_scale_bottom{
+      background-image: url(../images/index/cloud_index_scale_bottom.png);
+      position: fixed;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: -2;
+      animation: scale ease-in-out 2.5s infinite alternate;
+    }
+    // ========背景放大雲結束==========
 
   img {
     width: 100%;
@@ -13,7 +54,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    z-index: -1;
+    z-index: -3;
   }
   .main{
     position: fixed;
@@ -248,7 +289,11 @@
       // border: 1px solid red;
     }
   }
+
+  
+
 }
+
 // body.overflow {
 //   overflow: hidden;
 // }
