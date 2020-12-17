@@ -231,13 +231,13 @@
 
                                 <tr class="Mtr priceAndCancel price">
                                     <td class="Mtd priceTd">
-                                        訂單 總金額 $300
+                                        訂單 總金額 {{Odetail_data.price}}
                                     </td>
                                 </tr>
 
                                 <tr class="Mtr priceAndCancel">
                                     <td class="Mtd">
-                                        <button class="btnRed_cancel" @click.prevent="cancel(order.id)">
+                                        <button class="btnRed_cancel" @click.prevent="cancel(Odetail_data[0])" v-show="Odetail_data.status != '已取消'">
                                             <h4>取消訂單</h4>
                                         </button>
                                     </td>
@@ -360,7 +360,7 @@
 
                         <tbody class="Mtbody">
 
-                            <tr v-for="(order, key) in orders" :key="key" class="Mtr">
+                            <tr v-for="(order, index) in orders" class="Mtr" :id="index">
                                 <td class="Mtd">
                                     {{ order.id }}
                                 </td>
@@ -374,7 +374,7 @@
                                     {{ order.status }}
                                 </td>
                                 <td class="Mtd">
-                                    <button class="btnBlue_detail" @click.prevent="Odetail(order.id)">
+                                    <button class="btnBlue_detail" @click.prevent="Odetail(order[index][0],index)">
                                         <h4>明細</h4>
                                     </button>
                                 </td>
