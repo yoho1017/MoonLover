@@ -7,9 +7,9 @@ function doFirst() {
     document.querySelector('.proPrice1').textContent = `單價 NT.${price}`;
     document.querySelector('.proContent1').textContent = introduction;
     document.querySelector('.btnRed').setAttribute('number', number);
-    document.querySelector('.btnRed').dataset.product = luckyImg;
+    document.querySelector('.btnRed').dataset.product = luckyImg ? luckyImg : 'blank';
 
-    if (luckyImg) {
+    if (luckyImg && luckyImg !== 'blank') {
         if (luckyImg !== 'fox-01.png' && luckyImg !== 'rab-01.png' && luckyImg !== 'mok-01.png') {
             document.querySelector('.proLuckyImg').setAttribute('src', `./images/member/macot/${luckyImg}`);
         }
@@ -37,11 +37,16 @@ function doFirst() {
 
     document.querySelector('.proWords .totalPri').textContent = parseInt(price) * parseInt(itemCount.value);
 
-
     document.querySelector('.proWords .btnRed').addEventListener('click', function (e) {
+
+        // DEBUG currentProd 抓不到東西
         let currentProd = allItems.find(item => item["ID"] === this.getAttribute("number"));
         // let getCount = { 'itemNumber':  };
-        currentProd.itemCount = itemCount.value;
+        console.log(itemCount.value);
+        console.log(currentProd);
+        if (currentProd) {
+            currentProd.itemCount = itemCount.value;
+        }
         // 從外頁搬過來----------------------------------------
         let cartItems = JSON.parse(storage.getItem("cartItems")) || [];
         if (cartItems.length >= 0) {
@@ -62,7 +67,6 @@ function doFirst() {
                 //動物判斷
                 // 兔 !== 兔
                 let idItems = cartItems.filter(element => element["ID"] === currentProd["ID"]) || []
-                console.log(idItems, 'ID');
                 if (!idItems.some(item => item.animalImg === e.target.dataset.product)) {
                     currentProd.animalImg = e.target.dataset.product
                     cartItems.push(currentProd)
