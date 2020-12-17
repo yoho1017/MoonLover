@@ -9,7 +9,7 @@
         $Util = new UtilClass();
 
         // $sql = "SELECT * FROM temple WHERE ID = ?";
-        $sql = "SELECT t.*, l.IMAGE,l.NAME as LOC_NAME,l.GUIDE,l.OPEN_TIME,l.ADDRESS as LOC_ADDRESS ,l.LOCATION_LINK FROM temple t left join temple_location l on l.lTEMPLE_ID = t.ID  where t.ID= ? and l.lTEMPLE_ID = ?";
+        $sql = "SELECT t.*, l.IMAGE,l.NAME as LOC_NAME,l.GUIDE,l.OPEN_TIME,l.ADDRESS as LOC_ADDRESS ,l.LOCATION_LINK FROM temple t left join temple_location l on l.lTEMPLE_ID = t.ID  where t.ID= ? and l.lTEMPLE_ID = ? and l.LOCATION_STATUS = 1";
         
         
         
