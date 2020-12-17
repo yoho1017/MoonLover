@@ -253,6 +253,59 @@
 
     // =============== 公版留言區 ==================
 
+      // 檢舉燈箱
+      @include pop(block); //燈箱顯示
+
+      .blockPerson {
+        z-index: 10;
+        width: 50%;
+        position: fixed;
+        // background-color: blue;
+        @include flexCenter;
+
+        .inbox {
+            width: 70%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #FFF8CE;
+            border: 8px solid #ff7a7a;
+            padding: 10%;
+            border-radius: 20px;
+            position: relative;
+
+            .title {
+                margin : 5% auto;
+            }
+            
+            .string {
+                margin : 5% auto;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                .text {
+                    font-size: 16px;
+                    resize: none;
+                    margin-bottom: 10%;
+                }
+
+                @include btn(submit, 40%, 4%);
+                @include times-circle; //關閉按鈕
+                @include times-circle-position (40px, -25px, -20px);
+            }
+
+
+            
+        }
+    }
+
+
     // 使用者發布貼文區
     .userForm {
       margin-top: 60px;
