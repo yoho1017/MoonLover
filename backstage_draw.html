@@ -27,7 +27,8 @@
     <!------------------------------header---------------------------------->
     <header class="header">
         <nav class="nav navback" id="nav">
-            <div class="title"><h1>月老求籤　|</h1>
+            <div class="title">
+                <h1>月老求籤　|</h1>
                 <h2 class="smallTitle" v-if="title === 'menu'">　籤詩管理</h2>
                 <h2 class="smallTitle" v-else-if="title === 'add'">　籤詩新增</h2>
                 <h2 class="smallTitle" v-else="title === 'modify'">　籤詩修改</h2>
@@ -51,7 +52,7 @@
 
 
             <div class="username">
-                <h2 class="text">登入者 : {{username}}</h2>
+                <h2 class="text">登入者 : <br> {{username}}</h2>
             </div>
 
             <ul class="option">

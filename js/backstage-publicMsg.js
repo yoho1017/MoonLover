@@ -26,7 +26,7 @@ var backend = new Vue ({
         // 後台頁籤
         lists : [
             {list: '公版留言管理', href : "./backstage_publicMsg.html"},
-            {list: '訂單管理', href : "./backstage_publicMsg.html"},
+            {list: '訂單管理', href : "./backstage_order.html"},
             {list : '周邊景點管理', href : "./backstage_mapList.html"},
             {list : '籤詩管理', href : "./backstage_draw.html"},
             {list : '商品管理', href : "./backstage_products.html"},
@@ -86,7 +86,11 @@ var backend = new Vue ({
             this.$set(vm, 'currentPage', page);
             // // 換分頁時卷軸到最上方
             window.scrollTo(0,0);
-        },         
+        },       
+        cancel () {
+            this.menu = true;
+            nav.title = 'menu';
+        },
         change (id) {
             if (id == 'n') {
                 this.modify_data[0] = this.sql.length +1;

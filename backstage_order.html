@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="./js/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- jq -->
@@ -16,17 +16,21 @@
     <script src="./js/@popperjs/core/dist/umd/popper.min.js"></script>
     <!-- vue -->
     <script src="./js/vue.js"></script>
+    <!-- axios js -->
+    <script src="./js/axios/dist/axios.min.js"></script>
     <!-- 只要有套用backstage.js 會自動在當aside頁籤上fontWeight:bold -->
-    <title>Order_Management</title>
+    <title>訂單管理</title>
 
 </head>
 
-<body>
+<body class="backStageBody">
     <!------------------------------header---------------------------------->
     <header class="header">
         <nav class="nav navback" id="nav">
             <div class="title">
-                <h2>月老商城 訂單管理</h2>
+                <h1>月老商城　|</h1>
+                <h2 class="smallTitle" v-if="title === 'menu'">　訂單管理</h2>
+                <h2 class="smallTitle" v-else="title === 'modify'">　訂單修改</h2>
             </div>
             <div class="logout">
                 <h3>
@@ -36,7 +40,7 @@
         </nav>
     </header>
     <!-- wrapper請取自己的名稱，套用範例的格式 -->
-    <div id="backend" class="backstage-products-wrapper">
+    <div id="backend" class="backstage-order-wrapper">
         <!------------------------------內容---------------------------------->
 
         <!------------------------------側邊選單---------------------------------->
@@ -45,14 +49,14 @@
             <div class="Logo"><a href="./index.html"><img src="./images/logo.png"></a></div>
 
             <div class="username">
-                <h2 class="text">登入者 : {{username}}</h2>
+                <h2 class="text">登入者 : <br> {{username}}</h2>
             </div>
 
             <ul class="option">
-                <li class="list" v-for="list in lists">
-                    <a href="#">
-                        <h3 class="listName" @click="backmenu(list)">
-                            {{list}}
+                <li class="list" v-for="(list,key) in lists" :key="key">
+                    <a :href="list.href">
+                        <h3 class="listName">
+                            {{list.list}}
                         </h3>
                     </a>
                 </li>
@@ -95,9 +99,7 @@
                     <!-- 內容在tbody，如果要新增行數就加一組tr -->
                     <tbody>
 
-                        <tr is="row" v-for="data in sql" :id="data[0]" :membership="data[1]" :order_price="data[2] "
-                            :order_date="data[3]">
-                        </tr>
+                        <tr is="row" v-for="(data,index) in pagedListdata" :id="data.ID" :index="index" :name="data.USERNAME" :price="data.PRICE" :date="data.ORDER_TIME"></tr>
 
                     </tbody>
 
@@ -106,71 +108,72 @@
                 <table v-else="menu">
 
                     <tr>
-                        <td class="td_30">
+                        <td class="td_25">
                             <h4>訂單編號</h4>
                         </td>
                         <td class="td_md">
-                            <textarea name="content" id="" cols="30" rows="1" class="editText" v-model="modify_data[1]">
-                                            </textarea>
+                            <h4>{{modify_data.ID}}</h4>
                         </td>
                     </tr>
 
                     <tr>
                         <!-- td_***是設定寬度 -->
-                        <td class="td_30">
+                        <td class="td_25">
                             <h4>購買會員</h4>
                         </td>
                         <td class="td_md">
-                            <textarea name="content" id="" cols="30" rows="1" class="editText" v-model="modify_data[2]">
-                                            </textarea>
+                            <h4>{{modify_data.USERNAME}}</h4>
                         </td>
                     </tr>
 
                     <tr>
-                        <td class="td_30">
+                        <td class="td_25">
                             <h4>訂單金額</h4>
                         </td>
                         <td class="td_md">
-                            <textarea name="content" id="" cols="30" rows="1" class="editText" v-model="modify_data[3]">
-                                            </textarea>
+                            <h4>{{modify_data.PRICE}}</h4>
                         </td>
                     </tr>
 
                     <tr>
-                        <td class="td_30">
+                        <td class="td_25">
                             <h4>訂單日期</h4>
                         </td>
                         <td class="td_md">
-                            <textarea name="content" id="" cols="30" rows="1" class="editText" v-model="modify_data[4]">
-                                            </textarea>
+                            <h4>{{modify_data.ORDER_TIME}}</h4>
+                        </td>
+                    </tr>
+
+                    <tr is="products" v-for="product in products" :name="product.NAME" :num="product.ORDER_QUANTITY" :price="product.ORDER_PRICE">
+
+                    <tr>
+                        <td class="td_25">
+                            <h4>訂單狀態</h4>
+                        </td>
+                        <td class="td_md imgbox">
+                            <select class="input_status" v-model="modify_data.ORDER_STATUS">
+                                <option value="0" :selected="0 == modify_data.ORDER_STATUS">出貨中</option>
+                                <option value="1" :selected="1 == modify_data.ORDER_STATUS">已出貨</option>
+                                <option value="2" :selected="2 == modify_data.ORDER_STATUS">取消</option>
+                            </select>
                         </td>
                     </tr>
 
                     <tr>
-                        <td class="td_30">
-                            <h4>訂單明細</h4>
+                        <td class="td_25">
+                            <h4>取消日期</h4>
                         </td>
-                        <td class="td_md">
-                            <textarea name="content" id="" cols="30" rows="10" class="editText"
-                                v-model="modify_data[5]">
-                                            </textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td_30">
-                            <h4>訂單狀態</h4>
-                        </td>
-                        <td class="td_md">
-                            <select class="input_status" v-model="modify_data[3]">
-                                <option value="show">上架</option>
-                                <option value="hide">隱藏</option>
-                            </select>
+                        <td class="td_md imgbox">
+                            <h4>{{modify_data.CANCEL_DATE}}</h4>
                         </td>
                     </tr>
 
                     <tr>
                         <td class="td_100">
                             <div class="btn">
+                                <div class="bkbtn_Blue" @click="cancel">
+                                    <h3>取消</h3>
+                                </div>
                                 <div class="bkbtn_Red" @click="change(modify_data[0])">
                                     <h3>完成</h3>
                                 </div>
@@ -181,53 +184,22 @@
                 </table>
 
 
-                <nav aria-label="Page navigation example" v-if="menu">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <paginate
+                for="sql"
+                :page-count="pageCount" 
+                :margin-pages = "pageCount"
+                :prev-text="'«'"
+                :next-text="'»'"
+                :click-handler="pageCallback"
+                prev-class ="page-item"
+                prev-link-class	="page-link"
+                next-class ="page-item"   
+                next-link-class	="page-link"         
+                page-class ="page-item"
+                page-link-class ="page-link"
 
-
-
-
-                <nav aria-label="Page navigation example" v-else="menu">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- <div class="btn" v-else="menu">
-                                <div class="bkbtn_Blue" @click="menu = true"><h3>取消</h3></div>
-                                <div class="bkbtn_Red" @click="change(modify_data[0])"><h3>完成</h3></div>
-                            </div> -->
-
-
+                container-class="pagination" v-show="menu">
+                </paginate>
 
             </div>
 
@@ -236,6 +208,8 @@
 
     </div>
 
+    <!-- vue paginate -->
+    <script src="https://unpkg.com/vuejs-paginate@2.1.0"></script>
     <!-- 後台js -->
     <script src="./js/backstage-order.js"></script>
 </body>

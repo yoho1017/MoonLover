@@ -28,7 +28,8 @@
     <header class="header">
         <nav class="nav navback" id="nav">
             <div class="title"><h1>月老地圖　|</h1>
-                <h2 class="smallTitle">　周邊景點美食管理</h2>
+                <h2 class="smallTitle" v-if="title === 'menu'">　周邊景點美食管理</h2>
+                <h2 class="smallTitle" v-else="title === 'modify'">　周邊景點美食修改</h2>
             </div>
             <div class="logout">
                 <h3>
@@ -49,7 +50,7 @@
 
 
             <div class="username">
-                <h2 class="text">登入者 : {{username}}</h2>
+                <h2 class="text">登入者 : <br> {{username}}</h2>
             </div>
 
             <ul class="option">
@@ -168,7 +169,7 @@
                         <tr>
                             <td class="td_100">
                                 <div class="btn">
-                                    <div class="bkbtn_Blue" @click="menu = true">
+                                    <div class="bkbtn_Blue" @click="cancel">
                                         <h3>取消</h3>
                                     </div>
                                     <div class="bkbtn_Red" @click="change(modify_data[0])">

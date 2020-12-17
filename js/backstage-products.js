@@ -2,6 +2,14 @@ Vue.component('paginate', VuejsPaginate);
 // 每一頁要顯示的筆數
 const PAGE_SIZE = 10;
 
+var nav = new Vue({
+    el: '#nav',
+    data: {
+        title: 'menu',        
+    },
+});
+
+
 var backend = new Vue({
     el: '#backend',
     data: {
@@ -10,7 +18,7 @@ var backend = new Vue({
         // 後台頁籤
         lists : [
             {list: '公版留言管理', href : "./backstage_publicMsg.html"},
-            {list: '訂單管理', href : "./backstage_publicMsg.html"},
+            {list: '訂單管理', href : "./backstage_order.html"},
             {list : '周邊景點管理', href : "./backstage_mapList.html"},
             {list : '籤詩管理', href : "./backstage_draw.html"},
             {list : '商品管理', href : "./backstage_products.html"},
@@ -163,7 +171,8 @@ var backend = new Vue({
                 vm.sql = [];
                 vm.getMerchandise ();
                 vm.imgPreview = false
-                vm.menu = true;    
+                vm.menu = true;
+                nav.title = 'menu'    
             })
         },
         upload () {
@@ -223,6 +232,7 @@ var backend = new Vue({
                 modify(index) {
                     window.scrollTo(0, 0);
                     backend.menu = false;
+                    nav.title = 'modify';
                     backend.modify_data = backend.sql[index];
                 },
                 // 回傳給複層狀態

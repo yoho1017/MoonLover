@@ -28,7 +28,9 @@
     <header class="header">
         <nav class="nav navback" id="nav">
             <div class="title">
-                <h2>月老商城 商品管理</h2>
+                <h1>月老商城　|</h1>
+                <h2 class="smallTitle" v-if="title === 'menu'">　商品管理</h2>
+                <h2 class="smallTitle" v-else="title === 'modify'">　商品修改</h2>
             </div>
             <div class="logout">
                 <h3>
@@ -47,7 +49,7 @@
             <div class="Logo"><a href="./index.html"><img src="./images/logo.png"></a></div>
 
             <div class="username">
-                <h2 class="text">登入者 : {{username}}</h2>
+                <h2 class="text">登入者 : <br> {{username}}</h2>
             </div>
 
             <ul class="option">
