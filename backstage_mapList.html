@@ -121,7 +121,6 @@
                         <tr>
                             <td class="td_30"><h4>景點分類</h4></td>
                             <td class="td_md">
-                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[3]"></textarea> -->
                                 <select class="input_status" v-model="modify_data[3]">
                                     <option value="景點">景點</option>
                                     <option value="美食">美食</option>
@@ -140,18 +139,37 @@
                         <tr>
                             <td class="td_30"><h4>營業時間</h4></td>
                             <td class="td_md">
-                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[5]"></textarea> -->
                                 <input type="text" class="editText" v-model="modify_data[5]">
                             </td>
                         </tr>
                         <tr>
                             <td class="td_30"><h4>地址</h4></td>
                             <td class="td_md">
-                                <!-- <textarea name="content" id="" cols="30" rows="10" class="editText" v-model="modify_data[6]"></textarea> -->
                                 <input type="text" class="editText" v-model="modify_data[6]">
                             </td>
                         </tr>
                         <tr>
+                            <td class="td_30"><h4>圖片路徑</h4></td>
+                            <td class="td_md">
+                                <input type="text" class="editText" v-model="modify_data[7]">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_30"><h4>地圖連結</h4></td>
+                            <td class="td_md">
+                                <input type="text" class="editText" v-model="modify_data[8]">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_30"><h4>狀態</h4></td>
+                            <td class="td_md">
+                                <select class="input_status" v-model="modify_data[9]">
+                                    <option value=0>隱藏</option>
+                                    <option value=1>顯示</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <!-- <tr>
                             <td class="td_30">
                                 <h4>上傳圖片</h4>
                             </td>
@@ -165,7 +183,7 @@
                                     </div>    
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td class="td_100">
                                 <div class="btn">

@@ -2,12 +2,12 @@ Vue.component('paginate', VuejsPaginate);
 // 每一頁要顯示的筆數
 const PAGE_SIZE = 10;
 
-const sqlData = [
-    [1, '迪化街', '台北霞海城隍廟', '美食','好吃好吃','11:00 - 15:00','台北市迪化街'],
-    [2, '顏記杏仁露', '台北霞海城隍廟', '美食','好吃好吃好吃好吃','11:00 - 15:00','台北市迪化街'],
-    [3, '剝皮寮', '台北艋舺龍山寺', '景點','好玩好玩好玩','11:00 - 15:00','台北市萬華區'],
-    [4, '福州元祖胡椒餅', '台北艋舺龍山寺', '美食','好吃好吃好吃好吃','11:00 - 15:00','台北市萬華區']
-];
+// const sqlData = [
+//     [1, '迪化街', '台北霞海城隍廟', '美食','好吃好吃','11:00 - 15:00','台北市迪化街'],
+//     [2, '顏記杏仁露', '台北霞海城隍廟', '美食','好吃好吃好吃好吃','11:00 - 15:00','台北市迪化街'],
+//     [3, '剝皮寮', '台北艋舺龍山寺', '景點','好玩好玩好玩','11:00 - 15:00','台北市萬華區'],
+//     [4, '福州元祖胡椒餅', '台北艋舺龍山寺', '美食','好吃好吃好吃好吃','11:00 - 15:00','台北市萬華區']
+// ];
 
 var nav = new Vue({
     el: '#nav',
@@ -107,17 +107,51 @@ var backend = new Vue({
             if (id == 'n') {
                 this.modify_data[0] = this.sql.length + 1;
                 this.sql.push(this.modify_data);
+
+                this.axiosUpdate(this.modify_data,'new'); 
             } else {
                 data = id - 1;
                 this.sql[data] = this.modify_data;
+
+                this.axiosUpdate(this.modify_data,'old'); 
             }
             this.menu = true;
             nav.$data.title = 'menu';
         },
+        axiosUpdate(newdata,type){
+            let data = new FormData(); //建立資料表單
+            if (type == 'new') {
+                data.append('id', type);
+            }else{
+                data.append('id', newdata[0]);
+            }
+            data.append('NAME', newdata[1]);
+            data.append('tName', newdata[2]); 
+            data.append('TEMPLE_LOCATION_CATEGORY', newdata[3]);
+            data.append('GUIDE', newdata[4]);
+            data.append('OPEN_TIME', newdata[5]);
+            data.append('ADDRESS', newdata[6]);
+            data.append('IMAGE', newdata[7]);
+            data.append('LOCATION_LINK', newdata[8]);
+            data.append('LOCATION_STATUS', newdata[9]);
+
+            let config = {
+                header : {
+                 'Content-Type' : 'multipart/form-data'
+               }
+            }
+
+            axios.post('./php/updateTempleLocation.php', data, config).then( (res) => {
+                data =res.data;
+                console.log(data);
+            })
+
+
+        },
         add(id) {
             this.menu = false;
             nav.$data.title = 'add';
-            this.modify_data = [id, '', '籤王', '', '', '', ''];
+            this.modify_data = [id, '', '', '', '', '', '','','',0];
         }
     },
     components: {
@@ -162,7 +196,28 @@ var backend = new Vue({
             }
         })        
         // pagination套件需要從外面傳入資料才會執行。以下請串axios以後把資料傳給vm.sql(串好後上面的sqldata可刪除)
-        vm.sql = sqlData;
+        // vm.sql = sqlData;
+
+        axios.post('./php/getTempleLocation.php').then( (res) => {
+            data = res.data;
+            console.log(data);
+            for (let i=0; i< data.length; i++){
+                arr = [];
+                arr.push(data[i].ID);
+                arr.push(data[i].NAME);
+                arr.push(data[i].tName);
+                arr.push(data[i].TEMPLE_LOCATION_CATEGORY);
+                arr.push(data[i].GUIDE);
+                arr.push(data[i].OPEN_TIME);
+                arr.push(data[i].ADDRESS);
+                arr.push(data[i].IMAGE);
+                arr.push(data[i].LOCATION_LINK);
+                arr.push(data[i].LOCATION_STATUS);
+
+                vm.sql.push(arr);
+            }
+
+        })
     },
     mounted() {
 
