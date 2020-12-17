@@ -1,3 +1,4 @@
+
 // const { createPopper } = require("@popperjs/core");
 
 let $ = window.$
@@ -297,9 +298,3 @@ $(".ImageContent1").each(function (index) {
 
 
 window.addEventListener('load', doFirst);
-
-
-
-
-
-

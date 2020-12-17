@@ -1,5 +1,6 @@
-var storage = localStorage;
 
+
+var storage = localStorage;
 function doFirst() {
     //從localStorage拿出資料
     let cartItems = JSON.parse(storage.getItem("cartItems")) || [];
@@ -143,7 +144,84 @@ function doFirst() {
 
         // }
 
+
     }
+
+    // 傳遞到php--------------------------------------------
+
+    let sendButton = document.getElementById('sendingButton');
+    let orderPrice = document.querySelectorAll('.pwds_price');
+    let orderCount = document.querySelectorAll('.qty');
+    let itemID = document.querySelectorAll('.m_del');
+    console.log(itemID, 555555);
+
+    let itemPriceArray = [];
+    let itemCountArray = [];
+    let itemIDArray = [];
+    for (i = 0; i < orderPrice.length; i++) {
+        // console.log(i);
+        // console.log(itemPrice[i].value);
+        // console.log(document.querySelectorAll('.pwds_price')[i].innerText);
+        // console.log(orderPrice[i].innerText);
+        // parseInt(orderPrice[i].innerText);
+        itemPriceArray.push(parseInt(orderPrice[i].innerText));
+        itemCountArray.push(orderCount[i].value);
+        // itemIDArray.push(itemID[i].getAttribute('data-pdid'));
+        itemIDArray.push(itemID[i].dataset.pdid);
+        // itemPriceArray.push(document.querySelectorAll('.pwds_price')[i].innerText);
+    }
+    console.log(itemPriceArray);
+    console.log(itemCountArray);
+    console.log(itemIDArray);
+    sendButton.addEventListener('click', function () {
+
+        let Totalsitem = document.getElementById('payTotal').textContent;
+
+        // console.log(Totalsitem);
+
+        let data = new FormData(); //建立資料表單
+        data.append('PRICE', Totalsitem);
+
+
+        // console.log(itemPrice, '123');
+        //送出去的資料格式
+        axios.post('./php/createOrder.php', data).then((res) => {
+            orderID = res.data;
+            console.log(res.data);
+            let dataDetail = new FormData(); //建立資料表單
+            dataDetail.append('orderNumber', orderID);
+            dataDetail.append('orderCount', orderCount);
+            dataDetail.append('orderPrice', orderPrice);
+            dataDetail.append('productID', itemID);
+
+            // console.log(itemID);
+            // console.log(orderCount);
+            // console.log(orderPrice);
+
+
+
+            // loading(data);
+        })
+        // 設定js FOR表單
+        // data.append('送出去的名稱','送出去的數值')
+        // let data = new FormData(); //建立資料表單
+        // data.append('PRICE', JSON.stringify(itemPriceArray));
+        // // console.log(itemPrice, '123');
+        // //送出去的資料格式
+        // let config = {
+        //     header: {
+        //         'Content-Type': 'multipart/form-data'
+        //     }
+        // }
+        // axios.post('./php/createOrderDetail.php', data, config).then((res) => {
+        //     configData = res.data;
+        //     console.log(res.data);
+        //     // loading(data);
+        // })
+    })
+
+
+    // 傳遞到php--------------------------------------------end
 
 
     // for (i = 0; i <= $('.acceptPic').length - 1; i++) {
@@ -168,6 +246,7 @@ function doFirst() {
     // }
 
     numberCount();
+
 
 }
 
@@ -195,8 +274,10 @@ function numberCount() {
         //減號連擊
         if (arrayFromList.includes('fa-minus-square') && numberInput[i].value > 1) {
             numberInput[i].value--;
+
         }
         itemTotal[i].textContent = parseInt(numberInput[i].value) * parseInt(itemPrice[i].textContent);
+
         //刪除商品
         function deleteItems() {
             console.log(e.target.dataset, '.target.dataset');
