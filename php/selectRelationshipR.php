@@ -28,7 +28,7 @@
     MSG.ID = last.NEWMSG
     LEFT join (SELECT pRELATIONSHIP_ID ,COUNT(*) as count FROM moonlover.personal_msg where READING = 0 GROUP BY pRELATIONSHIP_ID) as newmsg
     on r.ID = newmsg.pRELATIONSHIP_ID
-    WHERE MYMEMBER_ID = ?";
+    WHERE MYMEMBER_ID = ? and r.rSTATUS = 1";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

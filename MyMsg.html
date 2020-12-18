@@ -198,7 +198,7 @@
 
                     <div class="inBox_MyMsg" v-if="relationship">
 
-                        <message v-for="(message, index) in messages" :id="message.id" :name="message.name" :msg="message.msg" :image="message.image" :index="index" :newnum="message.newnum"></message>
+                        <message v-for="(message, index) in messages" :id="message.id" :name="message.name" :msg="message.msg" :image="message.image" :index="index" :newnum="message.newnum" @update="selfUpdate"></message>
 
                     </div>
 
@@ -223,8 +223,8 @@
                                     </h3>
                                     <form action="">
                                         <i class="fas fa-times-circle fa-2x" @click="block_block = false"><i class="in_btn"></i></i>
-                                        <textarea class="text" name="" id="" cols="30" rows="5"></textarea>
-                                        <button class="btnRed_submit"><h3>送出</h3></button>
+                                        <textarea class="text" name="" id="report" cols="30" rows="5"></textarea>
+                                        <button class="btnRed_submit" @click="report(block_id)"><h3>送出</h3></button>
                                     </form>
                                 </div>
                             </div>          
