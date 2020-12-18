@@ -24,13 +24,53 @@ $cardHeight: 600px;
       .backCloud1{ bottom: 0; }
       .backCloud2 { top: 0; transform: rotate(-180deg);}
 
+    //背景雲飄移動畫
+    .cloud_one{
+        // border: 1px solid red;
+        background-image: url(../images/moonMatch/cloud_match_one.png);
+        position: absolute;
+        top:0px;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -1;
+        opacity: .5;
+        
+        @keyframes move{
+            100%{bckground-position: 500% 0;}
+        }
+    }
+    .cloud_second{
+        // border: 1px solid blue;
+        background-image:url(../images/moonMatch/cloud_match_second.png);
+        position: absolute;
+        top:0px;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 120s infinite linear alternate;
+        z-index: -2;
+        opacity: .4;
+    
+    
+        @keyframes move{
+            100%{background-position: 500% 0;}
+        }
+    }
+    //背景雲飄移動畫結束
+
     .memberCards{
         // border: 1px solid green;
         margin-top: 10px;
         display: flex;
         z-index: 1;
-        .scene{
 
+        //整體由上往下出現animate設定
+        animation-delay: 1s;
+        animation-duration: 2s;
+
+        .scene{
             width: $cardWidth;
             height: $cardHeight;
             
@@ -51,12 +91,20 @@ $cardHeight: 600px;
                 
                 transition: transform 1s; /* 轉場 */
 
+                //卡牌上下漂浮動畫
+                animation: moveupdown_match 1.3s infinite linear alternate;
+                @keyframes moveupdown_match{
+                    from { top: 1.8%; }
+                    to { top: 0%; }
+                }
+                //卡牌上下漂浮動畫結束
                 .card_front, .card_back {
                     position: absolute;
                     top: 0;
                     left: 0;
                     width: 100%;
                     height: 100%;
+
                     
                     backface-visibility: hidden; /* 設定背後看不到 */
                     -webkit-backface-visibility: hidden;//再设置隐藏
@@ -144,6 +192,7 @@ $cardHeight: 600px;
         bottom: 0;
 
 
+
         .loveGod{
             // border: 1px solid red;
             position: fixed;
@@ -154,8 +203,19 @@ $cardHeight: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
+
             img{
                 width: 350px;
+            
+                //月老上下晃ketframe
+                position: sticky;
+                animation: moveupdown_match_lovegod_whole 1s infinite linear alternate;
+
+                @keyframes moveupdown_match_lovegod_whole{
+                    from { bottom: 1.5%;}
+                    to { bottom: 0;}
+                }
+
             }
             .exclamation{
                 opacity: 0;
@@ -165,7 +225,8 @@ $cardHeight: 600px;
             }
             .god{
                 margin-bottom: -100px;
-            }
+
+            }           
         }
     
         .msgBox-container{
@@ -185,6 +246,28 @@ $cardHeight: 600px;
             position: fixed;
             bottom: 150px;
             right: 400px;
+
+
+            //篩選條件按鈕閃爍效果
+            @keyframes shine {
+                0% {transform:scale(1);}
+                100% {transform:scale(1.03);}
+            }
+
+            //偽元素閃啊閃
+            &::before{
+                content: "";
+                width:34%;
+                height: 16%;
+                border-radius: 48px;
+                position: absolute;
+                top:58%;
+                animation: shine 0.5s infinite;
+                box-shadow: 0px 0px 3px 9px  #FCB2B2;
+                opacity: 1;
+                z-index: -1;
+            }
+            //篩選條件閃爍效果結束
             
             .msgBoxContent{
                 color: #A22A18;
