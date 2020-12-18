@@ -243,12 +243,12 @@ var member = new Vue ({
             
             
 
-            axios.post('./php/modifyR.php', data, config).then(function (response) {
+            axios.post('./php/modifyR.php', data, config).then( response=> {
                 data = response.data;
                 // console.log(response);
                 // console.log(data);
             }).finally(() => {  
-                member.$options.methods.getdata (); //重新讀取資料
+                this.getdata (); //重新讀取資料
              });
         },
 
@@ -272,12 +272,12 @@ var member = new Vue ({
             
             
 
-            axios.post('./php/createInterstR.php', data, config).then(function (response) {
+            axios.post('./php/createInterstR.php', data, config).then( response=> {
                 data = response.data;
                 // console.log(response);
                 // console.log(data);
             }).finally(() => {  
-                member.$options.methods.getIntdata (); //重新讀取資料
+                this.getIntdata (); //重新讀取資料
              });
         },
 
@@ -313,6 +313,8 @@ var member = new Vue ({
                 return 6;
             }else if (age >= 60) {
                 return 7;
+            }else if (isNaN(age)){
+                return null
             }
         },
 
@@ -412,8 +414,8 @@ var member = new Vue ({
                     this.checked_mail = email
                 );
 
-                sending.then(function() {
-                    member.$data.send_email = '送出驗證信'; //Btn文字改變
+                sending.then( res=> {
+                    this.send_email = '送出驗證信'; //Btn文字改變
                 });
 
             }else{
@@ -440,24 +442,25 @@ var member = new Vue ({
         },
 
         getdata () { //取得會員資料
-            axios.post('./php/membercenterR.php').then(function (response) {
+            var vm = this;
+            axios.post('./php/membercenterR.php').then( response=> {
                 data = response.data;
                 // console.log(data[0].SCHOOL);
-                member.$data.username = data[0].USERNAME;
-                member.$data.email = data[0].EMAIL;
-                member.$data.pwd = data[0].PASSWORD;
-                member.$data.nickname = checknull (data[0].NICKNAME);
-                member.$data.about = checknull (data[0].ABOUT);
-                member.$data.myage = checkage (data[0].AGE);
-                member.$data.city = checknull (data[0].AREA);
-                member.$data.job = checknull (data[0].JOB);
-                member.$data.work = checknull (data[0].JOB_DETAIL);
-                member.$data.education = checknull (data[0].EDUCATION);
-                member.$data.school = checknull (data[0].SCHOOL);
-                member.$data.sex = checknull (data[0].SEX);
-                member.$data.seo = checknull (data[0].SO);
-                member.$data.match = checkpriv (data[0].PAIR_PRIV);
-                member.$data.pri = checkpriv (data[0].PUBLIC_PRIV);
+                vm.username = data[0].USERNAME;
+                vm.email = data[0].EMAIL;
+                vm.pwd = data[0].PASSWORD;
+                vm.nickname = checknull (data[0].NICKNAME);
+                vm.about = checknull (data[0].ABOUT);
+                vm.myage = checkage (data[0].AGE);
+                vm.city = checknull (data[0].AREA);
+                vm.job = checknull (data[0].JOB);
+                vm.work = checknull (data[0].JOB_DETAIL);
+                vm.education = checknull (data[0].EDUCATION);
+                vm.school = checknull (data[0].SCHOOL);
+                vm.sex = checknull (data[0].SEX);
+                vm.seo = checknull (data[0].SO);
+                vm.match = checkpriv (data[0].PAIR_PRIV);
+                vm.pri = checkpriv (data[0].PUBLIC_PRIV);
 
                 function checknull (data) { //如果資料為空
                     if (data == null || data == '') {
@@ -487,7 +490,8 @@ var member = new Vue ({
         },
 
         getIntdata () { //取得會員興趣
-            axios.post('./php/selectInterestR.php').then(function (response) {
+            var vm = this;
+            axios.post('./php/selectInterestR.php').then( response=> {
                 interests = response.data;
                 // console.log(interests);
                 interest = [];
@@ -495,9 +499,9 @@ var member = new Vue ({
                     choose = interests[i].name
                     interest.push(` ${choose} `)
                 }
-                member.$data.interest = interest.join("|")
-                if (member.$data.interest == '') {
-                    member.$data.interest = '還沒填寫哦'
+                vm.interest = interest.join("|")
+                if (vm.interest == '') {
+                    vm.interest = '還沒填寫哦'
                 }
             })                
         },
@@ -517,8 +521,8 @@ var member = new Vue ({
         getMascot () { //取得吉祥物
             axios.post('./php/selectMascotR.php').then( response => {
                 data = response.data;
-                console.log(response);
-                console.log(data);
+                // console.log(response);
+                // console.log(data);
                 if (data != '') {
                     this.mascot = `./images/member/macot/${data}`;
                     this.hasMascot = true;
@@ -631,7 +635,7 @@ var member = new Vue ({
 
         this.getMascot ();
 
-        for (j = 0 ; j <= 100; j++) { //製造年齡option
+        for (j = 1 ; j <= 100; j++) { //製造年齡option
             this.ages.push(j + "歲");
         }
 
