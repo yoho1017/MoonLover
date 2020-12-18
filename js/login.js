@@ -9,8 +9,8 @@ var nav = new Vue ({
 
         login () {
             // 點擊跳出登入燈箱
-            account.$data.pop_block = true,
-            account.$data.log_flex = true    
+            account.pop_block = true,
+            account.log_flex = true    
         },
 
         logout () { //登出
@@ -25,15 +25,14 @@ var nav = new Vue ({
 
     },
     mounted() {
-        (function () {
-            axios.post('./php/sessionR.php').then(function (response) {
-                data = response.data;
-                if (data != '') {
-                    nav.$data.userid = data;
-                    nav.$data.member = './mymember.html';
-                }
-            })                
-        }());
+        var vm = this;
+        axios.post('./php/sessionR.php').then( response=> {
+            data = response.data;
+            if (data != '') {
+                vm.userid = data;
+                vm.member = './mymember.html';
+            }
+        })                
     },
 });
 
@@ -147,22 +146,23 @@ var account =  new Vue ({
         },
 
         checkUser (username){ //確認是否存在會員
+            var vm = this;
             if(username != ''){
               axios.get('./php/checkUserR.php', {
                  params: {
                     username: username
                  }
               })
-              .then(function (response) {
+              .then( response=> {
                  message = response.data;
                  if (message == username) {
-                    account.$data.user_error = 2
+                    vm.user_error = 2
                  }else if(message == '') {
-                    account.$data.user_error = 1
+                    vm.user_error = 1
                  }
               })
             }else{
-                this.user_error = 0
+                vm.user_error = 0
             }
         },
 
@@ -222,8 +222,8 @@ var account =  new Vue ({
                     this.checked_mail = email
                 );
 
-                sending.then(function() {
-                    account.$data.send_email = '送出驗證信'; //Btn文字改變
+                sending.then( res=> {
+                    this.send_email = '送出驗證信'; //Btn文字改變
                 });
 
             }else{
@@ -329,10 +329,10 @@ var account =  new Vue ({
                 params.append('stage', stage);
                 
                 // axios.post('./php/LoginR.php', params).then(function (response) {
-                axios.post('./php/LoginR.php', params).then( (response) => {
+                axios.post('./php/LoginR.php', params).then( response => {
                     message = response.data;
                     if (message == false) {
-                        account.$data.login_error = true;
+                        this.login_error = true;
                     }else{
                         alert(`歡迎回來 ! ${message}`);
                         // account.$data.matchCounter('new'); // 登入後將配對牽線次數清為零
@@ -434,7 +434,7 @@ var account =  new Vue ({
 
             axios.post('./php/matchCounter.php', params).then((res) => {
                 matchCount = res.data;
-                console.log(matchCount);
+                // console.log(matchCount);
             });
         },
     },
