@@ -153,6 +153,7 @@ function doFirst() {
     let orderPrice = document.querySelectorAll('.pwds_price');
     let orderCount = document.querySelectorAll('.qty');
     let itemID = document.querySelectorAll('.m_del');
+    let proContent = document.querySelectorAll('.mcontent');
     console.log(itemID, 555555);
 
     let itemPriceArray = [];
@@ -176,32 +177,72 @@ function doFirst() {
     sendButton.addEventListener('click', function () {
 
         let Totalsitem = document.getElementById('payTotal').textContent;
-
+        cartItems = JSON.parse(storage.getItem("cartItems")) || [];
         // console.log(Totalsitem);
 
         let data = new FormData(); //建立資料表單
         data.append('PRICE', Totalsitem);
-
-
+        console.log(Totalsitem);
         // console.log(itemPrice, '123');
         //送出去的資料格式
+
         axios.post('./php/createOrder.php', data).then((res) => {
+            console.log(res);
             orderID = res.data;
-            console.log(res.data);
+            console.log(orderID);
+            console.log(itemCountArray);
+            console.log(itemPriceArray);
+            console.log(itemIDArray);
             let dataDetail = new FormData(); //建立資料表單
             dataDetail.append('orderNumber', orderID);
-            dataDetail.append('orderCount', orderCount);
-            dataDetail.append('orderPrice', orderPrice);
-            dataDetail.append('productID', itemID);
+            dataDetail.append('orderCount', JSON.stringify(itemCountArray));
+            dataDetail.append('orderPrice', JSON.stringify(itemPriceArray));
+            dataDetail.append('productID', JSON.stringify(itemIDArray));
+
+            axios.post('./php/createOrderDetail.php', dataDetail).then((res) => {
+                dataDetail = res.data;
+                console.log(dataDetail, '11111111');
+
+
+                localStorage.removeItem('cartItems');
+                for (i = 0; i < proContent.length; i++) {
+                    proContent[i].remove();
+                    // getStorageItem();
+                }
+                document.getElementById('payTotal').textContent = 0;
+                getStorageItem();
+
+                // loading(data);
+            })
+
+            // axios.post('./php/createOrderDetail.php', dataDetail).then((res) => {
+            //     dataiData = res.data;
+            //     console.log(dataiData, '11111111');
+
+
+            //     // loading(data);
+            // })
+            // let dataDetail = new FormData(); //建立資料表單
+            // dataDetail.append('orderNumber', orderID);
+            // dataDetail.append('orderCount', orderCount);
+            // dataDetail.append('orderPrice', orderPrice);
+            // dataDetail.append('productID', itemID);
 
             // console.log(itemID);
             // console.log(orderCount);
             // console.log(orderPrice);
-
-
-
             // loading(data);
+
+
         })
+
+
+
+
+
+
+
+
         // 設定js FOR表單
         // data.append('送出去的名稱','送出去的數值')
         // let data = new FormData(); //建立資料表單
@@ -213,9 +254,14 @@ function doFirst() {
         //         'Content-Type': 'multipart/form-data'
         //     }
         // }
-        // axios.post('./php/createOrderDetail.php', data, config).then((res) => {
-        //     configData = res.data;
-        //     console.log(res.data);
+        // axios.post('./php/createOrderDetail.php', dataDetail).then((res) => {
+        //     detaiData = res.data;
+        //     console.log(detaiData, '11111111');
+
+        //     dataDetail.append('orderNumber', orderID);
+        //     dataDetail.append('orderCount', orderCount);
+        //     dataDetail.append('orderPrice', orderPrice);
+        //     dataDetail.append('productID', itemID);
         //     // loading(data);
         // })
     })
@@ -315,7 +361,7 @@ function numberCount() {
 }
 // 購物車數量顯示----------------------------------------
 function getStorageItem() {
-    let storedArray = JSON.parse(storage.getItem("cartItems"));
+    let storedArray = storage.getItem("cartItems") == null ? [] : JSON.parse(storage.getItem("cartItems"));
 
     document.getElementById("itemCount").innerText = storedArray.length;
 }

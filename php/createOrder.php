@@ -4,9 +4,8 @@
   include("./Lib/MemberClass.php");
   $Member = new MemberClass();
   $myId = $Member->getMemberID();
-  $itemPrices = $_POST['PRICE'];
+  $itemPrices = intval($_POST['PRICE']);
 
-  // echo $itemPrices
 
 
   include("./Lib/UtilClass.php");
@@ -22,6 +21,7 @@
   $statement->bindValue(2,  $itemPrices);
 
   $statement->execute();
+
 
   
 
