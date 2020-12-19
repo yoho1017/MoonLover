@@ -16,6 +16,30 @@ var nav = new Vue ({
     data : {
         title : 'menu',
     },
+    methods: {
+        logout () {
+            axios.post('./php/logoutR.php').then(function () {
+                window.location.href="./index.html";
+            }).catch(() => { 
+                alert("錯誤 !") 
+            })        
+        }
+    },
+    beforeCreate() {
+        (function(){
+            axios.post('./php/sessionMemberType.php').then( response=> {
+                data = response.data;
+                if (data != 3) {
+                    document.body.style.display= "none";
+                    alert('未登入');
+                    window.location.href="./index.html";
+                }
+            }).catch(() => { 
+                alert("錯誤 !") 
+                window.location.href="./index.html";
+            })                
+        }())
+    },
 });
 
 var backend = new Vue ({
