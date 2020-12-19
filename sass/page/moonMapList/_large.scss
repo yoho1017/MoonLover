@@ -1,4 +1,4 @@
-@mixin dialog($top,$left,$width,$font) {
+@mixin dialog($top,$left,$width,$font,$pad) {
     .Taiwan-block{
 
         .twMap{
@@ -9,6 +9,7 @@
                     top:$top;
                     left: $left;
                     width: $width;
+                    padding:$pad;
                    h3{
                        font-size: $font;
                    }
@@ -28,7 +29,7 @@
                 // top: calc((100vh - 90vh) / 2);
                 // left: calc((100vw - 90vw) / 2);
                 width: 1000px;
-                height: 900px;
+                height: 1000px;
             }
         }
 
@@ -36,7 +37,7 @@
     }
 }
 
-@include rwd(1020px) { //1366
+@include rwd(1020px) { 
     .moonMapAll-wrapper{
         
         .Taiwan-block{
@@ -45,10 +46,10 @@
                 // top: calc((100vh - 90vh) / 2);
                 // left: calc((100vw - 90vw) / 2);
                 width: 950px;
-                height: 850px;
+                height: 950px;
             }
         }
 
-        @include dialog(-190px,0px,270px,18px);
+        @include dialog(-190px,0px,270px,18px,40px);
     }
 }
