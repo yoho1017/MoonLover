@@ -1,6 +1,7 @@
 var storage = localStorage;
 function doFirst() {
     let allItems = JSON.parse(storage.getItem("Allitems")) || [];
+    console.log(allItems);
     let cartItems = JSON.parse(storage.getItem("detailPageItem")) || [];
     let { number, title, price, introduction, luckyImg, img } = cartItems;
     document.querySelector('.proTitle1').textContent = title;
@@ -40,6 +41,9 @@ function doFirst() {
     document.querySelector('.proWords .btnRed').addEventListener('click', function (e) {
 
         // DEBUG currentProd 抓不到東西
+        console.log(allItems); // []
+        console.log(this.getAttribute("number")); //1
+        // console.log(item); // not difined
         let currentProd = allItems.find(item => item["ID"] === this.getAttribute("number"));
         // let getCount = { 'itemNumber':  };
         console.log(itemCount.value);
@@ -48,11 +52,14 @@ function doFirst() {
             currentProd.itemCount = itemCount.value;
         }
         // 從外頁搬過來----------------------------------------
+
+        //ID判斷
         let cartItems = JSON.parse(storage.getItem("cartItems")) || [];
         if (cartItems.length >= 0) {
             if (!cartItems.some(element => element["ID"] === currentProd["ID"])) {
-                console.log(e.target.dataset, 'dataset');
+                console.log(e.target.dataset.product);
                 if (e.target.dataset) {
+                    console.log(currentProd);
                     currentProd.animalImg = e.target.dataset.product
                     console.log(currentProd.animalImg, e.target.dataset.product, 'gun');
 

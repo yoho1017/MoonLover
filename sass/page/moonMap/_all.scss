@@ -484,8 +484,12 @@
         #edit {
           color: #ccc;
           margin-right: 10px;
+          cursor: pointer;
+          &:hover{
+            color: rgb(185, 96, 96);
+          }
         }
-
+         
         .end {
           //user貼文的!位置
           margin-top: 10px;
@@ -519,6 +523,10 @@
             background-color: #ff7a7a;
             padding: 10px;
             border-radius: 50%;
+            cursor: pointer;
+            &:hover{
+              font-size: 18px;
+            }
           }
         }
 
@@ -553,6 +561,13 @@
               padding: 10px;
               border-radius: 48px;
               border: 1px solid #ccc;
+            }
+            .fa-exclamation-circle.fa-1x.edit{
+              color: #ccc;
+              cursor: pointer;
+              &:hover{
+                color: rgb(185, 96, 96);
+              }
             }
           }
         }

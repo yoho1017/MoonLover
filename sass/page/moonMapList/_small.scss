@@ -1,14 +1,15 @@
-@mixin dialog($top,$left,$width,$font) {
+@mixin dialog($top,$left,$width,$font,$pad) {
     .Taiwan-block{
 
         .twMap{
 
             .YueLao_block{
-
+                // border: 1px solid red;
                 .dialog{
                     top:$top;
                     left: $left;
                     width: $width;
+                    padding: $pad;
                    h3{
                        font-size: $font;
                    }
@@ -18,7 +19,31 @@
     } 
 }
 
-@include rwd(small) {
+@include rwd(small) {//768
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 700px;
+                height: 700px;
+                bottom: 20%;
+                .YueLao_block{
+                    transform:translate(0,30%);
+                   
+                } 
+            }
+        }
+        @include dialog(-150px,10px,170px,15px,20px);
+
+        
+    }
+}
+
+
+@include rwd(720px) {
     .moonMapAll-wrapper{
         
         .Taiwan-block{
@@ -27,17 +52,21 @@
                 // top: calc((100vh - 90vh) / 2);
                 // left: calc((100vw - 90vw) / 2);
                 width: 650px;
-                height: 550px;
+                height: 650px;
+                .YueLao_block{
+                    transform:translate(0,50%);
+                   
+                } 
             }
         }
-        @include dialog(-185px,0px,180px,12px);
+
+        @include dialog(-120px,20px,170px,13px,13px);
 
         
     }
 }
 
-
-@include rwd(655px) {
+@include rwd(670px) {
     .moonMapAll-wrapper{
         
         .Taiwan-block{
@@ -46,17 +75,38 @@
                 // top: calc((100vh - 90vh) / 2);
                 // left: calc((100vw - 90vw) / 2);
                 width: 600px;
-                height: 500px;
+                height: 600px;
                 .YueLao_block{
-
-                    .dialog{
-                       padding: 30px;
-                       
-                    }
+                    transform:translate(0,60%);
+                   
                 } 
             }
         }
-        @include dialog(-165px,0px,170px,10px);
+
+        @include dialog(-120px,0px,170px,12px,10px);
+
+        
+    }
+}
+
+@include rwd(620px) {
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 570px;
+                height: 570px;
+                .YueLao_block{
+                    transform:translate(0,60%);
+                   
+                } 
+            }
+        }
+
+        @include dialog(-120px,0px,170px,10px,10px);
 
         
     }
@@ -75,17 +125,6 @@
                 display: flex;
             }
         }
-
-        // .Taiwan-block{
-        //     .twMap{
-
-        //         // top: calc((100vh - 90vh) / 2);
-        //         // left: calc((100vw - 90vw) / 2);
-        //         width: 650px;
-        //         height: 550px;
-        //     }
-        // }
-        // @include dialog(-185px,0px,180px,12px);
 
         
     }

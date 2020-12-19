@@ -1,4 +1,4 @@
-@mixin dialog($top,$left,$width,$font) {
+@mixin dialog($top,$left,$width,$font,$pad) { //頂 左 寬 字 padd
     .Taiwan-block{
 
         .twMap{
@@ -9,6 +9,7 @@
                     top:$top;
                     left: $left;
                     width: $width;
+                    padding: $pad;                
                    h3{
                        font-size: $font;
                    }
@@ -18,7 +19,7 @@
     } 
 }
 
-@include rwd(medium) {
+@include rwd(medium) {//992
     .moonMapAll-wrapper{
         
         .Taiwan-block{
@@ -26,17 +27,35 @@
 
                 // top: calc((100vh - 90vh) / 2);
                 // left: calc((100vw - 90vw) / 2);
-                width: 900px;
-                height: 800px;
+                width: 920px;
+                height: 920px;
             }
         }
-        @include dialog(-190px,0px,260px,17px);
+        @include dialog(-190px,0px,230px,17px,35px); //頂 左 寬 字 padd
 
         
     }
 }
 
-@include rwd(900px) {
+@include rwd(940px) {
+    .moonMapAll-wrapper{
+        
+        .Taiwan-block{
+            .twMap{
+
+                // top: calc((100vh - 90vh) / 2);
+                // left: calc((100vw - 90vw) / 2);
+                width: 850px;
+                height: 850px;
+            }
+        }
+        @include dialog(-150px,25px,200px,17px,20px);
+
+        
+    }
+}
+
+@include rwd(880px) {
     .moonMapAll-wrapper{
         
         .Taiwan-block{
@@ -45,16 +64,17 @@
                 // top: calc((100vh - 90vh) / 2);
                 // left: calc((100vw - 90vw) / 2);
                 width: 800px;
-                height: 700px;
+                height: 800px;
             }
         }
-        @include dialog(-185px,0px,230px,16px);
+        @include dialog(-150px,25px,200px,17px,20px);
 
         
     }
 }
 
-@include rwd(800px) {
+
+@include rwd(820px) {
     .moonMapAll-wrapper{
         
         .Taiwan-block{
@@ -62,11 +82,16 @@
 
                 // top: calc((100vh - 90vh) / 2);
                 // left: calc((100vw - 90vw) / 2);
-                width: 700px;
-                height: 600px;
+                width: 750px;
+                height: 750px;
+                bottom: 20%;
+                .YueLao_block{
+                    transform:translate(0,20%);
+                   
+                } 
             }
         }
-        @include dialog(-185px,0px,200px,13px);
+        @include dialog(-150px,25px,190px,16px,20px);
 
         
     }
