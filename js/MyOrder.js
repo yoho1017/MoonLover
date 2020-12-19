@@ -49,6 +49,8 @@ var member = new Vue ({
                 // console.log(response);
                 // console.log(data);
                 vm.Odetails = data;
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         close () { //關閉訂單明細
@@ -101,6 +103,8 @@ var member = new Vue ({
             }
 
             vm.orders = data;
+        }).catch(() => { 
+            alert("錯誤 !") 
         });
     },
     mounted() {

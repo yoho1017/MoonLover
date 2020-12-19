@@ -247,7 +247,8 @@ var member = new Vue ({
                 data = response.data;
                 // console.log(response);
                 // console.log(data);
-            }).finally(() => {  
+            }).catch(() => { 
+                alert("錯誤 !") }).finally(() => {  
                 this.getdata (); //重新讀取資料
              });
         },
@@ -276,7 +277,8 @@ var member = new Vue ({
                 data = response.data;
                 // console.log(response);
                 // console.log(data);
-            }).finally(() => {  
+            }).catch(() => { 
+                alert("錯誤 !") }).finally(() => {  
                 this.getIntdata (); //重新讀取資料
              });
         },
@@ -486,6 +488,8 @@ var member = new Vue ({
                     }
                 }
 
+            }).catch(() => { 
+                alert("錯誤 !") 
             })                
         },
 
@@ -503,6 +507,8 @@ var member = new Vue ({
                 if (vm.interest == '') {
                     vm.interest = '還沒填寫哦'
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             })                
         },
 
@@ -515,6 +521,8 @@ var member = new Vue ({
                     this.profile = data;
                     // console.log(this.profile);
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
 
@@ -528,6 +536,8 @@ var member = new Vue ({
                     this.hasMascot = true;
                     // console.log(this.mascot);
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         }
 
@@ -751,6 +761,8 @@ var member = new Vue ({
                     data = response.data;
                     // console.log(response);
                     // console.log(data);
+                }).catch(() => { 
+                    alert("錯誤 !") 
                 });
 
             };

@@ -69,6 +69,8 @@ var bAccount =  new Vue ({
 
                         window.location.href="./backstage_publicMsg.html";
                     }
+                }).catch(() => { 
+                    alert("錯誤 !") 
                 })                
             }
         },

@@ -20,6 +20,8 @@ var nav = new Vue ({
                 }else{
                     window.location.reload()
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             })        
         }
 
@@ -32,6 +34,8 @@ var nav = new Vue ({
                 vm.userid = data;
                 vm.member = './mymember.html';
             }
+        }).catch(() => { 
+            alert("錯誤 !") 
         })                
     },
 });
@@ -160,7 +164,9 @@ var account =  new Vue ({
                  }else if(message == '') {
                     vm.user_error = 1
                  }
-              })
+              }).catch(() => { 
+                alert("錯誤 !") 
+            })
             }else{
                 vm.user_error = 0
             }
@@ -340,6 +346,8 @@ var account =  new Vue ({
 
                         window.location.reload()
                     }
+                }).catch(() => { 
+                    alert("錯誤 !") 
                 })                
             }
         },
@@ -435,6 +443,8 @@ var account =  new Vue ({
             axios.post('./php/matchCounter.php', params).then((res) => {
                 matchCount = res.data;
                 // console.log(matchCount);
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
     },

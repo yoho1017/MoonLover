@@ -113,6 +113,8 @@ var member = new Vue ({
                     }
                     // 放進data
                     vm.msgs = msgs;
+                }).catch(() => { 
+                    alert("錯誤 !") 
                 }).finally(() => {  
                     if (vm.msgs != '') {
                         document.querySelector(".msgbox").scrollTo(0,document.querySelector(".msgbox").scrollHeight);
@@ -150,6 +152,8 @@ var member = new Vue ({
                         vm.messages.push(msg)
                     }    
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             })
         },
         getImage (){ //取得會員頭像
@@ -161,6 +165,8 @@ var member = new Vue ({
                     member.profile = data;
                     // console.log(member.$data.profile);
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         selfUpdate (val) { //回傳id給父層(檢舉用)
@@ -179,6 +185,8 @@ var member = new Vue ({
             axios.post('./php/blockRelation.php', data, config).then ( response=> {
                 // console.log(response);
                 // console.log(response.data);
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         }
     },
@@ -277,6 +285,8 @@ var member = new Vue ({
                             // console.log(member.$data.msgs)
                             ;
         
+                        }).catch(() => { 
+                            alert("錯誤 !") 
                         }).finally(() => {  
                             if (mb.msgs != '') {
                                 document.querySelector(".msgbox").scrollTo(0,document.querySelector(".msgbox").scrollHeight);
@@ -322,6 +332,8 @@ var member = new Vue ({
                             // console.log(member.$data.msgs)
                             ;
         
+                        }).catch(() => { 
+                            alert("錯誤 !") 
                         }).finally(() => {
                             // 如果收到新訊息就scroll到底
                             if (document.querySelectorAll('.textbox').length != msglength) {

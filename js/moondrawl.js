@@ -15,6 +15,8 @@ $(document).ready(function(){
             // console.log(data[0].NUM);
             // console.log(data);
             dataToDraw (data);
+        }).catch(() => { 
+            alert("錯誤 !") 
         });
 
 

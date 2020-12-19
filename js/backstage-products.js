@@ -114,7 +114,9 @@ var backend = new Vue({
             ).then( response=> {
                 data = response.data;
                 // console.log(response);
-                })
+            }).catch(() => { 
+                alert("錯誤 !") 
+            })
         },        
         change() {
             var vm = this;
@@ -173,6 +175,8 @@ var backend = new Vue({
                 vm.imgPreview = false
                 vm.menu = true;
                 nav.title = 'menu'    
+            }).catch(() => { 
+                alert("錯誤 !") 
             })
         },
         upload () {
@@ -207,6 +211,8 @@ var backend = new Vue({
     
                     vm.sql.push(arr);
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             })
         }
     },
@@ -259,6 +265,8 @@ var backend = new Vue({
                         vm.username = response.data;
                     })   
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             })        
             // 取得資料
             vm.getMerchandise();

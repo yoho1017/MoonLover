@@ -22,6 +22,8 @@ axios.post('./php/moonMap.php', params).then( response => {
   moonmap.$data.mesg = array;
   // console.log(array);
 
+}).catch(() => { 
+  alert("錯誤 !") 
 });
 
 function dataToTemple(data){
