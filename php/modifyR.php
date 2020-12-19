@@ -28,7 +28,7 @@
         $_POST["newage"] = null;
     }
 
-    if ($_POST["ageRange"] == 0) {
+    if ($_POST["ageRange"] == 'null') {
         $_POST["ageRange"] = null;
     }
 
@@ -48,8 +48,16 @@
         $_POST["education"] = null;
     }
 
-    if ($_POST["school"] == '還沒填寫哦') {
+    if ($_POST["school"] == '') {
         $_POST["school"] = null;
+    }
+
+    if ($_POST["sex"] == '還沒填寫哦') {
+        $_POST["sex"] = null;
+    }
+
+    if ($_POST["seo"] == '還沒填寫哦') {
+        $_POST["seo"] = null;
     }
 
     // echo $_POST["password"];

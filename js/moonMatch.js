@@ -136,6 +136,8 @@ let matchCond = new Vue({
                         }
                     }
                 } 
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         getMatchMemberCondition(){ 
@@ -184,6 +186,8 @@ let matchCond = new Vue({
                 matchCard.$data.sex = this.sex;
                 matchCard.$data.seo = this.seo;
                 
+            }).catch(() => { 
+                alert("錯誤 !") 
             }).finally(() => {
                 matchCard.getMatchMemberData(); // 呼叫後端篩選配對會員函數
             });
@@ -199,6 +203,8 @@ let matchCond = new Vue({
             axios.post('./php/updateMatchCondition.php', params).then((res) => {
                 let data = res.data;
                 console.log(data);
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         setMatchMemberInterestCondition(){
@@ -218,6 +224,8 @@ let matchCond = new Vue({
             axios.post('./php/updateMatchMemInterstR.php', data, config).then(function (response) {
                 data = response.data;
                 console.log(data);
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         createMatchMemberCondition(){
@@ -230,6 +238,8 @@ let matchCond = new Vue({
             axios.post('./php/insertMatchCondition.php', params).then((res) => {
                 let data = res.data;
                 console.log(data);
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         createMatchMemberInterestCondition(){
@@ -249,6 +259,8 @@ let matchCond = new Vue({
             axios.post('./php/insertMatchMemInterstR.php', data, config).then(function (response) {
                 data = response.data;
                 console.log(data);
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         getdata () { //取得會員資料
@@ -286,6 +298,8 @@ let matchCond = new Vue({
                     this.getIntdata();
                 }
                 
+            }).catch(() => { 
+                alert("錯誤 !") 
             })                
         },
         getIntdata () { //取得會員興趣
@@ -302,8 +316,9 @@ let matchCond = new Vue({
                 if (this.interest == '') {
                     this.interest = '還沒填寫哦';
                 }
-            })
-            .finally(() => { 
+            }).catch(() => { 
+                alert("錯誤 !") 
+            }).finally(() => { 
 
                 this.interestCheckbox();
                 // 2. 檢查是否有建立過配對條件
@@ -415,6 +430,8 @@ let matchCard = new Vue({
                         this.age = '不要問';
                         this.interest ='觀察HTML';
                     }
+                }).catch(() => { 
+                    alert("錯誤 !") 
                 });                
             }, 100);
 
@@ -432,6 +449,8 @@ let matchCard = new Vue({
                 for(let i=0; i<= data.length-1; i++){
                     this.interest += `${data[i].name} `;
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         toMsg(){
@@ -449,6 +468,8 @@ let matchCard = new Vue({
                 }
 
                 
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
         matchCounter(counter){
@@ -459,6 +480,8 @@ let matchCard = new Vue({
             axios.post('./php/matchCounter.php', params).then((res) => {
                 this.mCounter = res.data;
                 console.log(this.mCounter);
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
             this.$forceUpdate();
         },

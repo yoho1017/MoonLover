@@ -112,7 +112,9 @@ var backend = new Vue({
             ).then( response=> {
                 data = response.data;
                 // console.log(response);
-             })
+             }).catch(() => { 
+                alert("錯誤 !") 
+            })
         },
         // 送出新增資料
         add(id) {
@@ -163,7 +165,9 @@ var backend = new Vue({
             ).then( response=> {
                 data = response.data;
                 // console.log(response);
-             })
+             }).catch(() => { 
+                alert("錯誤 !") 
+            })
         }
     },
     // v-html->如果是資料包含html語法需要用v-html渲染，如果是一般文字內容用{{}}即可
@@ -226,6 +230,8 @@ var backend = new Vue({
                     vm.username = response.data;
                  })   
             }
+        }).catch(() => { 
+            alert("錯誤 !") 
         })        
         // 取得資料
         // 取得資料是select option的用的值，資料庫資料有<br>需要把它拿掉
@@ -245,6 +251,8 @@ var backend = new Vue({
 
                 vm.sql.push(arr);
             }
+        }).catch(() => { 
+            alert("錯誤 !") 
         })        
         // console.log(vm.sql);                  
     },

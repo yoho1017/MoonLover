@@ -24,7 +24,7 @@ var member = new Vue ({
         // 現在顯示客製化物件欄
         deco : 0,
         // 已選擇客製化物件編號(預設為空)
-        selectItem : {face: 1, head: 1, dress: 1,tail: 1},
+        selectItem : {face: 'null', head: 'null', dress: 'null',tail: 'null'},
         // 顯示物件
         showobj : [false,false,false,false],
         // 物件引導文字
@@ -73,7 +73,7 @@ var member = new Vue ({
             }    
         },
         reset () { //重設按鈕
-            this.selectItem = {face: 1, head: 1, dress: 1,tail: 1};
+            this.selectItem = {face: 'null', head: 'null', dress: 'null',tail: 'null'};
             this.showobj = [false,false,false,false];
         },
         dragover (e) {
@@ -187,6 +187,8 @@ var member = new Vue ({
                     this.success = true;
                     this.custom = dataURL;
                 }
+            }).catch(() => { 
+                alert("錯誤 !") 
             });
         },
     },

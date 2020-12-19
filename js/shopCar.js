@@ -201,6 +201,8 @@ function doFirst() {
 
 
             // loading(data);
+        }).catch(() => { 
+            alert("錯誤 !") 
         })
         // 設定js FOR表單
         // data.append('送出去的名稱','送出去的數值')

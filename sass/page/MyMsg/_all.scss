@@ -105,7 +105,7 @@ div.MyMsg-wrapper {
 
         .noRelationShip {
             @include flexCenter;
-            @include btn (Link, 30%, 2%);
+            @include btn (Link, 30%, 0);
             flex-direction: column;
 
             h2 {
@@ -114,6 +114,10 @@ div.MyMsg-wrapper {
             }
 
             a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                line-height: 80px;
                 text-decoration: none;
                 color : white;
                 font-size: 30px;

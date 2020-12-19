@@ -43,7 +43,7 @@ div.MyInfo-wrapper {
             align-items: center;
             flex-direction: column;
 
-            @include btn (NewMascot, 75%, 2%);
+            @include btn (NewMascot, 75%, 0);
 
             .nomascot {
                 @include flexCenter;
@@ -55,7 +55,11 @@ div.MyInfo-wrapper {
             }
 
             a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 font-size: 30px;
+                margin: 4%;
                 text-decoration: none;
                 color : white;
             }

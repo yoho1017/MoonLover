@@ -144,6 +144,8 @@ var backend = new Vue({
             axios.post('./php/updateTempleLocation.php', data, config).then( (res) => {
                 data =res.data;
                 console.log(data);
+            }).catch(() => { 
+                alert("錯誤 !") 
             })
 
 
@@ -194,6 +196,8 @@ var backend = new Vue({
                     vm.username = response.data;
                 })   
             }
+        }).catch(() => { 
+            alert("錯誤 !") 
         })        
         // pagination套件需要從外面傳入資料才會執行。以下請串axios以後把資料傳給vm.sql(串好後上面的sqldata可刪除)
         // vm.sql = sqlData;
@@ -217,6 +221,8 @@ var backend = new Vue({
                 vm.sql.push(arr);
             }
 
+        }).catch(() => { 
+            alert("錯誤 !") 
         })
     },
     mounted() {

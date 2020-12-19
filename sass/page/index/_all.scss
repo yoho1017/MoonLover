@@ -43,6 +43,54 @@
     }
     // ========背景放大雲結束==========
 
+    // ========背景有顏色==========
+    .bk_shine{
+      background-image: url(../images/index/index_shine_bk.png);
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -6;
+
+      //微微閃爍效果
+      animation: bk_shine ease-in-out 3s infinite alternate;
+
+      @keyframes bk_shine{
+              from { opacity:0; }
+              to { opacity:0.5; }
+      }
+    }
+
+    .bk_shine_second{
+      // background-image: url(../images/index/index_shine_second.png);
+      background-image: url(../images/index/index_shine_second.png);
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: fixed;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -7;
+
+       //微微閃爍效果
+       animation: bk_shine_second ease-in-out 3s infinite alternate;
+
+       @keyframes bk_shine_second{
+               from { opacity:.2;
+                      // transform: rotate(5deg);
+               }
+               to { opacity:.5;
+                    // transform: rotate(-5deg);
+               }
+       }
+
+    }
+    // ========背景有顏色結束==========
+
   img {
     width: 100%;
   }
