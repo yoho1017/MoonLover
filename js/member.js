@@ -634,9 +634,7 @@ var member = new Vue ({
             `,
         }
     },
-    
-    mounted() {
-
+    created() {
         this.getdata();
 
         this.getIntdata ();
@@ -644,6 +642,8 @@ var member = new Vue ({
         this.getImage ();
 
         this.getMascot ();
+    },
+    mounted() {
 
         for (j = 1 ; j <= 100; j++) { //製造年齡option
             this.ages.push(j + "歲");

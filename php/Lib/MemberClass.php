@@ -58,5 +58,25 @@
             return isset($_SESSION["matchCounter"]) ? $_SESSION["matchCounter"] : "";
         }
         
+
+        //--------------------------------------以下為後台使用--------------------------------------
+    
+        function setBackend($MemberID,$memberType){
+            if(!isset($_SESSION)){
+                session_start(); 
+            }
+            $_SESSION["MemberID"] = $MemberID; //Table 'member'裡的ID欄位值
+            $_SESSION["memberType"] = $memberType;
+        }
+
+        function getMemberType(){
+            if(!isset($_SESSION)){
+                session_start(); 
+            }
+            return isset($_SESSION["memberType"]) ? $_SESSION["memberType"] : ""; 
+        }
+
     }
+
+   
 ?>

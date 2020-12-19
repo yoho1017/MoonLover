@@ -39,9 +39,17 @@ var nav = new Vue ({
             if (data != '') {
                 vm.userid = data;
                 vm.member = './mymember.html';
+            }else{
+                if (document.title == '會員中心' || document.title == '個人資料' || document.title == '我的吉祥物' || document.title == '留言板' || document.title == '我的訂單') {
+                    alert('未登入');
+                    window.location.href="./main.html";
+                }
             }
         }).catch(() => { 
             alert("錯誤 !") 
+            if (document.title == '會員中心' || document.title == '個人資料' || document.title == '我的吉祥物' || document.title == '留言板' || document.title == '我的訂單') {
+                window.location.href="./main.html";
+            }
         })                
     },
 });

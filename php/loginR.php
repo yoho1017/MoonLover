@@ -23,23 +23,37 @@
 
     $memberID = "";
     $memberUSER = "";
+    $memberType = "";
     foreach($data as $index => $row){
         $memberID = $row["ID"];
         $memberUSER = $row["USERNAME"];
+        $memberType = $row["MEMBER_TYPE"];
     }
+
 
     //判斷是否有會員資料?
     if($memberID != "" && $memberUSER != ""){
-        include("./Lib/MemberClass.php");
-        $Member = new MemberClass();
-    
-        //將會員資訊寫入session
-        $Member->setMemberInfo($memberID,$memberUSER);
+        // 如為後台
+        if ($memberType == 3) {
 
-        //導回首頁頁        
-        echo $memberUSER; 
+            echo $memberUSER;
+            include("./Lib/MemberClass.php");
+            $Member = new MemberClass();    
+            $Member->setBackend($memberID,$memberType);
+
+        }else{
+            include("./Lib/MemberClass.php");
+            $Member = new MemberClass();    
+            //將會員資訊寫入session
+            $Member->setMemberInfo($memberID,$memberUSER);
+    
+            //導回首頁頁        
+            echo $memberUSER;     
+        }
+
     }else{
         //跳出提示停留在登入頁
         echo "false"; 
     }
+
 ?>
