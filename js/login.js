@@ -9,13 +9,13 @@ var nav = new Vue ({
 
         login () {
             // 點擊跳出登入燈箱
-            account.pop_block = true,
-            account.log_flex = true    
+            account.pop_block = true;
+            account.log_flex = true;   
         },
 
         logout () { //登出
             axios.post('./php/logoutR.php').then(function () {
-                if (document.title == '個人資料' || document.title == '我的吉祥物' || document.title == '留言板' || document.title == '我的訂單' || document.title == '會員中心') {
+                if (document.title == '個人資料' || document.title == '我的吉祥物' || document.title == '留言板' || document.title == '我的訂單' || document.title == '會員中心' || document.title == '月老牽線') {
                     window.location.href="./main.html";
                 }else{
                     window.location.reload()
@@ -23,7 +23,13 @@ var nav = new Vue ({
             }).catch(() => { 
                 alert("錯誤 !") 
             })        
-        }
+        },
+
+        warning () {
+            alert("要先登入和填寫完整會員資料才能使用這功能哦 !");
+            account.pop_block = true;
+            account.log_flex = true;  
+        },
 
     },
     mounted() {

@@ -48,7 +48,7 @@
                <li class="username" v-if="userid != null" @click="logout">登出</li>
                <li class="user" v-if="userid != null"><a :href="member"><i class="fas fa-user fa-2x"></a></i></li>
                <li class="user" v-else="userid == null"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="#"><i class="fas fa-shopping-cart fa-2x"></a></i></li>              
+               <li class="car"><a href="./moonShopCar.html"><i class="fas fa-shopping-cart fa-2x"></a></i></li>              
                <li class="bars">
                 <button class="hamburger hamburger--collapse" type="button">
                     <span class="hamburger-box">
@@ -59,7 +59,8 @@
                     <ul class="barList">
                         <li><a href="./moonMapList.html">月老地圖</a></li>
                         <li><a href="./moondrawl.html">月老求籤</a></li>
-                        <li><a href="./moonMatch.html">月老牽線</a></li>
+                        <li v-if="userid != null"><a href="./moonMatch.html">月老牽線</a></li>
+                        <li v-else="userid == null" @click="warning"><a href="#">月老牽線</a></li>
                         <li><a href="./know.html">月老小知識</a></li>
                         <li><a href="./moonShop.html">月老商城</a></li>
                     </ul>
