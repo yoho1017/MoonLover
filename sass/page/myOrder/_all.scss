@@ -38,6 +38,7 @@ div.MyOrder-wrapper {
         background-color: #FFF8CE;
         overflow-y: auto;
         border: 8px solid #FFF8CE;
+        height: 70vh;
     }
 
     @include insideScroll;
