@@ -119,7 +119,7 @@ let matchCond = new Vue({
             params.append('qmmcMEMBER_ID', this.qmmcID);
             axios.post('./php/selectMatchIntCondition.php', params).then((res) => {
                 let interests = res.data;
-                console.log(interests);
+                // console.log(interests);
                 interest = [];
                 for (i = 0; i <= interests.length -1; i++) {
                     choose = interests[i].name;
@@ -144,7 +144,7 @@ let matchCond = new Vue({
             // 檢查是否建立過會員配對條件
             axios.post('./php/selectMatchCondition.php').then((res) => {
                 let data = res.data;
-                console.log(data);
+                // console.log(data);
                 if(data == ''){
                     alert('沒資料! 開始創建會員配對條件資料');
                     // 將自身條件寫入篩選條件與興趣資料庫
@@ -202,7 +202,7 @@ let matchCond = new Vue({
 
             axios.post('./php/updateMatchCondition.php', params).then((res) => {
                 let data = res.data;
-                console.log(data);
+                // console.log(data);
             }).catch(() => { 
                 alert("錯誤 !") 
             });
@@ -223,7 +223,7 @@ let matchCond = new Vue({
             }
             axios.post('./php/updateMatchMemInterstR.php', data, config).then(function (response) {
                 data = response.data;
-                console.log(data);
+                // console.log(data);
             }).catch(() => { 
                 alert("錯誤 !") 
             });
@@ -237,7 +237,7 @@ let matchCond = new Vue({
 
             axios.post('./php/insertMatchCondition.php', params).then((res) => {
                 let data = res.data;
-                console.log(data);
+                // console.log(data);
             }).catch(() => { 
                 alert("錯誤 !") 
             });
@@ -258,7 +258,7 @@ let matchCond = new Vue({
             }
             axios.post('./php/insertMatchMemInterstR.php', data, config).then(function (response) {
                 data = response.data;
-                console.log(data);
+                // console.log(data);
             }).catch(() => { 
                 alert("錯誤 !") 
             });
@@ -306,7 +306,7 @@ let matchCond = new Vue({
             axios.post('./php/selectInterestR.php')
             .then((res) => {
                 let interests = res.data;
-                console.log(interests);
+                // console.log(interests);
                 interest = [];
                 for (i = 0; i <= interests.length -1; i++) {
                     choose = interests[i].name;
@@ -392,7 +392,7 @@ let matchCard = new Vue({
                     }
                     // console.log(this.interests[i].checked);
                 }
-                console.log(intCond);
+                // console.log(intCond);
                 let intCondToSql = intCond.join(' or ');
                 params.append('intCondToSql', intCondToSql);
                 
@@ -402,7 +402,8 @@ let matchCard = new Vue({
                 // }       
                 axios.post('./php/matchMemberR.php', params).then((res) => {
                     let data = res.data;
-                    console.log(data);
+                    // console.log(res);
+                    // console.log(data);
                     if(data != ''){
                         // alert('有篩到');
                         this.mId = data[0].mMEMBER_ID;
@@ -421,7 +422,7 @@ let matchCard = new Vue({
                         this.getMatchMemberInterest();
 
                     }else{
-                        console.log('沒篩到');
+                        // console.log('沒篩到');
                         this.profile = './images/MyMsg/person_special.jpg';
                         this.nickname = '賓哥';
                         this.about = '沒篩到！再觀察看看！';
@@ -458,13 +459,13 @@ let matchCard = new Vue({
             params.append('mId', this.mId);
             axios.post('./php/createRelationship.php', params).then((res) => {
                 let data = res.data;
-                console.log(data);
+                // console.log(data);
 
                 if(data == 'success' && this.nickname != '賓哥'){
                     // 配對完畢，重新導向留言板頁面
                     window.location.href='./MyMsg.html';
                 }else{
-                    console.log('重複配對');
+                    // console.log('重複配對');
                 }
 
                 
@@ -479,7 +480,7 @@ let matchCard = new Vue({
 
             axios.post('./php/matchCounter.php', params).then((res) => {
                 this.mCounter = res.data;
-                console.log(this.mCounter);
+                // console.log(this.mCounter);
             }).catch(() => { 
                 alert("錯誤 !") 
             });
