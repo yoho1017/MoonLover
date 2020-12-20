@@ -156,6 +156,11 @@ var member = new Vue ({
                 alert("錯誤 !") 
             })
         },
+        reloadData () {
+            var vm = this;
+            vm.messages = [];
+            vm.getdata ();
+        },
         getImage (){ //取得會員頭像
             axios.post('./php/selectImageR.php').then( response=> {
                 data = response.data;
@@ -373,7 +378,12 @@ var member = new Vue ({
         }
 
         this.getImage (); //取得會員頭像
+        
         this.getdata (); //取得留言表
+
+        setInterval(() => {    
+            this.reloadData (); //取得留言表
+        }, 10000);    
 
     },
 
