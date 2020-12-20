@@ -108,7 +108,17 @@ var member = new Vue ({
                     }else if (data[i].id.length == 6) {
                         data[i].id ='ML0' + data[i].id;
                     }
-    
+
+                    // 已出貨時間
+                    let orderOut = (new Date(Date.parse(data[i].date.replace(/-/g, "/"))+60000));
+                    let now = new Date();
+                    if (now > orderOut) {
+                        data[i].status = 1;
+                    }
+
+                    // 消除秒數
+                    data[i].date = data[i].date.substring(0, 16)
+
                     if (data[i].status == 0) {
                         data[i].status = '出貨中'
                     }else if (data[i].status == 1) {
