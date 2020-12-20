@@ -78,25 +78,6 @@
 
 
 // 標籤3內容
-@mixin sumBut($width,$font) {
-  .moonMap-block{
-    .userForm{
-      .user_block{
-        .user-messBlock{
-          .imgBlock{
-            #sumBut{
-              width: $width;
-              h3{
-                font-size: $font;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 @mixin fa-plus($font) {
   .moonMap-block {
     .fas.fa-plus-square.fa-5x{
@@ -125,16 +106,40 @@
 }
 
 @include rwd(xsmall) { //480
-    .moonMap-wrapper{
-       
+    .moonMap-wrapper{  
+     
         @include fa-plus(2.5em);
+       
+        .moonMap-block .empleMessage .empleContent_block p.empleContent {//廟宇介紹內文字
+          font-size: 14px;
       }
+
+      .moonMap-block .empletraffic_block .empleContent_block p.empleContent {//交通內文字
+        font-size: 14px;
+     
+    }
+
+        .moonMap-block .sceneNew_map .newInBox_map .sceneText h3 { //景點美食標題        
+          font-size: 16px;
+      }
+        .moonMap-block .sceneNew_map .newInBox_map .sceneText p { //景點美食fontsize
+          font-size: 12px;
+      }
+
+      .moonMap-block .sceneNew_map .newInBox_map .roundImg_map {//景點美食圖片大小
+        width: 30%;
+    }
+
+    .moonMap-block .userForm .user_block .user-messBlock .imgBlock .imgList{ //新增圖片區
+      max-width: 150px;
+    }        
+  }
 }
 
 @include rwd(471px) { 
   .moonMap-wrapper{
       @include arrow-but(4%);
-      @include sumBut(29%,13px);
+      // @include sumBut(29%,13px);
       @include fa-plus(2.2em);
     }
 }
@@ -149,7 +154,7 @@
 @include rwd(465px) { 
   .moonMap-wrapper{
     
-      @include sumBut(29%,13px);
+      // @include sumBut(29%,13px);
       @include fa-plus(2.2em);
     }
 }
@@ -157,7 +162,7 @@
 @include rwd(455px) { 
   .moonMap-wrapper{
     
-      @include sumBut(29%,12px);
+      // @include sumBut(29%,12px);
       @include fa-plus(2em);
     }
 }
@@ -165,7 +170,7 @@
 @include rwd(433px) {
   .moonMap-wrapper{
     @include lilist(18%,15px);
-    @include sumBut(30%,12px);
+    // @include sumBut(30%,12px);
   }
 }
 
@@ -176,12 +181,7 @@
   }
 }
 
-@include rwd(420px) {
-  .moonMap-wrapper{
 
-    @include sumBut(31%,12px);
-  }
-}
 
 @include rwd(375px) {
   .moonMap-wrapper{
@@ -191,9 +191,15 @@
          border: 1px;
       }  
     }
-      
+    .moonMap-block .returnMap { //回到地圖位置
+      right: 40px;
+  }  
     @include lilist(19%,14px);
-    @include sumBut(35%,10px);
+
     @include signfont(17px);
+    
+      .moonMap-block .userForm .user_block .user-messBlock .imgBlock .imgList{ //新增圖片區
+        max-width: 130px;
+      } 
   }
 }

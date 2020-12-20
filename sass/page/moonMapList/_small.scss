@@ -129,3 +129,13 @@
         
     }
 }
+
+@include rwd(487px){
+    .moonMapAll-wrapper{
+        .twMap-phone{
+            .temple-link {
+                width:30%;
+            }
+        }
+    }
+}

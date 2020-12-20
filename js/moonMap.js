@@ -26,7 +26,25 @@ axios.post('./php/moonMap.php', params).then( response => {  // params變數放�
   alert("錯誤 !") 
 });
 
-
+//更新廟宇title
+window.onload=change_title;
+function change_title(){  
+  if(pageId==1){
+    document.title="台南大天后宮";
+  }else if(pageId==2){
+    document.title="雲林北港朝天宮";
+  }else if(pageId==3){
+    document.title="台中慈德慈惠堂";
+  }else if(pageId==4){
+    document.title="台中樂成宮";
+  }else if(pageId==5){
+    document.title="台北艋舺龍山寺";
+  }else if(pageId==6){
+    document.title="台北霞海城隍廟";
+  }else{
+    document.title="六大廟宇";
+  }
+};
 
 function dataToTemple(data){
   // console.log(data);

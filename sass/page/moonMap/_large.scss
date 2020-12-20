@@ -86,24 +86,6 @@
 }
 
 // 標籤3內容
-@mixin sumBut($width,$font) {
-  .moonMap-block{
-    .userForm{
-      .user_block{
-        .user-messBlock{
-          .imgBlock{
-            #sumBut{
-              width: $width;
-              h3{
-                font-size: $font;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 @mixin fa-plus($font) {
   .moonMap-block {
@@ -168,6 +150,9 @@
     @include roundImg(40%);
     @include empletraffic;
     @include signfont(36px);
+    .moonMap-block .empletraffic_block .empleContent_block{ //交通資訊區塊
+      margin-left: 0;
+    } 
   }
 }
 
@@ -175,7 +160,7 @@
 
 @include rwd(1167px){
   .moonMap-wrapper{
-    @include sumBut(20%,18px);
+   
     @include fa-plus(3.8em);
   }
 }
@@ -200,7 +185,7 @@
 
 @include rwd(1081px){
   .moonMap-wrapper{
-    @include sumBut(20%,17px);
+    
     @include fa-plus(3.5em);
   }
 }
@@ -213,12 +198,7 @@
 }
 
 
-@include rwd(1038px){
-  .moonMap-wrapper{
-    @include sumBut(20%,16px);
-    // @include fa-plus(3.5em);
-  }
-}
+
 
 
 @include rwd(1017px) {
@@ -230,7 +210,7 @@
 
 @include rwd(995px){
   .moonMap-wrapper{
-    @include sumBut(21%,16px);
+   
     @include fa-plus(3em);
   }
 }

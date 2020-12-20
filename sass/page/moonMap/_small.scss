@@ -77,26 +77,7 @@
 }
 
 
-// 標籤3內容
-@mixin sumBut($width,$font) {
-    .moonMap-block{
-      .userForm{
-        .user_block{
-          .user-messBlock{
-            .imgBlock{
-              #sumBut{
-                width: $width;
-                h3{
-                  font-size: $font;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  
+// 標籤3內容 
   @mixin fa-plus($font) {
     .moonMap-block {
       .fas.fa-plus-square.fa-5x{
@@ -124,8 +105,35 @@
     } 
 }
 
-@include rwd(small){
+//使用者名字
+@mixin userName($fonrSize){
+  .userForm{
+    .user_block{
+      .userImg_block{
+        h3.userName{
+          font-size: $fonrSize;
+        }
+      }
+    }
+  }
+}
+
+@mixin addImg($width,$height) {  //上傳圖片相機icon
+  .moonMap-block .userForm .user_block .user-messBlock .imgBlock .imgList .imgBut #addImg{
+    width:$width;
+    height: $height; 
+  }
+ 
+}
+
+@include rwd(small){ //768
     .moonMap-wrapper{
+      .moonMap-block .blockPerson{ //檢舉燈箱
+        width: 80%;
+        .inbox{
+          width: 90%;
+        }
+      }
         .moonMap-block{
             .signBox_map{
                top:38px; 
@@ -134,7 +142,8 @@
           }
         @include moonMap-block(100%);
         @include signBox_map(35%);
-        @include signfont(25px);       
+        @include signfont(25px); 
+        // @include sumBut(16%,13px);      
     }
 }
 
@@ -144,16 +153,36 @@
     }
 }
 
+ @include rwd(650px){
+  .moonMap-wrapper{
+
+      .moonMap-block .userForm .user_block .user-messBlock .imgBlock .imgList{ //新增圖片區
+          max-width: 250px;
+        }
+    }
+  }
+
 @include rwd(571px){
     .moonMap-wrapper{
-        @include sumBut(26%,15px);
+      
+      .moonMap-block .blockPerson{ //檢舉燈箱
+        width: 95%;       
+      }
+     
         @include fa-plus(2.8em);
+        .moonMap-block .roundImgBlock{
+          margin-top: 10%;
+        }
+
+        .moonMap-block .userForm .user_block .user-messBlock .imgBlock .imgList{ //新增圖片區
+          max-width: 200px;
+        }
       }
 }
 
 @include rwd(568px){
   .moonMap-wrapper{
-      @include sumBut(27%,14px);
+      // @include sumBut(27%,14px);
       @include fa-plus(2.8em);
     }
 }
@@ -180,18 +209,34 @@
     }
 }
 
-@include rwd(526px){
-  .moonMap-wrapper{
-    
-    @include sumBut(28%,13px);
-  }
-}
+
 
 @include rwd(509px){
     .moonMap-wrapper{
-        
-        @include fa-plus(2.5em);
+      .moonMap-block .userForm .user_block .user-messBlock .imgBlock #sumBut{ //發布按鈕
+        padding: 5px;
+        h3{
+          font-size: 13px;
+        }
+      }  
+      @include fa-plus(2.5em);
+
+      .moonMap-block .sceneNew_map .newInBox_map .sceneText p { //景點美食fontsize
+          font-size: 14px;
       }
+
+      .moonMap-block .sceneNew_map .newInBox_map .roundImg_map {//景點美食圖片大小
+        width: 25%;
+    }
+
+      .moonMap-block .userForm .user_block .userImg_block{ //使用者照片
+        width: 28%;
+        padding: 5px;
+      }
+      @include userName(12px); //使用者名字
+      @include addImg(23px,20px); //相機icon
+     
+    }
 }
 
 @include rwd(503px){

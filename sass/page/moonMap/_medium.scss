@@ -78,24 +78,24 @@
 
 
 // 標籤3內容
-@mixin sumBut($width,$font) {
-    .moonMap-block{
-      .userForm{
-        .user_block{
-          .user-messBlock{
-            .imgBlock{
-              #sumBut{
-                width: $width;
-                h3{
-                  font-size: $font;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+// @mixin sumBut($width,$font) {
+//     .moonMap-block{
+//       .userForm{
+//         .user_block{
+//           .user-messBlock{
+//             .imgBlock{
+//               #sumBut{
+//                 width: $width;
+//                 h3{
+//                   font-size: $font;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
   
   @mixin fa-plus($font) {
     .moonMap-block {
@@ -124,12 +124,45 @@
     } 
 }
   
-
-@include rwd(medium) {
-    .moonMap-wrapper {
-   
-        @include signfont(30px);
+//使用者名字
+@mixin userName($fonrSize){
+  .userForm{
+    .user_block{
+      .userImg_block{
+        h3.userName{
+          font-size: $fonrSize;
+        }
       }
+    }
+  }
+}
+
+@mixin addImg($width,$height) {  //上傳圖片相機icon
+  .moonMap-block .userForm .user_block .user-messBlock .imgBlock .imgList .imgBut #addImg{
+    width:$width;
+    height: $height; 
+  }
+ 
+}
+
+@include rwd(medium) {//992
+    .moonMap-wrapper {
+      .moonMap-block .userForm .user_block .user-messBlock .imgBlock #sumBut{ //發布按鈕
+        padding: 8px;
+        h3{
+          font-size: 14px;
+        }
+      }
+      @include signfont(30px);
+      @include userName(16px);
+      @include addImg(33px,30px);
+      // @include sumBut(22%,14px);
+      .moonMap-block .blockPerson{ //檢舉燈箱
+        width: 70%;
+      }
+    
+    
+  }
 }
 
 @include rwd(959px){
@@ -140,7 +173,7 @@
 
 @include rwd(951px){
     .moonMap-wrapper{
-        @include sumBut(22%,16px);
+        
         @include fa-plus(3em);
       }
 }
@@ -156,32 +189,36 @@
 }
 
 
-@include rwd(913px){
-  .moonMap-wrapper {
-    @include sumBut(23%,16px);
-    }
-}
+// @include rwd(913px){
+//   .moonMap-wrapper {
+//     @include sumBut(23%,15px);
+//     }
+// }
 
 @include rwd(902px){
     .moonMap-wrapper{
         @include signfont(26px);
+        
     }
 }
 
 
-@include rwd(876px){
-    .moonMap-wrapper{
-        @include sumBut(23%,15px);
-       
+@include rwd(854px){
+  .moonMap-wrapper{
+    
+      .moonMap-block{
+        width: 90%;
       }
+      
+      // @include sumBut(24%,15px);
+  }
 }
-
 
 
 @include rwd(845px){
     .moonMap-wrapper{
         @include signfont(25px);
-        @include sumBut(24%,15px);
+        // @include sumBut(24%,15px);
     }
 }
 
@@ -197,27 +234,7 @@
 }
 
 
-@include rwd(808px){
-  .moonMap-wrapper{
-    @include sumBut(25%,15px);
-      
-  }
-}
 
-@include rwd(791px){
-    .moonMap-wrapper{
-        @include sumBut(25%,15px);
-       
-      }
-}
-
-
-@include rwd(779px){
-  .moonMap-wrapper{
-     @include sumBut(26%,15px);
-     
-    }
-}
 
 
 

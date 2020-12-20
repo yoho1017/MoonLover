@@ -1,4 +1,4 @@
-@include rwd(xsmall) {
+@include rwd(xsmall) {//480
     .moonMapAll-wrapper{
         .Taiwan-block{
             .twMap{
@@ -14,6 +14,8 @@
         
     }
 }
+
+
 
 @include rwd(414px){
     .moonMapAll-wrapper{
