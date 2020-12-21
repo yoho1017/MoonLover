@@ -67,7 +67,7 @@ function doFirst() {
                 cartItems.push(currentProd);
                 console.log(cartItems, 'cartItems');
                 storage.setItem("cartItems", JSON.stringify(cartItems))
-                getStorageItem();
+                // getStorageItem();
                 return addSuceess()
 
             } else {
@@ -78,7 +78,7 @@ function doFirst() {
                     currentProd.animalImg = e.target.dataset.product
                     cartItems.push(currentProd)
                     storage.setItem("cartItems", JSON.stringify(cartItems));
-                    getStorageItem();
+                    // getStorageItem();
                     return addSuceess()
                 }
                 else {
@@ -89,18 +89,19 @@ function doFirst() {
 
     })
 
+//購物車小計-------------------start
+    // function getStorageItem() {
+    //     let storedArray = JSON.parse(storage.getItem("cartItems"));
 
-    function getStorageItem() {
-        let storedArray = JSON.parse(storage.getItem("cartItems"));
-
-        document.getElementById("itemCount").innerText = storedArray.length;
-    }
-    if (storage['cartItems']) {
-        getStorageItem();
-    }
-    else {
-        document.getElementById("itemCount").innerText = 0;
-    }
+    //     document.getElementById("itemCount").innerText = storedArray.length;
+    // }
+    // if (storage['cartItems']) {
+    //     getStorageItem();
+    // }
+    // else {
+    //     document.getElementById("itemCount").innerText = 0;
+    // }
+//購物車小計-------------------end
 
     function notSuceess() {
         Swal.fire({
