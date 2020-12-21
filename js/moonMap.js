@@ -1,6 +1,6 @@
  //廟宇資料庫
  let pageId = window.location.hash.substr(1); //找到字串中數字位置
- console.log(pageId);
+//  console.log(pageId);
  
  var params = new URLSearchParams(); //宣告params
  params.append('tid', pageId); //將值放入tid 變成tid=pageId
@@ -77,7 +77,7 @@ const bus = new Vue();
 
 //貼文組件
  Vue.component('visitors-item',{ //訪客留言
-   props:['id','vistext','index'], //設定要傳出去的值 訊息,訊息index
+   props:['id','vistext','index','myImg'], //設定要傳出去的值 訊息,訊息index
    
    methods:{   
    // 自訂檢舉燈箱事件
@@ -88,7 +88,7 @@ const bus = new Vue();
    template:
    `<!-- 訪客留言區 -->   
       <li class="visitors-messagelist">
-          <div class="visitors-img"><img src="./images/moonMap/user02.jpg" alt="留言訪客照"></div>
+          <div class="visitors-img"><img :src=myImg alt="留言訪客照"></div>
           <div class="visitors-message">{{vistext}}</div>
           <i class="fas fa-exclamation-circle fa-1x edit" @click="light_block(id)" :id=index ></i> <!--設定屬性id值，要判定刪除的inedex-->
       </li>   
@@ -255,7 +255,8 @@ Vue.component('send',{
       <!--子留言-->
       <ul class="visitors-block" @click="closeul">...
          
-           <visitors-item v-for="(values,index) in visitorstext" :vistext="values" :id="index"></visitors-item>
+           <visitors-item v-for="(values,index) in visitorstext.slice().reverse()" :vistext="values" :id="index" v-bind:myImg="myimg"></visitors-item>
+           <!-- <visitors-item v-for="(values,index) in visitorstext.slice().reverse()" v-bind:vistext="values" v-bind:index="index" v-bind:myImg="myimg" @deletvistext="removeTask(index)"></visitors-item> -->
           
        </ul>        
   </form>
@@ -275,18 +276,53 @@ Vue.component('send',{
      srcimg:[],//放圖
      images:[],//暫存圖
      block_id : 1, //
+     myImg:'',
+     myName:'',
    },
    methods : {
      submit(newText){
-       if(newText !=''){
+       if(newText.length != 0 && newText != '\n'){
          let src=this.srcimg;
          this.myMsg.push(
-           {id:1,myImg:'./images/moonMap/user01.jpg',name:'Diana', msg:newText,time:this.getTime(),srcimg:src} //新增id
+           {id:1,myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src} //新增id
          );
-         setTimeout(this.scrollTo,100);
+
+         // insert
+          let params = new FormData(); //建立資料表單
+          let uploadImg = document.querySelector('#addImg');
+          
+          
+          if(uploadImg.files.length == 0){
+              params.append(`upload`, 'no');
+              console.log('no');
+          }else{
+            params.append(`upload`, 'yes');
+            for(let i=0; i<uploadImg.files.length; i++ ){
+              params.append(`uploadImg${i+1}`, uploadImg.files[i]);
+              console.log('yes');
+              
+            }
+          }
+          
+
+          params.append('tId', pageId);
+          params.append('msg', this.newText);
+
+            let config = {
+                header : {
+                 'Content-Type' : 'multipart/form-data'
+               }
+            }
+
+          axios.post('./php/insertTempleMsg.php', params, config).then((res) => {
+            let data = res.data;
+            console.log(data);
+          });
+
          this.newText='';
          this.images=[];//清除圖片
          this.srcimg=[];
+         uploadImg.value = ''; // input裡也要清空
        }
      },
      getTime () {
@@ -339,8 +375,86 @@ Vue.component('send',{
        array.splice(item,1); 
        let array2=this.srcimg;      
        array2.splice(item,1); 
-     },      
+     },
+     getTempleMsg(){
+      var params = new URLSearchParams();
+      params.append('tId', pageId);
+
+      axios.post('./php/getTempleMsg.php', params).then( (res) => {
+        var data = res.data;
+        console.log(data);
+
+        // 計算收到的資料筆數
+        let dataLength = 0;
+        for (var i in data) {
+          dataLength++;
+        }
+
+        let src=[];
+        const imgPath = './images/upload/';
+        
+        // 撈到資料反著長回html
+        for(i=dataLength-1;i>=0;i--){
+
+          src = data[i].tmIMG;
+          src = src.split("|");
+          if(src != ''){
+            for(let j=0;j<src.length;j++){
+              src[j] = `${imgPath}${src[j]}`;
+            }
+          }
+          
+
+
+          this.myMsg.push(
+            { myImg:atob(data[i].myImg), 
+              name:data[i].nName, 
+              msg:data[i].MSG,
+              time:data[i].MSG_DATE,
+              srcimg: src}
+          );
+
+          // this.visitorstext = 'test';
+
+          // let tmID = data[i].ID;
+          // console.log(tmID);
+
+          // let miMsg = new URLSearchParams();
+          // miMsg.append('tmID', tmID);
+          // axios.post('./php/getTempleMsg.php', miMsg).then( (res) => {
+          //   let iMsg = res.data;
+          //   console.log(iMsg);
+          // });
+        }
+
+
+
+
+      
+      });
+    },
+     getMemberImage(){
+      axios.post('./php/getMemberImage.php').then( response => {
+        var data = response.data;
+        // console.log(data);
+        let myImg = atob(data.IMAGE);
+        let myName = data.NICKNAME;
+
+        document.querySelector('.userName').innerText = myName;
+        document.querySelector('.userImg img').src = myImg;
+
+        this.myImg = myImg;
+        this.myName = myName;
+      
+      });
+    },      
    
    },
+   mounted(){
+
+    this.getMemberImage();
+    this.getTempleMsg();
+
+  },
 
  })
