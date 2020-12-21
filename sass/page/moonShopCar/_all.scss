@@ -6,6 +6,11 @@
     background-position: center center;
     z-index: 0;
 }
+button{
+    outline: none;
+    border-color: transparent;
+    box-shadow:none;
+}
 .shoppingCar-wrapper{
   
    
@@ -646,6 +651,7 @@
                 font-size:20px;
             }
         }
+       
         .C_groups{
             margin:50px 10px 10px 0;
             display:flex;
@@ -668,13 +674,15 @@
                 padding:10px 30px;
                 font-size:20px;
                 color:#FFFFFF;
-                cursor: pointer;
+                cursor: pointer;      
                 }
                 .C_btnRed:hover{
                     background-color:#ac5454;
                 }
+                
             }
         }
+
   
 
 
