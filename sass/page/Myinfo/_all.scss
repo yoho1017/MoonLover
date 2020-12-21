@@ -1,5 +1,42 @@
 div.MyInfo-wrapper {
+
+    //背景雲飄移動畫
+    .cloud_one{
+        // border: 1px solid red;
+        background-image: url(../images/MyInfo/info_cloud_one.png);
+        position: absolute;
+        top:0px;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -1;
+        opacity: .5;
+        
+        @keyframes move{
+            100%{bckground-position: 500% 0;}
+        }
+    }
+
+    .cloud_second{
+        // border: 1px solid blue;
+        background-image:url(../images/MyInfo/info_cloud_second.png);
+        position: absolute;
+        top:0px;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 120s infinite linear alternate;
+        z-index: -2;
+        opacity: .4;
     
+    
+        @keyframes move{
+            100%{background-position: 500% 0;}
+        }
+    }
+    //背景雲飄移動畫結束
+
     @include input_text;
 
     @include select ($Swd,$Spd,$SpdL,$SpdR);
@@ -304,5 +341,7 @@ div.MyInfo-wrapper {
             }
         }
 
-    }  
+    }
+
+  
 }
