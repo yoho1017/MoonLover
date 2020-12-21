@@ -137,6 +137,8 @@ function doFirst() {
         let rwdDelitems = document.createElement('i');
         rwdDelitems.classList.add('fas', 'fa-trash-alt', 'fa-2x', 'garbageCan');
         newMcontent.appendChild(rwdDelitems);
+        rwdDelitems.setAttribute('data-animal', cartItem["animalImg"] || "");
+        rwdDelitems.setAttribute('data-pdid', cartItem["ID"]);
         // rwdDelitems.setAttribute('data-img', itemValue);
         // rwdDelitems.setAttribute('data-list', getItemList);
 
@@ -151,13 +153,13 @@ function doFirst() {
 
     let sendButton = document.getElementById('sendingButton');
     let orderPrice = document.querySelectorAll('.pwds_price');
-    let orderCount = document.querySelectorAll('.qty');
+    // let orderCount = document.querySelectorAll('.qty');
     let itemID = document.querySelectorAll('.m_del');
     let proContent = document.querySelectorAll('.mcontent');
     console.log(itemID, 555555);
 
     let itemPriceArray = [];
-    let itemCountArray = [];
+    // let itemCountArray = [];
     let itemIDArray = [];
     for (i = 0; i < orderPrice.length; i++) {
         // console.log(i);
@@ -166,15 +168,27 @@ function doFirst() {
         // console.log(orderPrice[i].innerText);
         // parseInt(orderPrice[i].innerText);
         itemPriceArray.push(parseInt(orderPrice[i].innerText));
-        itemCountArray.push(orderCount[i].value);
+        // itemCountArray.push(orderCount[i].value);
         // itemIDArray.push(itemID[i].getAttribute('data-pdid'));
         itemIDArray.push(itemID[i].dataset.pdid);
         // itemPriceArray.push(document.querySelectorAll('.pwds_price')[i].innerText);
     }
     console.log(itemPriceArray);
-    console.log(itemCountArray);
+    // console.log(itemCountArray, '666666666666666666666666');
     console.log(itemIDArray);
     sendButton.addEventListener('click', function () {
+        let itemCountArray = [];
+        let itemPriceArray = [];
+        let itemIDArray = [];
+        let orderCount = document.querySelectorAll('.qty');
+        let orderPrice = document.querySelectorAll('.pwds_price');
+        let itemID = document.querySelectorAll('.m_del');
+        for (i = 0; i < orderCount.length; i++) {
+            itemCountArray.push(orderCount[i].value);
+            itemPriceArray.push(parseInt(orderPrice[i].innerText));
+            itemIDArray.push(itemID[i].dataset.pdid);
+        }
+
         console.log(nav.userid);
         if (nav.userid == null) {
             account.pop_block = true;
@@ -189,12 +203,17 @@ function doFirst() {
             console.log(Totalsitem);
             // console.log(itemPrice, '123');
             //送出去的資料格式
-
+            if (cartItems.length === 0) {
+                return Swal.fire({
+                    icon: 'error',
+                    text: `您都沒有買東西所以不能結帳喔`,
+                })
+            }
             axios.post('./php/createOrder.php', data).then((res) => {
                 console.log(res);
                 orderID = res.data;
                 console.log(orderID);
-                console.log(itemCountArray);
+                console.log(itemCountArray, '1153');
                 console.log(itemPriceArray);
                 console.log(itemIDArray);
                 let dataDetail = new FormData(); //建立資料表單
@@ -215,6 +234,10 @@ function doFirst() {
                     }
                     document.getElementById('payTotal').textContent = 0;
                     getStorageItem();
+                    Swal.fire({
+                        imageUrl: 'images/moonShop/old-01.png',
+                        text: ` 訂單完成(請到會員中心查看訂單)`,
+                    })
 
                     // loading(data);
                 })
@@ -241,6 +264,8 @@ function doFirst() {
             })
         }
 
+
+
         // 設定js FOR表單
         // data.append('送出去的名稱','送出去的數值')
         // let data = new FormData(); //建立資料表單
@@ -263,6 +288,7 @@ function doFirst() {
         //     // loading(data);
         // })
     })
+
 
 
     // 傳遞到php--------------------------------------------end
