@@ -41,25 +41,83 @@ h5 {
         width: 50px;
         height: 50px;
         cursor: pointer;
-
         &:hover {
           transform: scale(1.2);
         }
       }
       li {
-        margin-left: 30px;
- 
-        &:hover {
-          a {
-            i {
-              transform: scale(1.2);
-            }
-          }
-        }        
+        margin-left: 15px;
+        //原本30px
+
+        .user{
+          position: relative;
+          background-image: url(../images/header/member_icon.png);
+          width:55px;
+          height:55px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+      
+            &:hover {        
+                &::before{
+                  content: '';
+                  background-image: url(../images/header/member_hover.png);
+                  width:55px;
+                  height:55px;
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  position: absolute;
+                  top:0px;
+                  left:0px;
+                  z-index: 99;
+                  transform: scale(1.2);
+                  }
+                         
+                // a {
+                //   i {
+                //     transform: scale(1.2);
+                //   }
+                // }
+              
+            }//.user hover結尾  
+
+        }//.user結尾
+
+        .shop_cart{
+          position: relative;
+          background-image: url(../images/header/shopping_cart_55.png);
+          width:55px;
+          height:55px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+
+            &:hover {        
+              &::before{
+                content: '';
+                background-image: url(../images/header/shopping_cart_hover.png);
+                width:55px;
+                height:55px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: absolute;
+                top:0px;
+                left:0px;
+                z-index: 99;
+                transform: scale(1.2);
+                }
+            
+            
+            }//shop_cart hover結尾  
+
+
+        }//shop_cart結尾
+               
         a {
           display: flex;
           text-decoration: none;
-  
           i {
             padding-top: 10px;
             color: #58150d;
@@ -70,9 +128,14 @@ h5 {
             height: 50px;
           }
         }
-      }
-    }
-  }
+
+        // img.user .car{
+        //   position: relative;
+        // }
+
+      }//li結尾
+    }//navlist結尾
+  }//@mixin navlist結尾
   
   //=============== nav的hover底線效果 ===============
   @mixin hover2 {   
