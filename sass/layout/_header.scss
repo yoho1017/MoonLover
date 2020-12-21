@@ -3,6 +3,23 @@
   top: 0;
   .list.bars.barList.-on {
     right: 0;
+
+    //換購物車圖片
+    // .nav{
+    //   .navlist{
+    //     li.car{ 
+    //       &:hover {
+    //         background-image: url(../images/header/shopping_cart_hover.png);
+    //         width: 55px;
+    //         height: 55px;
+    //       }     
+    //         img{
+    //           width:100%;
+    //         }
+    //     }        
+    //   }
+    // }
+
   }
 
   .hamburger {
@@ -313,17 +330,17 @@ $btnmg: 0 10px;
   .header{
     .nav{
       //會員中心icon
-      .fas.fa-user.fa-2x{
-        width: 45px;
-        height: 45px;
-        padding-top: 8px;
+      .user{
+        width: 50px;
+        height: 50px;
+        // padding-top: 8px;
    
       }
       //購物車icon
-      .fas.fa-shopping-cart.fa-2x{
-        width: 45px;
-        height: 45px;
-        padding-top: 8px;
+      .car{
+        width: 50px;
+        height: 50px;
+        // padding-top: 8px;
       }
       .navlist{
           //登入登出鈕
@@ -331,6 +348,7 @@ $btnmg: 0 10px;
             font-size: 16px;
             width: 45px;
             height: 45px;
+            margin-top: 6px;
           }
           li{
             margin-left: 10px;
@@ -341,6 +359,8 @@ $btnmg: 0 10px;
         width:45px;
         height:45px;
         padding-left:2px;
+        margin-top: 6px;
+
       }
     }
   }
