@@ -323,7 +323,7 @@
 
                     <!-- 貼文區 -->
                     <div class="message_block" id="style-1">
-                       <send v-for="(userMsg, index) in myMsg.slice().reverse()" :myimg="userMsg.myImg" :name="userMsg.name" :msg="userMsg.msg" :time="userMsg.time"  :srcimg="userMsg.srcimg"></send>
+                       <send v-for="(userMsg, index) in myMsg.slice().reverse()" :myimg="userMsg.myImg" :name="userMsg.name" :msg="userMsg.msg" :time="userMsg.time"  :srcimg="userMsg.srcimg" :tmID="userMsg.tmid"></send>
 
                     </div>
                               

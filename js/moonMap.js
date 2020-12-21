@@ -90,7 +90,7 @@ const bus = new Vue();
       <li class="visitors-messagelist">
           <div class="visitors-img"><img :src=myImg alt="留言訪客照"></div>
           <div class="visitors-message">{{vistext}}</div>
-          <i class="fas fa-exclamation-circle fa-1x edit" @click="light_block(id)" :id=index ></i> <!--設定屬性id值，要判定刪除的inedex-->
+          <i class="fas fa-exclamation-circle fa-1x edit" @click="light_block(id)" :id=id ></i> <!--設定屬性id值，要判定刪除的inedex-->
       </li>   
    `,
   
@@ -131,6 +131,7 @@ Vue.component('block-light',{
      block_block: false,
      newText:'',//暫存檢舉理由
      reportText:[],//檢舉理由
+     rtmid: ''
    };
  },
  methods:{
@@ -154,6 +155,9 @@ Vue.component('block-light',{
 
  mounted() {
    bus.$on('light',()=>this.block_block = true); //收到send的檢舉燈箱事件,打開燈箱
+   bus.$on('tmid', (id)=>{
+      this.rtmid = id;
+   });
 
  },
  
@@ -167,6 +171,9 @@ Vue.component('block-light',{
                  <h2 class="title">
                     檢舉
                  </h2>
+                 <h3 class="string">
+                     留言編號：{{rtmid}}
+                 </h3>
                  <h3 class="string">
                      請填寫檢舉的理由
                  </h3>
@@ -185,7 +192,7 @@ Vue.component('block-light',{
 
 
 Vue.component('send',{
-   props:['myimg','name','msg','time','srcimg','id'],//屬性名稱
+   props:['myimg','name','msg','time','srcimg','id','tmid'],//屬性名稱
 
    data(){
      return{      
@@ -218,7 +225,9 @@ Vue.component('send',{
 
      // 自訂檢舉燈箱事件
      light_block(id){     
-       bus.$emit('light',id); 
+       bus.$emit('light',id);
+       bus.$emit('tmid',id);
+       console.log(id); 
       
      },
  
@@ -226,11 +235,12 @@ Vue.component('send',{
 
    template:`   
    <form  class="userForm" action="#" :id=id> 
-      <i class="fas fa-exclamation-circle fa-1x end" id="edit" @click="light_block(id)"></i>
+      <i class="fas fa-exclamation-circle fa-1x end" id="edit" @click="light_block(tmid)" :tmid="tmid"></i>
       <div class="user_block">
           <div class="userImg_block">
               <div class="userImg"><img :src=myimg alt="user01"></div>
               <h3 class="userName">{{name}}</h3>
+              <h3 class="userName">{{tmid}}</h3>
           </div>
           
           <!-- 使用者已貼文 -->
@@ -256,7 +266,6 @@ Vue.component('send',{
       <ul class="visitors-block" @click="closeul">...
          
            <visitors-item v-for="(values,index) in visitorstext.slice().reverse()" :vistext="values" :id="index" v-bind:myImg="myimg"></visitors-item>
-           <!-- <visitors-item v-for="(values,index) in visitorstext.slice().reverse()" v-bind:vistext="values" v-bind:index="index" v-bind:myImg="myimg" @deletvistext="removeTask(index)"></visitors-item> -->
           
        </ul>        
   </form>
@@ -278,15 +287,13 @@ Vue.component('send',{
      block_id : 1, //
      myImg:'',
      myName:'',
+     tmid: '',
    },
    methods : {
      submit(newText){
        if(newText.length != 0 && newText != '\n'){
          let src=this.srcimg;
-         this.myMsg.push(
-           {id:1,myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src} //新增id
-         );
-
+         
          // insert
           let params = new FormData(); //建立資料表單
           let uploadImg = document.querySelector('#addImg');
@@ -316,8 +323,17 @@ Vue.component('send',{
 
           axios.post('./php/insertTempleMsg.php', params, config).then((res) => {
             let data = res.data;
-            console.log(data);
+            console.log(typeof(data[0].ID));
+            this.tmid = data[0].ID;
+            console.log(this.tmid);
+
+            this.myMsg.push(
+              // {myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmID:this.tmID,} //新增id
+              {id:1,myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmid:this.tmid,} //新增id
+            );
           });
+
+
 
          this.newText='';
          this.images=[];//清除圖片
@@ -404,6 +420,15 @@ Vue.component('send',{
             }
           }
           
+          let tmid = data[i].ID;
+          console.log(tmid);
+
+          let miMsg = new URLSearchParams();
+          miMsg.append('tmid', tmid);
+          axios.post('./php/getTempleMsginMsg.php', miMsg).then( (res) => {
+            let iMsg = res.data;
+            console.log(iMsg);
+          });
 
 
           this.myMsg.push(
@@ -411,17 +436,16 @@ Vue.component('send',{
               name:data[i].nName, 
               msg:data[i].MSG,
               time:data[i].MSG_DATE,
-              srcimg: src}
+              srcimg: src,
+              tmid: tmid,
+            }
           );
 
-          // this.visitorstext = 'test';
-
-          // let tmID = data[i].ID;
-          // console.log(tmID);
+          
 
           // let miMsg = new URLSearchParams();
           // miMsg.append('tmID', tmID);
-          // axios.post('./php/getTempleMsg.php', miMsg).then( (res) => {
+          // axios.post('./php/getTempleMsginMsg.php', miMsg).then( (res) => {
           //   let iMsg = res.data;
           //   console.log(iMsg);
           // });
@@ -454,6 +478,10 @@ Vue.component('send',{
 
     this.getMemberImage();
     this.getTempleMsg();
+    
+
+
+
 
   },
 
