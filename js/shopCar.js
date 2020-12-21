@@ -236,19 +236,51 @@ function doFirst() {
                     console.log(dataDetail, '11111111');
 
 
-                    localStorage.removeItem('cartItems');
-                    for (i = 0; i < proContent.length; i++) {
-                        proContent[i].remove();
-                        // getStorageItem();
-                    }
+                    // localStorage.removeItem('cartItems');
+                    // for (i = 0; i < proContent.length; i++) {
+                    //     proContent[i].remove();
+                    //     // getStorageItem();
+                    // }
                     document.getElementById('payTotal').textContent = 0;
-                    getStorageItem();
+                    //245之後的getStorageItem()要全部打開
+                    // getStorageItem();
                     Swal.fire({
+                        title: '您確定要結帳?',
+                        // text: "You won't be able to revert this!",
+                        // icon: 'warning',
                         imageUrl: 'images/moonShop/old-01.png',
-                        text: ` 訂單完成(請到會員中心查看訂單)`,
-                    })
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: '是的!我要結帳!',
+                        cancelButtonText:'取消'
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                            localStorage.removeItem('cartItems');
+                            for (i = 0; i < proContent.length; i++) {
+                                proContent[i].remove();
+                                // getStorageItem();
+                            }
+                            Swal.fire({                   
+                                icon: 'success',
+                                title: '訂單完成',
+                                showConfirmButton: false,
+                                timer: 1500
+                              })
+                          setTimeout(()=>{
+                       location.href = './MyOrder.html';
+                          },1500)
+                        }
+                      })
 
-                    customImg();
+                    // if(window.confirm("確定前往會員中心")){
+                    // }
+                    // Swal.fire({
+                    //     imageUrl: 'images/moonShop/old-01.png',
+                    //     text: ` 訂單完成(請到會員中心查看訂單)`,
+                    // })
+                    // location.href = './MyOrder.html';
+                    // customImg();
 
                     // loading(data);
                 })
@@ -298,52 +330,52 @@ function doFirst() {
         //     dataDetail.append('productID', itemID);
         //     // loading(data);
         // })
-        function customImg() {
-            // 建立canvas
-            var canvas = document.createElement('canvas');
-            // 建立繪圖環境 
-            var ctx = canvas.getContext('2d');
-            //   設定寬高
-            canvas.width = 500;
-            canvas.height = 500;
-            //  把canvas放到body裡(測試用) 
-            document.getElementById('putImg').appendChild(canvas);
+        // function customImg() {
+        //     // 建立canvas
+        //     var canvas = document.createElement('canvas');
+        //     // 建立繪圖環境 
+        //     var ctx = canvas.getContext('2d');
+        //     //   設定寬高
+        //     canvas.width = 500;
+        //     canvas.height = 500;
+        //     //  把canvas放到body裡(測試用) 
+        //     document.getElementById('putImg').appendChild(canvas);
 
-            // 商品
-            // var item = document.getElementById('item');
+        //     // 商品
+        //     // var item = document.getElementById('item');
 
-            // 商品寬度
-            // var itemWidth = item.offsetWidth;
-            // 商品高度  
-            // var itemHeight = item.offsetHeight;
+        //     // 商品寬度
+        //     // var itemWidth = item.offsetWidth;
+        //     // 商品高度  
+        //     // var itemHeight = item.offsetHeight;
 
-            // 吉祥物
-            // var mascot = document.getElementById('mascot');
+        //     // 吉祥物
+        //     // var mascot = document.getElementById('mascot');
 
-            // 吉祥物寬度
-            // var mascotWidth = mascot.offsetWidth;
-            // 吉祥物高度
-            // var mascotHeight = mascot.offsetHeight;
-
-
-            // 圖片置中設定
-
-            var iX = (canvas.width / 2) - (itemWidth / 2);
-            var iY = (canvas.height / 2) - (itemHeight / 2);
-
-            var mX = (canvas.width / 2) - (mascotWidth / 2);
-            var mY = (canvas.height / 2) - (mascotHeight / 2);
+        //     // 吉祥物寬度
+        //     // var mascotWidth = mascot.offsetWidth;
+        //     // 吉祥物高度
+        //     // var mascotHeight = mascot.offsetHeight;
 
 
-            // 出圖
-            ctx.drawImage(item, iX, iY, itemWidth, itemHeight); //商品
-            ctx.drawImage(mascot, mX, mY, mascotWidth, mascotHeight); //吉祥物
+        //     // 圖片置中設定
 
-            var base64 = canvas.toDataURL("image/png");
-            console.log(base64);
+        //     var iX = (canvas.width / 2) - (itemWidth / 2);
+        //     var iY = (canvas.height / 2) - (itemHeight / 2);
+
+        //     var mX = (canvas.width / 2) - (mascotWidth / 2);
+        //     var mY = (canvas.height / 2) - (mascotHeight / 2);
 
 
-        }
+        //     // 出圖
+        //     ctx.drawImage(item, iX, iY, itemWidth, itemHeight); //商品
+        //     ctx.drawImage(mascot, mX, mY, mascotWidth, mascotHeight); //吉祥物
+
+        //     var base64 = canvas.toDataURL("image/png");
+        //     console.log(base64);
+
+
+        // }
     })
 
 
@@ -424,7 +456,7 @@ function numberCount() {
                 localStorage.setItem('cartItems', JSON.stringify(afterCartItems))
                 element.remove();
 
-                getStorageItem();
+                // getStorageItem();
 
             }
         };
@@ -441,17 +473,17 @@ function numberCount() {
 
 }
 // 購物車數量顯示----------------------------------------
-function getStorageItem() {
-    let storedArray = storage.getItem("cartItems") == null ? [] : JSON.parse(storage.getItem("cartItems"));
+// function getStorageItem() {
+//     let storedArray = storage.getItem("cartItems") == null ? [] : JSON.parse(storage.getItem("cartItems"));
 
-    document.getElementById("itemCount").innerText = storedArray.length;
-}
-if (storage['cartItems']) {
-    getStorageItem();
-}
-else {
-    document.getElementById("itemCount").innerText = 0;
-}
+//     document.getElementById("itemCount").innerText = storedArray.length;
+// }
+// if (storage['cartItems']) {
+//     getStorageItem();
+// }
+// else {
+//     document.getElementById("itemCount").innerText = 0;
+// }
 
 // 購物車數量顯示----------------------------------------end
 

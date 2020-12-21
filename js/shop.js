@@ -204,7 +204,7 @@ function doFirst() {
                     }
                     cartItems.push(currentProd)
                     localStorage.setItem("cartItems", JSON.stringify(cartItems))
-                    getStorageItem();
+                    // getStorageItem();
                     return addSuceess()
 
                 } else {
@@ -216,7 +216,7 @@ function doFirst() {
                         currentProd.animalImg = e.target.dataset.product
                         cartItems.push(currentProd)
                         localStorage.setItem("cartItems", JSON.stringify(cartItems));
-                        getStorageItem();
+                        // getStorageItem();
                         return addSuceess()
                     }
                     else {
@@ -229,20 +229,20 @@ function doFirst() {
 
 
     //判斷addItemList裡面是否有東西1.有東西,2沒有東西
-    //購物車商品數量
+    //購物車商品數量------------------start
 
-    function getStorageItem() {
-        let storedArray = JSON.parse(storage.getItem("cartItems"));
+    // function getStorageItem() {
+    //     let storedArray = JSON.parse(storage.getItem("cartItems"));
 
-        document.getElementById("itemCount").innerText = storedArray.length;
-    }
-    if (storage['cartItems']) {
-        getStorageItem();
-    }
-    else {
-        document.getElementById("itemCount").innerText = 0;
-    }
-
+    //     document.getElementById("itemCount").innerText = storedArray.length;
+    // }
+    // if (storage['cartItems']) {
+    //     getStorageItem();
+    // }
+    // else {
+    //     document.getElementById("itemCount").innerText = 0;
+    // }
+   //購物車商品數量------------------end
     // 刪除rwd框框---------------------------------------------
     // document.querySelectorAll('img').forEach(function (img) {
     //     img.onerror = function () { this.style.display = 'none'; };
