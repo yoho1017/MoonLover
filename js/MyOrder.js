@@ -44,7 +44,7 @@ var member = new Vue ({
                 data = response.data;
 
                 for (i = 0; i <= data.length -1; i++) {
-                    data[i].image = `./images/moonShop/${data[i].image}`;
+                    data[i].image = `./images/member/orderDetail/${data[i].image}`;
                 }
 
                 // console.log(response);

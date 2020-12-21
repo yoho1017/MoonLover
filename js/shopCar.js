@@ -188,7 +188,7 @@ function doFirst() {
             itemPriceArray.push(parseInt(orderPrice[i].innerText));
             itemIDArray.push(itemID[i].dataset.pdid);
         }
-
+        
         console.log(nav.userid);
         if (nav.userid == null) {
             account.pop_block = true;
@@ -209,6 +209,7 @@ function doFirst() {
                     text: `您都沒有買東西所以不能結帳喔`,
                 })
             }
+
             axios.post('./php/createOrder.php', data).then((res) => {
                 console.log(res);
                 orderID = res.data;
@@ -221,9 +222,11 @@ function doFirst() {
                 dataDetail.append('orderCount', JSON.stringify(itemCountArray));
                 dataDetail.append('orderPrice', JSON.stringify(itemPriceArray));
                 dataDetail.append('productID', JSON.stringify(itemIDArray));
+                dataDetail.append('Imgarray', JSON.stringify(Imgarray));
 
                 axios.post('./php/createOrderDetail.php', dataDetail).then((res) => {
                     dataDetail = res.data;
+                    console.log(res);
                     console.log(dataDetail, '11111111');
 
 
@@ -417,4 +420,55 @@ function accountTotal() {
 window.addEventListener('load', function () {
     doFirst()
     accountTotal();
+
+    // 吉祥物圖片合併
+
+    let mcontent = document.querySelectorAll('.pImage');
+
+    let MasImage = document.querySelectorAll('.pImage')[0];
+
+    // console.log(MasImage);
+
+    let MasWidth = MasImage.offsetWidth;
+    let MasHeight = MasImage.offsetHeight;
+
+    // console.log(MasWidth);
+    // console.log(MasHeight);
+
+    for (i = 0 ; i <= mcontent.length -1 ; i++) {
+        
+
+        let product = document.querySelectorAll('.ppicture > img')[i];
+
+        let mascot = document.querySelectorAll('.eCard > img')[i];
+        
+        let canvas = document.createElement('canvas');
+        let ctx = canvas.getContext('2d');
+        canvas.width = MasWidth;
+        canvas.height = MasHeight;
+        document.body.appendChild(canvas);
+        canvas.style.display ="none";
+    
+        let ml = (canvas.width / 2) - (mascot.offsetWidth / 2);
+        let mt = (canvas.height / 2) - (mascot.offsetHeight / 2);
+        
+        ctx.drawImage(product,0,0,MasWidth,MasHeight);
+        ctx.drawImage(mascot,ml,mt,mascot.offsetWidth,mascot.offsetHeight);
+        
+        // 出圖
+        let dataURL = canvas.toDataURL();
+
+        let strImage = dataURL.replace(/^data:image\/[a-z]+;base64,/, "");
+
+        // console.log(strImage);
+
+        Imgarray.push(strImage)
+
+
+    }
+
 });
+
+var Imgarray = [];
+
+
