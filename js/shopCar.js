@@ -52,6 +52,7 @@ function doFirst() {
         animalsDiv.appendChild(itemAnimals);
         itemppicture.appendChild(animalsDiv);
         itemimg.setAttribute('src', `./images/moonShop/${cartItem["IMAGE"]}`);
+        itemimg.className = "itemImgs";
         itemimg.style.width = "100%";
         itemimg.style.height = "100%";
 
@@ -180,15 +181,23 @@ function doFirst() {
         let itemCountArray = [];
         let itemPriceArray = [];
         let itemIDArray = [];
+        //空陣列放商品圖片和吉祥物
+        let itemAnimalsArray = [];
+        let itemImgArray = [];
         let orderCount = document.querySelectorAll('.qty');
         let orderPrice = document.querySelectorAll('.pwds_price');
         let itemID = document.querySelectorAll('.m_del');
+        //選擇商品圖片及吉祥物
+        let itemImg = document.querySelectorAll('.acceptPic');
+        let itemAnimals = document.querySelectorAll('.itemImgs');
+
+        console.log(itemImg, "0609");
+        console.log(itemAnimals, "0610");
         for (i = 0; i < orderCount.length; i++) {
             itemCountArray.push(orderCount[i].value);
             itemPriceArray.push(parseInt(orderPrice[i].innerText));
             itemIDArray.push(itemID[i].dataset.pdid);
         }
-
         console.log(nav.userid);
         if (nav.userid == null) {
             account.pop_block = true;
@@ -239,6 +248,8 @@ function doFirst() {
                         text: ` 訂單完成(請到會員中心查看訂單)`,
                     })
 
+                    customImg();
+
                     // loading(data);
                 })
 
@@ -287,6 +298,52 @@ function doFirst() {
         //     dataDetail.append('productID', itemID);
         //     // loading(data);
         // })
+        function customImg() {
+            // 建立canvas
+            var canvas = document.createElement('canvas');
+            // 建立繪圖環境 
+            var ctx = canvas.getContext('2d');
+            //   設定寬高
+            canvas.width = 500;
+            canvas.height = 500;
+            //  把canvas放到body裡(測試用) 
+            document.getElementById('putImg').appendChild(canvas);
+
+            // 商品
+            // var item = document.getElementById('item');
+
+            // 商品寬度
+            // var itemWidth = item.offsetWidth;
+            // 商品高度  
+            // var itemHeight = item.offsetHeight;
+
+            // 吉祥物
+            // var mascot = document.getElementById('mascot');
+
+            // 吉祥物寬度
+            // var mascotWidth = mascot.offsetWidth;
+            // 吉祥物高度
+            // var mascotHeight = mascot.offsetHeight;
+
+
+            // 圖片置中設定
+
+            var iX = (canvas.width / 2) - (itemWidth / 2);
+            var iY = (canvas.height / 2) - (itemHeight / 2);
+
+            var mX = (canvas.width / 2) - (mascotWidth / 2);
+            var mY = (canvas.height / 2) - (mascotHeight / 2);
+
+
+            // 出圖
+            ctx.drawImage(item, iX, iY, itemWidth, itemHeight); //商品
+            ctx.drawImage(mascot, mX, mY, mascotWidth, mascotHeight); //吉祥物
+
+            var base64 = canvas.toDataURL("image/png");
+            console.log(base64);
+
+
+        }
     })
 
 
