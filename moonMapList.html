@@ -47,35 +47,56 @@
 </head>
 <body class="bgColorDefault">
     
-    <!------------------------------header---------------------------------->
-    <header class="header">
-        <nav class="nav" id="nav">
-            <a href="./main.html" class="Logo"><img src="./images/logo.png"></a>
-            <ul class="navlist">
-               <li class="username" v-if="userid != null" @click="logout">登出</li>
-               <li class="user" v-if="userid != null"><a :href="member"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="user" v-else="userid == null"><a href="#" @click="login"><i class="fas fa-user fa-2x"></a></i></li>
-               <li class="car"><a href="#"><i class="fas fa-shopping-cart fa-2x"></a></i></li>              
-               <li class="bars">
-                <button class="hamburger hamburger--collapse" type="button">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-                   <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
-                    <ul class="barList">
-                        <li><a href="./moonMapList.html">月老地圖</a></li>
-                        <li><a href="./moondrawl.html">月老求籤</a></li>
-                        <li><a href="./moonMatch.html">月老牽線</a></li>
-                        <li><a href="./know.html">月老小知識</a></li>
-                        <li><a href="./moonShop.html">月老商城</a></li>
-                    </ul>
-                  
-                </li>
+   <!------------------------------header---------------------------------->
+   <header class="header">
+    <nav class="nav" id="nav">
+        <a href="./main.html" class="Logo"><img src="./images/logo.png"></a>
+        <ul class="navlist">
+           <li class="username" v-if="userid != null" @click="logout">登出</li>
+           
+           <!-- 換會員圖 -->
+           <li class="user" v-if="userid != null"><a :href="member">
+               <!-- <i class="fas fa-user fa-2x"> 原本方法-->
+               <!-- <img src="images/header/member_icon.png">  img方法不行-->
+               <div class="user"></div> <!--背景圖方法可行-->
+               </a></i></li>
+
+           <!-- 換會員圖 -->
+           <li class="user" v-else="userid == null"><a href="#" @click="login">
+               <!-- <i class="fas fa-user fa-2x"> 原本方法-->
+               <!-- img方法試試<img src="images/header/member_icon.png">  img方法不行-->
+               <div class="user"></div> <!--背景圖方法可行-->
+               </a></i></li>
+
+           <!-- 換購物車圖 -->
+           <li class="car"><a href="./moonShopCar.html"> 
+                <!-- <i class="fas fa-shopping-cart fa-2x"></i>  原本方法-->
+                <!-- <img src="../images/header/shopping_cart_55.png"> img方法不行-->
+                <div class="shop_cart"></div> <!--背景圖方法可行-->
+                </a></i></li>
+
+
+           <li class="bars">
+            <button class="hamburger hamburger--collapse" type="button">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+              </button>
+               <!-- <a><i class="fas fa-bars fa-2x" id="icon"></i></a> -->
+                <ul class="barList">
+                    <li><a href="./moonMapList.html">月老地圖</a></li>
+                    <li><a href="./moondrawl.html">月老求籤</a></li>
+                    <li v-if="userid != null"><a href="./moonMatch.html">月老牽線</a></li>
+                    <li v-else="userid == null" @click="warning"><a href="#">月老牽線</a></li>
+                    <li><a href="./know.html">月老小知識</a></li>
+                    <li><a href="./moonShop.html">月老商城</a></li>
+                </ul>
               
-           </ul>
-        </nav>
-    </header>
+            </li>
+          
+       </ul>
+    </nav>
+</header>
 
     <!-- 登入登出 -->
     <div class="login_pop" v-bind:class="{block:pop_block}" id="pop">
