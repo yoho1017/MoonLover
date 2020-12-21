@@ -309,12 +309,16 @@ var member = new Vue ({
                 return 3;
             }else if (age <= 40) {
                 return 4;
-            }else if (age <= 55) {
+            }else if (age <= 45) {
                 return 5;
-            }else if (age < 59) {
+            }else if (age <= 50) {
                 return 6;
-            }else if (age >= 60) {
+            }else if (age <= 55) {
                 return 7;
+            }else if (age <= 60) {
+                return 8;
+            }else if (age > 60) {
+                return 9;
             }else if (isNaN(age)){
                 return null
             }
