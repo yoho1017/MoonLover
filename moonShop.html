@@ -143,8 +143,7 @@
                             <input class="input_signup" type="text" name="username" :placeholder="siUsp"
                                 id="input_sign_username" :change="clearChinese('signup_username')"
                                 v-model="signup_username" :class="{inp_error : siUser == 1}" @click="input_sign_user"
-                                @keyup="checkUser(signup_username)"
-                                @keydown.enter="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
+                                @keyup="checkUser(signup_username)">
                             <p class="right_space str_error" v-if="user_error == 2">此帳號有人使用</p>
                             <p class="right_space str_clear" v-else-if="user_error == '1'">此帳號可以使用</p>
                             <span class="right_space" v-else="user_error"></span>
@@ -154,8 +153,7 @@
                             <h3 class="input_text">密碼</h3>
                             <input class="input_signup" type="password" name="password" :placeholder="siPsp"
                                 id="input_sign_pwd" v-model="signup_pwd" :class="{inp_error : siPwd == 1}"
-                                @click="input_sign_pwd"
-                                @keydown.enter="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
+                                @click="input_sign_pwd">
                             <input type="hidden" name="hide" id="hide" />
                             <span class="right_space"></span>
                         </div>
@@ -163,8 +161,7 @@
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">確認密碼</h3>
                             <input class="input_signup" type="password" id="input_repwd" :placeholder="siRePsp"
-                                v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd"
-                                @keydown.enter="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
+                                v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd">
                             <span class="right_space"></span>
                         </div>
 
