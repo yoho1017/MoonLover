@@ -157,51 +157,42 @@
                 <div class="account_inbox">
 
                     <h1 class="account_text_login">會員登入</h1>
-                    <form method="post" action="loginR.php" @submit="login($event,login_username,login_pwd,'login')">
+                    <form method="post" action="./php/loginR.php">
 
                         <div class="inputbox">
                             <h3 class="input_text">帳號</h3>
-                            <input class="input_login" type="text" name="username" :placeholder="lgUsp"
-                                id="input_log_username" :change="clearChinese('login_username')"
-                                v-model="login_username" :class="{inp_error : lgUser == 1}" @click="input_log_user">
+                            <input class="input_login" type="text" name="username"  :placeholder = "lgUsp" id="input_log_username" :change="clearChineseLogin('login_username')" v-model="login_username" :class="{inp_error : lgUser == 1}" @click="input_log_user"  @keydown.enter.prevent>
                         </div>
 
                         <div class="inputbox">
                             <h3 class="input_text">密碼</h3>
-                            <input class="input_login" type="password" name="password" :placeholder="lgPsp"
-                                id="input_log_pwd" v-model="login_pwd" :class="{inp_error : lgPwd == 1}"
-                                @click="input_log_pwd">
+                            <input class="input_login" type="password" name="password"  :placeholder="lgPsp" id="input_log_pwd" v-model="login_pwd" :class="{inp_error : lgPwd == 1}" @click="input_log_pwd" @keydown.enter.prevent>
                         </div>
-
+                        
                         <div class="inputbox">
                             <span class="input_text"></span>
-                            <p class="str_error h0" v-if="login_error">帳號或密碼錯誤
-                            <p>
+                            <p class="str_error h0" v-if="login_error">帳號或密碼錯誤<p>
                         </div>
 
                         <div class="submit_login">
                             <button class="btn_signup btnBlue_signup" @click="btn_signup">註冊</button>
-                            <button class="btn_signup btnRed_signup">登入</button>
+                            <button class="btn_signup btnRed_signup" @click="login($event,login_username,login_pwd,'login')">登入</button>
                         </div>
 
                     </form>
                 </div>
             </div>
-            <!-- 註冊 -->
+                    <!-- 註冊 -->
             <div class="account_signup" id="signup" v-bind:class="{flex:sign_flex}">
                 <i class="fas fa-times-circle fa-2x" @click="close"><i class="in_btn"></i></i>
                 <div class="account_inbox">
                     <h1 class="account_text_signup">註冊</h1>
 
-                    <form method="post" action="signupR.php"
-                        @submit="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
+                    <form method="post" action="./php/signupR.php" @submit="signup($event,signup_username,signup_pwd,signup_repwd,signup_email,'signup')">
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">帳號</h3>
-                            <input class="input_signup" type="text" name="username" :placeholder="siUsp"
-                                id="input_sign_username" :change="clearChinese('signup_username')"
-                                v-model="signup_username" :class="{inp_error : siUser == 1}" @click="input_sign_user"
-                                @keyup="checkUser(signup_username)">
+                            <input class="input_signup" type="text" name="username"  :placeholder="siUsp" id="input_sign_username" :change="clearChinese('signup_username')" v-model="signup_username" :class="{inp_error : siUser == 1}" @click="input_sign_user" @keyup="checkUser(signup_username)" @keydown.enter.prevent>
                             <p class="right_space str_error" v-if="user_error == 2">此帳號有人使用</p>
                             <p class="right_space str_clear" v-else-if="user_error == '1'">此帳號可以使用</p>
                             <span class="right_space" v-else="user_error"></span>
@@ -209,39 +200,33 @@
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">密碼</h3>
-                            <input class="input_signup" type="password" name="password" :placeholder="siPsp"
-                                id="input_sign_pwd" v-model="signup_pwd" :class="{inp_error : siPwd == 1}"
-                                @click="input_sign_pwd">
+                            <input class="input_signup" type="password" name="password"  :placeholder="siPsp" id="input_sign_pwd" v-model="signup_pwd" :class="{inp_error : siPwd == 1}" @click="input_sign_pwd" @keydown.enter.prevent>
                             <input type="hidden" name="hide" id="hide" />
                             <span class="right_space"></span>
                         </div>
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">確認密碼</h3>
-                            <input class="input_signup" type="password" id="input_repwd" :placeholder="siRePsp"
-                                v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd">
+                            <input class="input_signup" type="password" id="input_repwd" :placeholder="siRePsp" v-model="signup_repwd" :class="{inp_error : siRePwd == 1}" @click="input_sign_repwd" @keydown.enter.prevent>
                             <span class="right_space"></span>
                         </div>
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">信箱</h3>
-                            <input class="input_signup" type="email" name="email" id="email" v-model="signup_email"
-                                :placeholder="email" :class="{inp_error : siEmail == 1}" @click="input_sign_email">
-                            <button class="btnBlue_Ver"
-                                @click.prevent="submit_ver(signup_email)">{{send_email}}</button>
+                            <input class="input_signup" type="email" name="email"  id="email" v-model="signup_email" :placeholder="email" :class="{inp_error : siEmail == 1}" @click="input_sign_email">
+                            <button class="btnBlue_Ver" @click.prevent="submit_ver(signup_email)">{{send_email}}</button>
                         </div>
 
                         <div class="inputbox inputbox_signup">
                             <h3 class="input_text">驗證碼</h3>
-                            <input class="input_signup" type="number" name="number" :placeholder="ver"
-                                v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0">
+                            <input class="input_signup" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0" @keydown.enter.prevent>
                             <button class="btnBlue_Ver" @click.prevent="ver_check">確認驗證碼</button>
                         </div>
 
                         <div class="submit_signup">
                             <button type='submit' class="btn_signup btnRed_signup">送出</button>
                         </div>
-
+                        
                     </form>
                 </div>
             </div>
