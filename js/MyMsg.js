@@ -128,7 +128,7 @@ var member = new Vue ({
             var vm = this;
             axios.post('./php/selectRelationshipR.php').then( response=> {
                 data = response.data;
-                console.log(data);
+                // console.log(data);
                 if (data[0] == undefined) {
                     vm.relationship = false;
 
@@ -241,8 +241,8 @@ var member = new Vue ({
                 lookMsg (id,index) { //查看留言
                     // console.log(index);
                     member.MsgMenu = false;
+                    clearInterval(reload);
                     this.getMsg(id,index);
-
                     this.startInterval(id,index); 
                 },
                 getMsg (id,index) { //取得資料
@@ -381,10 +381,10 @@ var member = new Vue ({
         
         this.getdata (); //取得留言表
 
-        setInterval(() => {    
-            this.reloadData (); //取得留言表
-        }, 10000);    
-
     },
 
 })
+
+var reload = setInterval(() => {
+    member.reloadData (); //取得留言表
+}, 10000);    
