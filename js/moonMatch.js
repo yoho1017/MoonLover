@@ -494,7 +494,7 @@ let matchCard = new Vue({
             `
             <div class="scene">
                 <div class="card card2">
-                    <div class="card_front"><img src="./images/moonMatch/人物卡.png"></div>
+                    <div class="card_front"><img src="./images/moonMatch/memberCard.png"></div>
                     <div class="card_back">
                         <div class="memberPic-container">
                             <img class="person_img" :src=profile>

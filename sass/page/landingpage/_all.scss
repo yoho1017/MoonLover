@@ -9,7 +9,7 @@
     position: fixed;
     bottom: 0;
     opacity: 0.7;
-    background-image: url("../images/index/背景雲.svg");
+    background-image: url("../images/index/bCloud.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -79,7 +79,7 @@
       width: 75px;
       height: 1080px;
       background-color: #a22a18;
-      background-image: url("../images/index/左柱.svg");
+      background-image: url("../images/index/leftPillar.svg");
 
      
     }
@@ -91,7 +91,7 @@
       width: 75px;
       height: 1080px;
       background-color: #a22a18;
-      background-image: url("../images/index/右柱.svg");
+      background-image: url("../images/index/rightPillar.svg");
    
     }
 
@@ -149,7 +149,7 @@
           align-items: center;
           a {
             text-decoration: none;
-            background-image: url(../images/moonMatch/人物卡.png);
+            background-image: url(../images/moonMatch/memberCard.png);
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;

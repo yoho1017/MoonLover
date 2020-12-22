@@ -1,6 +1,8 @@
  //廟宇資料庫
  let pageId = window.location.hash.substr(1); //找到字串中數字位置
 //  console.log(pageId);
+
+const profilePath = './images/member/profile/';
  
  var params = new URLSearchParams(); //宣告params
  params.append('tid', pageId); //將值放入tid 變成tid=pageId
@@ -448,9 +450,16 @@ Vue.component('send',{
             console.log(iMsg);
           });
 
+          let memImg ='';
+          if(data[i].myImg != null){
+            memImg = `${profilePath}${data[i].myImg}`;
+          }else{
+            memImg = './images/MyInfo/profile.png';
+          }
 
+          
           this.myMsg.push(
-            { myImg:atob(data[i].myImg), 
+            { myImg:memImg, 
               name:data[i].nName, 
               msg:data[i].MSG,
               time:data[i].MSG_DATE,
@@ -479,7 +488,15 @@ Vue.component('send',{
       axios.post('./php/getMemberImage.php').then( response => {
         var data = response.data;
         // console.log(data);
-        let myImg = atob(data.IMAGE);
+        let myImg ='';
+        if(data.IMAGE != null){
+          // myImg = atob(data.IMAGE);
+          // images/member/profile
+          myImg = `${profilePath}${data.IMAGE}`;
+        }else{
+          myImg = './images/MyInfo/profile.png';
+        }
+        console.log(myImg);
         let myName = data.NICKNAME;
 
         document.querySelector('.userName').innerText = myName;
