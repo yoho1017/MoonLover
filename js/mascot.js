@@ -188,7 +188,7 @@ var member = new Vue ({
                     this.custom = dataURL;
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
     },

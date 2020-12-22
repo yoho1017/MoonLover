@@ -12,7 +12,7 @@ var nav = new Vue({
             axios.post('./php/logoutR.php').then(function () {
                 window.location.href="./index.html";
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })        
         }
     },
@@ -26,7 +26,7 @@ var nav = new Vue({
                     window.location.href="./index.html";
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
                 window.location.href="./index.html";
             })                
         }())
@@ -139,7 +139,7 @@ var backend = new Vue({
                 data = response.data;
                 // console.log(response);
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })
         },        
         change() {
@@ -200,7 +200,7 @@ var backend = new Vue({
                 vm.menu = true;
                 nav.title = 'menu'    
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })
         },
         upload () {
@@ -236,7 +236,7 @@ var backend = new Vue({
                     vm.sql.push(arr);
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })
         }
     },
@@ -290,7 +290,7 @@ var backend = new Vue({
                     })   
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })        
             // 取得資料
             vm.getMerchandise();

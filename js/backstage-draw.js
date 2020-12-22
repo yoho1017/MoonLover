@@ -12,7 +12,7 @@ var nav = new Vue({
             axios.post('./php/logoutR.php').then(function () {
                 window.location.href="./index.html";
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })        
         }
     },
@@ -137,7 +137,7 @@ var backend = new Vue({
                 data = response.data;
                 // console.log(response);
              }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })
         },
         // 送出新增資料
@@ -190,7 +190,7 @@ var backend = new Vue({
                 data = response.data;
                 // console.log(response);
              }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })
         }
     },
@@ -255,7 +255,7 @@ var backend = new Vue({
                  })   
             }
         }).catch(() => { 
-            alert("錯誤 !") 
+            console.log("錯誤 !") 
         })        
         // 取得資料
         // 取得資料是select option的用的值，資料庫資料有<br>需要把它拿掉
@@ -276,7 +276,7 @@ var backend = new Vue({
                 vm.sql.push(arr);
             }
         }).catch(() => { 
-            alert("錯誤 !") 
+            console.log("錯誤 !") 
         })        
         // console.log(vm.sql);                  
     },

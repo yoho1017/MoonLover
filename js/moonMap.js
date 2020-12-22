@@ -23,7 +23,7 @@ axios.post('./php/moonMap.php', params).then( response => {  // params變數放�
   // console.log(array);
 
 }).catch(() => { 
-  alert("錯誤 !") 
+  console.log("錯誤 !") 
 });
 
 //更新廟宇title

@@ -21,7 +21,7 @@ var nav = new Vue ({
                     window.location.reload()
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })        
         },
 
@@ -46,7 +46,7 @@ var nav = new Vue ({
                 }
             }
         }).catch(() => { 
-            alert("錯誤 !") 
+            console.log("錯誤 !") 
             if (document.title == '會員中心' || document.title == '個人資料' || document.title == '我的吉祥物' || document.title == '留言板' || document.title == '我的訂單') {
                 window.location.href="./main.html";
             }
@@ -179,7 +179,7 @@ var account =  new Vue ({
                     vm.user_error = 1
                  }
               }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })
             }else{
                 vm.user_error = 0
@@ -361,7 +361,7 @@ var account =  new Vue ({
                         window.location.reload()
                     }
                 }).catch(() => { 
-                    alert("錯誤 !") 
+                    console.log("錯誤 !") 
                 })                
             }
         },
@@ -458,7 +458,7 @@ var account =  new Vue ({
                 matchCount = res.data;
                 // console.log(matchCount);
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
     },

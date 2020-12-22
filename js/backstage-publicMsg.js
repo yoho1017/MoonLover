@@ -21,7 +21,7 @@ var nav = new Vue ({
             axios.post('./php/logoutR.php').then(function () {
                 window.location.href="./index.html";
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })        
         }
     },
@@ -35,7 +35,7 @@ var nav = new Vue ({
                     window.location.href="./index.html";
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
                 window.location.href="./index.html";
             })                
         }())
@@ -168,7 +168,7 @@ var backend = new Vue ({
                 })   
             }
         }).catch(() => { 
-            alert("錯誤 !") 
+            console.log("錯誤 !") 
         })        
         // pagination套件需要從外面傳入資料才會執行。以下請串axios以後把資料傳給vm.sql(串好後上面的sqldata可刪除)
         vm.sql = sqlData;

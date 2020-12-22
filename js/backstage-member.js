@@ -12,7 +12,7 @@ var nav = new Vue ({
             axios.post('./php/logoutR.php').then(function () {
                 window.location.href="./index.html";
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })        
         }
     },
@@ -125,7 +125,7 @@ var backend = new Vue ({
                 data = response.data;
                 // console.log(response);
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })
         },
         // 確認會員公開資料
@@ -159,7 +159,7 @@ var backend = new Vue ({
                     vm.sql.push(arr);
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })            
         },
         // 搜尋功能
@@ -193,7 +193,7 @@ var backend = new Vue ({
                         vm.sql.push(arr);
                     }
                 }).catch(() => { 
-                    alert("錯誤 !") 
+                    console.log("錯誤 !") 
                 })    
             }else{
                 vm.getMember ();
@@ -253,7 +253,7 @@ var backend = new Vue ({
                             nav.title = 'modify';    
                         })    
                     }).catch(() => { 
-                        alert("錯誤 !") 
+                        console.log("錯誤 !") 
                     })
                 },
                 // 回傳給複層狀態
@@ -282,7 +282,7 @@ var backend = new Vue ({
                  })   
             }
         }).catch(() => { 
-            alert("錯誤 !") 
+            console.log("錯誤 !") 
         })        
         // 取得資料
         vm.getMember();

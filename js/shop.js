@@ -11,7 +11,7 @@ axios.post('./php/MoonShop.php').then((res) => {
 
     loading(data);
 }).catch(() => {
-    alert("錯誤 !")
+    console.log("錯誤 !")
 })
 
 axios.post('./php/selectMascotR.php').then((res) => {
@@ -30,7 +30,7 @@ axios.post('./php/selectMascotR.php').then((res) => {
         document.getElementById('replaceWords').innerHTML = '未建立圖片';
     }
 }).catch(() => {
-    alert("錯誤 !")
+    console.log("錯誤 !")
 })
 
 

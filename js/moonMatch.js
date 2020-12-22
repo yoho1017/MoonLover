@@ -137,7 +137,7 @@ let matchCond = new Vue({
                     }
                 } 
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
         getMatchMemberCondition(){ 
@@ -187,7 +187,7 @@ let matchCond = new Vue({
                 matchCard.$data.seo = this.seo;
                 
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             }).finally(() => {
                 matchCard.getMatchMemberData(); // 呼叫後端篩選配對會員函數
             });
@@ -204,7 +204,7 @@ let matchCond = new Vue({
                 let data = res.data;
                 // console.log(data);
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
         setMatchMemberInterestCondition(){
@@ -225,7 +225,7 @@ let matchCond = new Vue({
                 data = response.data;
                 // console.log(data);
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
         createMatchMemberCondition(){
@@ -239,7 +239,7 @@ let matchCond = new Vue({
                 let data = res.data;
                 // console.log(data);
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
         createMatchMemberInterestCondition(){
@@ -260,7 +260,7 @@ let matchCond = new Vue({
                 data = response.data;
                 // console.log(data);
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
         getdata () { //取得會員資料
@@ -299,7 +299,7 @@ let matchCond = new Vue({
                 }
                 
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             })                
         },
         getIntdata () { //取得會員興趣
@@ -317,7 +317,7 @@ let matchCond = new Vue({
                     this.interest = '還沒填寫哦';
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             }).finally(() => { 
 
                 this.interestCheckbox();
@@ -432,7 +432,7 @@ let matchCard = new Vue({
                         this.interest ='觀察HTML';
                     }
                 }).catch(() => { 
-                    alert("錯誤 !") 
+                    console.log("錯誤 !") 
                 });                
             }, 100);
 
@@ -451,7 +451,7 @@ let matchCard = new Vue({
                     this.interest += `${data[i].name} `;
                 }
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
         toMsg(){
@@ -470,7 +470,7 @@ let matchCard = new Vue({
 
                 
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
         },
         matchCounter(counter){
@@ -482,7 +482,7 @@ let matchCard = new Vue({
                 this.mCounter = res.data;
                 // console.log(this.mCounter);
             }).catch(() => { 
-                alert("錯誤 !") 
+                console.log("錯誤 !") 
             });
             this.$forceUpdate();
         },
