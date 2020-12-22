@@ -131,7 +131,8 @@ Vue.component('block-light',{
      block_block: false,
      newText:'',//暫存檢舉理由
      reportText:[],//檢舉理由
-     rtmid: ''
+     rtmid:'',//要檢舉的貼文id
+     rtmsg:'',//要檢舉的貼文內容
    };
  },
  methods:{
@@ -139,26 +140,42 @@ Vue.component('block-light',{
      this.block_block = false;
    },
 
-   submit(newText,id){ //檢舉留言送出
+   submit(newText){ //檢舉留言送出
      if(newText!=''){
-       this.reportText.push({mag:newText,id:id}); //要接收來自檢舉貼文的id
+
+        // insert
+        let params = new FormData(); //建立資料表單
+    
+        params.append('rtmid',this.rtmid);//貼文id
+        params.append('rtmsg',this.rtmsg);//貼文內容
+        params.append('msg', this.newText);//檢舉理由
+  
+        axios.post('./php/insertMsgReport.php', params).then((res) => {
+          let data = res.data;
+          console.log(data);
+          console.log(res);
+       
+        });
+
+       this.reportText.push(newText); 
        this.newText='';
-       alert('檢舉成功');
+       alert('檢舉送出(待審核)');
        this.block_block=false;
        
      }else{
        alert('輸入檢舉內容');
      }
+
+
    },
    
  },
 
  mounted() {
    bus.$on('light',()=>this.block_block = true); //收到send的檢舉燈箱事件,打開燈箱
-   bus.$on('tmid', (id)=>{
-      this.rtmid = id;
-   });
-
+   bus.$on('tmid', (id)=>{ this.rtmid = id;});//貼文id
+   bus.$on('tmsg', (msg)=>{ this.rtmsg = msg;});//貼文內容
+   
  },
  
  template:`
@@ -179,7 +196,7 @@ Vue.component('block-light',{
                  </h3>
                  <form action="" @keyup.enter="submit(newText)">
                      <i class="fas fa-times-circle fa-2x" @click="closeBlock"><i class="in_btn"></i></i>
-                     <textarea class="text" name="" id='' cols="30" rows="5"  v-model="newText"></textarea>
+                     <textarea class="text" cols="30" rows="5"  v-model="newText"></textarea>
                      <button class="btnRed_submit" @click.prevent="submit(newText,id)"><h3>送出</h3></button>
                  </form>
              </div>
@@ -217,30 +234,31 @@ Vue.component('send',{
       
      },
      closeul(e){  //訪客留言收合
-       let me = e.target; 
-            
+       let me = e.target;           
        $(me).find('li').slideToggle();  //vue中不能寫this,會指到data  
       
      },
 
      // 自訂檢舉燈箱事件
-     light_block(id){     
-       bus.$emit('light',id);
+     light_block(id,msg){     
+       bus.$emit('light');
        bus.$emit('tmid',id);
-       console.log(id); 
+       bus.$emit('tmsg',msg);
+       console.log(id);
+       console.log(msg);
       
      },
  
  },
 
    template:`   
-   <form  class="userForm" action="#" :id=id> 
-      <i class="fas fa-exclamation-circle fa-1x end" id="edit" @click="light_block(tmid)" :tmid="tmid"></i>
+   <form  class="userForm" action="#"> 
+      <i class="fas fa-exclamation-circle fa-1x end" id="edit" @click="light_block(tmid,msg)" :tmid="tmid"></i>
       <div class="user_block">
           <div class="userImg_block">
               <div class="userImg"><img :src=myimg alt="user01"></div>
               <h3 class="userName">{{name}}</h3>
-              <h3 class="userName">{{tmid}}</h3>
+             <!-- <h3 class="userName">{{tmid}}</h3> -->
           </div>
           
           <!-- 使用者已貼文 -->
@@ -284,7 +302,7 @@ Vue.component('send',{
      visitorstext:'',
      srcimg:[],//放圖
      images:[],//暫存圖
-     block_id : 1, //
+    //  block_id : 1, //
      myImg:'',
      myName:'',
      tmid: '',
@@ -329,7 +347,7 @@ Vue.component('send',{
 
             this.myMsg.push(
               // {myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmID:this.tmID,} //新增id
-              {id:1,myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmid:this.tmid,} //新增id
+              {myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmid:this.tmid,} //新增id
             );
           });
 
