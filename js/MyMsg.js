@@ -147,7 +147,7 @@ var member = new Vue ({
                         if (msg.image == null) {
                             msg.image = "./images/MyInfo/profile.png"
                         }else{
-                            msg.image =atob(msg.image)
+                            msg.image = "./images/member/profile/" + msg.image;
                         }
                         vm.messages.push(msg)
                     }    

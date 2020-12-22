@@ -27,9 +27,11 @@
         $img = $row["IMAGE"];
     }
 
-    $img = base64_decode ($img);
-
-    echo $img;
+    if ($img != null) {
+        echo './images/member/profile/' .$img;
+    }else{
+        echo '';
+    }
 
 
 ?>

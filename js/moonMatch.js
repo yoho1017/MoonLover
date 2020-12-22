@@ -408,7 +408,7 @@ let matchCard = new Vue({
                         // alert('有篩到');
                         this.mId = data[0].mMEMBER_ID;
                         if(data[0].IMAGE != null){
-                            this.profile = atob(data[0].IMAGE); // 圖檔要用atob解壓縮
+                            this.profile = './images/member/profile/' + data[0].IMAGE;
                         }else{
                             this.profile = './images/MyInfo/profile.png'; // 會員沒有頭像
                         }
