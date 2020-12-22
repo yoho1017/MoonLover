@@ -4,6 +4,7 @@ var nav = new Vue ({
         // 帳號顯示
         userid : null,
         member : '#',
+        navimg : './images/MyInfo/profile.png',
     },
     methods: {
 
@@ -39,6 +40,14 @@ var nav = new Vue ({
             if (data != '') {
                 vm.userid = data;
                 vm.member = './mymember.html';
+                axios.post('./php/selectImageR.php').then( response=> {
+                    if (response.data != '') {
+                        console.log(response.data);
+                        vm.navimg = response.data;
+                    }
+                }).catch(() => { 
+                console.log("錯誤 !") 
+                });
             }else{
                 if (document.title == '會員中心' || document.title == '個人資料' || document.title == '我的吉祥物' || document.title == '留言板' || document.title == '我的訂單') {
                     alert('未登入');
@@ -201,6 +210,10 @@ var account =  new Vue ({
             this.log_flex = false,
             // 註冊
             this.sign_flex = true
+        },
+
+        remind () { //點擊灰色btn
+            alert('信箱還沒驗證哦 !');
         },
         
         submit_ver (email) { //發送驗證碼

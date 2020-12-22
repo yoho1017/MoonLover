@@ -84,6 +84,26 @@ h5 {
 
         }//.user結尾
 
+        .userlog{
+          position: relative;
+          width:55px;
+          height:55px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+
+          img {
+            width : 100%;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+      
+    
+
+        }//.user結尾
+
         .shop_cart{
           position: relative;
           background-image: url(../images/header/shopping_cart_55.png);

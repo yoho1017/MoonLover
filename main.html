@@ -53,22 +53,22 @@
            <li class="user" v-if="userid != null"><a :href="member">
                <!-- <i class="fas fa-user fa-2x"> 原本方法-->
                <!-- <img src="images/header/member_icon.png">  img方法不行-->
-               <div class="user"></div> <!--背景圖方法可行-->
-               </a></i></li>
+               <div class="userlog"><img :src=navimg></div> <!--背景圖方法可行-->
+               </a></li>
 
            <!-- 換會員圖 -->
            <li class="user" v-else="userid == null"><a href="#" @click="login">
                <!-- <i class="fas fa-user fa-2x"> 原本方法-->
                <!-- img方法試試<img src="images/header/member_icon.png">  img方法不行-->
                <div class="user"></div> <!--背景圖方法可行-->
-               </a></i></li>
+               </a></li>
 
            <!-- 換購物車圖 -->
            <li class="car"><a href="./moonShopCar.html"> 
                 <!-- <i class="fas fa-shopping-cart fa-2x"></i>  原本方法-->
                 <!-- <img src="../images/header/shopping_cart_55.png"> img方法不行-->
                 <div class="shop_cart"></div> <!--背景圖方法可行-->
-                </a></i></li>
+                </a></li>
 
 
            <li class="bars">
@@ -164,14 +164,15 @@
                             <button class="btnBlue_Ver" @click.prevent="submit_ver(signup_email)">{{send_email}}</button>
                         </div>
 
-                        <div class="inputbox inputbox_signup">
+                        <div class="inputbox inputbox_signup" v-if="checked_mail != ''">
                             <h3 class="input_text">驗證碼</h3>
                             <input class="input_signup" type="number" name="number"    :placeholder="ver" v-model="check_ver" :class="{inp_error : siVer == 1}" @click="siVer = 0" @keydown.enter.prevent>
                             <button class="btnBlue_Ver" @click.prevent="ver_check">確認驗證碼</button>
                         </div>
 
                         <div class="submit_signup">
-                            <button type='submit' class="btn_signup btnRed_signup">送出</button>
+                            <button type='submit' v-if="result" class="btn_signup btnRed_signup">送出</button>
+                            <button type='submit' v-else="result" @click.prevent="remind" class="btn_signup btnRed_signup" style="background-color: gray;">送出</button>
                         </div>
                         
                     </form>
