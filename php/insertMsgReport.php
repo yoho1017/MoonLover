@@ -32,8 +32,9 @@ $statement->bindValue(3, $msg);
 $statement->bindValue(4, $id);
 
 $statement->execute();
-$data = $statement->fetchAll();
+// $data = $statement->fetchAll();
 
-$statement->errorInfo();
+// $data = $statement->errorInfo();
+// print_r( $data );
 
 ?>
