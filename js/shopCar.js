@@ -220,6 +220,8 @@ function doFirst() {
                 })
             }
 
+            loadMascot ();
+
             axios.post('./php/createOrder.php', data).then((res) => {
                 console.log(res);
                 orderID = res.data;
@@ -564,11 +566,7 @@ function loadMascot () {
 
 window.addEventListener('load', function () {
     doFirst()
-    accountTotal();
-
-    setTimeout( ()=> { loadMascot (); }, 50);
-
-    
+    accountTotal();    
 
 });
 
