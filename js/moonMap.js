@@ -1,6 +1,8 @@
  //廟宇資料庫
  let pageId = window.location.hash.substr(1); //找到字串中數字位置
 //  console.log(pageId);
+
+const profilePath = './images/member/profile/';
  
  var params = new URLSearchParams(); //宣告params
  params.append('tid', pageId); //將值放入tid 變成tid=pageId
@@ -450,7 +452,7 @@ Vue.component('send',{
 
           let memImg ='';
           if(data[i].myImg != null){
-            memImg = atob(data[i].myImg);
+            memImg = `${profilePath}${data[i].myImg}`;
           }else{
             memImg = './images/MyInfo/profile.png';
           }
@@ -488,7 +490,9 @@ Vue.component('send',{
         // console.log(data);
         let myImg ='';
         if(data.IMAGE != null){
-          myImg = atob(data.IMAGE);
+          // myImg = atob(data.IMAGE);
+          // images/member/profile
+          myImg = `${profilePath}${data.IMAGE}`;
         }else{
           myImg = './images/MyInfo/profile.png';
         }
