@@ -2,12 +2,12 @@ Vue.component('paginate', VuejsPaginate);
 // 每一頁要顯示的筆數
 const PAGE_SIZE = 10;
 
-const sqlData = [
-    {ID : 1, USERNAME: 'BiBiOTA', PRICE: '299', ORDER_TIME: '2020-11-01 23:59', CANCEL_DATE : '',  ORDER_STATUS: 1},
-    {ID : 1, USERNAME: 'BiBiOTA', PRICE: '299', ORDER_TIME: '2020-11-01 23:59', CANCEL_DATE : '',  ORDER_STATUS: 1},
-    {ID : 1, USERNAME: 'BiBiOTA', PRICE: '299', ORDER_TIME: '2020-11-01 23:59', CANCEL_DATE : '',  ORDER_STATUS: 1},
-    {ID : 1, USERNAME: 'BiBiOTA', PRICE: '299', ORDER_TIME: '2020-11-01 23:59', CANCEL_DATE : '',  ORDER_STATUS: 1},
-];
+// const sqlData = [
+//     {ID : 1, USERNAME: 'BiBiOTA', PRICE: '299', ORDER_TIME: '2020-11-01 23:59', CANCEL_DATE : '',  ORDER_STATUS: 1},
+//     {ID : 1, USERNAME: 'BiBiOTA', PRICE: '299', ORDER_TIME: '2020-11-01 23:59', CANCEL_DATE : '',  ORDER_STATUS: 1},
+//     {ID : 1, USERNAME: 'BiBiOTA', PRICE: '299', ORDER_TIME: '2020-11-01 23:59', CANCEL_DATE : '',  ORDER_STATUS: 1},
+//     {ID : 1, USERNAME: 'BiBiOTA', PRICE: '299', ORDER_TIME: '2020-11-01 23:59', CANCEL_DATE : '',  ORDER_STATUS: 1},
+// ];
 
 var nav = new Vue({
     el: '#nav',
@@ -62,9 +62,7 @@ var backend = new Vue({
         // 取得資料
         sql: [],
         // 訂單明細
-        products: [
-            {NAME : '123',ORDER_QUANTITY : 1,product : 120}
-        ],        
+        products: [],        
         // 修改的資料
         modify_data: '',
         // 清單顯示(預設為true)
@@ -115,7 +113,33 @@ var backend = new Vue({
         cancel () {
             this.menu = true,
             nav.title = 'menu'
-        }
+        },
+        change (modify) {
+            // console.log(modify);
+            var vm = this;
+
+            let data = new FormData(); //建立資料表單
+            data.append('id', modify.ID);
+            data.append('STATUS', modify.ORDER_STATUS);
+
+            let config = {
+                header : {
+                 'Content-Type' : 'multipart/form-data'
+               }
+            }    
+
+            axios.post('./php/updateOrder.php', data, config).then( response => {
+                // console.log(response.data);
+                data = response.data;
+                vm.sql = [];
+                vm.sql = data;
+                vm.menu = true;
+                nav.title = 'menu';
+                
+            }).catch(() => { 
+                alert("錯誤 !") 
+            });                    
+        },
     },
     components: {
         row: {
@@ -132,13 +156,33 @@ var backend = new Vue({
             `,
             methods: {
                 modify(id) {
+                    var vm = this;
                     window.scrollTo(0, 0);
                     data = id - 1;
                     backend.menu = false;
                     nav.title = 'modify';
                     backend.modify_data = backend.sql[data];
+                    vm.getDetail(id);
                 },
-            }
+                getDetail (id) {
+                    let data = new FormData(); //建立資料表單
+                    data.append('id', id);
+    
+                    let config = {
+                        header : {
+                         'Content-Type' : 'multipart/form-data'
+                       }
+                    }    
+
+                    axios.post('./php/getOrderDetail.php', data, config).then( response => {
+                        // console.log(response.data);
+                        products = response.data;
+                        backend.products = products;
+                    }).catch(() => { 
+                        alert("錯誤 !") 
+                    });                    
+                },
+            },
         },
         products : {
             props : ['name','num','price'],
@@ -179,9 +223,17 @@ var backend = new Vue({
             }
         }).catch(() => { 
             alert("錯誤 !") 
-        })        
+        });
+        
+        axios.post('./php/getOrder.php').then( response => {
+            // console.log(response);
+            data = response.data;
+            vm.sql = data;
+        }).catch(() => { 
+            alert("錯誤 !") 
+        });        
+
         // pagination套件需要從外面傳入資料才會執行。以下請串axios以後把資料傳給vm.sql(串好後上面的sqldata可刪除)
-        vm.sql = sqlData;
     },
     mounted() {
 

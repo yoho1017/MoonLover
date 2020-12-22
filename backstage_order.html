@@ -146,7 +146,7 @@
                         </td>
                     </tr>
 
-                    <tr is="products" v-for="product in products" :name="product.NAME" :num="product.ORDER_QUANTITY" :price="product.ORDER_PRICE">
+                    <tr is="products" v-for="product in products" :name="product.NAME" :num="product.ORDER_QUANTITY" :price="product.PRICE">
 
                     <tr>
                         <td class="td_25">
@@ -176,7 +176,7 @@
                                 <div class="bkbtn_Blue" @click="cancel">
                                     <h3>取消</h3>
                                 </div>
-                                <div class="bkbtn_Red" @click="change(modify_data[0])">
+                                <div class="bkbtn_Red" @click="change(modify_data)">
                                     <h3>完成</h3>
                                 </div>
                             </div>
