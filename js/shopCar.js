@@ -512,13 +512,13 @@ function accountTotal() {
     let totalPPrice = document.getElementById('payTotal');
     totalPPrice.textContent = total;
 }
-window.addEventListener('load', function () {
-    doFirst()
-    accountTotal();
 
+function loadMascot () {
     // 吉祥物圖片合併
 
     let mcontent = document.querySelectorAll('.pImage');
+
+    // console.log(mcontent);
 
     let MasImage = document.querySelectorAll('.pImage')[0];
 
@@ -532,7 +532,6 @@ window.addEventListener('load', function () {
 
     for (i = 0 ; i <= mcontent.length -1 ; i++) {
         
-
         let product = document.querySelectorAll('.ppicture > img')[i];
 
         let mascot = document.querySelectorAll('.eCard > img')[i];
@@ -561,6 +560,15 @@ window.addEventListener('load', function () {
 
 
     }
+}
+
+window.addEventListener('load', function () {
+    doFirst()
+    accountTotal();
+
+    setTimeout( ()=> { loadMascot (); }, 50);
+
+    
 
 });
 
