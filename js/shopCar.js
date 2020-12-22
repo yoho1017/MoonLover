@@ -245,19 +245,21 @@ function doFirst() {
                     //     proContent[i].remove();
                     //     // getStorageItem();
                     // }
-                    document.getElementById('payTotal').textContent = 0;
+                    // document.getElementById('payTotal').textContent = 0;
                     //245之後的getStorageItem()要全部打開
                     // getStorageItem();
+
+
                     Swal.fire({
-                        title: '您確定要結帳?',
+                        title: '加入訂單囉',
                         // text: "You won't be able to revert this!",
                         // icon: 'warning',
                         imageUrl: 'images/moonShop/old-01.png',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: '是的!我要結帳!',
-                        cancelButtonText:'取消'
+                        showCancelButton: false,
+                        // confirmButtonColor: '#3085d6',
+                        // cancelButtonColor: '#d33',
+                        // confirmButtonText: '是的!我要結帳!',
+                        // cancelButtonText:'取消'
                       }).then((result) => {
                         if (result.isConfirmed) {
                             localStorage.removeItem('cartItems');
@@ -265,6 +267,7 @@ function doFirst() {
                                 proContent[i].remove();
                                 // getStorageItem();
                             }
+                            document.getElementById('payTotal').textContent = 0;
                             Swal.fire({                   
                                 icon: 'success',
                                 title: '訂單完成',
@@ -276,6 +279,8 @@ function doFirst() {
                           },1500)
                         }
                       })
+
+
 
                     // if(window.confirm("確定前往會員中心")){
                     // }
