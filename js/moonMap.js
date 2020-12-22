@@ -79,7 +79,7 @@ const bus = new Vue();
 
 //貼文組件
  Vue.component('visitors-item',{ //訪客留言
-   props:['id','vistext','index','myImg'], //設定要傳出去的值 訊息,訊息index
+   props:['id','vistext','userimg'], //設定要傳出去的值 訊息 ,userimg為當前使用者頭像
    
    methods:{   
    // 自訂檢舉燈箱事件
@@ -90,7 +90,7 @@ const bus = new Vue();
    template:
    `<!-- 訪客留言區 -->   
       <li class="visitors-messagelist">
-          <div class="visitors-img"><img :src=myImg alt="留言訪客照"></div>
+          <div class="visitors-img"><img :src=userimg alt="留言訪客照"></div>
           <div class="visitors-message">{{vistext}}</div>
           <i class="fas fa-exclamation-circle fa-1x edit" @click="light_block(id)" :id=id ></i> <!--設定屬性id值，要判定刪除的inedex-->
       </li>   
@@ -211,7 +211,7 @@ Vue.component('block-light',{
 
 
 Vue.component('send',{
-   props:['myimg','name','msg','time','srcimg','id','tmid'],//屬性名稱
+   props:['myimg','name','msg','time','srcimg','tmid','userimg'],//屬性名稱
 
    data(){
      return{      
@@ -285,7 +285,7 @@ Vue.component('send',{
       <!--子留言-->
       <ul class="visitors-block" @click="closeul">...
          
-           <visitors-item v-for="(values,index) in visitorstext.slice().reverse()" :vistext="values" :id="index" v-bind:myImg="myimg"></visitors-item>
+           <visitors-item v-for="(values,index) in visitorstext.slice().reverse()" :vistext="values" :id="index" v-bind:userimg="userimg"></visitors-item>
           
        </ul>        
   </form>
