@@ -21,6 +21,7 @@ var member = new Vue ({
     },
     methods: {
         Odetail (index) { //點擊訂單明細
+            console.log(index);
             var vm = this;
             id = vm.orders[index][0];
             vm.pop_block = true;
@@ -119,12 +120,12 @@ var member = new Vue ({
                     // 消除秒數
                     data[i].date = data[i].date.substring(0, 16)
 
-                    if (data[i].status == 0) {
-                        data[i].status = '出貨中'
-                    }else if (data[i].status == 1) {
-                        data[i].status = '已出貨'
-                    }else if (data[i].status == 2) {
-                        data[i].status = '已取消'
+                    if (data[i].sstatus == 0) {
+                        data[i].sstatus = '出貨中'
+                    }else if (data[i].sstatus == 1) {
+                        data[i].sstatus = '已出貨'
+                    }else if (data[i].sstatus == 2) {
+                        data[i].sstatus = '已取消'
                     }
     
                 }

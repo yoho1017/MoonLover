@@ -327,7 +327,7 @@
 
                                 <tr class="Mtr priceAndCancel price">
                                     <td class="Mtd priceTd">
-                                        訂單 總金額 $300
+                                        訂單 總金額 {{Odetail_data.price}}
                                     </td>
                                 </tr>
 
@@ -395,7 +395,7 @@
                                     {{ order.price }}
                                 </td>
                                 <td class="Mtd">
-                                    {{ order.status }}
+                                    {{ order.sstatus }}
                                 </td>
                                 <td class="Mtd">
                                     <button class="btnBlue_detail" @click.prevent="Odetail(index)">
@@ -410,7 +410,7 @@
                 </div>
             </div> 
 
-            <div class="pinkBox_order pinkBox_mobile" v-for="(order, key) in orders" :key="key">
+            <div class="pinkBox_order pinkBox_mobile" v-for="(order, index) in orders" :id="index">
                 <div class="inBox_order">
                     <table class="orderTable">
 
@@ -433,12 +433,12 @@
 
                             <tr class="Mtr">
                                 <td class="Mtd Mtitle">訂單狀態</td>
-                                <td class="Mtd">{{ order.status }}</td>
+                                <td class="Mtd">{{ order.sstatus }}</td>
                             </tr>
 
                             <tr class="Mtr Mtb">
                                 <td class="Mtd">
-                                    <button class="btnBlue_detail" @click.prevent="Odetail(order.id)">
+                                    <button class="btnBlue_detail" @click.prevent="Odetail(index)">
                                         <h4>明細</h4>
                                     </button>
                                 </td>

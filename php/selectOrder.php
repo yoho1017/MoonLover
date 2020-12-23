@@ -10,7 +10,7 @@
     include("./Lib/UtilClass.php");
     $Util = new UtilClass();
 
-    $sql = "SELECT ID as id , ORDER_TIME as date, PRICE as price , ORDER_STATUS as status FROM myorder where oMEMBER_ID = ?";
+    $sql = "SELECT ID as id , ORDER_TIME as date, PRICE as price , ORDER_STATUS as sstatus FROM myorder where oMEMBER_ID = ?";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

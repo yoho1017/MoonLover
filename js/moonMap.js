@@ -289,7 +289,7 @@ Vue.component('send',{
         if(res.data[i].img == null){
           res.data[i].img = './images/MyInfo/profile.png';
         }else{
-          res.data[i].img = `${profilePath}${data[i].myImg}`;
+          res.data[i].img = `${profilePath}${res.data[i].img}`;
         }  
       }
 
