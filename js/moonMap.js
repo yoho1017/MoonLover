@@ -106,21 +106,43 @@ Vue.component('visitor-input',{ //訪客輸入訊息
      inputtask:'',
    };
  },
+ props : ['tmid'],
  methods:{
-   submiData(){
+   submiData(tmid){
      if( this.inputtask !==''){ //不輸入字就alert
        this.$emit('inputsub',this.inputtask);
-       this.inputtask='';     
+      //  console.log(tmid.target.id);
+       let data = new FormData(); //建立資料表單
+       data.append('tmid', tmid);
+       data.append('msg', this.inputtask);
+       console.log(tmid);
+
+       let config = {
+           header : {
+            'Content-Type' : 'multipart/form-data'
+          }
+       }
+
+       // 送出
+       axios.post('./php/createMsginMsg.php', data, config).then( response=> {
+         console.log(response);
+         console.log(response.data);
+       }).catch(() => { 
+          console.log("錯誤 !") 
+      });
      }else{
        alert('輸入訊息');
      }
+    //  清空input
+     this.inputtask='';
+
    },
 
  },
  template:`
- <form class="input-block" @submit.prevent="submiData">
+ <form class="input-block" @submit.prevent="submiData" :id=tmid>
    <input type="text" class="visitors-input" placeholder="留各訊息吧?" v-model="inputtask">
-   <i class="fas fa-location-arrow fa-1x arrow-but" @click.prevent="submiData"></i>
+   <i class="fas fa-location-arrow fa-1x arrow-but" @click.prevent="submiData(tmid)"></i>
  </form>
  `,
 });
@@ -223,10 +245,11 @@ Vue.component('send',{
   // 函式
   methods:{
    addText(item){
-     // alert()
+    //  alert('test');
     $('.visitors-messagelist').show(); //留言時強制打開訪客留言ul
-    this.visitorstext.push(item);
-
+    obj = {text : item, img : ''},
+    this.visitorstext.push(obj);
+    
    },
    
      //刪除訪客留言
@@ -280,7 +303,7 @@ Vue.component('send',{
 
       <!-- 訪客留言輸入框 -->
       <div>
-         <visitor-input v-on:inputsub="addText"></visitor-input>
+         <visitor-input v-on:inputsub="addText" :tmid=tmid></visitor-input>
       </div>
       <!--子留言-->
       <ul class="visitors-block" @click="closeul">...
@@ -470,12 +493,12 @@ Vue.component('send',{
 
           
 
-          // let miMsg = new URLSearchParams();
-          // miMsg.append('tmID', tmID);
-          // axios.post('./php/getTempleMsginMsg.php', miMsg).then( (res) => {
-          //   let iMsg = res.data;
-          //   console.log(iMsg);
-          // });
+          let msgin = new URLSearchParams();
+          msgin.append('tmid', tmid);
+          axios.post('./php/getTempleMsginMsg.php', msgin).then( (res) => {
+            let iMsg = res.data;
+            console.log(iMsg);
+          });
         }
 
 
