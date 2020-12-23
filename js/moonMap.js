@@ -79,20 +79,23 @@ const bus = new Vue();
 
 //貼文組件
  Vue.component('visitors-item',{ //訪客留言
-   props:['id','vistext','userimg'], //設定要傳出去的值 訊息 ,userimg為當前使用者頭像
+   props:['id','text','img'], //設定要傳出去的值 訊息 ,userimg為當前使用者頭像
    
    methods:{   
    // 自訂檢舉燈箱事件
-   light_block(id){     
-     bus.$emit('light',id); 
+   light_block(id,text){
+    //  console.log(id);     
+     bus.$emit('light');
+     bus.$emit('tmid',id);
+     bus.$emit('tmsg',text);
    },
  },
    template:
    `<!-- 訪客留言區 -->   
       <li class="visitors-messagelist">
-          <div class="visitors-img"><img :src=userimg alt="留言訪客照"></div>
-          <div class="visitors-message">{{vistext}}</div>
-          <i class="fas fa-exclamation-circle fa-1x edit" @click="light_block(id)" :id=id ></i> <!--設定屬性id值，要判定刪除的inedex-->
+          <div class="visitors-img"><img :src="'./images/member/profile/'+ img" alt="留言訪客照"></div>
+          <div class="visitors-message">{{text}}</div>
+          <i class="fas fa-exclamation-circle fa-1x edit" @click="light_block(id,text)"></i> <!--設定屬性id值，要判定刪除的inedex-->
       </li>   
    `,
   
@@ -111,6 +114,7 @@ Vue.component('visitor-input',{ //訪客輸入訊息
    submiData(tmid){
      if( this.inputtask !==''){ //不輸入字就alert
        this.$emit('inputsub',this.inputtask);
+       var newtext = this.inputtask;
       //  console.log(tmid.target.id);
        let data = new FormData(); //建立資料表單
        data.append('tmid', tmid);
@@ -125,8 +129,10 @@ Vue.component('visitor-input',{ //訪客輸入訊息
 
        // 送出
        axios.post('./php/createMsginMsg.php', data, config).then( response=> {
-         console.log(response);
-         console.log(response.data);
+          console.log(response);
+          FID = response.data;
+          obj = {ID: FID,NICKNAME: moonmap.myName,text : newtext, img : moonmap.myImg.replace(/^.*[\\\/]/, ''), date: 'test'},
+          this.$emit('newinmsg',obj);
        }).catch(() => { 
           console.log("錯誤 !") 
       });
@@ -140,7 +146,7 @@ Vue.component('visitor-input',{ //訪客輸入訊息
 
  },
  template:`
- <form class="input-block" @submit.prevent="submiData" :id=tmid>
+ <form class="input-block" @submit.prevent="submiData(tmid)">
    <input type="text" class="visitors-input" placeholder="留各訊息吧?" v-model="inputtask">
    <i class="fas fa-location-arrow fa-1x arrow-but" @click.prevent="submiData(tmid)"></i>
  </form>
@@ -178,7 +184,6 @@ Vue.component('block-light',{
           let data = res.data;
           console.log(data);
           console.log(res);
-       
         });
 
        this.reportText.push(newText); 
@@ -237,7 +242,7 @@ Vue.component('send',{
 
    data(){
      return{      
-      visitorstext:[],//訪客留言
+      msgin : [],
       block_block:true,//打開燈箱
      };
    }, 
@@ -246,10 +251,8 @@ Vue.component('send',{
   methods:{
    addText(item){
     //  alert('test');
-    $('.visitors-messagelist').show(); //留言時強制打開訪客留言ul
-    obj = {text : item, img : ''},
-    this.visitorstext.push(obj);
-    
+    console.log(item);
+    $('.visitors-messagelist').show(); //留言時強制打開訪客留言ul    
    },
    
      //刪除訪客留言
@@ -273,8 +276,21 @@ Vue.component('send',{
        console.log(msg);
       
      },
+     updatemsg (val) {
+      this.msgin.unshift(val);
+     },
+     getinmsg () {
+      // console.log(this.msgin);
+      let msgin = new URLSearchParams();
+      msgin.append('tmid', this.tmid);
+      axios.post('./php/getTempleMsginMsg.php', msgin).then( (res) => {
+        let iMsg = res.data;
+        // console.log(iMsg);
+        this.msgin = iMsg;
+      });  
+     }
  
- },
+  },
 
    template:`   
    <form  class="userForm" action="#"> 
@@ -303,17 +319,19 @@ Vue.component('send',{
 
       <!-- 訪客留言輸入框 -->
       <div>
-         <visitor-input v-on:inputsub="addText" :tmid=tmid></visitor-input>
+         <visitor-input v-on:inputsub="addText" :tmid=tmid @newinmsg="updatemsg"></visitor-input>
       </div>
       <!--子留言-->
       <ul class="visitors-block" @click="closeul">...
          
-           <visitors-item v-for="(values,index) in visitorstext.slice().reverse()" :vistext="values" :id="index" v-bind:userimg="userimg"></visitors-item>
+           <visitors-item v-for="values in msgin" :text="values.text" :id="values.ID" :img="values.img"></visitors-item>
           
        </ul>        
   </form>
-  `, 
-
+  `,
+  mounted () {
+    this.getinmsg();
+  },
 });
 
  
@@ -324,7 +342,6 @@ Vue.component('send',{
      mesg:[], //美食景點資料     
      myMsg:[],
      newText : '', 
-     visitorstext:'',
      srcimg:[],//放圖
      images:[],//暫存圖
     //  block_id : 1, //
@@ -370,10 +387,13 @@ Vue.component('send',{
             this.tmid = data[0].ID;
             console.log(this.tmid);
 
-            this.myMsg.push(
-              // {myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmID:this.tmID,} //新增id
-              {myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmid:this.tmid,} //新增id
-            );
+            // this.myMsg.unshift(
+            //   // {myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmID:this.tmID,} //新增id
+            //   {myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmid:this.tmid,} //新增id
+            // );
+
+            this.myMsg = [];
+            this.getTempleMsg();
           });
 
 
@@ -481,7 +501,7 @@ Vue.component('send',{
           }
 
           
-          this.myMsg.push(
+          this.myMsg.unshift(
             { myImg:memImg, 
               name:data[i].nName, 
               msg:data[i].MSG,
@@ -490,18 +510,7 @@ Vue.component('send',{
               tmid: tmid,
             }
           );
-
-          
-
-          let msgin = new URLSearchParams();
-          msgin.append('tmid', tmid);
-          axios.post('./php/getTempleMsginMsg.php', msgin).then( (res) => {
-            let iMsg = res.data;
-            console.log(iMsg);
-          });
         }
-
-
 
 
       

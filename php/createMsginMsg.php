@@ -50,40 +50,17 @@ $statement->bindValue(3, $id);
 $statement->bindValue(4, $msg);
 $statement->execute();
 
-// $statement->errorInfo();
+// 取得最後一個留言ID
+$sql = "SELECT ID FROM temple_msg_in_msg where tmMEMBER_ID = ? order by ID desc LIMIT 1";
 
-// // 更新資訊
-// $sql = "SELECT * FROM moonlover.personal_msg where pRELATIONSHIP_ID = ?";
+//執行
+$statement = $Util->getPDO()->prepare($sql);
 
-// //執行
-// $statement = $Util->getPDO()->prepare($sql);
+//給值
+$statement->bindValue(1, $id);
+$statement->execute();
+$data = $statement->fetchColumn();
 
-// //給值
-// $statement->bindValue(1, $pid);
-// $statement->execute();
-// $data = $statement->fetchAll();    
-
-// print_r(json_encode($data));
-
-// // 設定已讀
-// //建立SQL
-// $sql = "UPDATE personal_msg SET READING = 1 WHERE pRELATIONSHIP_ID = ?";
-
-//     //執行
-// $statement = $Util->getPDO()->prepare($sql);
-// $statement->bindValue(1, $pid);
-// $statement->execute();    
-
-// //寫入到配對者資料庫
-// $sql = "INSERT INTO personal_msg (pRELATIONSHIP_ID, MSG_RECEIVE_CONTENT, MSG_TIME) 
-// VALUES ((SELECT ID FROM moonlover.relationship where MYMEMBER_ID = ? and TARGET_ID = ?), ?, NOW())";
-
-//     //執行
-// $statement = $Util->getPDO()->prepare($sql);
-// $statement->bindValue(1, $targetid);
-// $statement->bindValue(2, $id);
-// $statement->bindValue(3, $msg);
-// $statement->execute();    
-
+echo $data;
 
 ?>
