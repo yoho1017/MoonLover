@@ -93,7 +93,7 @@ const bus = new Vue();
    template:
    `<!-- 訪客留言區 -->   
       <li class="visitors-messagelist">
-          <div class="visitors-img"><img :src="'./images/member/profile/'+ img" alt="留言訪客照"></div>
+          <div class="visitors-img"><img :src=img alt="留言訪客照"></div>
           <div class="visitors-message">{{text}}</div>
           <i class="fas fa-exclamation-circle fa-1x edit" @click="light_block(id,text)"></i> <!--設定屬性id值，要判定刪除的inedex-->
       </li>   
@@ -131,7 +131,7 @@ Vue.component('visitor-input',{ //訪客輸入訊息
        axios.post('./php/createMsginMsg.php', data, config).then( response=> {
           console.log(response);
           FID = response.data;
-          obj = {ID: FID,NICKNAME: moonmap.myName,text : newtext, img : moonmap.myImg.replace(/^.*[\\\/]/, ''), date: 'test'},
+          obj = {ID: FID,NICKNAME: moonmap.myName,text : newtext, img : moonmap.myImg, date: 'test'},
           this.$emit('newinmsg',obj);
        }).catch(() => { 
           console.log("錯誤 !") 
@@ -284,6 +284,15 @@ Vue.component('send',{
       let msgin = new URLSearchParams();
       msgin.append('tmid', this.tmid);
       axios.post('./php/getTempleMsginMsg.php', msgin).then( (res) => {
+      for (let i = 0 ; i <= res.data.length -1 ; i ++) {
+        if(res.data[i].img == null){
+          res.data[i].img = './images/MyInfo/profile.png';
+        }else{
+          res.data[i].img = `${profilePath}${data[i].myImg}`;
+        }  
+      }
+
+
         let iMsg = res.data;
         // console.log(iMsg);
         this.msgin = iMsg;
