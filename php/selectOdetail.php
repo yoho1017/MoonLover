@@ -5,7 +5,7 @@
     include("./Lib/UtilClass.php");
     $Util = new UtilClass();
 
-    $sql = "SELECT p.NAME as itemName, o.CUSTOM_IMAGE as image, o.ORDER_PRICE as price, o.ORDER_QUANTITY as count FROM moonlover.order_detail as o 
+    $sql = "SELECT p.NAME as itemName, o.CUSTOM_IMAGE as image, o.ORDER_PRICE as price, o.ORDER_QUANTITY as count FROM order_detail as o 
     join merchandise as p
     on
     o.MERCHANDISE_ID = p.ID where o.ORDER_ID = ?";

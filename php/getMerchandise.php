@@ -3,7 +3,7 @@
 	$Util = new UtilClass();	
 
     //建立SQL
-    $sql = "SELECT * FROM moonlover.merchandise;";
+    $sql = "SELECT * FROM merchandise;";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

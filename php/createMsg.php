@@ -25,7 +25,7 @@ $statement->bindValue(2, $msg);
 $statement->execute();
 
 // 更新資訊
-$sql = "SELECT * FROM moonlover.personal_msg where pRELATIONSHIP_ID = ?";
+$sql = "SELECT * FROM personal_msg where pRELATIONSHIP_ID = ?";
 
 //執行
 $statement = $Util->getPDO()->prepare($sql);
@@ -48,7 +48,7 @@ $statement->execute();
 
 //寫入到配對者資料庫
 $sql = "INSERT INTO personal_msg (pRELATIONSHIP_ID, MSG_RECEIVE_CONTENT, MSG_TIME) 
-VALUES ((SELECT ID FROM moonlover.relationship where MYMEMBER_ID = ? and TARGET_ID = ?), ?, NOW())";
+VALUES ((SELECT ID FROM relationship where MYMEMBER_ID = ? and TARGET_ID = ?), ?, NOW())";
 
     //執行
 $statement = $Util->getPDO()->prepare($sql);

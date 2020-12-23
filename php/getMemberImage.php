@@ -8,8 +8,8 @@
 
 
     //建立SQL
-    // $sql = "SELECT ID, USERNAME, EMAIL, MEMBER_TYPE FROM moonlover.member";
-    $sql = "SELECT `NICKNAME`, `IMAGE` FROM moonlover.member where ID = $myId";
+    // $sql = "SELECT ID, USERNAME, EMAIL, MEMBER_TYPE FROM member";
+    $sql = "SELECT `NICKNAME`, `IMAGE` FROM member where ID = $myId";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

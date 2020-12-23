@@ -38,7 +38,7 @@ $msgID = 'F'.$msgID; // M000003
 // echo $msg;
 
 // 寫入新留言到MYSQL
-$sql = "INSERT INTO `moonlover`.`temple_msg_in_msg` (`ID`,`iMSG_ID`, `tmMEMBER_ID`, `IN_MSG`, `MSG_DATE`, `STATUS`) VALUES (?, ?, ?, ?, NOW(), 1);";
+$sql = "INSERT INTO `temple_msg_in_msg` (`ID`,`iMSG_ID`, `tmMEMBER_ID`, `IN_MSG`, `MSG_DATE`, `STATUS`) VALUES (?, ?, ?, ?, NOW(), 1);";
 
 //執行
 $statement = $Util->getPDO()->prepare($sql);
