@@ -79,7 +79,7 @@ const bus = new Vue();
 
 //貼文組件
  Vue.component('visitors-item',{ //訪客留言
-   props:['id','text','img'], //設定要傳出去的值 訊息 ,userimg為當前使用者頭像
+   props:['id','text','img','nickname','date'], //設定要傳出去的值 訊息 ,img為使用者頭像
    
    methods:{   
    // 自訂檢舉燈箱事件
@@ -94,7 +94,8 @@ const bus = new Vue();
    `<!-- 訪客留言區 -->   
       <li class="visitors-messagelist">
           <div class="visitors-img"><img :src="'./images/member/profile/'+ img" alt="留言訪客照"></div>
-          <div class="visitors-message">{{text}}</div>
+          <h4>{{nickname}}:</h4>
+          <div class="visitors-message"><p>{{text}}</p><p class="date">{{date}}</p></div>
           <i class="fas fa-exclamation-circle fa-1x edit" @click="light_block(id,text)"></i> <!--設定屬性id值，要判定刪除的inedex-->
       </li>   
    `,
@@ -324,7 +325,7 @@ Vue.component('send',{
       <!--子留言-->
       <ul class="visitors-block" @click="closeul">...
          
-           <visitors-item v-for="values in msgin" :text="values.text" :id="values.ID" :img="values.img"></visitors-item>
+           <visitors-item v-for="values in msgin" :text="values.text" :id="values.ID" :img="values.img" :nickname="values.NICKNAME" :date="values.date"></visitors-item>
           
        </ul>        
   </form>

@@ -565,8 +565,14 @@
             .visitors-message {
               width: 70%;
               padding: 10px;
-              border-radius: 48px;
-              border: 1px solid #ccc;
+              // border-radius: 48px;
+              // border: 1px solid #ccc;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .date{
+                color: #ccc;
+              }
             }
             .fa-exclamation-circle.fa-1x.edit{
               color: #ccc;
