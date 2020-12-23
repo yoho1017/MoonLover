@@ -36,6 +36,13 @@
         height: 550px;
         // @include iconBlock(40%, 20%);
         // @include iconblock-font(18px,120px);
+        
+          .cloud.aheadR{
+           width: 300px;
+        }
+        .cloud.aheadL{
+          width: 300px;
+        }
 
         .YueLao {
           width: 30%;
@@ -81,6 +88,12 @@
         }
         .railing {
           bottom: -110px;
+        }
+        .cloud.aheadR {
+          width: 250px;
+        }
+        .cloud.aheadL {
+          width: 250px;
         }
       }
     }
