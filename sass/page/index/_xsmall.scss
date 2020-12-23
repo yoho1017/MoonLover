@@ -47,13 +47,15 @@
           }
         }
         .cloud {
-          width: 250px;
+          width: 230px;
         }
         .cloud.aheadR {
           right: 10px;
+          width: 210px;
         }
         .cloud.aheadL {
           left: 10px;
+          width: 210px;
         }
 
         @include iconBlock(60%, 35%);
@@ -84,13 +86,26 @@
         .YueLao {
           width: 35%;
         }
-        .cloud {
-          width: 230px;
-        }
-      
-
+       
         @include iconBlock(60%, 35%);
         @include iconblock-font(10px, 80px);
+      }
+    }
+  }
+}
+
+@include rwd(375px){
+  .index-wrapper{
+    .main{
+      .temple01{
+        .cloud.aheadR {
+          
+          width: 190px;
+        }
+        .cloud.aheadL {
+         
+          width: 190px;
+        }
       }
     }
   }
