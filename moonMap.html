@@ -254,7 +254,7 @@
                 <!-- 交通資訊 -->
                     <div class="empleContent_block">                           
                         <div class="title">
-                            <div class="img_sz"><img src="./images/moonMap/香爐.png" alt="icon"></div>
+                            <div class="img_sz"><img src="./images/moonMap/censer.png" alt="icon"></div>
                             <h3>交通資訊</h3>
                         </div>
                         <hr>
@@ -326,26 +326,26 @@
 
                     <!-- 貼文區 -->
                     <div class="message_block" id="style-1">
-                       <send v-for="(userMsg, index) in myMsg.slice().reverse()" :myimg="userMsg.myImg" :name="userMsg.name" :msg="userMsg.msg" :time="userMsg.time"  :srcimg="userMsg.srcimg" :tmID="userMsg.tmid"></send>
+                       <send v-for="(userMsg, index) in myMsg.slice().reverse()" :myimg="userMsg.myImg" :name="userMsg.name" :msg="userMsg.msg" :time="userMsg.time"  :srcimg="userMsg.srcimg" :tmID="userMsg.tmid" :userimg='myImg'></send>
 
                     </div>
                               
                 </div>
                 <!-- 月老 -->
                 <div class="YueLao_block tab1 on">
-                    <div class="YueLao"><img src="./images/moonMap/月老.svg" alt="月老">
+                    <div class="YueLao"><img src="./images/moonMap/moonOld.svg" alt="月老">
                     </div>
-                    <div class="YueLaoCloud"><img src="./images/moonMap/月老座雲.svg" alt="月老座雲"></div>
+                    <div class="YueLaoCloud"><img src="./images/moonMap/MoonOldCloud.svg" alt="月老座雲"></div>
                 </div> 
 
                 <div class="YueLao_block tab2">
-                    <div class="YueLao"><img src="./images/moonMap/月老.svg" alt="月老"></div>
-                    <div class="YueLaoCloud"><img src="./images/moonMap/月老座雲.svg" alt="月老座雲"></div>
+                    <div class="YueLao"><img src="./images/moonMap/moonOld.svg" alt="月老"></div>
+                    <div class="YueLaoCloud"><img src="./images/moonMap/MoonOldCloud.svg" alt="月老座雲"></div>
                 </div> 
 
                 <div class="YueLao_block tab3">
-                    <div class="YueLao"><img src="./images/moonMap/月老2.svg" alt="月老"></div>
-                    <div class="YueLaoCloud"><img src="./images/moonMap/月老座雲.svg" alt="月老座雲"></div>
+                    <div class="YueLao"><img src="./images/moonMap/moonOld2.svg" alt="月老"></div>
+                    <div class="YueLaoCloud"><img src="./images/moonMap/MoonOldCloud.svg" alt="月老座雲"></div>
                 </div> 
           
             </div> 
