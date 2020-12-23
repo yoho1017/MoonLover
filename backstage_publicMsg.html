@@ -104,7 +104,7 @@
                         </tr>
                             <td class="td_30"><h4>檢舉人</h4></td>
                             <td class="td_md">
-                                <h4>{{modify_data[2]}}</h4>
+                                <h4>{{modify_data[6]}}</h4>
                             </td>
                         <tr>
 
@@ -118,14 +118,14 @@
                         </tr>
                             <td class="td_30"><h4>留言內容</h4></td>
                             <td class="td_md">
-                                <h4>{{modify_data[5]}}</h4>
+                                <h4>{{modify_data[3]}}</h4>
                             </td>
                         <tr>
                             <td class="td_30"><h4>狀態</h4></td>
                             <td class="td_md">                    
-                                <select class="input_status" v-model="modify_data[6]">
-                                    <option value="1" :selected="1 == modify_data[5]">顯示</option>
-                                    <option value="0" :selected="0 == modify_data[5]">隱藏</option>
+                                <select class="input_status" v-model="modify_data[7]">
+                                    <option value="1" :selected="modify_data[7]">顯示</option>
+                                    <option value="0" :selected="modify_data[7]">隱藏</option>
                                 </select>
                             </td>
                         </tr>
@@ -136,7 +136,7 @@
                                     <div class="bkbtn_Blue" @click="cancel">
                                         <h3>取消</h3>
                                     </div>
-                                    <div class="bkbtn_Red" @click="change(modify_data[0])">
+                                    <div class="bkbtn_Red" @click="change">
                                         <h3>完成</h3>
                                     </div>
                                 </div>

@@ -2,14 +2,14 @@ Vue.component('paginate', VuejsPaginate);
 // 每一頁要顯示的筆數
 const PAGE_SIZE = 10;
 
-const sqlData = [
-    [1,'F001','BiBiOTA','2020-06-06','不雅文字','這網站真的好爛啊！',1],
-    [2,'M001','Yoho','2020-11-03','不雅文字','這網站好爛！',0],
-    [3,'M003','AsoJi','2020-11-04','不雅文字','這網站好爛！',1],
-    [4,'M003','BiBiOTA','2020-11-05','不雅文字','這網站好爛！',0],
-    [5,'M003','AsoJi','2020-12-01','不雅文字','這網站好爛！',1],
-    [6,'M003','Yoho','2020-12-02','不雅文字','這網站好爛！',0],
-];
+// const sqlData = [
+//     [1,'F001','BiBiOTA','2020-06-06','不雅文字','這網站真的好爛啊！',1],
+//     [2,'M001','Yoho','2020-11-03','不雅文字','這網站好爛！',0],
+//     [3,'M003','AsoJi','2020-11-04','不雅文字','這網站好爛！',1],
+//     [4,'M003','BiBiOTA','2020-11-05','不雅文字','這網站好爛！',0],
+//     [5,'M003','AsoJi','2020-12-01','不雅文字','這網站好爛！',1],
+//     [6,'M003','Yoho','2020-12-02','不雅文字','這網站好爛！',0],
+// ];
 
 var nav = new Vue ({
     el: '#nav',
@@ -115,16 +115,20 @@ var backend = new Vue ({
             this.menu = true;
             nav.title = 'menu';
         },
-        change (id) {
-            if (id == 'n') {
-                this.modify_data[0] = this.sql.length +1;
-                this.sql.push(this.modify_data);
-            }else{
-                data = id -1;
-                this.sql[data] = this.modify_data;
-            }
-            // this.menu = true;
-            // nav.$data.title = 'menu';
+        change () {
+            var params = new URLSearchParams();            
+            params.append('tmId', this.modify_data[1]);
+            params.append('status', this.modify_data[7]);
+
+            axios.post('./php/updateMsgStatus.php', params).then( response => {
+                let result = response.data;
+                // console.log(result);
+            }).catch(() => { 
+                console.log("錯誤 !") 
+            });
+
+            this.menu = true;
+            nav.$data.title = 'menu';
         },
     },
     components: {
@@ -142,11 +146,26 @@ var backend = new Vue ({
             `,
             methods: {
                 modify (id) {
-                    window.scrollTo(0,0);
-                    data = id -1;
+                    // window.scrollTo(0,0);
+                    // data = id -1;
                     backend.$data.menu = false;
                     nav.$data.title = 'modify';
-                    backend.$data.modify_data = backend.$data.sql[data];
+                    // backend.$data.modify_data = backend.$data.sql[data];
+                    let data = new FormData();
+                    data.append('id', id);
+
+                    let config = {
+                        header : {
+                            'Content-Type' : 'multipart/form-data'
+                        }
+                    }
+                    
+                    axios.post('./php/getMsgReportM.php', data, config).then( response => {
+                        re = response.data;
+                        backend.$data.modify_data = re;
+                        console.log(re);
+                    });
+
                 },
             }
         },
@@ -171,7 +190,25 @@ var backend = new Vue ({
             console.log("錯誤 !") 
         })        
         // pagination套件需要從外面傳入資料才會執行。以下請串axios以後把資料傳給vm.sql(串好後上面的sqldata可刪除)
-        vm.sql = sqlData;
+        // vm.sql = sqlData;
+
+        axios.post('./php/getMsgReport.php').then( (res) => {
+            data = res.data;
+            console.log(data);
+            for (let i=0; i< data.length; i++){
+                arr = [];
+                arr.push(data[i].ID);
+                arr.push(data[i].MSG_ID);
+                arr.push(data[i].USERNAME);
+                arr.push(data[i].MSG_REPORT_TIME);
+                arr.push(data[i].REPORT_REASON);
+
+                vm.sql.push(arr);
+            }
+
+        }).catch(() => { 
+            alert("錯誤 !") 
+        })
     },
     mounted() {
 

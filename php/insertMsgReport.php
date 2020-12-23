@@ -34,7 +34,7 @@ $statement->bindValue(4, $id);
 $statement->execute();
 // $data = $statement->fetchAll();
 
-// $data = $statement->errorInfo();
-// print_r( $data );
+$data = $statement->errorInfo();
+print_r( $data );
 
 ?>
