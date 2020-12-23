@@ -122,7 +122,7 @@ var backend = new Vue ({
 
             axios.post('./php/updateMsgStatus.php', params).then( response => {
                 let result = response.data;
-                // console.log(result);
+                console.log(result);
             }).catch(() => { 
                 console.log("錯誤 !") 
             });
@@ -141,26 +141,19 @@ var backend = new Vue ({
                 <td class="td_80"><h4>{{num}}</h4></td>
                 <td class="td_75"><h4>{{lucky}}</h4></td>
                 <td class="td_125"><h4>{{answer}}</h4></td>
-                <td class="td_75"><h4 class="more" @click="modify(id)">更多</h4></td>
+                <td class="td_75"><h4 class="more" @click="modify(id,num)">更多</h4></td>
             </tr>
             `,
             methods: {
-                modify (id) {
-                    // window.scrollTo(0,0);
-                    // data = id -1;
+                modify (id,num) {
                     backend.$data.menu = false;
                     nav.$data.title = 'modify';
-                    // backend.$data.modify_data = backend.$data.sql[data];
-                    let data = new FormData();
-                    data.append('id', id);
 
-                    let config = {
-                        header : {
-                            'Content-Type' : 'multipart/form-data'
-                        }
-                    }
+                    let data = new URLSearchParams();
+                    data.append('id', id);
+                    data.append('tmID', num);
                     
-                    axios.post('./php/getMsgReportM.php', data, config).then( response => {
+                    axios.post('./php/getMsgReportM.php', data).then( response => {
                         re = response.data;
                         backend.$data.modify_data = re;
                         console.log(re);
