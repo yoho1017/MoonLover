@@ -537,11 +537,19 @@ function loadMascot () {
         let product = document.querySelectorAll('.ppicture > img')[i];
 
         let mascot = document.querySelectorAll('.eCard > img')[i];
-        
+        // console.log(mascot.src);
+        console.log(mascot);
+        if (mascot.src.replace(/^.*[\\\/]/, '') == 'blank') {
+            let newsrc = './images/member/macot/blank.png';
+            document.querySelectorAll('.eCard > img')[i].src = newsrc;
+            mascot = document.querySelectorAll('.eCard > img')[i];
+            console.log(mascot);
+        }
         let canvas = document.createElement('canvas');
         let ctx = canvas.getContext('2d');
         canvas.width = MasWidth;
         canvas.height = MasHeight;
+        
         document.body.appendChild(canvas);
         canvas.style.display ="none";
     
