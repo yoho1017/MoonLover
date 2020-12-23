@@ -7,7 +7,7 @@
     // echo $username;
 
     //建立SQL
-    $sql = "SELECT ID, USERNAME, EMAIL, MEMBER_TYPE FROM moonlover.member where USERNAME LIKE ? order by ID";
+    $sql = "SELECT ID, USERNAME, EMAIL, MEMBER_TYPE FROM member where USERNAME LIKE ? order by ID";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

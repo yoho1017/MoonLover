@@ -11,7 +11,7 @@
     include("./Lib/UtilClass.php");
     $Util = new UtilClass();
 
-    $sql = "SELECT * FROM moonlover.personal_msg where pRELATIONSHIP_ID = ?";
+    $sql = "SELECT * FROM personal_msg where pRELATIONSHIP_ID = ?";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

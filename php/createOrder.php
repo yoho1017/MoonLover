@@ -25,7 +25,7 @@
 
   
 
-  $sql="SELECT ID FROM moonlover.myorder where oMEMBER_ID = $myId order by ID desc limit 1";
+  $sql="SELECT ID FROM myorder where oMEMBER_ID = $myId order by ID desc limit 1";
 
   $statement = $Util->getPDO()->prepare($sql);
 

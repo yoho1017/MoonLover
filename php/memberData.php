@@ -5,7 +5,7 @@
     $id = $_POST['id'];
 
     //建立SQL
-    $sql = "SELECT ID, USERNAME, EMAIL, NICKNAME, ABOUT, AGE, AREA, JOB, JOB_DETAIL, EDUCATION, SCHOOL, SEX, SO, PAIR_PRIV, PUBLIC_PRIV FROM moonlover.member where ID = ?";
+    $sql = "SELECT ID, USERNAME, EMAIL, NICKNAME, ABOUT, AGE, AREA, JOB, JOB_DETAIL, EDUCATION, SCHOOL, SEX, SO, PAIR_PRIV, PUBLIC_PRIV FROM member where ID = ?";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

@@ -5,7 +5,7 @@
     $id = $_POST['id'];
     $STATUS = $_POST['STATUS'];
 
-    $sql = "UPDATE `moonlover`.`myorder` SET `ORDER_STATUS` = ?,`CANCEL_DATE` = null WHERE (`ID` = ?)";
+    $sql = "UPDATE `myorder` SET `ORDER_STATUS` = ?,`CANCEL_DATE` = null WHERE (`ID` = ?)";
 
     //建立SQL
 
@@ -16,7 +16,7 @@
     $statement->execute();
     
     if ($STATUS == 2) {
-        $sql = "UPDATE `moonlover`.`myorder` SET `CANCEL_DATE` = NOW() WHERE (`ID` = ?)";
+        $sql = "UPDATE `myorder` SET `CANCEL_DATE` = NOW() WHERE (`ID` = ?)";
 
             //執行
         $statement = $Util->getPDO()->prepare($sql);
@@ -25,7 +25,7 @@
     }
 
     //建立SQL
-    $sql = "SELECT m.ID as ID, member.USERNAME as USERNAME , m.PRICE as PRICE, m.ORDER_TIME as ORDER_TIME, m.ORDER_STATUS as ORDER_STATUS, m.CANCEL_DATE as CANCEL_DATE FROM moonlover.myorder as m
+    $sql = "SELECT m.ID as ID, member.USERNAME as USERNAME , m.PRICE as PRICE, m.ORDER_TIME as ORDER_TIME, m.ORDER_STATUS as ORDER_STATUS, m.CANCEL_DATE as CANCEL_DATE FROM myorder as m
     join member as member
     on
     member.ID = m.oMEMBER_ID";

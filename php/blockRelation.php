@@ -13,7 +13,7 @@ $relation = $_POST['id'];
 include("./Lib/UtilClass.php");
 $Util = new UtilClass();
 
-$sql = "UPDATE `moonlover`.`relationship` SET `rSTATUS` = 0 WHERE (`ID` = ?)";
+$sql = "UPDATE `relationship` SET `rSTATUS` = 0 WHERE (`ID` = ?)";
 
 //執行
 $statement = $Util->getPDO()->prepare($sql);
@@ -22,7 +22,7 @@ $statement = $Util->getPDO()->prepare($sql);
 $statement->bindValue(1, $relation);
 $statement->execute();
 
-$sql = "UPDATE `moonlover`.`relationship` SET `rSTATUS` = 0 WHERE (`ID` = ?)";
+$sql = "UPDATE `relationship` SET `rSTATUS` = 0 WHERE (`ID` = ?)";
 
 //執行
 $statement = $Util->getPDO()->prepare($sql);
@@ -41,7 +41,7 @@ $statement->bindValue(1, $relation);
 $statement->execute();
 $Target = $statement->fetchColumn();   
 
-$sql = "UPDATE `moonlover`.`relationship` SET `rSTATUS` = 0 WHERE MYMEMBER_ID = ? and TARGET_ID = ?";
+$sql = "UPDATE `relationship` SET `rSTATUS` = 0 WHERE MYMEMBER_ID = ? and TARGET_ID = ?";
 
 //執行
 $statement = $Util->getPDO()->prepare($sql);

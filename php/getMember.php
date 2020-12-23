@@ -3,7 +3,7 @@
 	$Util = new UtilClass();	
 
     //建立SQL
-    $sql = "SELECT ID, USERNAME, EMAIL, MEMBER_TYPE FROM moonlover.member";
+    $sql = "SELECT ID, USERNAME, EMAIL, MEMBER_TYPE FROM member";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

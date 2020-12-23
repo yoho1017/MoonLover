@@ -19,7 +19,7 @@ echo $rtmsg;
 echo $msg;
 echo $id;
 
-$sql="INSERT INTO `moonlover`.`msg_report` (MSG_ID,MSG_REPORT_TIME,MSG_CONTENT,REPORT_REASON,REPORT_PERSON)VALUES(?,NOW(),?,?,?);";
+$sql="INSERT INTO `msg_report` (MSG_ID,MSG_REPORT_TIME,MSG_CONTENT,REPORT_REASON,REPORT_PERSON)VALUES(?,NOW(),?,?,?);";
 // $sql = "INSERT INTO `temple_msg` (ID, tMEMBER_ID, tTEMPLE_ID, IMAGE, MSG, MSG_DATE, STATUS) VALUES (?, ?, ?, ?, ?, NOW(), 1);";
 
 // 執行

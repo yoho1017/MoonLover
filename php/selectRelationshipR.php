@@ -26,7 +26,7 @@
     (SELECT ID, MSG_RECEIVE_CONTENT as NEWMSG FROM personal_msg where MSG_RECEIVE_CONTENT is not null) as MSG
     on
     MSG.ID = last.NEWMSG
-    LEFT join (SELECT pRELATIONSHIP_ID ,COUNT(*) as count FROM moonlover.personal_msg where READING = 0 GROUP BY pRELATIONSHIP_ID) as newmsg
+    LEFT join (SELECT pRELATIONSHIP_ID ,COUNT(*) as count FROM personal_msg where READING = 0 GROUP BY pRELATIONSHIP_ID) as newmsg
     on r.ID = newmsg.pRELATIONSHIP_ID
     WHERE MYMEMBER_ID = ? and r.rSTATUS = 1";
 

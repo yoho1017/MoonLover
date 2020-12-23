@@ -38,7 +38,7 @@ $msgID = 'F'.$msgID; // M000003
 // echo $msg;
 
 // 寫入新留言到MYSQL
-$sql = "INSERT INTO `moonlover`.`temple_msg_in_msg` (`ID`,`iMSG_ID`, `tmMEMBER_ID`, `IN_MSG`, `MSG_DATE`, `STATUS`) VALUES (?, ?, ?, ?, NOW(), 1);";
+$sql = "INSERT INTO `temple_msg_in_msg` (`ID`,`iMSG_ID`, `tmMEMBER_ID`, `IN_MSG`, `MSG_DATE`, `STATUS`) VALUES (?, ?, ?, ?, NOW(), 1);";
 
 //執行
 $statement = $Util->getPDO()->prepare($sql);
@@ -51,7 +51,7 @@ $statement->bindValue(4, $msg);
 $statement->execute();
 
 // 取得最後一個留言ID
-$sql = "SELECT ID FROM temple_msg_in_msg where tmMEMBER_ID = ? order by ID desc LIMIT 1";
+$sql = "SELECT ID, MSG_DATE  FROM temple_msg_in_msg where tmMEMBER_ID = ? order by ID desc LIMIT 1";
 
 //執行
 $statement = $Util->getPDO()->prepare($sql);
@@ -59,8 +59,8 @@ $statement = $Util->getPDO()->prepare($sql);
 //給值
 $statement->bindValue(1, $id);
 $statement->execute();
-$data = $statement->fetchColumn();
+$data = $statement->fetchAll();    
 
-echo $data;
+print_r(json_encode($data));
 
 ?>

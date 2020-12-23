@@ -5,7 +5,7 @@
     $id = $_POST['id'];
 
     //建立SQL
-    $sql = "SELECT m.NAME as NAME, o.ORDER_QUANTITY as ORDER_QUANTITY, m.PRICE as PRICE FROM moonlover.order_detail as o
+    $sql = "SELECT m.NAME as NAME, o.ORDER_QUANTITY as ORDER_QUANTITY, m.PRICE as PRICE FROM order_detail as o
 	join myorder as my
     on
     my.ID = o.ORDER_ID

@@ -3,7 +3,7 @@
 	$Util = new UtilClass();	
 
     //建立SQL
-    $sql = "SELECT m.ID as ID, member.USERNAME as USERNAME , m.PRICE as PRICE, m.ORDER_TIME as ORDER_TIME, m.ORDER_STATUS as ORDER_STATUS, m.CANCEL_DATE as CANCEL_DATE FROM moonlover.myorder as m
+    $sql = "SELECT m.ID as ID, member.USERNAME as USERNAME , m.PRICE as PRICE, m.ORDER_TIME as ORDER_TIME, m.ORDER_STATUS as ORDER_STATUS, m.CANCEL_DATE as CANCEL_DATE FROM myorder as m
     join member as member
     on
     member.ID = m.oMEMBER_ID";
