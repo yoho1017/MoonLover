@@ -47,10 +47,6 @@
         // border: 1px solid blue;
         text-align: center;
     
-    
-        
-
-
 
                 //左燈籠
                 .lantern_group1{
@@ -117,7 +113,7 @@
                     }
                 }
 
-
+                //中間區域包起來
                 .duelbox{
 
                     display: none;
@@ -140,20 +136,6 @@
                         width: 583px;
                         transform: translateY(300px);
 
-                        // 要用absolute才可定位
-                        // position: absolute;
-                        // top:300px;
-                        // border: 1px solid black;
-
-                        
-                         //上下浮動-先不要
-                        // @keyframes moveupdown_duelbox{
-                        //     from { top: 0.07%; }
-                        //     to { top: 1.5%; }
-                        // }
-
-                        // animation: moveupdown_duelbox 1s infinite linear alternate;
-
                         img{
                             width:100%;
                         }
@@ -169,14 +151,6 @@
 
                         position:relative;
 
-                        //上下浮動-先不要
-                        //  @keyframes moveupdown_duelbox{
-                        //     from { top: 0.07%; }
-                        //     to { top: 1.5%; }
-                        // }
-    
-                        // animation: moveupdown_duelbox 1s infinite linear alternate;
-
                         img{
                             width:100%;
                         }
@@ -186,20 +160,6 @@
 
                     //中間按鈕
                     .btn_go{
-
-                        // 上下浮動-取消
-                        // @keyframes moveupdown_duelbox_none{
-                        //     from { top: 0%; 
-                        //           display: none;
-                        //           }
-                        //     to { top:0%; 
-                        //          display: none;
-                        //         }
-                        // }
-
-                        // animation: moveupdown_duelbox_none 1s infinite linear alternate;
-
-                        // position:absolute;
 
                         transform: translateY(-200px);
                         font-size: 30px;
@@ -240,16 +200,6 @@
     //img 高
     max-width:424px; 
 
-    // width:936px;
-    // height: 530px;
-    //bk_img 寬高
-
-    // width: 290px;
-    // height:500px;
-    //測試title是否會掉下來
-
-    // display: inline-flex;
-
     display: flex;
     display: none;
     flex-wrap: wrap;
@@ -257,7 +207,7 @@
     align-items:center;
     justify-content: center;
 
-    //加鼠標跟光暈
+    //加鼠標
     cursor: pointer;
 
     //animate 動畫效果
@@ -281,18 +231,6 @@
 
     }
 
-
-    //閃爍效果-先不要(會變整個一直閃)
-    // animation: shine 1s infinite linear alternate;
-
-    // @keyframes shine{
-    //         from { opacity:.3; }
-    //         to { opacity:1; }
-    //     }
-   
-
-    // background-image: url(../images/moondrawl/step_1/two_line.png);
-
     img{
         width:100%;
     }
@@ -308,8 +246,6 @@
         justify-content: center;
         position: absolute;
         
-
-
         .decoration{
             // border: 1px solid blue;
             width: 170px;
@@ -344,18 +280,6 @@
         
     }
 
-    // 籤花紋 先不要
-
-    // .deco_img{
-    //     width:178px;
-    //     border: 1px solid blue;
-    //     margin-bottom: -300px;
-        
-    //     img{
-    //         width:100%;
-    //     }
-    // }
-
 };
 
 // 第四頁//
@@ -367,31 +291,17 @@
 
     max-width:554px; //img 高
 
-    // width:936px;
-    // height: 530px;
-    //bk_img 寬高
-
-    // width: 290px;
-    // height:500px;
-    //測試title是否會掉下來
-
-    // display: inline-flex;
-
     display: flex;
     display: none;
     flex-wrap: wrap;
 
     align-items:center;
     justify-content: center;
-
-    // background-image: url(../images/moondrawl/step_1/two_line.png);
     
     //animate 動畫效果
     animation-duration: 2s;
 
     display:none;
-
-   
 
         img{
             width:100%;
@@ -417,10 +327,7 @@
                     flex-wrap:nowrap;
                     align-items:center;
                     justify-content: center;
-                    // position: absolute;
-                
-
-
+                    
                     .decoration{
                         // border: 1px solid blue;
                         
@@ -455,8 +362,6 @@
                 
                 }
 
-
-
                 //背面籤詩解釋內容
                 .title_left{
                     width:380px;
@@ -490,7 +395,6 @@
 //月老第一/二頁對話框
 .god_talk{
 
-
     width:500px;
     // border: 1px solid green;
     position: absolute;
@@ -501,14 +405,12 @@
 
 
     // 月老上下浮動動畫
-    animation: moveupdown 2.5s infinite linear alternate;
+    animation: moveupdown 2s infinite linear alternate;
 
     @keyframes moveupdown{
         from { bottom: 0.5%; }
         to { bottom: 0; }
     }
-
-    
 
         .talk{
             width: 260px;
