@@ -127,7 +127,9 @@ var backend = new Vue({
             });
             vm.imgPreview = true;
         },       
-        change(id) {
+        change() {
+            let id = this.modify_data[0];
+            console.log(id);
             if (id == 'n') {
                 this.modify_data[0] = this.sql.length + 1;
                 this.sql.push(this.modify_data);

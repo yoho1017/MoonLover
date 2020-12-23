@@ -784,3 +784,51 @@
     }
 
 }
+
+//414 6s plus
+@include rwd(414px){
+
+         // ============= 小知識第一頁左邊 ==============================
+         .know_wrapper_bk_color{
+            .know_wrapper{
+
+                //月老冷知識標提
+                .box_second_left{
+                    h2{
+                        width:62%;
+                    }
+                }
+    
+                .pinkBox_1{
+    
+                    //Question大標背景色
+                    .box_1200{
+                        h3{
+                            width: 98%;  
+    
+                        }
+                    
+                   
+
+                        //圈圈圖
+                        .img_circle{
+                            max-width: 120px;
+                            display: flex;
+                            // flex-wrap:wrap;
+    
+                            img{
+                                width: 100%;
+                                margin: 20px 4px;
+                                
+                            }
+    
+                        }
+    
+                    }
+                
+                }
+    
+            }
+        }
+
+}
