@@ -8,6 +8,43 @@
 }
 
 .shoppingCar-wrapper{
+
+    //背景雲飄移動畫
+    .cloud_one{
+        background-image: url(../images/moonShopCar/cloud_store_car_one.png);
+        position: absolute;
+        top:0px;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -3;
+        opacity: .5;
+    
+        @keyframes move{
+            100%{bckground-position: 500% 0;}
+        }
+      }
+
+      .cloud_second{
+        background-image:url(../images/moonShopCar/cloud_store_car_second.png);
+        position: absolute;
+        top:0px;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+        animation: move 100s infinite linear alternate;
+        z-index: -2;
+        opacity: .5;
+    
+    
+        @keyframes move{
+            100%{background-position: 500% 0;}
+        }
+    
+      }
+      //背景雲飄移動畫結束
+
     button{
         outline: none;
         border-color: transparent;
