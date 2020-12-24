@@ -135,10 +135,19 @@
     }
     .moonMap-block .message_block .userForm ul.visitors-block .visitors-messagelist{
       padding: 5px;
-      .visitors-message .date{
-        font-size: 10px;
-      }        
+      
+      .visitors-message {
+        flex-wrap: wrap;
+        p{
+          font-size: 10px;
+        }
+        .date{
+          font-size: 6px;
+         
+        }       
+      } 
     } 
+   
   }
 }
 
