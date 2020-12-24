@@ -21,7 +21,7 @@ var member = new Vue ({
     },
     methods: {
         Odetail (index) { //點擊訂單明細
-            console.log(index);
+            // console.log(index);
             var vm = this;
             id = vm.orders[index][0];
             vm.pop_block = true;
