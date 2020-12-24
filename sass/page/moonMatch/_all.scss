@@ -121,13 +121,13 @@ $cardHeight: 600px;
                     background-color: #F0DED1;
                     // background-image: url(../images/moonMatch/heart.png);
                     background-image: url(../images/index/pattern.svg);
-                    border: 1px solid  #FFF;;
+                    border: 3px solid transparent;
                     background-size: contain;
                     background-repeat: repeat;
                     background-position: center;
                     transform: rotateY(180deg); /* 預設旋轉 180deg */
                     overflow-y: scroll;
-                    box-shadow: 0px 0px 20px 20px #f0bb2a;
+                    box-shadow: 0px 0px 10px 2px #f7ef77, 0px 0px 15px 5px #ffd970;
                     
                     @include flexCenter;
                     flex-direction: column;
