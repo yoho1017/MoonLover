@@ -64,7 +64,7 @@ $cardHeight: 600px;
         // border: 1px solid green;
         margin-top: 10px;
         display: flex;
-        z-index: 1;
+        z-index: 2;
 
         //整體由上往下出現animate設定
         animation-delay: 1s;
@@ -118,12 +118,16 @@ $cardHeight: 600px;
                 }
                   
                 .card_back {
-                    background-color: white;
-                    background-image: url(../images/moonMatch/chooseCard.svg);
+                    background-color: #F0DED1;
+                    // background-image: url(../images/moonMatch/heart.png);
+                    background-image: url(../images/index/pattern.svg);
+                    border: 1px solid  #FFF;;
                     background-size: contain;
-                    background-repeat: no-repeat;
+                    background-repeat: repeat;
                     background-position: center;
                     transform: rotateY(180deg); /* 預設旋轉 180deg */
+                    overflow-y: scroll;
+                    box-shadow: 0px 0px 20px 20px #f0bb2a;
                     
                     @include flexCenter;
                     flex-direction: column;
@@ -131,10 +135,10 @@ $cardHeight: 600px;
 
                     .memberPic-container{
                         margin-top: 40px;
-                        @include profileImg (person,190px);
+                        @include profileImg (person,150px);
                     }
                     .memberProfile{
-                        // border: 5px solid orange;
+                        border-bottom: 5px solid transparent;
                         width: 100%;
                         .mRow{
                             // border: 1px solid red;
@@ -145,10 +149,27 @@ $cardHeight: 600px;
                             h3{
                                 margin-right: 20px;
                             }
+                            .inte{
+                                text-overflow:ellipsis;
+                                white-space:nowrap;
+                                overflow:hidden;
+                            }
                         }
-                        .mRow.username,
-                        .mRow.introduction{
+                        .mRow.username{
                             justify-content: center;
+                        }
+                        .introduction{
+                            @include flexCenter;
+                            flex-direction: column;
+                            padding: 0px 20px;
+                            h4.about{ 
+                                // text-overflow:ellipsis;
+                                // white-space:nowrap;
+                                // overflow:hidden;
+                                // width: 90%;
+                                // align-self: center;
+                                
+                            }
                         }
 
                         @include btn(choose, 30%, 5px);
@@ -165,6 +186,9 @@ $cardHeight: 600px;
                             }
                         }
                     }
+                }
+                .card_back::-webkit-scrollbar{
+                    background:transparent;
                 }
             }
             &:nth-child(1){
@@ -311,15 +335,15 @@ $cardHeight: 600px;
 
             position: fixed;
             right: 50px;
-            bottom: 350px;
+            bottom: 300px;
             // transform: translateY(50%);
             form{
                 border: 10px solid white;
                 border-radius: 30px;
                 margin: 0 auto;
                 background-color: #FFEEA8;
-                width: 400px;
-                height: 450px;
+                width: 350px;
+                height: 400px;
 
                 // transform: translate(-200px, -400px);
 
@@ -329,11 +353,11 @@ $cardHeight: 600px;
 
 
                 .qRow {
-                    width: 80%;
+                    width: 70%;
                     // border: 1px solid red;
                     display: flex;
                     align-items: center;
-                    margin: 15px auto;
+                    margin: 10px auto;
 
                     h3{
                         margin-right: 15px;;
