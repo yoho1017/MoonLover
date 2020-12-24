@@ -570,7 +570,11 @@
               // border: 1px solid #ccc;
               display: flex;
               justify-content: space-between;
-              align-items: center;            
+              align-items: center; 
+              
+              p{                
+                word-break: break-all;
+              }           
               .date{
                 color: #ccc;
               }
