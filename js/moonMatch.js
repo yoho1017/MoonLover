@@ -90,6 +90,7 @@ let matchCond = new Vue({
             $('.msgBoxContent').toggleClass('-on');
             $('.msgBox').addClass('-on');
             $('.queryBox').removeClass('-on');
+            $('.godSection').css({zIndex: `1`,});
 
 
             // 從html綁定到的值寫到篩選器
@@ -366,7 +367,9 @@ let matchCard = new Vue({
         ],
         city : '',
         job : '',
+        jobdetail: '',
         education : '',
+        edudetail : '',
         sex : '',
         seo: '',
         mCounter: 0,
@@ -403,7 +406,7 @@ let matchCard = new Vue({
                 axios.post('./php/matchMemberR.php', params).then((res) => {
                     let data = res.data;
                     // console.log(res);
-                    // console.log(data);
+                    console.log(data);
                     if(data != ''){
                         // alert('有篩到');
                         this.mId = data[0].mMEMBER_ID;
@@ -416,7 +419,9 @@ let matchCard = new Vue({
                         this.about = data[0].ABOUT;
                         this.city = data[0].AREA;
                         this.job = data[0].JOB;
+                        this.jobdetail = data[0].JOB_DETAIL;
                         this.age = data[0].AGE;
+                        this.edudetail = data[0].SCHOOL;
 
                         // 呼叫處理興趣的函數
                         this.getMatchMemberInterest();
@@ -428,6 +433,7 @@ let matchCard = new Vue({
                         this.about = '沒篩到！再觀察看看！';
                         this.city = '提拔市';
                         this.job = '前端講師';
+                        this.jobdetail = '';
                         this.age = '不要問';
                         this.interest ='觀察HTML';
                     }
@@ -489,7 +495,7 @@ let matchCard = new Vue({
     },
     components:{
         card: {
-            props: ['nickname', 'city', 'job', 'profile','about', 'age', 'interest'],
+            props: ['nickname', 'city', 'job', 'profile','about', 'age', 'interest', 'jobdetail', 'education','edudetail'],
             template: 
             `
             <div class="scene">
@@ -503,28 +509,28 @@ let matchCard = new Vue({
                             <div class="mRow username">
                                 <h2>{{nickname}}</h2>
                             </div>
-                            <div class="mRow introduction">
-                                <h4>{{about}}</h4>
+                            <div class="mRow">
+                                <h4>年齡：{{age}} 歲</h4>
                             </div>
                             <div class="mRow">
-                                <h3>年齡</h3>
-                                <h4>{{age}}</h4>
+                                <h4 class="inte">興趣：{{interest}}</h4>
                             </div>
                             <div class="mRow">
-                                <h3>興趣</h3>
-                                <h4>{{interest}}</h4>
+                                <h4>地區：{{city}}</h4>
                             </div>
                             <div class="mRow">
-                                <h3>地區</h3>
-                                <h4>{{city}}</h4>
+                                <h4>職業：{{jobdetail}}</h4>
                             </div>
                             <div class="mRow">
-                                <h3>職業</h3>
-                                <h4>{{job}}</h4>
+                                <h4>學校：{{edudetail}}</h4>
+                            </div>
+                            <div class="introduction">
+                                <h3>關於我</h3>
+                                <h5 class="about">{{about}}</h5>
                             </div>
                             <div class="btnGroup">
-                                <button class="btnBlue_choose reselect"><h3>重選</h3></button>
-                                <a href="#" class="btnRed_choose toMsg" ><h3>私訊</h3></a>
+                                <button class="btnBlue_choose reselect"><h4>重選</h4></button>
+                                <a href="#" class="btnRed_choose toMsg" ><h4>私訊</h4></a>
                             </div>
 
                         </div>
@@ -536,7 +542,7 @@ let matchCard = new Vue({
     },
     mounted() {
         this.mCounter = this.matchCounter('get');
-        if(this.mCounter >= 3){
+        if(this.mCounter >= 500){
             alert('已經三次囉！明天再試試吧！');
             window.location.href = './main.html';
         }
@@ -544,7 +550,7 @@ let matchCard = new Vue({
         // 翻牌
         $('.card_front').on('click', function(){
 
-            if(matchCard.$data.mCounter >= 3){
+            if(matchCard.$data.mCounter >= 500){
                 alert('已經三次囉！明天再試試吧！');
                 $('.card_front').css({pointerEvents: 'none',});
                 window.location.href = './main.html';
@@ -552,6 +558,11 @@ let matchCard = new Vue({
             }else if (matchCard.$data.nickname != '賓哥'){ 
                 // 有選到人才增加counter次數
                 matchCard.matchCounter('add');
+            }
+
+            // 防止打開篩選器時點擊卡片
+            if($('.queryBox').hasClass('-on')){
+                return;
             }
 
 
@@ -573,9 +584,8 @@ let matchCard = new Vue({
 
         // 展開篩選條件
         $('.btnRed_query').on('click', function(){
-            $('.queryBox').toggleClass('-on').css({
-
-            });
+            $('.queryBox').toggleClass('-on');
+            $('.godSection').css({zIndex: `3`,});
         });
 
         // 重選

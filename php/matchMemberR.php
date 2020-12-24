@@ -31,7 +31,7 @@
         //                 and re.TARGET_ID != m.ID
         //         GROUP BY m.ID";
 
-        $sql = "SELECT myInt.mMEMBER_ID, m.IMAGE, m.NICKNAME, m.ABOUT, m.AREA, m.JOB, m.AGE  FROM `member` m 
+        $sql = "SELECT myInt.mMEMBER_ID, m.IMAGE, m.NICKNAME, m.ABOUT, m.AREA, m.JOB, m.JOB_DETAIL, m.AGE, m.SCHOOL  FROM `member` m 
         JOIN `my_interest` myInt on m.ID = myInt.mMEMBER_ID 
         LEFT JOIN (SELECT TARGET_ID FROM relationship where MYMEMBER_ID = 10) as re on re.TARGET_ID = m.ID
         WHERE m.ID != 10

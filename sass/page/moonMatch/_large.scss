@@ -53,7 +53,7 @@
                 width: 310px;
                 height: 250px;
     
-                bottom: 130px;
+                bottom: 100px;
                 right: 330px;
             }
             
@@ -61,8 +61,8 @@
             .queryBox{
                 form{
                     
-                    width: 400px;
-                    height: 450px;
+                    // width: 400px;
+                    // height: 450px;
     
                     @include btn(queryBox, 30%, 5px);
                     display: flex;
@@ -73,7 +73,6 @@
                         width: 70%;
                         display: flex;
                         align-items: center;
-                        margin: 15px auto;
     
                         h3{
                             margin-right: 15px;;
@@ -198,8 +197,8 @@
                     border-radius: 30px;
                     margin: 0 auto;
                     background-color: #FFEEA8;
-                    width: 400px;
-                    height: 450px;
+                    // width: 400px;
+                    // height: 450px;
     
                     // transform: translate(-200px, -400px);
     
@@ -213,7 +212,6 @@
                         // border: 1px solid red;
                         display: flex;
                         align-items: center;
-                        margin: 15px auto;
     
                         h3{
                             margin-right: 15px;;
@@ -303,8 +301,8 @@
                     border-radius: 30px;
                     margin: 0 auto;
                     background-color: #FFEEA8;
-                    width: 400px;
-                    height: 450px;
+                    // width: 400px;
+                    // height: 450px;
     
                     // transform: translate(-200px, -400px);
     
@@ -318,7 +316,6 @@
                         // border: 1px solid red;
                         display: flex;
                         align-items: center;
-                        margin: 15px auto;
     
                         h3{
                             margin-right: 15px;;
@@ -435,8 +432,8 @@
                     border-radius: 30px;
                     margin: 0 auto;
                     background-color: #FFEEA8;
-                    width: 400px;
-                    height: 450px;
+                    // width: 400px;
+                    // height: 450px;
     
                     // transform: translate(-200px, -400px);
     
@@ -450,7 +447,6 @@
                         // border: 1px solid red;
                         display: flex;
                         align-items: center;
-                        margin: 15px auto;
     
                         h3{
                             margin-right: 15px;;
