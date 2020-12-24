@@ -42,7 +42,7 @@ var nav = new Vue ({
                 vm.member = './mymember.html';
                 axios.post('./php/selectImageR.php').then( response=> {
                     if (response.data != '') {
-                        console.log(response.data);
+                        // console.log(response.data);
                         vm.navimg = response.data;
                     }
                 }).catch(() => { 
