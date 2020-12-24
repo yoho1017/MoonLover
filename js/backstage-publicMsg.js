@@ -122,7 +122,7 @@ var backend = new Vue ({
 
             axios.post('./php/updateMsgStatus.php', params).then( response => {
                 let result = response.data;
-                console.log(result);
+                // console.log(result);
             }).catch(() => { 
                 console.log("錯誤 !") 
             });
@@ -156,7 +156,7 @@ var backend = new Vue ({
                     axios.post('./php/getMsgReportM.php', data).then( response => {
                         re = response.data;
                         backend.$data.modify_data = re;
-                        console.log(re);
+                        // console.log(re);
                     });
 
                 },
@@ -187,7 +187,7 @@ var backend = new Vue ({
 
         axios.post('./php/getMsgReport.php').then( (res) => {
             data = res.data;
-            console.log(data);
+            // console.log(data);
             for (let i=0; i< data.length; i++){
                 arr = [];
                 arr.push(data[i].ID);

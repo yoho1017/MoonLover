@@ -56,7 +56,7 @@ var bAccount =  new Vue ({
                 
                 axios.post('./php/LoginR.php', params).then(function (response) {
                     message = response.data;
-                    console.log(message);
+                    // console.log(message);
                     if (message == false) {
                         bAccount.$data.login_error = true;
                     }else{

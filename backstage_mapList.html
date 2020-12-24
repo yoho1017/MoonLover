@@ -151,10 +151,17 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="td_30"><h4>圖片路徑</h4></td>
-                            <td class="td_md">
-                                <input type="text" class="editText" v-model="modify_data[7]">
-                            </td>
+                            <td class="td_30"><h4>上傳圖片</h4></td>
+                            <td class="td_md imgbox">
+                                <img v-if="imgPreview" id="imgPreview">
+                                <img :src=modify_data[7] v-else="imgPreview" >
+                                <input type="file" id="upload" style="display : none" accept="image/jpeg, image/png" @change="uploadImg" >
+                                <div class="btnBox">
+                                    <div class="bkbtn_Red" @click="upload">
+                                        <h3>按此上傳圖片</h3>
+                                    </div>    
+                                </div>
+                            </td>        
                         </tr>
                         <tr>
                             <td class="td_30"><h4>地圖連結</h4></td>

@@ -128,23 +128,23 @@ var backend = new Vue({
             vm.imgPreview = true;
         },       
         change() {
+            var vm = this;
             let id = this.modify_data[0];
-            console.log(id);
+            // console.log(id);
             if (id == 'n') {
-                this.modify_data[0] = this.sql.length + 1;
-                this.sql.push(this.modify_data);
+                vm.modify_data[0] = vm.sql.length + 1;
+                vm.sql.push(vm.modify_data);
 
-                this.axiosUpdate(this.modify_data,'new'); 
+                vm.axiosUpdate(vm.modify_data,'new'); 
             } else {
                 data = id - 1;
-                this.sql[data] = this.modify_data;
+                vm.sql[data] = vm.modify_data;
 
-                this.axiosUpdate(this.modify_data,'old'); 
+                vm.axiosUpdate(vm.modify_data,'old'); 
             }
-            this.menu = true;
-            nav.$data.title = 'menu';
         },
         axiosUpdate(newdata,type){
+            var vm = this;
             let data = new FormData(); //建立資料表單
             if (type == 'new') {
                 data.append('id', type);
@@ -161,6 +161,42 @@ var backend = new Vue({
             data.append('LOCATION_LINK', newdata[8]);
             data.append('LOCATION_STATUS', newdata[9]);
 
+            if (vm.imgPreview == true) {
+
+
+                // 建立canvas
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+    
+                // 測試用
+                // document.body.appendChild(canvas);
+    
+                var imgWidth = document.getElementById('imgPreview').offsetWidth;
+                var imgHeight = document.getElementById('imgPreview').offsetHeight;
+    
+                canvas.width = imgWidth;
+                canvas.height = imgHeight;
+    
+                let img = document.getElementById('imgPreview');
+    
+                var il = (canvas.width / 2) - (imgWidth / 2);
+                var it = (canvas.height / 2) - (imgHeight / 2);
+    
+    
+                ctx.drawImage(img,il,it,imgWidth,imgHeight);
+                var dataURL = canvas.toDataURL();
+                
+    
+    
+    
+    
+                    data.append('newImg','newImg');
+                    data.append('img',dataURL);
+            }else{
+                    data.append('oldImg','oldImg');
+            }
+    
+
             let config = {
                 header : {
                  'Content-Type' : 'multipart/form-data'
@@ -169,7 +205,11 @@ var backend = new Vue({
 
             axios.post('./php/updateTempleLocation.php', data, config).then( (res) => {
                 data =res.data;
-                console.log(data);
+                // console.log(data);
+                vm.modify_data = [];
+                vm.imgPreview = false;
+                vm.menu = true;
+                nav.title = 'menu'    
             }).catch(() => { 
                 console.log("錯誤 !") 
             })
@@ -230,7 +270,7 @@ var backend = new Vue({
 
         axios.post('./php/getTempleLocation.php').then( (res) => {
             data = res.data;
-            console.log(data);
+            // console.log(data);
             for (let i=0; i< data.length; i++){
                 arr = [];
                 arr.push(data[i].ID);

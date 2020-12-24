@@ -14,6 +14,19 @@
         $IMAGE = $_POST['IMAGE'];
         $LOCATION_LINK = $_POST['LOCATION_LINK'];
         $LOCATION_STATUS = $_POST['LOCATION_STATUS'];
+        $imgtype = $_POST['newImg'];
+        $img = $_POST['img'];
+
+
+        if ($imgtype == 'newImg') {
+            $img = str_replace('data:image/png;base64,','', $img);// 需注意 data url 格式 與來源是否相符 ex:image/jpeg
+            $file = '../images/moonMap/'. uniqid() . '.png';//檔名 包含資料夾路徑 請記得此資料夾需 777 權限 方可寫入圖檔
+            $imgdata = base64_decode($img);
+            $success = file_put_contents($file, $imgdata);
+            $IMAGE = './images/moonMap/' . substr($file,-17);
+            // echo gettype($data[3]);
+        }
+
         
         // echo $id;
         // echo ' ';
@@ -45,7 +58,6 @@
         $statement->execute();
         $tID = $statement->fetchColumn();
         // echo $tID;
-
 
         if ($id == 'new') {
             $sql = "INSERT INTO `temple_location` (`lTEMPLE_ID`, `TEMPLE_LOCATION_CATEGORY`, `IMAGE`, `NAME`, `GUIDE`, `OPEN_TIME`, `ADDRESS`, `LOCATION_LINK`, `LOCATION_STATUS`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
