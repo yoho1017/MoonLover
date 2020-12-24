@@ -203,10 +203,10 @@
 
             //月老跟對話框調整大小
             .god_talk{
-                width:360px;
-
+             
                 .talk{
-                    transform: translateY(-99px) translateX(199px);
+                    width:130px;
+                    transform: translateY(70px) translateX(180px);
                    
 
                         h3{
@@ -216,8 +216,8 @@
                 }
 
                 .MoonOfGod{
-                    width:210px;
-                    transform:translateX(22px);
+                    width:150px;
+                    transform: translateY(90px) translateX(120px);
                 }
             }
         }

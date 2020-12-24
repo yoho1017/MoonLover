@@ -62,7 +62,10 @@
     <nav class="nav" id="nav">
         <a href="./main.html" class="Logo"><img src="./images/logo.png"></a>
         <ul class="navlist">
-           <li class="username" v-if="userid != null" @click="logout">登出</li>
+
+           <!-- 換登出圖 -->
+           <li class="username" v-if="userid != null" @click="logout"></li>
+            <div class="log_out"></div>
            
            <!-- 換會員圖 -->
            <li class="user" v-if="userid != null"><a :href="member">
@@ -308,11 +311,6 @@
                                 </div>
 
 
-                                <!-- 籤花紋 先不要 -->
-                                <!-- <div class="deco_img">
-                                    <img src="./images/moondrawl/step_1/block_none.png" alt="block_img">
-                                </div> -->
-
                 </div>
 
 
@@ -378,7 +376,7 @@
             <!-- 月老第一/二頁對話框 -->
             <div class="god_talk god_talk1 -on">
 
-                <div class="talk">
+                <div class="talk talk_delete">
                     <h3>按按鈕</br>
                         賜良緣
                     </h3>
@@ -401,7 +399,7 @@
                 </div>
 
                 <div class="MoonOfGod">
-                        <img src="./images/moondrawl/step_1/love_god.png" alt="god">
+                        <img src="./images/moondrawl/step_1/love_god_jump.png" alt="god">
                 </div>
 
             </div>

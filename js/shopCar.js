@@ -4,13 +4,13 @@ var storage = localStorage;
 function doFirst() {
     //從localStorage拿出資料
     let cartItems = JSON.parse(storage.getItem("cartItems")) || [];
-    console.log(cartItems);
+    // console.log(cartItems);
     //計算總金額------------------------------------------------------------------------------------
     //item是cartItems裡面的數值
     total = 0;
     cartItems.forEach(item => {
         createCarList(item)
-        console.log(item, '11111111');
+        // console.log(item, '11111111');
     })
 
     // 組裝動態新增-----------------------------------------------------------------------------------
@@ -59,12 +59,12 @@ function doFirst() {
         // 判斷 是否有 animal或是客製化 圖片
         if (cartItem["animalImg"]) {
             if (cartItem["animalImg"] === 'fox-01.png' || cartItem["animalImg"] === 'rab-01.png' || cartItem["animalImg"] === 'mok-01.png') {
-                console.log('有三個');
+                // console.log('有三個');
                 itemAnimals.setAttribute('src', "./images/moonShop/" + cartItem["animalImg"])
             }
             else {
                 itemAnimals.setAttribute('src', "./images/member/macot/" + cartItem["animalImg"])
-                console.log('YA');
+                // console.log('YA');
             }
 
         };
@@ -157,7 +157,7 @@ function doFirst() {
     // let orderCount = document.querySelectorAll('.qty');
     let itemID = document.querySelectorAll('.m_del');
     let proContent = document.querySelectorAll('.mcontent');
-    console.log(itemID, 555555);
+    // console.log(itemID, 555555);
 
     let itemPriceArray = [];
     // let itemCountArray = [];
@@ -174,9 +174,9 @@ function doFirst() {
         itemIDArray.push(itemID[i].dataset.pdid);
         // itemPriceArray.push(document.querySelectorAll('.pwds_price')[i].innerText);
     }
-    console.log(itemPriceArray);
+    // console.log(itemPriceArray);
     // console.log(itemCountArray, '666666666666666666666666');
-    console.log(itemIDArray);
+    // console.log(itemIDArray);
     sendButton.addEventListener('click', function () {
         let itemCountArray = [];
         let itemPriceArray = [];
@@ -191,15 +191,15 @@ function doFirst() {
         let itemImg = document.querySelectorAll('.acceptPic');
         let itemAnimals = document.querySelectorAll('.itemImgs');
 
-        console.log(itemImg, "0609");
-        console.log(itemAnimals, "0610");
+        // console.log(itemImg, "0609");
+        // console.log(itemAnimals, "0610");
         for (i = 0; i < orderCount.length; i++) {
             itemCountArray.push(orderCount[i].value);
             itemPriceArray.push(parseInt(orderPrice[i].innerText));
             itemIDArray.push(itemID[i].dataset.pdid);
         }
         
-        console.log(nav.userid);
+        // console.log(nav.userid);
         if (nav.userid == null) {
             account.pop_block = true;
             account.log_flex = true;
@@ -210,7 +210,7 @@ function doFirst() {
 
             let data = new FormData(); //建立資料表單
             data.append('PRICE', Totalsitem);
-            console.log(Totalsitem);
+            // console.log(Totalsitem);
             // console.log(itemPrice, '123');
             //送出去的資料格式
             if (cartItems.length === 0) {
@@ -223,12 +223,12 @@ function doFirst() {
             loadMascot ();
 
             axios.post('./php/createOrder.php', data).then((res) => {
-                console.log(res);
+                // console.log(res);
                 orderID = res.data;
-                console.log(orderID);
-                console.log(itemCountArray, '1153');
-                console.log(itemPriceArray);
-                console.log(itemIDArray);
+                // console.log(orderID);
+                // console.log(itemCountArray, '1153');
+                // console.log(itemPriceArray);
+                // console.log(itemIDArray);
                 let dataDetail = new FormData(); //建立資料表單
                 dataDetail.append('orderNumber', orderID);
                 dataDetail.append('orderCount', JSON.stringify(itemCountArray));
@@ -238,8 +238,8 @@ function doFirst() {
 
                 axios.post('./php/createOrderDetail.php', dataDetail).then((res) => {
                     dataDetail = res.data;
-                    console.log(res);
-                    console.log(dataDetail, '11111111');
+                    // console.log(res);
+                    // console.log(dataDetail, '11111111');
 
 
                     // localStorage.removeItem('cartItems');
@@ -296,23 +296,7 @@ function doFirst() {
                     // loading(data);
                 })
 
-                // axios.post('./php/createOrderDetail.php', dataDetail).then((res) => {
-                //     dataiData = res.data;
-                //     console.log(dataiData, '11111111');
-
-
-                //     // loading(data);
-                // })
-                // let dataDetail = new FormData(); //建立資料表單
-                // dataDetail.append('orderNumber', orderID);
-                // dataDetail.append('orderCount', orderCount);
-                // dataDetail.append('orderPrice', orderPrice);
-                // dataDetail.append('productID', itemID);
-
-                // console.log(itemID);
-                // console.log(orderCount);
-                // console.log(orderPrice);
-                // loading(data);
+                
 
 
             })
@@ -320,73 +304,7 @@ function doFirst() {
 
 
 
-        // 設定js FOR表單
-        // data.append('送出去的名稱','送出去的數值')
-        // let data = new FormData(); //建立資料表單
-        // data.append('PRICE', JSON.stringify(itemPriceArray));
-        // // console.log(itemPrice, '123');
-        // //送出去的資料格式
-        // let config = {
-        //     header: {
-        //         'Content-Type': 'multipart/form-data'
-        //     }
-        // }
-        // axios.post('./php/createOrderDetail.php', dataDetail).then((res) => {
-        //     detaiData = res.data;
-        //     console.log(detaiData, '11111111');
-
-        //     dataDetail.append('orderNumber', orderID);
-        //     dataDetail.append('orderCount', orderCount);
-        //     dataDetail.append('orderPrice', orderPrice);
-        //     dataDetail.append('productID', itemID);
-        //     // loading(data);
-        // })
-        // function customImg() {
-        //     // 建立canvas
-        //     var canvas = document.createElement('canvas');
-        //     // 建立繪圖環境 
-        //     var ctx = canvas.getContext('2d');
-        //     //   設定寬高
-        //     canvas.width = 500;
-        //     canvas.height = 500;
-        //     //  把canvas放到body裡(測試用) 
-        //     document.getElementById('putImg').appendChild(canvas);
-
-        //     // 商品
-        //     // var item = document.getElementById('item');
-
-        //     // 商品寬度
-        //     // var itemWidth = item.offsetWidth;
-        //     // 商品高度  
-        //     // var itemHeight = item.offsetHeight;
-
-        //     // 吉祥物
-        //     // var mascot = document.getElementById('mascot');
-
-        //     // 吉祥物寬度
-        //     // var mascotWidth = mascot.offsetWidth;
-        //     // 吉祥物高度
-        //     // var mascotHeight = mascot.offsetHeight;
-
-
-        //     // 圖片置中設定
-
-        //     var iX = (canvas.width / 2) - (itemWidth / 2);
-        //     var iY = (canvas.height / 2) - (itemHeight / 2);
-
-        //     var mX = (canvas.width / 2) - (mascotWidth / 2);
-        //     var mY = (canvas.height / 2) - (mascotHeight / 2);
-
-
-        //     // 出圖
-        //     ctx.drawImage(item, iX, iY, itemWidth, itemHeight); //商品
-        //     ctx.drawImage(mascot, mX, mY, mascotWidth, mascotHeight); //吉祥物
-
-        //     var base64 = canvas.toDataURL("image/png");
-        //     console.log(base64);
-
-
-        // }
+       
     })
 
 
@@ -436,7 +354,7 @@ function numberCount() {
         total = 0;
         // console.log(e.target.className, numberPlus[i].className, '0500');
         let arrayFromList = Array.from(e.target.classList);
-        console.log(arrayFromList, '0600');
+        // console.log(arrayFromList, '0600');
         //加號連擊
         if (arrayFromList.includes('fa-plus-square')) {
             numberInput[i].value++;
@@ -450,11 +368,11 @@ function numberCount() {
 
         //刪除商品
         function deleteItems() {
-            console.log(e.target.dataset, '.target.dataset');
-            console.log(arrayFromList, 'arrayFromList');
+            // console.log(e.target.dataset, '.target.dataset');
+            // console.log(arrayFromList, 'arrayFromList');
             if (arrayFromList.includes('m_del') || arrayFromList.includes('fa-trash-alt')) {
                 let cartItems = JSON.parse(localStorage.getItem("cartItems"))
-                console.log(cartItems, 'cartItems');
+                // console.log(cartItems, 'cartItems');
                 let afterCartItems = cartItems.filter(function ({ ID, animalImg }) {
                     if (animalImg) {
                         return (ID !== e.target.dataset.pdid || animalImg !== e.target.dataset.animal);
@@ -463,7 +381,7 @@ function numberCount() {
                         return (ID !== e.target.dataset.pdid);
                     }
                 });
-                console.log(afterCartItems, 'afterCartItems');
+                // console.log(afterCartItems, 'afterCartItems');
                 localStorage.setItem('cartItems', JSON.stringify(afterCartItems))
                 element.remove();
 
@@ -537,11 +455,19 @@ function loadMascot () {
         let product = document.querySelectorAll('.ppicture > img')[i];
 
         let mascot = document.querySelectorAll('.eCard > img')[i];
-        
+        // console.log(mascot.src);
+        // console.log(mascot);
+        if (mascot.src.replace(/^.*[\\\/]/, '') == 'blank') {
+            let newsrc = './images/member/macot/blank.png';
+            document.querySelectorAll('.eCard > img')[i].src = newsrc;
+            mascot = document.querySelectorAll('.eCard > img')[i];
+            // console.log(mascot);
+        }
         let canvas = document.createElement('canvas');
         let ctx = canvas.getContext('2d');
         canvas.width = MasWidth;
         canvas.height = MasHeight;
+        
         document.body.appendChild(canvas);
         canvas.style.display ="none";
     

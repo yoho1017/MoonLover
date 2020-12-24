@@ -50,59 +50,20 @@
             height: 100%;
         }
 
-        /* body { */
-        /* background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
-        /* font-size: 14px; */
-        /* color: #000;
-      margin: 0;
-      padding: 0; */
-        /* } */
-        /* 
-    .swiper-container {
-    max-width:992px;
-     padding:10px;
-      width: 100%;
-      height: 100%;
-      margin-top:130px;
-      display:flex;
-      flex-wrap: wrap;
-
-    } */
-
-        /* .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-    
-      width:100%;
-      max-height:320px; 
-      height:350px; */
-
-
-        /* Center slide text vertically */
-        /* display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center; */
-        /* } */
+        
     </style>
 </head>
 
-<body class="bgColorDefault bgImgCloud">
+<body class="bgColorDefault">
    <!------------------------------header---------------------------------->
    <header class="header">
     <nav class="nav" id="nav">
         <a href="./main.html" class="Logo"><img src="./images/logo.png"></a>
         <ul class="navlist">
-           <li class="username" v-if="userid != null" @click="logout">登出</li>
+
+           <!-- 換登出圖 -->
+           <li class="username" v-if="userid != null" @click="logout"></li>
+            <div class="log_out"></div>
            
            <!-- 換會員圖 -->
            <li class="user" v-if="userid != null"><a :href="member">
@@ -310,18 +271,7 @@
 
                     <!-- 第二個商品------------------------------------------------------------------------------------ -->
 
-                    <!-- <div class="mcontent2">
-                        <div class="pImage2">
-                           <div class="ppicture2"></div>
-                        </div>
-                    <div class="pwords2">
-                        <div>悠遊卡</div>
-                        <div>NT.300</div>
-                        <div>8</div>
-                        <div>NT.2400</div>
-                        <div>刪除</div>
-                    </div>
-                </div> -->
+                   
                     <div class="thingsPay">
                         <p>總價NT.<span id="payTotal">0</span></p>
                     </div>
@@ -343,220 +293,7 @@
         </div>
 
 
-        <!-- 推薦商品 -->
-        <!-- <div id="ad">
-            <div class="container">
-                <div class="signBox_1">
-                    <div class="signBox_2">
-                        <div class="signBox_3">
-                            <div class="signBox_4">
-                                推薦商品
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- Swiper  -->
-
-        <!-- <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-     <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars">
-          <div class="innerCars">加入購物車</div>
-     </div>
-    </div>
-      <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
-    </div>
-      <div class="swiper-slide">  
-     <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
-    </div>
-      <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
-    </div>
-      <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars">
-          <div class="innerCars">加入購物車</div>
-        </div>
-    </div>
-    <div class="swiper-slide">  
-      <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
-    </div>
-      <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
-    </div>
-      <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
-    </div>
-      <div class="swiper-slide">   <div class="easyCard">悠遊卡</div>
-      <div class="ImageContent1">
-          <img src="images/moonShopCar/悠遊卡.png"  alt="悠遊卡" height="150px" width="180px">
-      </div>
-      <div class="ImagePrice1">300</div>
-      <div class="proAmount">
-          <span id='my_form' method='POST' action='#'>
-            <i class="fas fa-minus-square fa-2x" class='qty_minus'  id='minus'></i>
-            <input type='text' name='quantity' value='0' class='qty' id='number'/>
-           <i class="fas fa-plus-square fa-2x"  class='qty_plus'  id='add'></i>
-      </span>
-      </div>
-      <div class="shopCars"><div class="innerCars">加入購物車</div></div>
-    </div>
-
-    </div>  -->
-
-
-        <!-- --------------------recommendation  -->
-        <!-- <div id="NonCusImages">
-
-            <div class="container">
-                <div class="item_groups">
-                    <div class="CusImage5">
-                        <div class="easyCard">姻緣線</div>
-                        <div class="ImageContent1">
-                            <a href="./moonShopDev.html"><img src="./images/moonShop/love_line.jpg" alt="姻緣線"
-                                    height="90px" width="140px"></a>
-                        </div>
-                        <div class="ImagePrice1">300</div>
-                        <div class="shopCars">加入購物車</div>
-                    </div>
-                    <div class="CusImage6">
-                        <div class="easyCard">面紙盒</div>
-                        <div class="ImageContent1">
-                            <a href="./moonShopDev.html"><img src="./images/moonShop/paperBox.jpg" alt="面紙盒"
-                                    height="90px" width="140px"></a>
-                        </div>
-                        <div class="ImagePrice1">300</div>
-                        <div class="shopCars">加入購物車</div>
-                    </div>
-                    <div class="CusImage7">
-                        <div class="easyCard">紅包</div>
-                        <div class="ImageContent1">
-                            <a href="./moonShopDev.html"><img src="./images/moonShop/red_envelope.jpg" alt="紅包"
-                                    height="90px" width="140px"></a>
-                        </div>
-                        <div class="ImagePrice1">300</div>
-                        <div class="shopCars">加入購物車</div>
-                    </div>
-                    <div class="CusImage8">
-                        <div class="easyCard">杯墊</div>
-                        <div class="ImageContent1">
-                            <a href="./moonShopDev.html"><img src="./images/moonShop/Coaster.jpg" alt="杯墊" height="90px"
-                                    width="140px"></a>
-                        </div>
-                        <div class="ImagePrice1">300</div>
-                        <div class="shopCars">加入購物車</div>
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
-        <!-- Item : <span id="itemCount">0</span> item(s) -->
-
-        <!-- 放圖片的地方 -->
-        <!-- <div id="putImg" class="putImgs"></div> -->
-
-
-
-        <!-- Add Pagination -->
-        <!-- <div class="swiper-pagination"></div> -->
-        <!-- </div> -->
-
-        <!-- Swiper JS -->
-        <!-- <script src="../package/swiper-bundle.min.js"></script> -->
+      
 
         <!-- Initialize Swiper -->
         <script>
@@ -573,6 +310,11 @@
 
         <script src="./js/1_new.js"></script>
         <script src="./js/login.js"></script>
+
+        <!-- 背景雲的動畫-整體移動 -->
+       <div class="cloud_one"></div>
+       <div class="cloud_second"></div>
+       
     </div>
     <script src="./js/shopCar.js"></script>
 </body>

@@ -53,7 +53,10 @@
     <nav class="nav" id="nav">
         <a href="./main.html" class="Logo"><img src="./images/logo.png"></a>
         <ul class="navlist">
-           <li class="username" v-if="userid != null" @click="logout">登出</li>
+
+           <!-- 換登出圖 -->
+           <li class="username" v-if="userid != null" @click="logout"></li>
+            <div class="log_out"></div>
            
            <!-- 換會員圖 -->
            <li class="user" v-if="userid != null"><a :href="member">
@@ -193,12 +196,30 @@
             
             <!-- 手機板600px -->
             <div class="twMap-phone">
-                <a href="./moonMap.html#1" class="temple-link"><img src="./images/moonMapList/temple_01.jpg"></a>
-                <a href="./moonMap.html#2" class="temple-link"><img src="./images/moonMapList/temple2_01.jpg"></a>
-                <a href="./moonMap.html#3" class="temple-link"><img src="./images/moonMapList/temple3_01.jpg"></a>
-                <a href="./moonMap.html#4" class="temple-link"><img src="./images/moonMapList/temple4_01.jpg"></a>
-                <a href="./moonMap.html#5" class="temple-link"><img src="./images/moonMapList/temple5_01.jpg"></a>
-                <a href="./moonMap.html#6" class="temple-link"><img src="./images/moonMapList/temple6_01.jpg"></a>                            
+                <a href="./moonMap.html#1" class="temple-link">
+                  <h3>台南大天后宮</h3>
+                  <img src="./images/moonMapList/temple_01.jpg">
+                </a>
+                <a href="./moonMap.html#2" class="temple-link">
+                  <h3>雲林北港朝天宮</h3>
+                  <img src="./images/moonMapList/temple2_01.jpg">
+                </a>
+                <a href="./moonMap.html#3" class="temple-link">
+                  <h3>台中慈德慈惠堂</h3>
+                  <img src="./images/moonMapList/temple3_01.jpg">
+                </a>
+                <a href="./moonMap.html#4" class="temple-link">
+                  <h3>台中樂成宮</h3>
+                  <img src="./images/moonMapList/temple4_01.jpg">
+                </a>
+                <a href="./moonMap.html#5" class="temple-link">
+                  <h3>台北艋舺龍山寺</h3>
+                  <img src="./images/moonMapList/temple5_01.jpg">
+                </a>
+                <a href="./moonMap.html#6" class="temple-link">
+                  <h3>台北霞海城隍廟</h3>
+                  <img src="./images/moonMapList/temple6_01.jpg">
+                </a>                            
             </div>
 
             <!-- 網頁版 -->

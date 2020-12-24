@@ -2,6 +2,9 @@ $(document).ready(function(){
     // 第一步按鈕 求籤
     $('.btn_go1').on('click', function(){
         $('.duelbox').toggleClass('-on');
+        $('.god_talk.god_talk1.-on').css('display','none');
+
+       
     });
     // 第二步按鈕 擲筊
     $('.btn_go2').on('click', function(){
@@ -11,9 +14,7 @@ $(document).ready(function(){
 
         axios.post('./php/moondraw.php').then( response => {
             var data = response.data;
-            // console.log(response);
-            // console.log(data[0].NUM);
-            // console.log(data);
+         
             dataToDraw (data);
         }).catch(() => { 
             console.log("錯誤 !") 
@@ -44,14 +45,6 @@ $(document).ready(function(){
 
             //第四屏的求得此籤
             document.getElementById('result_second').innerHTML = data[0].DRAW_ANSWER;
-
-
-
-
-
-
-
-
     
         }
 

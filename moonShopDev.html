@@ -14,9 +14,9 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../package/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <!-- <link rel="stylesheet" href="../package/swiper-bundle.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script> -->
 
     <!-- TweenMax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
@@ -45,13 +45,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
-<body class="bgColorDefault bgImgCloud">
+<body class="bgColorDefault">
    <!------------------------------header---------------------------------->
    <header class="header">
     <nav class="nav" id="nav">
         <a href="./main.html" class="Logo"><img src="./images/logo.png"></a>
         <ul class="navlist">
-           <li class="username" v-if="userid != null" @click="logout">登出</li>
+
+           <!-- 換登出圖 -->
+           <li class="username" v-if="userid != null" @click="logout"></li>
+            <div class="log_out"></div>
            
            <!-- 換會員圖 -->
            <li class="user" v-if="userid != null"><a :href="member">
@@ -259,6 +262,11 @@
             </div>
         </div>
         <!-- Item : <span id="itemCount">0</span> item(s) -->
+
+        <!-- 背景雲的動畫-整體移動 -->
+       <div class="cloud_one"></div>
+       <div class="cloud_second"></div>
+
     </div>
 
 
