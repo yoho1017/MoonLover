@@ -132,7 +132,13 @@
 
     .moonMap-block .userForm .user_block .user-messBlock .imgBlock .imgList{ //新增圖片區
       max-width: 150px;
-    }        
+    }
+    .moonMap-block .message_block .userForm ul.visitors-block .visitors-messagelist{
+      padding: 5px;
+      .visitors-message .date{
+        font-size: 10px;
+      }        
+    } 
   }
 }
 

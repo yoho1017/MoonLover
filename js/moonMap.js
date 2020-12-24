@@ -120,7 +120,7 @@ Vue.component('visitor-input',{ //訪客輸入訊息
        let data = new FormData(); //建立資料表單
        data.append('tmid', tmid);
        data.append('msg', this.inputtask);
-       console.log(tmid);
+      //  console.log(tmid);
 
        let config = {
            header : {
@@ -130,7 +130,7 @@ Vue.component('visitor-input',{ //訪客輸入訊息
 
        // 送出
        axios.post('./php/createMsginMsg.php', data, config).then( response=> {
-          console.log(response);
+          // console.log(response);
           resd = response.data;
           obj = {ID: resd[0].ID,NICKNAME: moonmap.myName,text : newtext, img : moonmap.myImg, date: resd[0].MSG_DATE},
           this.$emit('newinmsg',obj);
@@ -183,8 +183,8 @@ Vue.component('block-light',{
   
         axios.post('./php/insertMsgReport.php', params).then((res) => {
           let data = res.data;
-          console.log(data);
-          console.log(res);
+          // console.log(data);
+          // console.log(res);
         });
 
        this.reportText.push(newText); 
@@ -252,7 +252,7 @@ Vue.component('send',{
   methods:{
    addText(item){
     //  alert('test');
-    console.log(item);
+    // console.log(item);
     $('.visitors-messagelist').show(); //留言時強制打開訪客留言ul    
    },
    
@@ -273,8 +273,8 @@ Vue.component('send',{
        bus.$emit('light');
        bus.$emit('tmid',id);
        bus.$emit('tmsg',msg);
-       console.log(id);
-       console.log(msg);
+      //  console.log(id);
+      //  console.log(msg);
       
      },
      updatemsg (val) {
@@ -371,12 +371,12 @@ Vue.component('send',{
           
           if(uploadImg.files.length == 0){
               params.append(`upload`, 'no');
-              console.log('no');
+              // console.log('no');
           }else{
             params.append(`upload`, 'yes');
             for(let i=0; i<uploadImg.files.length; i++ ){
               params.append(`uploadImg${i+1}`, uploadImg.files[i]);
-              console.log('yes');
+              // console.log('yes');
               
             }
           }
@@ -393,9 +393,9 @@ Vue.component('send',{
 
           axios.post('./php/insertTempleMsg.php', params, config).then((res) => {
             let data = res.data;
-            console.log(typeof(data[0].ID));
+            // console.log(typeof(data[0].ID));
             this.tmid = data[0].ID;
-            console.log(this.tmid);
+            // console.log(this.tmid);
 
             // this.myMsg.unshift(
             //   // {myImg:this.myImg , name:this.myName , msg:newText,time:this.getTime(),srcimg:src, tmID:this.tmID,} //新增id
@@ -452,14 +452,14 @@ Vue.component('send',{
          // console.log(image);
          this.images.push(image); //暫存圖
          if(this.srcimg.length<3){
-           console.log(this.srcimg.length);
+          //  console.log(this.srcimg.length);
            this.srcimg.push(image.src);
          }      
        }      
      },
      deletebut(item){ //刪除陣列照片,因img為物件陣列,src為陣列,直接抓index
        
-       console.log(item);
+      //  console.log(item);
        let array=this.images; 
        array.splice(item,1); 
        let array2=this.srcimg;      
@@ -471,7 +471,7 @@ Vue.component('send',{
 
       axios.post('./php/getTempleMsg.php', params).then( (res) => {
         var data = res.data;
-        console.log(data);
+        // console.log(data);
 
         // 計算收到的資料筆數
         let dataLength = 0;
@@ -494,13 +494,13 @@ Vue.component('send',{
           }
           
           let tmid = data[i].ID;
-          console.log(tmid);
+          // console.log(tmid);
 
           let miMsg = new URLSearchParams();
           miMsg.append('tmid', tmid);
           axios.post('./php/getTempleMsginMsg.php', miMsg).then( (res) => {
             let iMsg = res.data;
-            console.log(iMsg);
+            // console.log(iMsg);
           });
 
           let memImg ='';
@@ -538,7 +538,7 @@ Vue.component('send',{
         }else{
           myImg = './images/MyInfo/profile.png';
         }
-        console.log(myImg);
+        // console.log(myImg);
         let myName = data.NICKNAME;
 
         document.querySelector('.userName').innerText = myName;
