@@ -4,13 +4,11 @@
 // ============= 小知識粉紅區域呼叫 ==============================
 
 @include know_pinkBox(1 , 100% , 48%);
-//   @include know_pinkBox(2 , 100% ,45%);
+
 
 // ============= 小知識第一頁左邊 ==============================
 .know_wrapper_bk_color{
-    // background-color: #F0DED1;
-    // height: 110vh;
-    
+
     .know_wrapper{
         max-width: 1300px;
         top:60px;

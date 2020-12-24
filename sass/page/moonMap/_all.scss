@@ -407,8 +407,9 @@
                    background-size: cover;
                    width: 100%;
                    height: 100%;
-                
-                   left: 0;
+                  // border: 1px solid red;
+                  top:0px;
+                  left: 0;
                    
                  }
                   // border: 1px solid blue;
@@ -569,7 +570,7 @@
               // border: 1px solid #ccc;
               display: flex;
               justify-content: space-between;
-              align-items: center;
+              align-items: center;            
               .date{
                 color: #ccc;
               }
