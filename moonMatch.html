@@ -40,7 +40,10 @@
     <nav class="nav" id="nav">
         <a href="./main.html" class="Logo"><img src="./images/logo.png"></a>
         <ul class="navlist">
-           <li class="username" v-if="userid != null" @click="logout">登出</li>
+
+          <!-- 換登出圖 -->
+           <li class="username" v-if="userid != null" @click="logout"></li>
+            <div class="log_out"></div>
            
            <!-- 換會員圖 -->
            <li class="user" v-if="userid != null"><a :href="member">
