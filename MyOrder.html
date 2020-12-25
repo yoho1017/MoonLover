@@ -387,6 +387,8 @@
 
                         <tbody class="Mtbody">
 
+                            <tr class="noorders" v-show="orders == ''"><td><h1>沒有訂單</h1></td></tr>
+
                             <tr v-for="(order, index) in orders" class="Mtr" :id="index">
                                 <td class="Mtd">
                                     {{ order.id }}
@@ -407,17 +409,21 @@
                                 </td>
                             </tr>
 
+
                         </tbody>
                     </table>
 
                 </div>
             </div> 
 
+            <h1 class="noorders" v-show="orders == ''">沒有訂單</h1>
+
             <div class="pinkBox_order pinkBox_mobile" v-for="(order, index) in orders" :id="index">
                 <div class="inBox_order">
                     <table class="orderTable">
 
                         <tbody class="Mtbody">
+
 
                             <tr class="Mtr">
                                 <td class="Mtd Mtitle">訂單編號</td>

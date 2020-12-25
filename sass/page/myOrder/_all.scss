@@ -50,6 +50,13 @@ div.MyOrder-wrapper {
     @include member;
     @include pinkBox(order, 100%);
 
+    .noorders {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25vh;
+    }
+
     .pinkBox_order {
         height: 70vh;
     }
