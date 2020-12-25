@@ -144,6 +144,34 @@ var member = new Vue ({
             var tailTop = document.querySelector('.tail').offsetTop -6;              
             var tailLeft = document.querySelector('.tail').offsetLeft;
 
+            var windowWidth = document.body.offsetWidth;
+
+            if (windowWidth <= 768) {
+                masWidth = masWidth * 1.2;
+                masHeight = masHeight * 1.2;
+                masLeft = masLeft * 1.2;
+
+                faceWidth = faceWidth * 1.2;
+                faceHeight = faceHeight * 1.2;
+                faceTop = faceTop * 1.2;
+                faceLeft = faceLeft * 1.2;
+
+                headWidth = headWidth * 1.2;
+                headHeight = headHeight * 1.2;
+                headTop = headTop * 1.2;              
+                headLeft = headLeft * 1.2;    
+
+                dressWidth = dressWidth * 1.2;
+                dressHeight = dressHeight * 1.2;
+                dressTop = dressTop * 1.2;              
+                dressLeft = dressLeft *1.2; 
+                
+                tailWidth = tailWidth * 1.2;
+                tailHeight = tailHeight * 1.2;
+                tailTop = (tailTop * 1.2) -6;              
+                tailLeft = tailLeft * 1.2;    
+            }
+
             var ml = (canvas.width / 2) - (masWidth / 2);
             var mt = (canvas.height / 2) - (masHeight / 2);
 
