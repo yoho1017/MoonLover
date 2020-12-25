@@ -9,9 +9,45 @@
 
 //375
 @include rwd(375px) {
+
+        //月老小知識大標變小
+        .know_wrapper{
+            //祈願
+        .know_one_right{
+            .know_title{
+                font-size: 40px
+            }
+        }
+        //還願
+        .box_third_right{
+            .know_title{
+                font-size: 40px;
+            }
+        }
+    }
        // ============= 小知識第一頁左邊 ==============================
        .know_wrapper_bk_color{
         .know_wrapper{
+
+             //頁籤變小一點
+             ul.list_1{
+                margin-top: 20px;
+                
+                //祈願
+                .tab.on{
+                    padding: 7px 0px;
+                    width: 108px;
+                    height: 65px;
+                }
+
+                //還願
+                .tab{
+                    padding: 7px 0px;
+                    width: 108px;
+                    height: 65px;
+                }
+               
+            }
 
             .pinkBox_1{
 
