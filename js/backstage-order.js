@@ -119,7 +119,7 @@ var backend = new Vue({
             var vm = this;
 
             let data = new FormData(); //建立資料表單
-            data.append('id', modify.ID);
+            data.append('id', modify[0]);
             data.append('STATUS', modify.ORDER_STATUS);
 
             let config = {
@@ -143,7 +143,7 @@ var backend = new Vue({
     },
     components: {
         row: {
-            props: ['id', 'index', 'name', 'price', 'date'],
+            props: ['id', 'realid' , 'index', 'name', 'price', 'date'],
             template:
                 `
             <tr :id=id>
@@ -151,7 +151,7 @@ var backend = new Vue({
                 <td class="td_80"><h4>{{name}}</h4></td>
                 <td class="td_75"><h4>{{price}}</h4></td>
                 <td class="td_75"><h4>{{date}}</h4></td>
-                <td class="td_75"><i class="fas fa-edit" @click="modify(id)"></i></td>
+                <td class="td_75"><i class="fas fa-edit" @click="modify(realid)"></i></td>
             </tr>
             `,
             methods: {
@@ -228,7 +228,38 @@ var backend = new Vue({
         axios.post('./php/getOrder.php').then( response => {
             // console.log(response);
             data = response.data;
-            vm.sql = data;
+
+            for (i = 0 ; i <= data.length -1 ; i++) {
+    
+                if (data[i].ID.length == 1) {
+                    data[i].ID = 'ML000000' + data[i].ID;
+                }else if (data[i].ID.length == 2) {
+                    data[i].ID = 'ML00000' + data[i].ID;
+                }else if (data[i].ID.length == 3) {
+                    data[i].ID = 'ML0000' + data[i].ID;
+                }else if (data[i].ID.length == 4) {
+                    data[i].ID = 'ML000' + data[i].ID;
+                }else if (data[i].ID.length == 5) {
+                    data[i].ID = 'ML00' + data[i].ID;
+                }else if (data[i].ID.length == 6) {
+                    data[i].ID ='ML0' + data[i].ID;
+                }
+
+                // 已出貨時間
+                let orderOut = (new Date(Date.parse(data[i].ORDER_TIME.replace(/-/g, "/"))+60000));
+                let now = new Date();
+                if (now > orderOut) {
+                    data[i].ORDER_STATUS = 1;
+                }
+
+                // 消除秒數
+                data[i].ORDER_TIME = data[i].ORDER_TIME.substring(0, 16)
+
+                vm.sql = data;
+
+            }
+
+
         }).catch(() => { 
             console.log("錯誤 !") 
         });        

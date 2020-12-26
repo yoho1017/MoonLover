@@ -60,7 +60,7 @@ var member = new Vue ({
         },
         cancel(id) {
             var vm = this;
-            if (vm.Odetail_data.status == '出貨中') {
+            if (vm.Odetail_data.sstatus == '出貨中') {
                 if (confirm("確定要取消嗎 ?") == true) {
                     var vm = this;
                     let data = new FormData(); //建立資料表單
@@ -81,7 +81,7 @@ var member = new Vue ({
                     });
         
                 }
-            }else if (vm.Odetail_data.status == '已出貨'){
+            }else if (vm.Odetail_data.sstatus == '已出貨'){
                 if ( prompt("商品已出貨 ! \n 如有問題請填寫原由提交給客服") ) {
                     alert("感謝您的提交，客服會盡快回覆您")
                 }
@@ -113,8 +113,8 @@ var member = new Vue ({
                     // 已出貨時間
                     let orderOut = (new Date(Date.parse(data[i].date.replace(/-/g, "/"))+60000));
                     let now = new Date();
-                    if (now > orderOut) {
-                        data[i].status = 1;
+                    if (now > orderOut && data[i].sstatus != 2) {
+                        data[i].sstatus = 1;
                     }
 
                     // 消除秒數

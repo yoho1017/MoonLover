@@ -101,7 +101,7 @@
                     <!-- 內容在tbody，如果要新增行數就加一組tr -->
                     <tbody>
 
-                        <tr is="row" v-for="(data,index) in pagedListdata" :id="data.ID" :index="index" :name="data.USERNAME" :price="data.PRICE" :date="data.ORDER_TIME"></tr>
+                        <tr is="row" v-for="(data,index) in pagedListdata" :id="data.ID" :realid="data[0]" :index="index" :name="data.USERNAME" :price="data.PRICE" :date="data.ORDER_TIME"></tr>
 
                     </tbody>
 
