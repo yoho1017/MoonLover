@@ -45,10 +45,10 @@ if($_POST['upload'] == 'yes'){
             //Server上的暫存檔路徑含檔名
             $filePath_Temp = $_FILES["uploadImg1"]["tmp_name"];
             //欲放置的檔案路徑
-            $filePath = $fullPath.$_FILES["uploadImg1"]["name"];
+            $filename1 = uniqid().'.'.pathinfo($_FILES["uploadImg1"]["name"], PATHINFO_EXTENSION);
+            $filePath = $fullPath.$filename1;
             copy($filePath_Temp, $filePath);
 
-            $filename1 = $_FILES["uploadImg1"]["name"];
             $image = $filename1;
         }
     }
@@ -59,10 +59,10 @@ if($_POST['upload'] == 'yes'){
             //Server上的暫存檔路徑含檔名
             $filePath_Temp = $_FILES["uploadImg2"]["tmp_name"];
             //欲放置的檔案路徑
-            $filePath = $fullPath.$_FILES["uploadImg2"]["name"];
+            $filename2 = uniqid().'.'.pathinfo($_FILES["uploadImg2"]["name"], PATHINFO_EXTENSION);
+            $filePath = $fullPath.$filename2;
             copy($filePath_Temp, $filePath);
 
-            $filename2 = $_FILES["uploadImg2"]["name"];
             $image = $image."|".$filename2;
         }
     }
@@ -73,10 +73,10 @@ if($_POST['upload'] == 'yes'){
             //Server上的暫存檔路徑含檔名
             $filePath_Temp = $_FILES["uploadImg3"]["tmp_name"];
             //欲放置的檔案路徑
-            $filePath = $fullPath.$_FILES["uploadImg3"]["name"];
+            $filename3 = uniqid().'.'.pathinfo($_FILES["uploadImg3"]["name"], PATHINFO_EXTENSION);
+            $filePath = $fullPath.$filename3;
             copy($filePath_Temp, $filePath);
 
-            $filename3 = $_FILES["uploadImg3"]["name"];
 
             $image = $image."|".$filename3;
         }
