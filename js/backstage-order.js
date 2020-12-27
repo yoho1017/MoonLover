@@ -248,7 +248,7 @@ var backend = new Vue({
                 // 已出貨時間
                 let orderOut = (new Date(Date.parse(data[i].ORDER_TIME.replace(/-/g, "/"))+60000));
                 let now = new Date();
-                if (now > orderOut) {
+                if (now > orderOut && data[i].ORDER_STATUS != 2) {
                     data[i].ORDER_STATUS = 1;
                 }
 
