@@ -1,11 +1,55 @@
+function shake (event) {
+    var speed = 10; 
+    var x = y = z = lastX = lastY = lastZ = 0; 
+
+    var acceleration =event.accelerationIncludingGravity; 
+    x = acceleration.x; 
+    y = acceleration.y; 
+
+    if(Math.abs(x-lastX) > speed || Math.abs(y-lastY) > speed ) { 
+        $('.shake').animate({
+            width: "110%"
+        },500).animate({
+            width: "50%"
+        },100);
+        setTimeout(() => {
+            document.querySelector(".btn_go2").click(); 
+        }, 1500);
+    } 
+    lastX = x; 
+    lastY = y;
+}
+
 $(document).ready(function(){
     // 第一步按鈕 求籤
     $('.btn_go1').on('click', function(){
         $('.duelbox').toggleClass('-on');
         $('.god_talk.god_talk1.-on').css('display','none');
 
+        // 手機搖晃求籤
+        
+
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                if (permissionState === 'granted') {
+                    // handle data
+                    window.addEventListener('devicemotion', shake, false);
+                } else {
+                    // handle denied
+                }
+                })
+                .catch((err) => {
+                    console.log(err)
+                });
+            } else {
+                console.log(typeof DeviceOrientationEvent)
+            }
+
        
     });
+
+
     // 第二步按鈕 擲筊
     $('.btn_go2').on('click', function(){
  
@@ -14,6 +58,8 @@ $(document).ready(function(){
 
         axios.post('./php/moondraw.php').then( response => {
             var data = response.data;
+
+            window.removeEventListener('devicemotion', shake, false);
          
             dataToDraw (data);
         }).catch(() => { 
